@@ -1,4 +1,5 @@
 
+import './Profile.css';
 
 const Profile = () => {
 	return (
@@ -11,26 +12,26 @@ const Profile = () => {
 					</div>
 					<div className="user-social-networks">
 						<div className="social-networks-instagram">
-							<a href="#">
+							<a href="#s">
 								<img src="/img/icon_instagram.png" alt="icon_instagram.png" />
 							</a>
-							<a href="#">
+							<a href="#s">
 								<div className="social-networks-title">www.instagram.com/john_smith</div>
 							</a>
 						</div>
 						<div className="social-networks-twitter">
-							<a href="#">
+							<a href="#s">
 								<img src="/img/icon_twitter.png" alt="icon_twitter.png" />
 							</a>
-							<a href="#">
+							<a href="#s">
 								<div className="social-networks-title">www.twitter.com/john_smith</div>
 							</a>
 						</div>
 						<div className="social-networks-facebook">
-							<a href="#">
+							<a href="#s">
 								<img src="/img/icon_facebook.png" alt="icon_facebook.png" />
 							</a>
-							<a href="#">
+							<a href="#s">
 								<div className="social-networks-title">www.facebook.com/john_smith</div>
 							</a>
 						</div>
@@ -84,140 +85,140 @@ const Profile = () => {
 				</div>
 				<div className="user-environment-my-projects">
 					<div className="user-environment-my-projects-title">My projects</div>
-					<a href="#" className="user-environment-my-projects-all">All</a>
+					<a href="#s" className="user-environment-my-projects-all">All</a>
 					<div className="user-environment-my-projects-items">
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_1.png" alt="icon_project_1.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_1</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_1</a>
 						</div>
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_2.png" alt="icon_project_2.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_2</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_2</a>
 						</div>
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_3.png" alt="icon_project_3.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_3</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_3</a>
 						</div>
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_4.png" alt="icon_project_4.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_4</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_4</a>
 						</div>
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_5.png" alt="icon_project_5.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_5</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_5</a>
 						</div>
 						<div className="user-environment-my-projects-item">
-							<a href="#" className="user-environment-my-projects-link-image">
+							<a href="#s" className="user-environment-my-projects-link-image">
 								<div className="user-environment-my-projects-link-image-continer">
 									<img src="/img/projects/icon_project_6.png" alt="icon_project_6.png" />
 								</div>
 							</a>
-							<a href="#" className="user-environment-my-projects-link-project">project_6</a>
+							<a href="#s" className="user-environment-my-projects-link-project">project_6</a>
 						</div>
 					</div>
 				</div>
 				<div className="user-environment-follow">
 					<div className="user-environment-followers">
 						<div className="user-environment-followers-title">Followers</div>
-						<a href="#" className="user-environment-followers-all">All</a>
+						<a href="#s" className="user-environment-followers-all">All</a>
 						<div className="user-environment-followers-items">
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_1.png" alt="icon_follower_1.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_1</a>
+								<a href="#s" className="user-environment-followers-link-name">name_1</a>
 							</div>
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_2.png" alt="icon_follower_2.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_2</a>
+								<a href="#s" className="user-environment-followers-link-name">name_2</a>
 							</div>
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_3.png" alt="icon_follower_3.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_3</a>
+								<a href="#s" className="user-environment-followers-link-name">name_3</a>
 							</div>
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_4.png" alt="icon_follower_4.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_4</a>
+								<a href="#s" className="user-environment-followers-link-name">name_4</a>
 							</div>
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_5.png" alt="icon_follower_5.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_5</a>
+								<a href="#s" className="user-environment-followers-link-name">name_5</a>
 							</div>
 							<div className="user-environment-followers-item">
-								<a href="#" className="user-environment-followers-link-image">
+								<a href="#s" className="user-environment-followers-link-image">
 									<img src="/img/followers/icon_follower_6.png" alt="icon_follower_6.png" />
 								</a>
-								<a href="#" className="user-environment-followers-link-name">name_6</a>
+								<a href="#s" className="user-environment-followers-link-name">name_6</a>
 							</div>
 						</div>
 					</div>
 					<div className="user-environment-following">
 						<div className="user-environment-following-title">Following</div>
-						<a href="#" className="user-environment-following-all">All</a>
+						<a href="#s" className="user-environment-following-all">All</a>
 						<div className="user-environment-following-items">
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_1.png" alt="icon_following_1.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_1</a>
+								<a href="#s" className="user-environment-following-link-name">name_1</a>
 							</div>
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_2.png" alt="icon_following_2.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_2</a>
+								<a href="#s" className="user-environment-following-link-name">name_2</a>
 							</div>
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_3.png" alt="icon_following_3.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_3</a>
+								<a href="#s" className="user-environment-following-link-name">name_3</a>
 							</div>
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_4.png" alt="icon_following_4.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_4</a>
+								<a href="#s" className="user-environment-following-link-name">name_4</a>
 							</div>
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_5.png" alt="icon_following_5.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_5</a>
+								<a href="#s" className="user-environment-following-link-name">name_5</a>
 							</div>
 							<div className="user-environment-following-item">
-								<a href="#" className="user-environment-following-link-image">
+								<a href="#s" className="user-environment-following-link-image">
 									<img src="/img/following/icon_following_6.png" alt="icon_following_6.png" />
 								</a>
-								<a href="#" className="user-environment-following-link-name">name_6</a>
+								<a href="#s" className="user-environment-following-link-name">name_6</a>
 							</div>
 						</div>
 					</div>

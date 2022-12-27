@@ -1,28 +1,29 @@
 
+import './Nav.css';
 
 const Nav = () => {
 	return (
 		<nav className='nav-bar'>
 			<div>
-				<a href='#'>Profile</a>
+				<a href='#s'>Profile</a>
 			</div>
 			<div>
-				<a href='#'>Messages</a>
+				<a href='#s'>Messages</a>
 			</div>
 			<div>
-				<a href='#'>Projects</a>
+				<a href='#s'>Projects</a>
 			</div>
 			<div>
-				<a href='#'>Photos</a>
+				<a href='#s'>Photos</a>
 			</div>
 			<div>
-				<a href='#'>Video</a>
+				<a href='#s'>Video</a>
 			</div>
 			<div>
-				<a href='#'>Music</a>
+				<a href='#s'>Music</a>
 			</div>
 			<div>
-				<a href='#'>Comunities</a>
+				<a href='#s'>Comunities</a>
 			</div>
 		</nav>
 	);

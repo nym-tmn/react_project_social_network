@@ -1,0 +1,20 @@
+.footer {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr minmax(auto, 305px) minmax(auto, 944px) 1fr;
+	grid-area: footer;
+	border-radius: 15px;
+	background-color: rgb(51, 51, 51);
+	color: #ffffff;
+	align-items: center;
+
+}
+
+.footer-copy {
+	grid-column: 2 / 3;
+}
+
+.footer-text {
+	grid-column: 3 / 4;
+	justify-self: end;
+}
