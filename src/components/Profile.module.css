@@ -1,4 +1,4 @@
-.main-content {
+.mainContent {
 	grid-area: main-content;
 	display: grid;
 }
@@ -13,14 +13,14 @@
 	padding: 0px 0px 5px 0px;
 }
 
-.user .user-cover-picture {
+.coverPicture {
 	grid-area: user-cover-picture;
 	height: 300px;
 	border-radius: 15px;
 	background: url('./img/cover_picture.png') center no-repeat;
 }
 
-.user .user-avatar {
+.avatar {
 	grid-area: user-avatar;
 	display: grid;
 	grid-template-areas: 'user-avatar-continer'
@@ -28,7 +28,7 @@
 	grid-gap: 5px;
 }
 
-.user-avatar .user-avatar-continer {
+.avatarContiner {
 	grid-area: user-avatar-continer;
 	justify-self: center;
 	background-color: rgba(194, 213, 219, 0.6);
@@ -40,7 +40,7 @@
 
 }
 
-.user-avatar-continer .user-avatar-image {
+.avatarImage {
 	width: 155px;
 	height: 155px;
 	border-radius: 15px;
@@ -48,7 +48,35 @@
 	background: url('./img/avatar.png') center no-repeat;
 }
 
-.user-information {
+.socialNetworks {
+	grid-area: social-networks;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	display: grid;
+	grid-template: repeat(3, minmax(20px, auto)) / 200px;
+	padding: 5px 15px;
+	justify-self: end;
+}
+
+.socialNetworksInstagram,
+.socialNetworksTwitter,
+.socialNetworksFacebook {
+	display: grid;
+	grid-template: 1fr / 30px 1fr;
+	font-size: 12px;
+}
+
+.socialNetworksTitle {
+	color: #000;
+}
+
+.socialNetworks img {
+	max-width: 20px;
+	max-height: 20px;
+	align-self: center;
+}
+
+.information {
 	grid-area: user-information;
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;
@@ -60,41 +88,13 @@
 	overflow: auto;
 }
 
-.user-name {
+.name {
 	font-size: 25px;
 	font-weight: 800;
 
 }
 
-.user-avatar .user-social-networks {
-	grid-area: social-networks;
-	background-color: rgba(194, 213, 219, 0.6);
-	border-radius: 15px;
-	display: grid;
-	grid-template: repeat(3, minmax(20px, auto)) / 200px;
-	padding: 5px 15px;
-	justify-self: end;
-}
-
-.social-networks-instagram,
-.social-networks-twitter,
-.social-networks-facebook {
-	display: grid;
-	grid-template: 1fr / 30px 1fr;
-	font-size: 12px;
-}
-
-.user-social-networks a {
-	color: #000;
-}
-
-.user-social-networks img {
-	max-width: 20px;
-	max-height: 20px;
-	align-self: center;
-}
-
-.user-environment {
+.environment {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts user-environment-my-projects'
 		'user-environment-my-posts user-environment-follow'
@@ -104,14 +104,21 @@
 	grid-gap: 5px;
 }
 
-.user-environment-my-posts {
+.myPosts {
 	grid-area: user-environment-my-posts;
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;
 	padding: 10px 20px;
 }
 
-.user-environment-my-posts-enter-posts {
+.myPostsTitle {
+	padding: 0px 0px 20px 30px;
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.enterPosts {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-icon-avatar user-environment-my-posts-what-new user-environment-my-posts-button-send';
 	grid-template-rows: 45px;
@@ -120,15 +127,15 @@
 	margin: 0px 0px 20px 0px;
 }
 
-.user-environment-my-posts-icon-avatar {
+.myPostsIconAvatar {
 	grid-area: user-environment-my-posts-icon-avatar;
 }
 
-.icon-avatar img {
+.iconAvatar img {
 	border-radius: 5px;
 }
 
-.user-environment-my-posts-what-new {
+.whatNew {
 	grid-area: user-environment-my-posts-what-new;
 	background-color: rgba(196, 156, 173, 0.3);
 	border-radius: 15px;
@@ -137,7 +144,7 @@
 	border: 2px solid rgba(158, 127, 145, 0.3);
 }
 
-.user-environment-my-posts-button-send {
+.buttonSend {
 	grid-area: user-environment-my-posts-button-send;
 	border-radius: 15px;
 	font-size: 16px;
@@ -145,7 +152,7 @@
 	border: 2px solid rgba(130, 158, 127, 0.3);
 }
 
-.user-environment-my-posts-post {
+.post {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post1'
 		'user-environment-my-posts-post2'
@@ -153,7 +160,7 @@
 	grid-gap: 15px;
 }
 
-.user-environment-my-posts-post-post1 {
+.post1 {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post-post1-icon-avatar user-environment-my-posts-post-post1-user-name'
 		'user-environment-my-posts-post-post1-text user-environment-my-posts-post-post1-text'
@@ -167,19 +174,19 @@
 	padding: 15px 33px 15px 33px;
 }
 
-.user-environment-my-posts-post-post1-icon-avatar {
+.post1IconAvatar {
 	grid-area: user-environment-my-posts-post-post1-icon-avatar;
 }
 
-.user-environment-my-posts-post-post1-user-name {
+.post1UserName {
 	grid-area: user-environment-my-posts-post-post1-user-name;
 }
 
-.user-environment-my-posts-post-post1-text {
+.post1Text {
 	grid-area: user-environment-my-posts-post-post1-text;
 }
 
-.user-environment-my-posts-post-post1-image {
+.post1Image {
 	grid-area: user-environment-my-posts-post-post1-image;
 	background: url('./img/post1.png') center no-repeat;
 	width: 500px;
@@ -187,7 +194,7 @@
 	border-radius: 15px;
 }
 
-.user-environment-my-posts-post-post2 {
+.post2 {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post-post2-icon-avatar user-environment-my-posts-post-post2-user-name'
 		'user-environment-my-posts-post-post2-text user-environment-my-posts-post-post2-text'
@@ -201,19 +208,19 @@
 	padding: 15px 33px 15px 33px;
 }
 
-.user-environment-my-posts-post-post2-icon-avatar {
+.post2IconAvatar {
 	grid-area: user-environment-my-posts-post-post2-icon-avatar;
 }
 
-.user-environment-my-posts-post-post2-user-name {
+.post2UserName {
 	grid-area: user-environment-my-posts-post-post2-user-name;
 }
 
-.user-environment-my-posts-post-post2-text {
+.post2Text {
 	grid-area: user-environment-my-posts-post-post2-text;
 }
 
-.user-environment-my-posts-post-post2-image {
+.post2Image {
 	grid-area: user-environment-my-posts-post-post2-image;
 	background: url('./img/post2.png') center no-repeat;
 	width: 500px;
@@ -221,7 +228,7 @@
 	border-radius: 15px;
 }
 
-.user-environment-my-posts-post-post3 {
+.post3 {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post-post3-icon-avatar user-environment-my-posts-post-post3-user-name'
 		'user-environment-my-posts-post-post3-text user-environment-my-posts-post-post3-text'
@@ -235,19 +242,19 @@
 	padding: 15px 33px 15px 33px;
 }
 
-.user-environment-my-posts-post-post3-icon-avatar {
+.post3IconAvatar {
 	grid-area: user-environment-my-posts-post-post3-icon-avatar;
 }
 
-.user-environment-my-posts-post-post3-user-name {
+.post3UserName {
 	grid-area: user-environment-my-posts-post-post3-user-name;
 }
 
-.user-environment-my-posts-post-post3-text {
+.post3Text {
 	grid-area: user-environment-my-posts-post-post3-text;
 }
 
-.user-environment-my-posts-post-post3-image {
+.post3Image {
 	grid-area: user-environment-my-posts-post-post3-image;
 	background: url('./img/post3.png') center no-repeat;
 	width: 500px;
@@ -255,7 +262,7 @@
 	border-radius: 15px;
 }
 
-.user-environment-my-projects {
+.myProjects {
 	grid-area: user-environment-my-projects;
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;
@@ -266,14 +273,23 @@
 	grid-template-columns: 1fr 1fr;
 }
 
-.user-environment-my-projects-all {
+.myProjectsTitle {
+	grid-area: user-environment-my-projects-title;
+	justify-self: center;
+	align-self: center;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.myProjectsAll {
 	grid-area: user-environment-my-projects-all;
 	justify-self: end;
 	align-self: center;
 	padding: 0px 30px 0px 0px;
 }
 
-.user-environment-my-projects-items {
+.myProjectsItems {
 	grid-area: user-environment-my-projects-items;
 	display: grid;
 	grid-template: repeat(2, 1fr) / repeat(3, 1fr);
@@ -282,21 +298,21 @@
 	font-size: 13px;
 }
 
-.user-environment-my-projects-link-image-continer {
+.myProjectsLinkImageContiner {
 	width: 90px;
 	height: 66px;
 }
 
-.user-environment-my-projects-link-project {
+.myProjectsLinkProject {
 	text-align: center;
 }
 
-.user-environment-my-projects a {
+.myProjects a {
 	color: #000;
 	display: block;
 }
 
-.user-environment-follow {
+.follow {
 	grid-area: user-environment-follow;
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;
@@ -308,12 +324,12 @@
 	grid-gap: 15px;
 }
 
-.user-environment-follow a {
+.follow a {
 	color: #000;
 	display: block;
 }
 
-.user-environment-followers {
+.followers {
 	grid-area: user-environment-followers;
 	display: grid;
 	grid-template-areas: 'user-environment-followers-title user-environment-followers-all'
@@ -322,14 +338,23 @@
 	grid-template-columns: 1fr 1fr;
 }
 
-.user-environment-followers-all {
+.followersTitle {
+	grid-area: user-environment-followers-title;
+	justify-self: center;
+	align-self: center;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.followersAll {
 	grid-area: user-environment-followers-all;
 	justify-self: end;
 	align-self: center;
 	padding: 0px 30px 0px 0px;
 }
 
-.user-environment-followers-items {
+.followersItems {
 	grid-area: user-environment-followers-items;
 	display: grid;
 	grid-template: repeat(2, 90px) / repeat(3, 1fr);
@@ -338,11 +363,15 @@
 	font-size: 13px;
 }
 
-.user-environment-followers-items img {
+.followersItems img {
 	border-radius: 10px;
 }
 
-.user-environment-following {
+.followersLinkName {
+	text-align: center;
+}
+
+.following {
 	grid-area: user-environment-following;
 	display: grid;
 	grid-template-areas: 'user-environment-following-title user-environment-following-all'
@@ -352,14 +381,23 @@
 	border-top: 2px solid rgba(12, 188, 219, 0.3);
 }
 
-.user-environment-following-all {
+.followingTitle {
+	grid-area: user-environment-following-title;
+	justify-self: center;
+	align-self: center;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.followingAll {
 	grid-area: user-environment-following-all;
 	justify-self: end;
 	align-self: center;
 	padding: 0px 30px 0px 0px;
 }
 
-.user-environment-following-items {
+.followingItems {
 	grid-area: user-environment-following-items;
 	display: grid;
 	grid-template: repeat(2, 90px) / repeat(3, 1fr);
@@ -368,52 +406,21 @@
 	font-size: 13px;
 }
 
-.user-environment-following-items img {
+.followingItems img {
 	border-radius: 10px;
 }
 
-.user-environment-followers-link-name {
+.followingLinkName {
 	text-align: center;
 }
 
-.user-environment-following-link-name {
-	text-align: center;
-}
-
-.empty-block-2 {
+.emptyBlock2 {
 	grid-area: empty-block-2;
 }
 
-.user-environment-my-posts-title {
-	padding: 0px 0px 20px 30px;
-	font-weight: 600;
-	font-size: 20px;
-	letter-spacing: 1px;
-}
 
-.user-environment-my-projects-title {
-	grid-area: user-environment-my-projects-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
 
-.user-environment-followers-title {
-	grid-area: user-environment-followers-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
 
-.user-environment-following-title {
-	grid-area: user-environment-following-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
+
+
+
