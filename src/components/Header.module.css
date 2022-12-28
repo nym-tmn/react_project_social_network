@@ -9,7 +9,7 @@
 	align-items: center;
 }
 
-.header-logo {
+.logo {
 	margin: 0px 0px 0px 20px;
 	grid-column: 2 / 3;
 }
@@ -19,7 +19,7 @@
 
 }
 
-.header-menu {
+.menu {
 	display: grid;
 	grid-template: 1fr / repeat(4, 1fr);
 	justify-items: center;

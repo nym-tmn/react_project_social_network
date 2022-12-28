@@ -1,9 +1,9 @@
 
-import './Nav.css';
+import classes from './Nav.module.css';
 
 const Nav = () => {
 	return (
-		<nav className='nav-bar'>
+		<nav className={classes.menu}>
 			<div>
 				<a href='#s'>Profile</a>
 			</div>

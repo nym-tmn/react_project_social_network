@@ -1,4 +1,4 @@
-.nav-bar {
+.menu {
 	grid-area: nav-bar;
 	background-color: rgb(41, 36, 36);
 	padding: 20px 0px 0px 35px;
@@ -7,11 +7,11 @@
 	font-size: 19px;
 }
 
-.nav-bar div {
+.menu div {
 	margin: 0px 0px 15px 0px;
 }
 
-.nav-bar a {
+.menu a {
 	display: block;
 	border-bottom: 1px solid #ffffff;
 }

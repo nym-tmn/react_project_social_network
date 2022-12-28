@@ -10,11 +10,11 @@
 
 }
 
-.footer-copy {
+.copy {
 	grid-column: 2 / 3;
 }
 
-.footer-text {
+.text {
 	grid-column: 3 / 4;
 	justify-self: end;
 }
