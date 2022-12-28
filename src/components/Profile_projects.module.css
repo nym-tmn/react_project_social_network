@@ -1,0 +1,49 @@
+.myProjects {
+	grid-area: user-environment-my-projects;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	display: grid;
+	grid-template-areas: 'user-environment-my-projects-title user-environment-my-projects-all'
+		'user-environment-my-projects-items user-environment-my-projects-items';
+	grid-template-rows: 40px 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.title {
+	grid-area: user-environment-my-projects-title;
+	justify-self: center;
+	align-self: center;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.all {
+	grid-area: user-environment-my-projects-all;
+	justify-self: end;
+	align-self: center;
+	padding: 0px 30px 0px 0px;
+}
+
+.items {
+	grid-area: user-environment-my-projects-items;
+	display: grid;
+	grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+	justify-items: center;
+	align-items: center;
+	font-size: 13px;
+}
+
+.linkImageContiner {
+	width: 90px;
+	height: 66px;
+}
+
+.linkProject {
+	text-align: center;
+}
+
+.myProjects a {
+	color: #000;
+	display: block;
+}

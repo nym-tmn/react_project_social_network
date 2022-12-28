@@ -262,7 +262,7 @@
 	border-radius: 15px;
 }
 
-.myProjects {
+/* .myProjects {
 	grid-area: user-environment-my-projects;
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;
@@ -310,7 +310,7 @@
 .myProjects a {
 	color: #000;
 	display: block;
-}
+} */
 
 .follow {
 	grid-area: user-environment-follow;
@@ -327,91 +327,6 @@
 .follow a {
 	color: #000;
 	display: block;
-}
-
-.followers {
-	grid-area: user-environment-followers;
-	display: grid;
-	grid-template-areas: 'user-environment-followers-title user-environment-followers-all'
-		'user-environment-followers-items user-environment-followers-items';
-	grid-template-rows: 40px 1fr;
-	grid-template-columns: 1fr 1fr;
-}
-
-.followersTitle {
-	grid-area: user-environment-followers-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
-
-.followersAll {
-	grid-area: user-environment-followers-all;
-	justify-self: end;
-	align-self: center;
-	padding: 0px 30px 0px 0px;
-}
-
-.followersItems {
-	grid-area: user-environment-followers-items;
-	display: grid;
-	grid-template: repeat(2, 90px) / repeat(3, 1fr);
-	justify-items: center;
-	align-items: center;
-	font-size: 13px;
-}
-
-.followersItems img {
-	border-radius: 10px;
-}
-
-.followersLinkName {
-	text-align: center;
-}
-
-.following {
-	grid-area: user-environment-following;
-	display: grid;
-	grid-template-areas: 'user-environment-following-title user-environment-following-all'
-		'user-environment-following-items user-environment-following-items';
-	grid-template-rows: 40px 1fr;
-	grid-template-columns: 1fr 1fr;
-	border-top: 2px solid rgba(12, 188, 219, 0.3);
-}
-
-.followingTitle {
-	grid-area: user-environment-following-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
-
-.followingAll {
-	grid-area: user-environment-following-all;
-	justify-self: end;
-	align-self: center;
-	padding: 0px 30px 0px 0px;
-}
-
-.followingItems {
-	grid-area: user-environment-following-items;
-	display: grid;
-	grid-template: repeat(2, 90px) / repeat(3, 1fr);
-	justify-items: center;
-	align-items: center;
-	font-size: 13px;
-}
-
-.followingItems img {
-	border-radius: 10px;
-}
-
-.followingLinkName {
-	text-align: center;
 }
 
 .emptyBlock2 {

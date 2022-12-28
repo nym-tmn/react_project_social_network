@@ -1,5 +1,8 @@
 
 import classes from './Profile.module.css';
+import flrs from './Profile_followers.module.css';
+import flng from './Profile_following.module.css';
+import prjct from './Profile_projects.module.css';
 
 const Profile = () => {
 	return (
@@ -83,142 +86,142 @@ const Profile = () => {
 							<div className={classes.post3Image}></div></div>
 					</div>
 				</div>
-				<div className={classes.myProjects}>
-					<div className={classes.myProjectsTitle}>My projects</div>
-					<a href="#s" className={classes.myProjectsAll}>All</a>
-					<div className={classes.myProjectsItems}>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+				<div className={prjct.myProjects}>
+					<div className={prjct.title}>My projects</div>
+					<a href="#s" className={prjct.all}>All</a>
+					<div className={prjct.items}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_1.png" alt="icon_project_1.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_1</a>
+							<a href="#s" className={prjct.linkProject}>project_1</a>
 						</div>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_2.png" alt="icon_project_2.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_2</a>
+							<a href="#s" className={prjct.linkProject}>project_2</a>
 						</div>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_3.png" alt="icon_project_3.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_3</a>
+							<a href="#s" className={prjct.linkProject}>project_3</a>
 						</div>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_4.png" alt="icon_project_4.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_4</a>
+							<a href="#s" className={prjct.linkProject}>project_4</a>
 						</div>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_5.png" alt="icon_project_5.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_5</a>
+							<a href="#s" className={prjct.linkProject}>project_5</a>
 						</div>
-						<div className={classes.myProjectsItem}>
-							<a href="#s" className={classes.myProjectsLinkImage}>
-								<div className={classes.myProjectsLinkImageContiner}>
+						<div className={prjct.item}>
+							<a href="#s" className={prjct.linkImage}>
+								<div className={prjct.linkImageContiner}>
 									<img src="/img/projects/icon_project_6.png" alt="icon_project_6.png" />
 								</div>
 							</a>
-							<a href="#s" className={classes.myProjectsLinkProject}>project_6</a>
+							<a href="#s" className={prjct.linkProject}>project_6</a>
 						</div>
 					</div>
 				</div>
 				<div className={classes.follow}>
-					<div className={classes.followers}>
-						<div className={classes.followersTitle}>Followers</div>
-						<a href="#s" className={classes.followersAll}>All</a>
-						<div className={classes.followersItems}>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+					<div className={flrs.followers}>
+						<div className={flrs.title}>Followers</div>
+						<a href="#s" className={flrs.all}>All</a>
+						<div className={flrs.items}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_1.png" alt="icon_follower_1.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_1</a>
+								<a href="#s" className={flrs.linkName}>name_1</a>
 							</div>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_2.png" alt="icon_follower_2.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_2</a>
+								<a href="#s" className={flrs.linkName}>name_2</a>
 							</div>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_3.png" alt="icon_follower_3.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_3</a>
+								<a href="#s" className={flrs.linkName}>name_3</a>
 							</div>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_4.png" alt="icon_follower_4.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_4</a>
+								<a href="#s" className={flrs.linkName}>name_4</a>
 							</div>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_5.png" alt="icon_follower_5.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_5</a>
+								<a href="#s" className={flrs.linkName}>name_5</a>
 							</div>
-							<div className={classes.followersItem}>
-								<a href="#s" className={classes.followersLinkImage}>
+							<div className={flrs.item}>
+								<a href="#s" className={flrs.linkImage}>
 									<img src="/img/followers/icon_follower_6.png" alt="icon_follower_6.png" />
 								</a>
-								<a href="#s" className={classes.followersLinkName}>name_6</a>
+								<a href="#s" className={flrs.linkName}>name_6</a>
 							</div>
 						</div>
 					</div>
-					<div className={classes.following}>
-						<div className={classes.followingTitle}>Following</div>
-						<a href="#s" className={classes.followingAll}>All</a>
-						<div className={classes.followingItems}>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+					<div className={flng.following}>
+						<div className={flng.title}>Following</div>
+						<a href="#s" className={flng.all}>All</a>
+						<div className={flng.items}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_1.png" alt="icon_following_1.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_1</a>
+								<a href="#s" className={flng.linkName}>name_1</a>
 							</div>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_2.png" alt="icon_following_2.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_2</a>
+								<a href="#s" className={flng.linkName}>name_2</a>
 							</div>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_3.png" alt="icon_following_3.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_3</a>
+								<a href="#s" className={flng.linkName}>name_3</a>
 							</div>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_4.png" alt="icon_following_4.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_4</a>
+								<a href="#s" className={flng.linkName}>name_4</a>
 							</div>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_5.png" alt="icon_following_5.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_5</a>
+								<a href="#s" className={flng.linkName}>name_5</a>
 							</div>
-							<div className={classes.followingItem}>
-								<a href="#s" className={classes.followingLinkImage}>
+							<div className={flng.item}>
+								<a href="#s" className={flng.linkImage}>
 									<img src="/img/following/icon_following_6.png" alt="icon_following_6.png" />
 								</a>
-								<a href="#s" className={classes.followingLinkName}>name_6</a>
+								<a href="#s" className={flng.linkName}>name_6</a>
 							</div>
 						</div>
 					</div>
