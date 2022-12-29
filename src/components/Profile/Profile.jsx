@@ -2,9 +2,9 @@
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';
 import posts from './Profile_my_posts.module.css';
+import MyProjects from './MyProjects/MyProjects';
 import flrs from './Profile_followers.module.css';
 import flng from './Profile_following.module.css';
-import prjct from './Profile_projects.module.css';
 
 const Profile = () => {
 	return (
@@ -88,60 +88,7 @@ const Profile = () => {
 							<div className={posts.post3Image}></div></div>
 					</div>
 				</div>
-				<div className={prjct.myProjects}>
-					<div className={prjct.title}>My projects</div>
-					<a href="#s" className={prjct.all}>All</a>
-					<div className={prjct.items}>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_1.png" alt="icon_project_1.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_1</a>
-						</div>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_2.png" alt="icon_project_2.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_2</a>
-						</div>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_3.png" alt="icon_project_3.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_3</a>
-						</div>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_4.png" alt="icon_project_4.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_4</a>
-						</div>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_5.png" alt="icon_project_5.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_5</a>
-						</div>
-						<div className={prjct.item}>
-							<a href="#s" className={prjct.linkImage}>
-								<div className={prjct.linkImageContiner}>
-									<img src="/img/projects/icon_project_6.png" alt="icon_project_6.png" />
-								</div>
-							</a>
-							<a href="#s" className={prjct.linkProject}>project_6</a>
-						</div>
-					</div>
-				</div>
+				<MyProjects/>
 				<div className={classes.follow}>
 					<div className={flrs.followers}>
 						<div className={flrs.title}>Followers</div>
