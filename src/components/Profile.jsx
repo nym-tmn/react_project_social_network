@@ -1,5 +1,7 @@
 
 import classes from './Profile.module.css';
+import socNet from './Profile_social_networks.module.css';
+import posts from './Profile_my_posts.module.css';
 import flrs from './Profile_followers.module.css';
 import flng from './Profile_following.module.css';
 import prjct from './Profile_projects.module.css';
@@ -10,32 +12,32 @@ const Profile = () => {
 			<div className={classes.user}>
 				<div className={classes.coverPicture}></div>
 				<div className={classes.avatar}>
-				<div className={classes.avatarContiner}>
-					<div className={classes.avatarImage}></div>
+					<div className={classes.avatarContiner}>
+						<div className={classes.avatarImage}></div>
 					</div>
-					<div className={classes.socialNetworks}>
-						<div className={classes.socialNetworksInstagram}>
+					<div className={socNet.socialNetworks}>
+						<div className={socNet.instagram}>
 							<a href="#s">
 								<img src="/img/icon_instagram.png" alt="icon_instagram.png" />
 							</a>
 							<a href="#s">
-								<div className={classes.socialNetworksTitle}>www.instagram.com/john_smith</div>
+								<div className={socNet.title}>www.instagram.com/john_smith</div>
 							</a>
 						</div>
-						<div className={classes.socialNetworksTwitter}>
+						<div className={socNet.twitter}>
 							<a href="#s">
 								<img src="/img/icon_twitter.png" alt="icon_twitter.png" />
 							</a>
 							<a href="#s">
-								<div className={classes.socialNetworksTitle}>www.twitter.com/john_smith</div>
+								<div className={socNet.title}>www.twitter.com/john_smith</div>
 							</a>
 						</div>
-						<div className={classes.socialNetworksFacebook}>
+						<div className={socNet.facebook}>
 							<a href="#s">
 								<img src="/img/icon_facebook.png" alt="icon_facebook.png" />
 							</a>
 							<a href="#s">
-								<div className={classes.socialNetworksTitle}>www.facebook.com/john_smith</div>
+								<div className={socNet.title}>www.facebook.com/john_smith</div>
 							</a>
 						</div>
 					</div>
@@ -52,38 +54,38 @@ const Profile = () => {
 				</div>
 			</div>
 			<div className={classes.environment}>
-				<div className={classes.myPosts}>
-					<div className={classes.myPostsTitle}>My posts</div>
-					<div className={classes.enterPosts}>
-						<div className={`${classes.myPostsIconAvatar} ${classes.iconAvatar}`}>
+				<div className={posts.myPosts}>
+					<div className={posts.title}>My posts</div>
+					<div className={posts.enterPosts}>
+						<div className={`${posts.iconAvatar} ${posts.iconAvatar}`}>
 							<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
 						</div>
-						<input className={classes.whatNew} placeholder="What's new?" type="text" />
-						<button className={classes.buttonSend}>Send</button>
+						<input className={posts.whatNew} placeholder="What's new?" type="text" />
+						<button className={posts.buttonSend}>Send</button>
 					</div>
-					<div className={classes.post}>
-						<div className={classes.post1}>
-							<div className={`${classes.post1IconAvatar} ${classes.iconAvatar}`}>
+					<div className={posts.post}>
+						<div className={posts.post1}>
+							<div className={`${posts.post1IconAvatar} ${posts.iconAvatar}`}>
 								<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
 							</div>
-							<div className={classes.post1UserName}>John Smith</div>
-							<div className={classes.post1Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!</div>
-							<div className={classes.post1Image}></div>
+							<div className={posts.post1UserName}>John Smith</div>
+							<div className={posts.post1Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!</div>
+							<div className={posts.post1Image}></div>
 						</div>
-						<div className={classes.post2}>
-							<div className={`${classes.post2IconAvatar} ${classes.iconAvatar}`}>
-							<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
-						</div>
-							<div className={classes.post2UserName}>John Smith</div>
-							<div className={classes.post2Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.</div>
-							<div className={classes.post2Image}></div></div>
-						<div className={classes.post3}>
-							<div className={`${classes.post3IconAvatar} ${classes.iconAvatar}`}>
-							<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
-						</div>
-							<div className={classes.post3UserName}>John Smith</div>
-							<div className={classes.post3Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.</div>
-							<div className={classes.post3Image}></div></div>
+						<div className={posts.post2}>
+							<div className={`${posts.post2IconAvatar} ${posts.iconAvatar}`}>
+								<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
+							</div>
+							<div className={posts.post2UserName}>John Smith</div>
+							<div className={posts.post2Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.</div>
+							<div className={posts.post2Image}></div></div>
+						<div className={posts.post3}>
+							<div className={`${posts.post3IconAvatar} ${posts.iconAvatar}`}>
+								<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
+							</div>
+							<div className={posts.post3UserName}>John Smith</div>
+							<div className={posts.post3Text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.</div>
+							<div className={posts.post3Image}></div></div>
 					</div>
 				</div>
 				<div className={prjct.myProjects}>
