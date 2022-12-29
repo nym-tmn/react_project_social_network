@@ -17,7 +17,7 @@
 	grid-area: user-cover-picture;
 	height: 300px;
 	border-radius: 15px;
-	background: url('./img/cover_picture.png') center no-repeat;
+	background: url('./../img/cover_picture.png') center no-repeat;
 }
 
 .avatar {
@@ -45,7 +45,7 @@
 	height: 155px;
 	border-radius: 15px;
 	overflow: hidden;
-	background: url('./img/avatar.png') center no-repeat;
+	background: url('./../img/avatar.png') center no-repeat;
 }
 
 .information {

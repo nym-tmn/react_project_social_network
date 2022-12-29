@@ -84,7 +84,7 @@
 
 .post1Image {
 	grid-area: user-environment-my-posts-post-post1-image;
-	background: url('./img/post1.png') center no-repeat;
+	background: url('./../img/post1.png') center no-repeat;
 	width: 500px;
 	justify-self: center;
 	border-radius: 15px;
@@ -118,7 +118,7 @@
 
 .post2Image {
 	grid-area: user-environment-my-posts-post-post2-image;
-	background: url('./img/post2.png') center no-repeat;
+	background: url('./../img/post2.png') center no-repeat;
 	width: 500px;
 	justify-self: center;
 	border-radius: 15px;
@@ -152,7 +152,7 @@
 
 .post3Image {
 	grid-area: user-environment-my-posts-post-post3-image;
-	background: url('./img/post3.png') center no-repeat;
+	background: url('./../img/post3.png') center no-repeat;
 	width: 500px;
 	justify-self: center;
 	border-radius: 15px;
