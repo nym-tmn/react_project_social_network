@@ -1,5 +1,5 @@
 
-import classes from './../Project_3/Project_3.module.css';
+import classes from './../Project.module.css';
 
 const Project3 = () => {
 	return (
