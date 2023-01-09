@@ -25,15 +25,6 @@
 	padding: 0px 30px 0px 0px;
 }
 
-.items {
-	grid-area: user-environment-my-projects-items;
-	display: grid;
-	grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-	justify-items: center;
-	align-items: center;
-	font-size: 13px;
-}
-
 .myProjects a {
 	color: #000;
 	display: block;

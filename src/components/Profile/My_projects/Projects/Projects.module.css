@@ -1,0 +1,8 @@
+.items {
+	grid-area: user-environment-my-projects-items;
+	display: grid;
+	grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+	justify-items: center;
+	align-items: center;
+	font-size: 13px;
+}
