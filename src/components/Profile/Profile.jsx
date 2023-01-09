@@ -2,7 +2,7 @@
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';
 import posts from './Profile_my_posts.module.css';
-import MyProjects from './MyProjects/MyProjects';
+import MyProjects from './My_projects/My_projects';
 import flrs from './Profile_followers.module.css';
 import flng from './Profile_following.module.css';
 
