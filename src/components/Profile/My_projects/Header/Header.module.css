@@ -1,0 +1,23 @@
+.header {
+	grid-area: user-environment-my-projects-header;
+	display: grid;
+	grid-template-areas: 'user-environment-my-projects-title user-environment-my-projects-all';
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.title {
+	grid-area: user-environment-my-projects-title;
+	justify-self: center;
+	align-self: center;
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.all {
+	grid-area: user-environment-my-projects-all;
+	justify-self: end;
+	align-self: center;
+	padding: 0px 30px 0px 0px;
+}
