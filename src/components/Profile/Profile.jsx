@@ -1,9 +1,10 @@
 
+import MyProjects from './My_projects/My_projects';
+import Follow from './Follow/Follow';
+
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';
 import posts from './Profile_my_posts.module.css';
-import MyProjects from './My_projects/My_projects';
-import Follow from './Follow/Follow';
 
 const Profile = () => {
 	return (
