@@ -1,0 +1,16 @@
+.follow {
+	grid-area: user-environment-follow;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	display: grid;
+	grid-template-areas: 'user-environment-followers'
+		'user-environment-following';
+	grid-template-rows: 220px 1fr;
+	grid-template-columns: 1fr;
+	grid-gap: 15px;
+}
+
+.follow a {
+	color: #000;
+	display: block;
+}
