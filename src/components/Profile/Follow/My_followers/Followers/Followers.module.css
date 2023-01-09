@@ -1,0 +1,12 @@
+.items {
+	grid-area: user-environment-followers-items;
+	display: grid;
+	grid-template: repeat(2, 90px) / repeat(3, 1fr);
+	justify-items: center;
+	align-items: center;
+	font-size: 13px;
+}
+
+.items img {
+	border-radius: 10px;
+}

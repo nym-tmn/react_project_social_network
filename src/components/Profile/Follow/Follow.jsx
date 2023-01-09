@@ -1,14 +1,14 @@
 
-import Followers from './Followers/Followers';
-import Following from './Following/Following';
+import MyFollowers from './My_followers/My_followers';
+import MyFollowing from './My_following/My_following';
 
 import classes from './../Follow/Follow.module.css';
 
 const Follow = () => {
 	return (
 		<div className={classes.follow}>
-			<Followers />
-			<Following />
+			<MyFollowers />
+			<MyFollowing />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 
-import classes from './../Following/Following.module.css';
+import classes from './../My_following/My_following.module.css';
 
-const Following = () => {
+const MyFollowing = () => {
 	return (
 			<div className={classes.following}>
 				<div className={classes.title}>Following</div>
@@ -48,4 +48,4 @@ const Following = () => {
 	);
 };
 
-export default Following;
+export default MyFollowing;
