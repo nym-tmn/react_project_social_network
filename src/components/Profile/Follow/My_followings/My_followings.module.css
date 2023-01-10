@@ -1,0 +1,9 @@
+.followings {
+	grid-area: user-environment-following;
+	display: grid;
+		grid-template-areas: 'user-environment-following-header user-environment-following-header'
+									'user-environment-following-items user-environment-following-items';
+	grid-template-rows: 40px 1fr;
+	grid-template-columns: 1fr 1fr;
+	border-top: 2px solid rgba(12, 188, 219, 0.3);
+}
