@@ -1,8 +1,8 @@
 
-import MyPosts from './My_posts/My_posts';
-import MyProjects from './My_projects/My_projects';
-import Follow from './Follow/Follow';
-import EmptyBlock from './Empty_block/Empty_block';
+import MyPosts from './Environment/My_posts/My_posts';
+import MyProjects from './Environment/My_projects/My_projects';
+import Follow from './Environment/Follow/Follow';
+import EmptyBlock from './Environment/Empty_block/Empty_block';
 
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';

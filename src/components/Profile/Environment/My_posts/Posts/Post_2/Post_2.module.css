@@ -26,7 +26,7 @@
 
 .post2Image {
 	grid-area: user-environment-my-posts-post-post2-image;
-	background: url('./../../../../img/post2.png') center no-repeat;
+	background: url('./../../../../../img/post2.png') center no-repeat;
 	width: 500px;
 	justify-self: center;
 	border-radius: 15px;
