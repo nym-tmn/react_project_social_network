@@ -11,39 +11,3 @@
 	font-size: 20px;
 	letter-spacing: 1px;
 }
-
-.enterPosts {
-	display: grid;
-	grid-template-areas: 'user-environment-my-posts-icon-avatar user-environment-my-posts-what-new user-environment-my-posts-button-send';
-	grid-template-rows: 45px;
-	grid-template-columns: 40px 1fr 110px;
-	grid-gap: 15px;
-	margin: 0px 0px 20px 0px;
-}
-
-.iconAvatar {
-	grid-area: user-environment-my-posts-icon-avatar;
-}
-
-.iconAvatar img {
-	border-radius: 5px;
-}
-
-.whatNew {
-	grid-area: user-environment-my-posts-what-new;
-	background-color: rgba(196, 156, 173, 0.3);
-	border-radius: 15px;
-	padding: 0px 0px 0px 20px;
-	font-size: 15px;
-	border: 2px solid rgba(158, 127, 145, 0.3);
-}
-
-.buttonSend {
-	grid-area: user-environment-my-posts-button-send;
-	border-radius: 15px;
-	font-size: 16px;
-	font-weight: 600;
-	background-color: rgba(156, 196, 158, 0.3);
-	border: 2px solid rgba(130, 158, 127, 0.3);
-	color: rgb(85, 119, 72);
-}
