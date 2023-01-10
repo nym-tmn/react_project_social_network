@@ -75,14 +75,3 @@
 	grid-template-columns: 1fr 350px;
 	grid-gap: 5px;
 }
-
-.emptyBlock2 {
-	grid-area: empty-block-2;
-}
-
-
-
-
-
-
-

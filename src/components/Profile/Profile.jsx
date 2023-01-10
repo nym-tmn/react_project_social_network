@@ -1,6 +1,7 @@
 
 import MyProjects from './My_projects/My_projects';
 import Follow from './Follow/Follow';
+import EmptyBlock from './Empty_block/Empty_block';
 
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';
@@ -90,7 +91,7 @@ const Profile = () => {
 				</div>
 				<MyProjects />
 				<Follow />
-				<div className={classes.emptyBlock2}></div>
+				<EmptyBlock />
 			</div>
 		</div>
 	);
