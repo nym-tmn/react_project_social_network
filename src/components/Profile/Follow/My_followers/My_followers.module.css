@@ -1,24 +1,8 @@
 .followers {
 	grid-area: user-environment-followers;
 	display: grid;
-	grid-template-areas: 'user-environment-followers-title user-environment-followers-all'
-		'user-environment-followers-items user-environment-followers-items';
+		grid-template-areas: 'user-environment-followers-header user-environment-followers-header'
+									'user-environment-followers-items user-environment-followers-items';
 	grid-template-rows: 40px 1fr;
 	grid-template-columns: 1fr 1fr;
-}
-
-.title {
-	grid-area: user-environment-followers-title;
-	justify-self: center;
-	align-self: center;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 1px;
-}
-
-.all {
-	grid-area: user-environment-followers-all;
-	justify-self: end;
-	align-self: center;
-	padding: 0px 30px 0px 0px;
 }
