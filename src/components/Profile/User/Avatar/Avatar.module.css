@@ -2,54 +2,6 @@
 	grid-area: user-avatar;
 	display: grid;
 	grid-template-areas: 'user-avatar-continer'
-		'social-networks';
+								'social-networks';
 	grid-gap: 5px;
-}
-
-.avatarContiner {
-	grid-area: user-avatar-continer;
-	justify-self: center;
-	background-color: rgba(194, 213, 219, 0.6);
-	border-radius: 15px;
-	display: grid;
-	grid-template: minmax(auto, 170px) / minmax(auto, 170px);
-	align-items: center;
-	justify-items: center;
-
-}
-
-.avatarImage {
-	width: 155px;
-	height: 155px;
-	border-radius: 15px;
-	overflow: hidden;
-	background: url('./../../../img/avatar.png') center no-repeat;
-}
-
-.socialNetworks {
-	grid-area: social-networks;
-	background-color: rgba(194, 213, 219, 0.6);
-	border-radius: 15px;
-	display: grid;
-	grid-template: repeat(3, minmax(20px, auto)) / 200px;
-	padding: 5px 15px;
-	justify-self: end;
-}
-
-.instagram,
-.twitter,
-.facebook {
-	display: grid;
-	grid-template: 1fr / 30px 1fr;
-	font-size: 12px;
-}
-
-.title {
-	color: #000;
-}
-
-.socialNetworks img {
-	max-width: 20px;
-	max-height: 20px;
-	align-self: center;
 }

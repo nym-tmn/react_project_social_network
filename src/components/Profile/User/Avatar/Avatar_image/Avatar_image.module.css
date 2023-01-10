@@ -1,0 +1,19 @@
+.avatarContiner {
+	grid-area: user-avatar-continer;
+	justify-self: center;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	display: grid;
+	grid-template: minmax(auto, 170px) / minmax(auto, 170px);
+	align-items: center;
+	justify-items: center;
+
+}
+
+.avatarImage {
+	width: 155px;
+	height: 155px;
+	border-radius: 15px;
+	overflow: hidden;
+	background: url('./../../../../img/avatar.png') center no-repeat;
+}
