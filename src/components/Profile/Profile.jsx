@@ -1,8 +1,5 @@
 
-import MyPosts from './Environment/My_posts/My_posts';
-import MyProjects from './Environment/My_projects/My_projects';
-import Follow from './Environment/Follow/Follow';
-import EmptyBlock from './Environment/Empty_block/Empty_block';
+import Environment from './Environment/Environment';
 
 import classes from './Profile.module.css';
 import socNet from './Profile_social_networks.module.css';
@@ -54,12 +51,7 @@ const Profile = () => {
 					<div className={classes.aboutMe}>About me: Lorem ipsum  corrupti id repudianlendus veniam nihil! Temporibus eveniet soluta repellat sequi ipsam eligendi nam amet .</div>
 				</div>
 			</div>
-			<div className={classes.environment}>
-				<MyPosts />
-				<MyProjects />
-				<Follow />
-				<EmptyBlock />
-			</div>
+			<Environment />
 		</div>
 	);
 };
