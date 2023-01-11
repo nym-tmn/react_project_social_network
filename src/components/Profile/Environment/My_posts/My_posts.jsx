@@ -8,9 +8,9 @@ import classes from './../My_posts/My_posts.module.css';
 const MyPosts = () => {
 	return (
 		<div className={classes.myPosts}>
-			<Header />
-			<EnterPosts />
-			<Posts />
+			<Header/>
+			<EnterPosts/>
+			<Posts/>
 		</div>
 	);
 };

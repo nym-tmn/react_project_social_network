@@ -7,8 +7,8 @@ import classes from './../My_projects/My_projects.module.css';
 const MyProjects = () => {
 	return (
 		<div className={classes.myProjects}>
-			<Header />
-			<Projects />
+			<Header/>
+			<Projects/>
 		</div>
 	);
 };

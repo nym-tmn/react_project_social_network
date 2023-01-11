@@ -11,12 +11,12 @@ import classes from './Followings.module.css';
 const Followings = () => {
 	return (
 		<div className={classes.items}>
-			<Following1 />
-			<Following2 />
-			<Following3 />
-			<Following4 />
-			<Following5 />
-			<Following6 />
+			<Following1/>
+			<Following2/>
+			<Following3/>
+			<Following4/>
+			<Following5/>
+			<Following6/>
 		</div>
 	);
 };

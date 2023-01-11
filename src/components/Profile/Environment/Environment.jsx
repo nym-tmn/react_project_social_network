@@ -9,10 +9,10 @@ import classes from './Environment.module.css';
 const Environment = () => {
 	return (
 		<div className={classes.environment}>
-			<MyPosts />
-			<MyProjects />
-			<Follow />
-			<EmptyBlock />
+			<MyPosts/>
+			<MyProjects/>
+			<Follow/>
+			<EmptyBlock/>
 		</div>
 	);
 };

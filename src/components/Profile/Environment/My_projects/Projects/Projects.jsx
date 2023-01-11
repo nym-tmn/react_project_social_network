@@ -11,12 +11,12 @@ import classes from './../Projects/Projects.module.css';
 const Projects = () => {
 	return (
 			<div className={classes.items}>
-				<Project1 />
-				<Project2 />
-				<Project3 />
-				<Project4 />
-				<Project5 />
-				<Project6 />
+				<Project1/>
+				<Project2/>
+				<Project3/>
+				<Project4/>
+				<Project5/>
+				<Project6/>
 			</div>
 	);
 };

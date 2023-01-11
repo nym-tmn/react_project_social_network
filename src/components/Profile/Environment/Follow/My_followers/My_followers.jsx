@@ -8,8 +8,8 @@ import classes from './../My_followers/My_followers.module.css';
 const MyFollowers = () => {
 	return (
 			<div className={classes.followers}>
-			<Header />
-			<Followers />
+			<Header/>
+			<Followers/>
 			</div>
 	);
 };

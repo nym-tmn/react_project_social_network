@@ -7,8 +7,8 @@ import classes from './../My_followings/My_followings.module.css';
 const MyFollowings = () => {
 	return (
 		<div className={classes.followings}>
-			<Header />
-			<Followings />
+			<Header/>
+			<Followings/>
 		</div>
 	);
 };

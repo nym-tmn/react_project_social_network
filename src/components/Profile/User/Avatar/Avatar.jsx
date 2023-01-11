@@ -7,8 +7,8 @@ import classes from './../Avatar/Avatar.module.css';
 const Avatar = () => {
 	return (
 			<div className={classes.avatar}>
-			<AvatarImage />
-			<SocialNetworks />
+			<AvatarImage/>
+			<SocialNetworks/>
 			</div>
 	);
 };

@@ -8,9 +8,9 @@ import classes from './../Social_networks/Social_networks.module.css';
 const SocialNetworks = () => {
 	return (
 			<div className={classes.socialNetworks}>
-			<Instagram />
-			<Twitter />
-			<Facebook />
+			<Instagram/>
+			<Twitter/>
+			<Facebook/>
 			</div>
 	);
 };

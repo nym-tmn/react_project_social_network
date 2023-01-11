@@ -8,9 +8,9 @@ import classes from './../User/User.module.css';
 const User = () => {
 	return (
 		<div className={classes.user}>
-			<CoverPicture />
-			<Avatar />
-			<Information />
+			<CoverPicture/>
+			<Avatar/>
+			<Information/>
 		</div>
 	);
 };
