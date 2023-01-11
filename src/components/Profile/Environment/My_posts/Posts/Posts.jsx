@@ -7,7 +7,7 @@ import classes from './Posts.module.css';
 
 const Posts = () => {
 	return (
-		<div className={classes.post}>
+		<div className={classes.post}>12
 			<Post1/>
 			<Post2/>
 			<Post3/>
