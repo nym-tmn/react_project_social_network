@@ -2,5 +2,5 @@
 	grid-area: user-cover-picture;
 	height: 300px;
 	border-radius: 15px;
-	background: url('./../../../img/cover_picture.png') center no-repeat;
+	background: url('./../../../images/cover_picture.png') center no-repeat;
 }

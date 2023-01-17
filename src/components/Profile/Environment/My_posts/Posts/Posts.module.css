@@ -1,7 +1,7 @@
-.post {
+.posts {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post1'
-		'user-environment-my-posts-post2'
-		'user-environment-my-posts-post3';
+		/* 'user-environment-my-posts-post2'
+		'user-environment-my-posts-post3' */;
 	grid-gap: 15px;
 }
