@@ -11,10 +11,10 @@ const Header = () => {
 				</a>
 			</div>
 			<nav className={classes.menu}>
-				<div><a href="#s" >Search</a></div>
-				<div><a href="#s">Notifications</a></div>
-				<div><a href="#s">News</a></div>
-				<div><a href="#s">Settings</a></div>
+				<div><a href="/search" >Search</a></div>
+				<div><a href="/notifications">Notifications</a></div>
+				<div><a href="/news">News</a></div>
+				<div><a href="/settings">Settings</a></div>
 			</nav>
 		</header>
 	);

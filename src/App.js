@@ -3,8 +3,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import Search from './components/Header/Search/Search';
+import Notifications from './components/Header/Notifications/Notifications';
+import News from './components/Header/News/News';
+import Settings from './components/Header/Settings/Settings';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
 import Messages from './components/Messages/Messages';
@@ -12,6 +15,7 @@ import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
 import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
+import Footer from './components/Footer/Footer';
 
 const App = (props) => {
 	return (
@@ -22,6 +26,10 @@ const App = (props) => {
 					<Nav />
 					<div className='mainContent'>
 						<Routes>
+							<Route path='/search' element={<Search />} />
+							<Route path='/notifications' element={<Notifications />} />
+							<Route path='/news' element={<News />} />
+							<Route path='/settings' element={<Settings />} />
 							<Route path='*' element={<Profile />} />
 							<Route path='/messages' element={<Messages />} />
 							<Route path='/photo' element={<Photo />} />
