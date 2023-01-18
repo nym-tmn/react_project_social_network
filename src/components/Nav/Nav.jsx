@@ -1,29 +1,27 @@
 
+import React from 'react';
 import classes from './Nav.module.css';
 
 const Nav = () => {
 	return (
-		<nav className={classes.menu}>
+		<nav className={classes.nav}>
 			<div>
-				<a href='#s'>Profile</a>
+				<a href='/profile'>Profile</a>
 			</div>
 			<div>
-				<a href='#s'>Messages</a>
+				<a href='/messages'>Messages</a>
 			</div>
 			<div>
-				<a href='#s'>Projects</a>
+				<a href='/photo'>Photo</a>
 			</div>
 			<div>
-				<a href='#s'>Photos</a>
+				<a href='/video'>Video</a>
 			</div>
 			<div>
-				<a href='#s'>Video</a>
+				<a href='/music'>Music</a>
 			</div>
 			<div>
-				<a href='#s'>Music</a>
-			</div>
-			<div>
-				<a href='#s'>Comunities</a>
+				<a href='/comunities'>Comunities</a>
 			</div>
 		</nav>
 	);

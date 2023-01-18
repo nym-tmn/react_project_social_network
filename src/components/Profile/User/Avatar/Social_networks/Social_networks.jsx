@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Instagram from './Instagram/Instagram';
 import Twitter from './Twitter/Twitter';
 import Facebook from './Facebook/Facebook';

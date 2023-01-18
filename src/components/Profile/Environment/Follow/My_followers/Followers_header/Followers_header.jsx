@@ -1,4 +1,5 @@
 
+import React from 'react';
 import classes from './../Followers_header/Followers_header.module.css';
 
 const Header = () => {

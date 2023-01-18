@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Following1 from './Following_1/Following_1';
 import Following2 from './Following_2/Following_2';
 import Following3 from './Following_3/Following_3';

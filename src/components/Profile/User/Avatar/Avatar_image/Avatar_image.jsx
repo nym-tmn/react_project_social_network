@@ -1,4 +1,5 @@
 
+import React from 'react';
 import classes from './../Avatar_image/Avatar_image.module.css';
 
 const AvatarImage = () => {

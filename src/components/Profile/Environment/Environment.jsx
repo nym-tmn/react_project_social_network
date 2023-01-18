@@ -1,4 +1,5 @@
 
+import React from 'react';
 import MyPosts from './My_posts/My_posts';
 import MyProjects from './My_projects/My_projects';
 import Follow from './Follow/Follow';

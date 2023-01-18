@@ -1,4 +1,5 @@
 
+import React from 'react';
 import AvatarImage from './Avatar_image/Avatar_image';
 import SocialNetworks from './Social_networks/Social_networks';
 

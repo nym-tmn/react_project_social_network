@@ -1,4 +1,5 @@
 
+import React from 'react';
 import CoverPicture from './Cover_picture/Cover_picture';
 import Avatar from './Avatar/Avatar';
 import Information from './Information/Information';

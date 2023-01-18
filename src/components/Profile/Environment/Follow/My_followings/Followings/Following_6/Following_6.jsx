@@ -1,4 +1,5 @@
 
+import React from 'react';
 import classes from './../Following.module.css';
 
 const Following6 = () => {

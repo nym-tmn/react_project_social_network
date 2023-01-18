@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Follower1 from './Follower_1/Follower_1';
 import Follower2 from './Follower_2/Follower_2';
 import Follower3 from './Follower_3/Follower_3';

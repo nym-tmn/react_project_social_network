@@ -1,4 +1,5 @@
 
+import React from 'react';
 import classes from './../Project.module.css';
 
 const Project3 = () => {

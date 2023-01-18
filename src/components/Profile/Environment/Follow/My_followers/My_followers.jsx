@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Header from './Followers_header/Followers_header';
 import Followers from './Followers/Followers';
 
