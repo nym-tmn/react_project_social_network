@@ -2,11 +2,11 @@
 import User from './User/User';
 import Environment from './Environment/Environment';
 
-import classes from './Profile.module.css';
+// import classes from './Profile.module.css';
 
 const Profile = () => {
 	return (
-		<div className={classes.mainContent}>
+		<div>
 			<User/>
 			<Environment/>
 		</div>
