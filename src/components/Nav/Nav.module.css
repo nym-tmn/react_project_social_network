@@ -15,3 +15,7 @@
 	display: block;
 	border-bottom: 1px solid #ffffff;
 }
+
+.active {
+	color: rgb(134, 216, 219);
+}

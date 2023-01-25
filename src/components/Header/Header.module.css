@@ -27,3 +27,7 @@
 	letter-spacing: 2px;
 	grid-column: 3 / 4;
 }
+
+.active {
+	color: rgb(134, 216, 219);
+}
