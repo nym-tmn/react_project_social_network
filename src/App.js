@@ -10,7 +10,7 @@ import News from './components/Header/News/News';
 import Settings from './components/Header/Settings/Settings';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
-import Messages from './components/Messages/Messages';
+import Dialogs from './components/Dialogs/Dialogs';
 import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
 import Music from './components/Music/Music';
@@ -31,7 +31,7 @@ const App = (props) => {
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
 							<Route path='*' element={<Profile />} />
-							<Route path='/messages' element={<Messages />} />
+							<Route path='/messages' element={<Dialogs />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />

@@ -1,8 +1,8 @@
 .environment {
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts user-environment-my-projects'
-		'user-environment-my-posts user-environment-follow'
-		'user-environment-my-posts empty-block-2';
+								'user-environment-my-posts user-environment-follow'
+								'user-environment-my-posts empty-block-2';
 	grid-template-rows: 270px 465px 1fr;
 	grid-template-columns: 1fr 350px;
 	grid-gap: 5px;

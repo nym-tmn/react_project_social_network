@@ -1,0 +1,63 @@
+.messages {
+	grid-area: messages;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	padding: 20px 30px 20px 30px;
+	display: grid;
+	grid-template-areas: 'messagesToMe messagesToMe'
+		'messagesFromMe messagesFromMe'
+		'sendMessages sendMessages';
+	grid-template-rows: auto auto auto;
+	grid-template-columns: 1fr 1fr;
+}
+
+.messagesToMe {
+	grid-area: messagesToMe;
+	padding: 0px 120px 0px 0px;
+}
+
+.toMe {
+	background-color: rgba(138, 55, 96, 0.150);
+}
+
+.messagesFromMe {
+	grid-area: messagesFromMe;
+	justify-self: end;
+	text-align: right;
+	padding: 0px 0px 0px 120px;
+	margin: 0px 0px 20px 0px;
+}
+
+.fromMe {
+	background-color: rgba(43, 139, 163, 0.190);
+}
+
+.message {
+	padding: 3px;
+	display: inline-block;
+	margin: 0px 0px 5px 0px;
+	border-radius: 8px;
+	text-align: left;
+}
+
+.sendMessages {
+	grid-area: sendMessages;
+	justify-self: center;
+	align-self: end;
+	display: grid;
+	grid-template-columns: 1fr 70px;
+	grid-gap: 5px;
+}
+
+.enterMessage {
+	border-radius: 8px;
+	border: 2px solid rgba(18, 49, 70, 0.507);
+}
+
+.send {
+	border-radius: 8px;
+	background-color: rgba(156, 196, 158, 0.3);
+	border: 2px solid rgba(130, 158, 127, 0.3);
+	color: rgb(85, 119, 72);
+	font-weight: 600;
+}
