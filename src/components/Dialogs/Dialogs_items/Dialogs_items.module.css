@@ -3,36 +3,8 @@
 	background-color: rgba(156, 196, 158, 0.3);
 	border-radius: 15px;
 	padding: 12px 11px 12px 11px;
-
 }
 
 .dialogsItems a {
 	color: black;
-}
-
-.dialog {
-	margin: 0px 0px 10px 0px;
-	padding: 7px;
-	display: grid;
-	grid-template-rows: 30px;
-	grid-template-columns: 30px 1fr;
-	background-color: rgba(29, 94, 46, 0.200);
-	border-radius: 15px;
-	font-weight: 600;
-}
-
-.dialog:last-child {
-	margin: 0;
-}
-
-.activeDialog {}
-
-.avatar {
-	background: url('./../../images/dialog_avatar.png') center no-repeat;
-	border-radius: 8px;
-}
-
-.name {
-	padding: 0px 0px 0px 10px;
-	align-self: center;
 }
