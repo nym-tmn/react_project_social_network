@@ -1,7 +1,7 @@
 .dialogs {
 	display: grid;
 	grid-template-areas: 'title title'
-								'messages dialogsItems';
+								'messages dialogItem';
 	grid-template-rows: 35px 1fr;
 	grid-template-columns: 1fr 300px;
 	grid-gap: 5px;

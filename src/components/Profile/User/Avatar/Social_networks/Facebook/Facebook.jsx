@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './../Social_network.module.css';
 
-const Facebook = () => {
+const Facebook = (props) => {
 	return (
 			<div className={classes.facebook}>
 				<a href="#s">

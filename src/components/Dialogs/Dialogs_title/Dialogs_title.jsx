@@ -5,7 +5,7 @@ import classes from './Dialogs_title.module.css';
 
 const Title = (props) => {
 	return (
-		<div className={classes.title}>Messages</div>
+		<div className={classes.title}>{props.title}</div>
 	);
 }
 

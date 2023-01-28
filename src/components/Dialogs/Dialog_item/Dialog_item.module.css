@@ -1,12 +1,12 @@
-.dialogsItems {
-	grid-area: dialogsItems;
+.dialogItem {
+	grid-area: dialogItem;
 	background-color: rgba(156, 196, 158, 0.3);
 	border-radius: 15px;
 	padding: 12px 11px 12px 11px;
 
 }
 
-.dialogsItems a {
+.dialog a {
 	color: black;
 }
 
@@ -25,10 +25,11 @@
 	margin: 0;
 }
 
-.activeDialog {}
+/* .activeDialog {
+	background-color: rgba(170, 94, 44, 0.623);
+} */
 
 .avatar {
-	background: url('./../../images/dialog_avatar.png') center no-repeat;
 	border-radius: 8px;
 }
 

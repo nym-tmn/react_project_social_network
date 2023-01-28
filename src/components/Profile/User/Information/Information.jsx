@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './../Information/Information.module.css';
 
-const Information = () => {
+const Information = (props) => {
 	return (
 			<div className={classes.information}>
 				<div className={classes.name}>John Smith</div>

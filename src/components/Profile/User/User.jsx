@@ -6,7 +6,7 @@ import Information from './Information/Information';
 
 import classes from './../User/User.module.css';
 
-const User = () => {
+const User = (props) => {
 	return (
 		<div className={classes.user}>
 			<CoverPicture/>

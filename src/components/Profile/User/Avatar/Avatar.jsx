@@ -5,7 +5,7 @@ import SocialNetworks from './Social_networks/Social_networks';
 
 import classes from './../Avatar/Avatar.module.css';
 
-const Avatar = () => {
+const Avatar = (props) => {
 	return (
 			<div className={classes.avatar}>
 			<AvatarImage/>

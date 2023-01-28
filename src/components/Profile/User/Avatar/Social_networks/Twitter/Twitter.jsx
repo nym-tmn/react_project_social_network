@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './../Social_network.module.css';
 
-const Twitter = () => {
+const Twitter = (props) => {
 	return (
 			<div className={classes.twitter}>
 				<a href="#s">
