@@ -4,14 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 import classes from './Nav.module.css';
 
-const Nav = () => {
+const Nav = (props) => {
 	return (
 		<nav className={classes.nav}>
 			<div>
 				<NavLink to='/profile' className={({isActive}) => isActive ? classes.active : ''}>Profile</NavLink>
 			</div>
 			<div>
-				<NavLink to='/messages' className={({ isActive }) => isActive ? classes.active : ''}>Messages</NavLink>
+				<NavLink to='/dialogs' className={({ isActive }) => isActive ? classes.active : ''}>Messages</NavLink>
 			</div>
 			<div>
 				<NavLink to='/photo' className={({ isActive }) => isActive ? classes.active : ''}>Photo</NavLink>

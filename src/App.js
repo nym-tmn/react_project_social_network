@@ -31,7 +31,7 @@ const App = (props) => {
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
 							<Route path='*' element={<Profile />} />
-							<Route path='/messages' element={<Dialogs />} />
+							<Route path='/dialogs' element={<Dialogs />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />

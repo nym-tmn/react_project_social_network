@@ -6,7 +6,7 @@ import Posts from './Posts/Posts';
 
 import classes from './../My_posts/My_posts.module.css';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 	return (
 		<div className={classes.myPosts}>
 			<Header/>
