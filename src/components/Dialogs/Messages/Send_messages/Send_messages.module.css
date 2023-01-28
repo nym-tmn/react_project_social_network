@@ -1,0 +1,21 @@
+.sendMessages {
+	grid-area: sendMessages;
+	justify-self: center;
+	align-self: end;
+	display: grid;
+	grid-template-columns: 1fr 70px;
+	grid-gap: 5px;
+}
+
+.enterMessage {
+	border-radius: 8px;
+	border: 2px solid rgba(18, 49, 70, 0.507);
+}
+
+.send {
+	border-radius: 8px;
+	background-color: rgba(156, 196, 158, 0.3);
+	border: 2px solid rgba(130, 158, 127, 0.3);
+	color: rgb(85, 119, 72);
+	font-weight: 600;
+}
