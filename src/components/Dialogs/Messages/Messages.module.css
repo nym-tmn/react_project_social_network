@@ -40,7 +40,7 @@
 	text-align: left;
 }
 
-.sendMessages {
+/* .sendMessages {
 	grid-area: sendMessages;
 	justify-self: center;
 	align-self: end;
@@ -60,4 +60,4 @@
 	border: 2px solid rgba(130, 158, 127, 0.3);
 	color: rgb(85, 119, 72);
 	font-weight: 600;
-}
+} */

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import SendMessages from './Send_messages/Send_messages';
 
 import classes from './Messages.module.css';
 
@@ -16,10 +17,7 @@ const Messages = (props) => {
 				<div><span className={`${classes.message} ${classes.fromMe}`}>I'm fine!</span></div>
 				<div><span className={`${classes.message} ${classes.fromMe}`}>I'm going for a walk. Are you with me? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, sequi maxime adipisci incidunt cumque ratione corporis recusandae, iure nihil quasi optio nobis autem maiores atque reiciendis. Debitis ut, voluptate neque dolor laborum est distinctio assumenda eum, quaerat nesciunt repellendus expedita provident culpa vero veniam repellat. Magnam quo vitae reiciendis dignissimos.</span></div>
 			</div>
-			<div className={classes.sendMessages}>
-				<textarea className={classes.enterMessage} placeholder='Enter message...' cols="50" rows="4"></textarea>
-				<button className={classes.send}>Send</button>
-			</div>
+			<SendMessages/>
 		</div>
 	);
 }
