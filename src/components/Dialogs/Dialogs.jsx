@@ -17,17 +17,14 @@ const Dialogs = (props) => {
 		{ id: 6, name: 'Mary_lastName', avatar: require('./../images/dialog_avatar.png') },
 	];
 
+	let dialogsElements = dialogsData.map((dialog) => <DialogItem name={dialog.name} id={dialog.id} avatar={dialog.avatar} />);
+
 	return (
 		<div className={classes.dialogs}>
 			<Title title='Messages' />
 			<Messages />
 			<div className={classes.dialogItem}>
-				<DialogItem name={dialogsData[0].name} id={dialogsData[0].id} avatar={dialogsData[0].avatar} />
-				<DialogItem name={dialogsData[1].name} id={dialogsData[1].id} avatar={dialogsData[1].avatar} />
-				<DialogItem name={dialogsData[2].name} id={dialogsData[2].id} avatar={dialogsData[2].avatar} />
-				<DialogItem name={dialogsData[3].name} id={dialogsData[3].id} avatar={dialogsData[3].avatar} />
-				<DialogItem name={dialogsData[4].name} id={dialogsData[4].id} avatar={dialogsData[4].avatar} />
-				<DialogItem name={dialogsData[5].name} id={dialogsData[5].id} avatar={dialogsData[5].avatar} />
+				{dialogsElements}
 			</div>
 		</div>
 	);
