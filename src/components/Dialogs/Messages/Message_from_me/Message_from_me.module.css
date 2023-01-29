@@ -1,0 +1,19 @@
+.messagesFromMe {
+	grid-area: messagesFromMe;
+	justify-self: end;
+	text-align: right;
+	padding: 0px 0px 0px 120px;
+	margin: 0px 0px 20px 0px;
+}
+
+.fromMe {
+	background-color: rgba(43, 139, 163, 0.190);
+}
+
+.message {
+	padding: 3px;
+	display: inline-block;
+	margin: 0px 0px 5px 0px;
+	border-radius: 8px;
+	text-align: left;
+}

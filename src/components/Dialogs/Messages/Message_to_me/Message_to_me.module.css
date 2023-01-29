@@ -1,0 +1,12 @@
+.messageToMe {
+	padding: 0px 120px 0px 0px;
+}
+
+.message {
+	padding: 3px;
+	display: inline-block;
+	margin: 0px 0px 5px 0px;
+	border-radius: 8px;
+	text-align: left;
+	background-color: rgba(138, 55, 96, 0.150);
+}
