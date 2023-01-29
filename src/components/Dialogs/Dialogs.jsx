@@ -17,7 +17,8 @@ const Dialogs = (props) => {
 		{ id: 6, name: 'Mary_lastName', avatar: require('./../images/dialog_avatar.png') },
 	];
 
-	let dialogsElements = dialogsData.map((dialog) => <DialogItem name={dialog.name} id={dialog.id} avatar={dialog.avatar} />);
+	let dialogsElements = dialogsData
+		.map((dialog) => <DialogItem name={dialog.name} id={dialog.id} avatar={dialog.avatar} />);
 
 	return (
 		<div className={classes.dialogs}>
