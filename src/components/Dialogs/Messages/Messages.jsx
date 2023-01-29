@@ -15,7 +15,7 @@ const Messages = (props) => {
 	];
 
 	let messagesToMeElements = messagesToMeData
-		.map(message => <MessageToMe message={message.messageText} />)
+		.map(message => <MessageToMe message={message.messageText} />);
 
 	let messagesFromMeData = [
 		{ id: 1, messageText: 'Yo!' },
@@ -24,7 +24,7 @@ const Messages = (props) => {
 	];
 
 	let messagesFromMeElements = messagesFromMeData
-		.map(message => <MessageFromMe message={message.messageText} />)
+		.map(message => <MessageFromMe message={message.messageText} />);
 
 	return (
 		<div className={classes.messages}>

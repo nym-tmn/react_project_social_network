@@ -33,26 +33,17 @@ const Posts = (props) => {
 		},
 	];
 
+	let postsElements = postsData
+		.map(post => <Post
+			postIconAvatar={post.postIconAvatar}
+			postUserName={post.postUserName}
+			postText={post.postText} postImage={post.postImage}
+			likesCounter={post.likesCounter}
+		/>);
+
 	return (
 		<div className={classes.posts}>
-			<Post
-				postIconAvatar={postsData [0].postIconAvatar}
-				postUserName={postsData[0].postUserName}
-				postText={postsData[0].postText}
-				postImage={postsData[0].postImage}
-				likesCounter={postsData[0].likesCounter} />
-			<Post
-				postIconAvatar={postsData [1].postIconAvatar}
-				postUserName={postsData[1].postUserName}
-				postText={postsData[1].postText}
-				postImage={postsData[1].postImage}
-				likesCounter={postsData[1].likesCounter} />
-			<Post
-				postIconAvatar={postsData [2].postIconAvatar}
-				postUserName={postsData[2].postUserName}
-				postText={postsData[2].postText}
-				postImage={postsData[2].postImage}
-				likesCounter={postsData[2].likesCounter} />
+			{postsElements}
 		</div>
 	);
 };
