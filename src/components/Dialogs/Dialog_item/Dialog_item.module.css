@@ -17,9 +17,9 @@
 	margin: 0;
 }
 
-/* .activeDialog {
+.active {
 	background-color: rgba(170, 94, 44, 0.623);
-} */
+}
 
 .avatar {
 	border-radius: 8px;

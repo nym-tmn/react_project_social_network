@@ -12,7 +12,7 @@ const DialogItem = (props) => {
 		<div className={classes.dialog}>
 			<img className={classes.avatar} src={props.avatar} alt="dialog_avatar.png" />
 			<div className={classes.name}>
-				<NavLink to={path}>{props.name}</NavLink>
+				<NavLink to={path} className={({ isActive }) => isActive ? classes.active : ''}>{props.name}</NavLink>
 			</div>
 		</div>
 	);
