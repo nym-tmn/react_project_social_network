@@ -7,13 +7,16 @@ import EmptyBlock from './Empty_block/Empty_block';
 
 import classes from './Environment.module.css';
 
-const Environment = () => {
+const Environment = (props) => {
+
+	console.log(props);
+
 	return (
 		<div className={classes.environment}>
-			<MyPosts/>
-			<MyProjects/>
-			<Follow/>
-			<EmptyBlock/>
+			<MyPosts posts={props.posts} />
+			<MyProjects />
+			<Follow />
+			<EmptyBlock />
 		</div>
 	);
 };

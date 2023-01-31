@@ -4,10 +4,13 @@ import User from './User/User';
 import Environment from './Environment/Environment';
 
 const Profile = (props) => {
+
+	console.log(props);
+
 	return (
 		<div>
-			<User/>
-			<Environment/>
+			<User />
+			<Environment posts={props.posts} />
 		</div>
 	);
 };
