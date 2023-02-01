@@ -30,7 +30,9 @@ const App = (props) => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/profile' element={<Profile posts={props.state.profilePage} />} />
+							<Route path='/profile' element={<Profile
+								posts={props.state.profilePage}
+								followers={props.state.profilePage}/>} />
 							<Route path='*' element={<Dialogs
 								dialogItem={props.state.dialogsPage}
 								messageToMe={props.state.dialogsPage}

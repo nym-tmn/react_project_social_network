@@ -28,6 +28,14 @@ let state = {
 				likesCounter: '392'
 			},
 		],
+		followersData: [
+			{id: 1, iconFollower: require('./../images/followers/icon_follower_1.png'), name: 'name_1'},
+			{id: 2, iconFollower: require('./../images/followers/icon_follower_2.png'), name: 'name_2'},
+			{id: 3, iconFollower: require('./../images/followers/icon_follower_3.png'), name: 'name_3'},
+			{id: 4, iconFollower: require('./../images/followers/icon_follower_4.png'), name: 'name_4'},
+			{id: 5, iconFollower: require('./../images/followers/icon_follower_5.png'), name: 'name_5'},
+			{id: 6, iconFollower: require('./../images/followers/icon_follower_6.png'), name: 'name_6'},
+		],
 	},
 
 	dialogsPage: {

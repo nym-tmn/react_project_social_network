@@ -7,7 +7,9 @@ const Profile = (props) => {
 	return (
 		<div>
 			<User />
-			<Environment posts={props.posts} />
+			<Environment
+				posts={props.posts}
+				followers={props.followers} />
 		</div>
 	);
 };
