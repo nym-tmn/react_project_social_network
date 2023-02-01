@@ -9,7 +9,8 @@ const Profile = (props) => {
 			<User />
 			<Environment
 				posts={props.posts}
-				followers={props.followers} />
+				followers={props.followers}
+				followings={props.followings}/>
 		</div>
 	);
 };

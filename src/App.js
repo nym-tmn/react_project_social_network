@@ -32,7 +32,8 @@ const App = (props) => {
 							<Route path='/settings' element={<Settings />} />
 							<Route path='/profile' element={<Profile
 								posts={props.state.profilePage}
-								followers={props.state.profilePage}/>} />
+								followers={props.state.profilePage}
+								followings={props.state.profilePage}/>} />
 							<Route path='*' element={<Dialogs
 								dialogItem={props.state.dialogsPage}
 								messageToMe={props.state.dialogsPage}

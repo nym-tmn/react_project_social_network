@@ -36,6 +36,14 @@ let state = {
 			{id: 5, iconFollower: require('./../images/followers/icon_follower_5.png'), name: 'name_5'},
 			{id: 6, iconFollower: require('./../images/followers/icon_follower_6.png'), name: 'name_6'},
 		],
+		followingsData: [
+			{ id: 1, iconFollowing: require('./../images/followings/icon_following_1.png'), name: 'name_1' },
+			{ id: 2, iconFollowing: require('./../images/followings/icon_following_2.png'), name: 'name_2' },
+			{ id: 3, iconFollowing: require('./../images/followings/icon_following_3.png'), name: 'name_3' },
+			{ id: 4, iconFollowing: require('./../images/followings/icon_following_4.png'), name: 'name_4' },
+			{ id: 5, iconFollowing: require('./../images/followings/icon_following_5.png'), name: 'name_5' },
+			{ id: 6, iconFollowing: require('./../images/followings/icon_following_6.png'), name: 'name_6' },
+		],
 	},
 
 	dialogsPage: {

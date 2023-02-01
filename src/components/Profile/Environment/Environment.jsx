@@ -12,7 +12,9 @@ const Environment = (props) => {
 		<div className={classes.environment}>
 			<MyPosts posts={props.posts} />
 			<MyProjects />
-			<Follow followers={props.followers} />
+			<Follow
+				followers={props.followers}
+				followings={props.followings}/>
 			<EmptyBlock />
 		</div>
 	);

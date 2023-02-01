@@ -1,6 +1,6 @@
 
 import React from 'react';
-import classes from './../Follower.module.css';
+import classes from './Follower.module.css';
 
 const Follower = (props) => {
 	return (

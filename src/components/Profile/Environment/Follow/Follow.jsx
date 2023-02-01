@@ -9,7 +9,7 @@ const Follow = (props) => {
 	return (
 		<div className={classes.follow}>
 			<MyFollowers followers={props.followers} />
-			<MyFollowings />
+			<MyFollowings followings={props.followings} />
 		</div>
 	);
 };
