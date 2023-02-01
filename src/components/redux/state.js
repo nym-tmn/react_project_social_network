@@ -44,6 +44,14 @@ let state = {
 			{ id: 5, iconFollowing: require('./../images/followings/icon_following_5.png'), name: 'name_5' },
 			{ id: 6, iconFollowing: require('./../images/followings/icon_following_6.png'), name: 'name_6' },
 		],
+		projectsData: [
+			{ id: 1, iconProject: require('./../images/projects/icon_project_1.png'), nameProject: 'project_1' },
+			{ id: 2, iconProject: require('./../images/projects/icon_project_2.png'), nameProject: 'project_2' },
+			{ id: 3, iconProject: require('./../images/projects/icon_project_3.png'), nameProject: 'project_3' },
+			{ id: 4, iconProject: require('./../images/projects/icon_project_4.png'), nameProject: 'project_4' },
+			{ id: 5, iconProject: require('./../images/projects/icon_project_5.png'), nameProject: 'project_5' },
+			{ id: 6, iconProject: require('./../images/projects/icon_project_6.png'), nameProject: 'project_6' },
+		],
 	},
 
 	dialogsPage: {

@@ -5,11 +5,11 @@ import Projects from './Projects/Projects';
 
 import classes from './../My_projects/My_projects.module.css';
 
-const MyProjects = () => {
+const MyProjects = (props) => {
 	return (
 		<div className={classes.myProjects}>
-			<Header/>
-			<Projects/>
+			<Header />
+			<Projects projects={props.projects} />
 		</div>
 	);
 };

@@ -10,7 +10,8 @@ const Profile = (props) => {
 			<Environment
 				posts={props.posts}
 				followers={props.followers}
-				followings={props.followings}/>
+				followings={props.followings}
+				projects={props.projects}/>
 		</div>
 	);
 };

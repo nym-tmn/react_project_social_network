@@ -33,7 +33,8 @@ const App = (props) => {
 							<Route path='/profile' element={<Profile
 								posts={props.state.profilePage}
 								followers={props.state.profilePage}
-								followings={props.state.profilePage}/>} />
+								followings={props.state.profilePage}
+								projects={props.state.profilePage}/>} />
 							<Route path='*' element={<Dialogs
 								dialogItem={props.state.dialogsPage}
 								messageToMe={props.state.dialogsPage}

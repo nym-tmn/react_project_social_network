@@ -11,7 +11,7 @@ const Environment = (props) => {
 	return (
 		<div className={classes.environment}>
 			<MyPosts posts={props.posts} />
-			<MyProjects />
+			<MyProjects projects={props.projects} />
 			<Follow
 				followers={props.followers}
 				followings={props.followings}/>
