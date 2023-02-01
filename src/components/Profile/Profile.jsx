@@ -4,8 +4,6 @@ import User from './User/User';
 import Environment from './Environment/Environment';
 
 const Profile = (props) => {
-console.log(props);
-	console.log(props.state);
 	return (
 		<div>
 			<User />

@@ -6,7 +6,7 @@ import Followers from './Followers/Followers';
 import classes from './../My_followers/My_followers.module.css';
 
 
-const MyFollowers = () => {
+const MyFollowers = (props) => {
 	return (
 			<div className={classes.followers}>
 			<Header/>

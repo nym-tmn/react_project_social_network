@@ -9,7 +9,7 @@ import Follower6 from './Follower_6/Follower_6';
 
 import classes from './Followers.module.css';
 
-const Followers = () => {
+const Followers = (props) => {
 	return (
 			<div className={classes.items}>
 				<Follower1/>

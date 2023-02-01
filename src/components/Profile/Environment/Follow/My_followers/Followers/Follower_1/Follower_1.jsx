@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './../Follower.module.css';
 
-const Follower1 = () => {
+const Follower1 = (props) => {
 	return (
 				<div className={classes.item}>
 					<a href="#s" className={classes.linkImage}>

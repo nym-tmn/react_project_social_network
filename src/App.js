@@ -18,9 +18,6 @@ import Comunities from './components/Comunities/Comunities';
 import Footer from './components/Footer/Footer';
 
 const App = (props) => {
-	console.log(props);
-	console.log(props.state);
-	console.log(props.state.dialogsPage);
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
