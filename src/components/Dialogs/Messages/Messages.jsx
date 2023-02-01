@@ -8,10 +8,10 @@ import classes from './Messages.module.css';
 
 const Messages = (props) => {
 
-	let messagesToMeElements = props.messageToMe
+	let messagesToMeElements = props.messageToMe.messagesToMeData
 		.map(message => <MessageToMe message={message.messageText} />);
 
-	let messagesFromMeElements = props.messageFromMe
+	let messagesFromMeElements = props.messageFromMe.messagesFromMeData
 		.map(message => <MessageFromMe message={message.messageText} />);
 
 	return (

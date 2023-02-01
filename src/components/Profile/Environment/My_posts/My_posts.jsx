@@ -7,6 +7,8 @@ import Posts from './Posts/Posts';
 import classes from './../My_posts/My_posts.module.css';
 
 const MyPosts = (props) => {
+	console.log(props);
+	console.log(props.posts);
 	return (
 		<div className={classes.myPosts}>
 			<Header />

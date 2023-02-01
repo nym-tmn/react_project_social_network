@@ -8,9 +8,8 @@ import EmptyBlock from './Empty_block/Empty_block';
 import classes from './Environment.module.css';
 
 const Environment = (props) => {
-
 	console.log(props);
-
+	console.log(props.posts);
 	return (
 		<div className={classes.environment}>
 			<MyPosts posts={props.posts} />

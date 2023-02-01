@@ -18,6 +18,9 @@ import Comunities from './components/Comunities/Comunities';
 import Footer from './components/Footer/Footer';
 
 const App = (props) => {
+	console.log(props);
+	console.log(props.state);
+	console.log(props.state.dialogsPage);
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
@@ -30,8 +33,11 @@ const App = (props) => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/profile' element={<Profile posts={props.posts} />} />
-							<Route path='*' element={<Dialogs dialogItem={props.dialogItem} messageToMe={props.messageToMe} messageFromMe={props.messageFromMe} />} />
+							<Route path='/profile' element={<Profile posts={props.state.profilePage} />} />
+							<Route path='*' element={<Dialogs
+								dialogItem={props.state.dialogsPage}
+								messageToMe={props.state.dialogsPage}
+								messageFromMe={props.state.dialogsPage} />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />
