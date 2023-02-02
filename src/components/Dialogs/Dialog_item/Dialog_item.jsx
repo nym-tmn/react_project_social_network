@@ -6,7 +6,7 @@ import classes from './Dialog_item.module.css';
 
 const DialogItem = (props) => {
 
-	let path = '/dialog/' + props.id;
+	let path = '/dialogs/' + props.id;
 
 	return (
 		<div className={classes.dialog}>

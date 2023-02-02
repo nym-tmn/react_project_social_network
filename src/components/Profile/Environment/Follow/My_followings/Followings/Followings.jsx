@@ -7,7 +7,7 @@ import classes from './Followings.module.css';
 const Followings = (props) => {
 
 	let followingsElements = props.followings.followingsData
-		.map(following => <Following iconFollowing={following.iconFollowing} name={following.name} />)
+		.map(following => <Following id={following.id} iconFollowing={following.iconFollowing} name={following.name} />)
 
 	return (
 		<div className={classes.items}>
