@@ -3,13 +3,18 @@
 	justify-self: center;
 	align-self: end;
 	display: grid;
-	grid-template-columns: 1fr 70px;
+	grid-template-columns: 1fr 90px;
 	grid-gap: 5px;
 }
 
 .enterMessage {
 	border-radius: 8px;
 	border: 2px solid rgba(18, 49, 70, 0.507);
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.482);
+	outline: none;
+	resize: none;
 }
 
 .send {
@@ -18,4 +23,11 @@
 	border: 2px solid rgba(130, 158, 127, 0.3);
 	color: rgb(85, 119, 72);
 	font-weight: 600;
+	cursor: pointer;
+}
+
+.send:active {
+	width: 89px;
+	height: 83px;
+	border: 2px solid rgb(91, 119, 88);
 }

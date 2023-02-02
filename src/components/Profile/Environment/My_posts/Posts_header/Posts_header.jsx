@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './../Posts_header/Posts_header.module.css';
 
-const Header = () => {
+const Header = (props) => {
 	return (
 			<div className={classes.title}>My posts</div>
 	);
