@@ -1,5 +1,7 @@
 
-import { rerenderEntireTree } from '../../render';
+let rerenderEntireTree = () => {
+	console.log('State changed');
+};
 
 let state = {
 
@@ -81,9 +83,11 @@ let state = {
 
 };
 
+// window.state = state;
+
 // ------------------Functions for add posts -----------------------
 
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		id: 4,
 		postIconAvatar: require('./../images/icon_avatar.png'),
@@ -98,7 +102,7 @@ export let addPost = () => {
 	rerenderEntireTree(state);
 };
 
-export let updatePostText = (postText) => {
+export const updatePostText = (postText) => {
 	state.profilePage.newPostText = postText;
 
 	rerenderEntireTree(state);
@@ -108,7 +112,7 @@ export let updatePostText = (postText) => {
 
 // ------------------Functions for add messages -----------------------
 
-export let addMessage = () => {
+export const addMessage = () => {
 	let newMessageFromMe = {
 		id: 4,
 		messageText: state.dialogsPage.newMessageFromMe,
@@ -120,12 +124,20 @@ export let addMessage = () => {
 	rerenderEntireTree(state);
 };
 
-export let updateMessageText = (messageText) => {
+export const updateMessageText = (messageText) => {
 	state.dialogsPage.newMessageFromMe = messageText;
 
 	rerenderEntireTree(state);
 };
 
 /* -------------------------------------------------------------- */
+
+// ------------------Function callback for call rerenderEntireTree here without import rerenderEntireTree-----------------------
+
+export const subscribe = (observer) => {
+	rerenderEntireTree = observer;
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
 
 export default state;

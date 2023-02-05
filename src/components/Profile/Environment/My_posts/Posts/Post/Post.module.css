@@ -23,6 +23,7 @@
 
 .Text {
 	grid-area: user-environment-my-posts-post-post1-text;
+	word-break: break-word;
 }
 
 .Image {

@@ -2,6 +2,7 @@
 	justify-self: end;
 	text-align: right;
 	padding: 0px 0px 0px 120px;
+	word-break: break-word;
 }
 
 .message {
