@@ -42,7 +42,9 @@ const App = (props) => {
 								<Dialogs
 									dialogItem={props.state.dialogsPage}
 									messageToMe={props.state.dialogsPage}
-									messageFromMe={props.state.dialogsPage} />} />
+									messageFromMe={props.state.dialogsPage}
+									addMessage={props.addMessage}
+									updateMessageText={props.updateMessageText} />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />

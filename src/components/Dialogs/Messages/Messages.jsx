@@ -22,7 +22,10 @@ const Messages = (props) => {
 			<div className={classes.messagesFromMe}>
 				{messagesFromMeElements}
 			</div>
-			<SendMessages />
+			<SendMessages
+				newMessageFromMe={props.messageFromMe.newMessageFromMe}
+				addMessage={props.addMessage}
+				updateMessageText={props.updateMessageText} />
 		</div>
 	);
 }

@@ -3,7 +3,7 @@
 	grid-template-areas: 'user-environment-my-posts-post-post1-icon-avatar user-environment-my-posts-post-post1-user-name likes'
 								'user-environment-my-posts-post-post1-text user-environment-my-posts-post-post1-text user-environment-my-posts-post-post1-text'
 								'user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image';
-	grid-template-rows: 40px 1fr 500px;
+	grid-template-rows: 40px 1fr auto;
 	grid-template-columns: 40px 1fr auto;
 	grid-gap: 15px;
 	background-color: rgba(182, 178, 197, 0.3);

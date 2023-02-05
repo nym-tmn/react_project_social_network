@@ -14,7 +14,11 @@ const Dialogs = (props) => {
 	return (
 		<div className={classes.dialogs}>
 			<Title title='Messages' />
-			<Messages messageToMe={props.messageToMe} messageFromMe={props.messageFromMe} />
+			<Messages
+				messageToMe={props.messageToMe}
+				messageFromMe={props.messageFromMe}
+				addMessage={props.addMessage}
+				updateMessageText={props.updateMessageText} />
 			<div className={classes.dialogItem}>
 				{dialogItemElements}
 			</div>

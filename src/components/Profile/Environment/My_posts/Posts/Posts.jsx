@@ -9,7 +9,8 @@ const Posts = (props) => {
 		.map(post => <Post
 			postIconAvatar={post.postIconAvatar}
 			postUserName={post.postUserName}
-			postText={post.postText} postImage={post.postImage}
+			postText={post.postText}
+			postImage={post.postImage}
 			likesCounter={post.likesCounter}
 		/>);
 
