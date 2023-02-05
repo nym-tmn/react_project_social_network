@@ -10,7 +10,7 @@ const MyPosts = (props) => {
 	return (
 		<div className={classes.myPosts}>
 			<Header />
-			<EnterPosts />
+			<EnterPosts addPost={props.addPost} newPostText={props.posts.newPostText} updatePostText={props.updatePostText} />
 			<Posts posts={props.posts} />
 		</div>
 	);

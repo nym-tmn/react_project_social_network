@@ -1,4 +1,6 @@
 
+import { rerenderEntireTree } from '../../render';
+
 let state = {
 
 	profilePage: {
@@ -28,13 +30,14 @@ let state = {
 				likesCounter: '392'
 			},
 		],
+		newPostText: 'new text',
 		followersData: [
-			{id: 1, iconFollower: require('./../images/followers/icon_follower_1.png'), name: 'name_1'},
-			{id: 2, iconFollower: require('./../images/followers/icon_follower_2.png'), name: 'name_2'},
-			{id: 3, iconFollower: require('./../images/followers/icon_follower_3.png'), name: 'name_3'},
-			{id: 4, iconFollower: require('./../images/followers/icon_follower_4.png'), name: 'name_4'},
-			{id: 5, iconFollower: require('./../images/followers/icon_follower_5.png'), name: 'name_5'},
-			{id: 6, iconFollower: require('./../images/followers/icon_follower_6.png'), name: 'name_6'},
+			{ id: 1, iconFollower: require('./../images/followers/icon_follower_1.png'), name: 'name_1' },
+			{ id: 2, iconFollower: require('./../images/followers/icon_follower_2.png'), name: 'name_2' },
+			{ id: 3, iconFollower: require('./../images/followers/icon_follower_3.png'), name: 'name_3' },
+			{ id: 4, iconFollower: require('./../images/followers/icon_follower_4.png'), name: 'name_4' },
+			{ id: 5, iconFollower: require('./../images/followers/icon_follower_5.png'), name: 'name_5' },
+			{ id: 6, iconFollower: require('./../images/followers/icon_follower_6.png'), name: 'name_6' },
 		],
 		followingsData: [
 			{ id: 1, iconFollowing: require('./../images/followings/icon_following_1.png'), name: 'name_1' },
@@ -75,6 +78,26 @@ let state = {
 		],
 	},
 
+};
+
+export let addPost = () => {
+	let newPost = {
+		id: 4,
+		postUserName: 'John Smith',
+		postText: state.profilePage.newPostText,
+		likesCounter: '0',
+	};
+
+	state.profilePage.postsData.push(newPost);
+	state.profilePage.newPostText = '';
+
+	rerenderEntireTree(state);
+};
+
+export let updatePostText = (postText) => {
+	state.profilePage.newPostText = postText;
+
+	rerenderEntireTree(state);
 };
 
 export default state;

@@ -30,15 +30,19 @@ const App = (props) => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/profile' element={<Profile
-								posts={props.state.profilePage}
-								followers={props.state.profilePage}
-								followings={props.state.profilePage}
-								projects={props.state.profilePage}/>} />
-							<Route path='/dialogs' element={<Dialogs
-								dialogItem={props.state.dialogsPage}
-								messageToMe={props.state.dialogsPage}
-								messageFromMe={props.state.dialogsPage} />} />
+							<Route path='/profile' element={
+								<Profile
+									posts={props.state.profilePage}
+									addPost={props.addPost}
+									updatePostText={props.updatePostText}
+									followers={props.state.profilePage}
+									followings={props.state.profilePage}
+									projects={props.state.profilePage} />} />
+							<Route path='/dialogs' element={
+								<Dialogs
+									dialogItem={props.state.dialogsPage}
+									messageToMe={props.state.dialogsPage}
+									messageFromMe={props.state.dialogsPage} />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />
