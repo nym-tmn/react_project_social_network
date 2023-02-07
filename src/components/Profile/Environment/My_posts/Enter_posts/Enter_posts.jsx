@@ -9,12 +9,12 @@ const EnterPosts = (props) => {
 
 	let addPost = () => {
 		props.addPost();
-	}
+	};
 
 	let postTextChange = () => {
 		let postText = newPostElement.current.value;
 		props.updatePostText(postText);
-	}
+	};
 
 	return (
 		<div className={classes.enterPosts}>
