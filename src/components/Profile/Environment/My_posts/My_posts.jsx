@@ -11,9 +11,10 @@ const MyPosts = (props) => {
 		<div className={classes.myPosts}>
 			<Header />
 			<EnterPosts
-				addPost={props.addPost}
+				// addPost={props.addPost}
 				newPostText={props.posts.newPostText}
-				updatePostText={props.updatePostText} />
+				// updatePostText={props.updatePostText}
+				dispatch={props.dispatch} />
 			<Posts posts={props.posts} />
 		</div>
 	);

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { addPostActionCreator, updatePostTextActionCreator } from '../../../../redux/state';
 
 import classes from './../Enter_posts/Enter_posts.module.css';
 
@@ -8,12 +9,12 @@ const EnterPosts = (props) => {
 	let newPostElement = React.createRef();
 
 	let addPost = () => {
-		props.addPost();
+		props.dispatch(addPostActionCreator());
 	};
 
 	let postTextChange = () => {
 		let postText = newPostElement.current.value;
-		props.updatePostText(postText);
+		props.dispatch(updatePostTextActionCreator(postText));
 	};
 
 	return (

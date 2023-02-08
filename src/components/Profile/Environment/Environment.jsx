@@ -12,8 +12,9 @@ const Environment = (props) => {
 		<div className={classes.environment}>
 			<MyPosts
 				posts={props.posts}
-				addPost={props.addPost}
-				updatePostText={props.updatePostText} />
+				// addPost={props.addPost}
+				// updatePostText={props.updatePostText}
+				dispatch={props.dispatch} />
 			<MyProjects projects={props.projects} />
 			<Follow
 				followers={props.followers}

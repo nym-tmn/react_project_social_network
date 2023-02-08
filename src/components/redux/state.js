@@ -1,11 +1,12 @@
 
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+
 let store = {
 
-	_callSubscriber() {
-		console.log('State changed');
-	},
-
-	_state: {	
+	_state: {
 
 		profilePage: {
 			postsData: [
@@ -34,7 +35,7 @@ let store = {
 					likesCounter: '392'
 				},
 			],
-			newPostText: '',
+			newPostText: 'new post',
 			followersData: [
 				{ id: 1, iconFollower: require('./../images/followers/icon_follower_1.png'), name: 'name_1' },
 				{ id: 2, iconFollower: require('./../images/followers/icon_follower_2.png'), name: 'name_2' },
@@ -72,7 +73,7 @@ let store = {
 				{ id: 2, messageText: 'I am fine!' },
 				{ id: 3, messageText: 'I am going for a walk. Are you with me? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, sequi maxime adipisci incidunt cumque ratione corporis recusandae, iure nihil quasi optio nobis autem maiores atque reiciendis. Debitis ut, voluptate neque dolor laborum est distinctio assumenda eum, quaerat nesciunt repellendus expedita provident culpa vero veniam repellat. Magnam quo vitae reiciendis dignissimos.' },
 			],
-			newMessageFromMe: '',
+			newMessageFromMe: 'new message',
 			dialogItemData: [
 				{ id: 1, name: 'Robert_lastName', avatar: require('./../images/dialog_avatar.png') },
 				{ id: 2, name: 'Sophia_lastName', avatar: require('./../images/dialog_avatar.png') },
@@ -84,55 +85,55 @@ let store = {
 		},
 
 	},
+	_callSubscriber() {
+		console.log('State changed');
+	},
 
 	getState() {
 		return this._state;
 	},
-
 	subscribe(observer) {
 		this._callSubscriber = observer;
 	},
 
-	setAddPost() {
-		let newPost = {
-			id: 4,
-			postIconAvatar: require('./../images/icon_avatar.png'),
-			postUserName: 'John Smith',
-			postText: this._state.profilePage.newPostText,
-			likesCounter: '0',
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
+			let newPost = {
+				id: 4,
+				postIconAvatar: require('./../images/icon_avatar.png'),
+				postUserName: 'John Smith',
+				postText: this._state.profilePage.newPostText,
+				likesCounter: '0',
+			};
+			this._state.profilePage.postsData.unshift(newPost);
+			this._state.profilePage.newPostText = '';
+			this._callSubscriber(this._state);
+		} else if (action.type === 'UPDATE-POST-TEXT') {
+			this._state.profilePage.newPostText = action.newPostText;
+			this._callSubscriber(this._state);
+		} else if (action.type === 'ADD-MESSAGE') {
+			let newMessageFromMe = {
+				id: 4,
+				messageText: this._state.dialogsPage.newMessageFromMe,
+			};
+			this._state.dialogsPage.messagesFromMeData.push(newMessageFromMe);
+			this._state.dialogsPage.newMessageFromMe = '';
+			this._callSubscriber(this._state);
+		} else if (action.type === 'UPDATE-MESSAGE-TEXT') {
+			this._state.dialogsPage.newMessageFromMe = action.newMessageFromMe;
+			this._callSubscriber(this._state);
 		};
-
-		this._state.profilePage.postsData.unshift(newPost);
-		this._state.profilePage.newPostText = '';
-
-		this._callSubscriber(this._state);
-	},
-
-	setUpdatePostText(postText) {
-		this._state.profilePage.newPostText = postText;
-
-		this._callSubscriber(this._state);
-	},
-
-	setAddMessage() {
-		let newMessageFromMe = {
-			id: 4,
-			messageText: this._state.dialogsPage.newMessageFromMe,
-		};
-
-		this._state.dialogsPage.messagesFromMeData.push(newMessageFromMe);
-		this._state.dialogsPage.newMessageFromMe = '';
-
-		this._callSubscriber(this._state);
-	},
-
-	setUpdateMessageText(messageText) {
-		this._state.dialogsPage.newMessageFromMe = messageText;
-
-		this._callSubscriber(this._state);
 	},
 
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const updatePostTextActionCreator = (postText) => ({ type: UPDATE_POST_TEXT, newPostText: postText });
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+
+export const updateMessageTextActionCreator = (messageText) => ({ type: UPDATE_MESSAGE_TEXT, newMessageFromMe: messageText });
 
 window.store = store;
 

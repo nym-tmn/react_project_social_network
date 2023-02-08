@@ -33,8 +33,7 @@ const App = (props) => {
 							<Route path='/profile' element={
 								<Profile
 									posts={props.state.profilePage}
-									addPost={props.addPost}
-									updatePostText={props.updatePostText}
+									dispatch={props.dispatch}
 									followers={props.state.profilePage}
 									followings={props.state.profilePage}
 									projects={props.state.profilePage} />} />
@@ -43,8 +42,7 @@ const App = (props) => {
 									dialogItem={props.state.dialogsPage}
 									messageToMe={props.state.dialogsPage}
 									messageFromMe={props.state.dialogsPage}
-									addMessage={props.addMessage}
-									updateMessageText={props.updateMessageText} />} />
+									dispatch={props.dispatch} />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />
