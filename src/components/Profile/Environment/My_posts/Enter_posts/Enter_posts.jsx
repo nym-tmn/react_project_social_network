@@ -1,20 +1,20 @@
 
 import React from 'react';
-import { addPostActionCreator, updatePostTextActionCreator } from '../../../../redux/state';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
 
 import classes from './../Enter_posts/Enter_posts.module.css';
 
 const EnterPosts = (props) => {
 
-	let newPostElement = React.createRef();
+	let newPostText = props.newPostText;
 
-	let addPost = () => {
+	let onAddPostClick = () => {
 		props.dispatch(addPostActionCreator());
 	};
 
-	let postTextChange = () => {
-		let postText = newPostElement.current.value;
-		props.dispatch(updatePostTextActionCreator(postText));
+	let onNewPostChange = (event) => {
+		let postText = event.target.value;
+		props.dispatch(updateNewPostTextActionCreator(postText));
 	};
 
 	return (
@@ -22,8 +22,12 @@ const EnterPosts = (props) => {
 			<div className={`${classes.iconAvatar} ${classes.iconAvatar}`}>
 				<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
 			</div>
-			<textarea ref={newPostElement} onChange={postTextChange} value={props.newPostText} className={classes.whatIsNew} placeholder="What's new?" cols="50" rows="4" />
-			<button onClick={addPost} className={classes.buttonSend}>Send</button>
+			<textarea
+				onChange={onNewPostChange}
+				value={newPostText}
+				className={classes.whatIsNew}
+				placeholder="What's new?" cols="50" rows="4" />
+			<button onClick={onAddPostClick} className={classes.buttonSend}>Send</button>
 		</div>
 	);
 };

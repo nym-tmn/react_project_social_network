@@ -1,26 +1,31 @@
 
 import React from 'react';
-import { addMessageActionCreator, updateMessageTextActionCreator } from '../../../redux/state';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialogs_page_reducer';
 
 import classes from './Send_messages.module.css';
 
 const SendMessages = (props) => {
 
-	let newMessageElement = React.createRef();
+	let newMessageFromMe = props.newMessageFromMe;
 
-	let addMessage = () => {
-		props.dispatch(addMessageActionCreator());
+	let onSendMessageClick = () => {
+		props.dispatch(sendMessageActionCreator());
 	};
 
-	let messageTextChange = () => {
-		let messageText = newMessageElement.current.value;
-		props.dispatch(updateMessageTextActionCreator(messageText));
+	let onNewMessageChange = (event) => {
+		let messageText = event.target.value;
+		props.dispatch(updateNewMessageTextActionCreator(messageText));
 	};
 
 	return (
 		<div className={classes.sendMessages}>
-			<textarea ref={newMessageElement} onChange={messageTextChange} value={props.newMessageFromMe} className={classes.enterMessage} placeholder='Enter message...' cols="48" rows="4" />
-			<button onClick={addMessage} className={classes.send}>Send</button>
+			<textarea
+				onChange={onNewMessageChange}
+				value={newMessageFromMe}
+				className={classes.enterMessage}
+				placeholder='Enter message...'
+				cols="48" rows="4" />
+			<button onClick={onSendMessageClick} className={classes.send}>Send</button>
 		</div>
 	);
 }

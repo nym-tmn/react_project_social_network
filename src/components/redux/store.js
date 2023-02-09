@@ -1,8 +1,6 @@
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+import profileReducer from './profile_page_reducer';
+import dialogsReducer from './dialogs_page_reducer';
 
 let store = {
 
@@ -97,43 +95,14 @@ let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
-			let newPost = {
-				id: 4,
-				postIconAvatar: require('./../images/icon_avatar.png'),
-				postUserName: 'John Smith',
-				postText: this._state.profilePage.newPostText,
-				likesCounter: '0',
-			};
-			this._state.profilePage.postsData.unshift(newPost);
-			this._state.profilePage.newPostText = '';
-			this._callSubscriber(this._state);
-		} else if (action.type === 'UPDATE-POST-TEXT') {
-			this._state.profilePage.newPostText = action.newPostText;
-			this._callSubscriber(this._state);
-		} else if (action.type === 'ADD-MESSAGE') {
-			let newMessageFromMe = {
-				id: 4,
-				messageText: this._state.dialogsPage.newMessageFromMe,
-			};
-			this._state.dialogsPage.messagesFromMeData.push(newMessageFromMe);
-			this._state.dialogsPage.newMessageFromMe = '';
-			this._callSubscriber(this._state);
-		} else if (action.type === 'UPDATE-MESSAGE-TEXT') {
-			this._state.dialogsPage.newMessageFromMe = action.newMessageFromMe;
-			this._callSubscriber(this._state);
-		};
+
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+		this._callSubscriber(this._state);
+
 	},
 
 };
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updatePostTextActionCreator = (postText) => ({ type: UPDATE_POST_TEXT, newPostText: postText });
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
-
-export const updateMessageTextActionCreator = (messageText) => ({ type: UPDATE_MESSAGE_TEXT, newMessageFromMe: messageText });
 
 window.store = store;
 
