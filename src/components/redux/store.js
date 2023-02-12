@@ -1,8 +1,8 @@
 
-import profileReducer from './profile_page_reducer';
-import dialogsReducer from './dialogs_page_reducer';
+// import profileReducer from './profile_page_reducer';
+// import dialogsReducer from './dialogs_page_reducer';
 
-let store = {
+/* let store = {
 
 	_state: {
 
@@ -103,7 +103,7 @@ let store = {
 	},
 
 };
-
+ */
 window.store = store;
 
-export default store;
+// export default store;
