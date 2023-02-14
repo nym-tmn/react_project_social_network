@@ -32,8 +32,9 @@ const App = (props) => {
 							<Route path='/settings' element={<Settings />} />
 							<Route path='/profile' element={
 								<Profile
-									posts={props.state.profilePage}
-									dispatch={props.dispatch}
+									store={props.store}
+									// posts={props.state.profilePage}
+									// dispatch={props.dispatch}
 									followers={props.state.profilePage}
 									followings={props.state.profilePage}
 									projects={props.state.profilePage} />} />

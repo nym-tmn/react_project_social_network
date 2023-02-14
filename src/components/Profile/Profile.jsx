@@ -8,10 +8,9 @@ const Profile = (props) => {
 		<div>
 			<User />
 			<Environment
-				posts={props.posts}
-				// addPost={props.addPost}
-				// updatePostText={props.updatePostText}
-				dispatch={props.dispatch}
+				store={props.store}
+				// posts={props.posts}
+				// dispatch={props.dispatch}
 				followers={props.followers}
 				followings={props.followings}
 				projects={props.projects} />

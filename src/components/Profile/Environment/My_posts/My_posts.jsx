@@ -1,21 +1,18 @@
 
 import React from 'react';
 import Header from './Posts_header/Posts_header';
-import EnterPosts from './Enter_posts/Enter_posts';
-import Posts from './Posts/Posts';
+import EnterPostsContainer from './Enter_posts/Enter_posts_container';
+import PostsContainer from './Posts/Posts_container';
 
 import classes from './../My_posts/My_posts.module.css';
+
 
 const MyPosts = (props) => {
 	return (
 		<div className={classes.myPosts}>
 			<Header />
-			<EnterPosts
-				// addPost={props.addPost}
-				newPostText={props.posts.newPostText}
-				// updatePostText={props.updatePostText}
-				dispatch={props.dispatch} />
-			<Posts posts={props.posts} />
+			<EnterPostsContainer store={props.store} />
+			<PostsContainer store={props.store} />
 		</div>
 	);
 };

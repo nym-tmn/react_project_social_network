@@ -1,20 +1,17 @@
 
 import React from 'react';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
 
 import classes from './../Enter_posts/Enter_posts.module.css';
 
 const EnterPosts = (props) => {
 
-	let newPostText = props.newPostText;
-
 	let onAddPostClick = () => {
-		props.dispatch(addPostActionCreator());
+		props.addPost();
 	};
 
 	let onNewPostChange = (event) => {
 		let postText = event.target.value;
-		props.dispatch(updateNewPostTextActionCreator(postText));
+		props.updateNewPostText(postText);
 	};
 
 	return (
@@ -24,7 +21,7 @@ const EnterPosts = (props) => {
 			</div>
 			<textarea
 				onChange={onNewPostChange}
-				value={newPostText}
+				value={props.newPostText}
 				className={classes.whatIsNew}
 				placeholder="What's new?" cols="50" rows="4" />
 			<button onClick={onAddPostClick} className={classes.buttonSend}>Send</button>
