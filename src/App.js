@@ -10,13 +10,13 @@ import News from './components/Header/News/News';
 import Settings from './components/Header/Settings/Settings';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
-// import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/Dialogs_container';
 import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
 import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
 import Footer from './components/Footer/Footer';
-import DialogsContainer from './components/Dialogs/Dialogs_container';
+
 
 const App = (props) => {
 	return (
@@ -32,14 +32,9 @@ const App = (props) => {
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
 							<Route path='/profile' element={
-								<Profile
-									store={props.store}
-									followers={props.state.profilePage}
-									followings={props.state.profilePage}
-									projects={props.state.profilePage} />} />
+								<Profile store={props.store} />} />
 							<Route path='/dialogs' element={
-								<DialogsContainer
-									store={props.store} />} />
+								<DialogsContainer store={props.store} />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />

@@ -6,7 +6,7 @@ import classes from './../Projects/Projects.module.css';
 
 const Projects = (props) => {
 
-	let projectsElements = props.projects.projectsData
+	let projectsElements = props.projects
 		.map(project => <Project id={project.id} iconProject={project.iconProject} nameProject={project.nameProject} />)
 
 	return (

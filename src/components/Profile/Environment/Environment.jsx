@@ -10,14 +10,9 @@ import classes from './Environment.module.css';
 const Environment = (props) => {
 	return (
 		<div className={classes.environment}>
-			<MyPosts
-				store={props.store}
-				// posts={props.posts}
-				/* dispatch={props.dispatch} */ />
-			<MyProjects projects={props.projects} />
-			<Follow
-				followers={props.followers}
-				followings={props.followings} />
+			<MyPosts store={props.store} />
+			<MyProjects store={props.store} />
+			<Follow store={props.store} />
 			<EmptyBlock />
 		</div>
 	);

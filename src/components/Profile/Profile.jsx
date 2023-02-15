@@ -8,12 +8,7 @@ const Profile = (props) => {
 		<div>
 			<User />
 			<Environment
-				store={props.store}
-				// posts={props.posts}
-				// dispatch={props.dispatch}
-				followers={props.followers}
-				followings={props.followings}
-				projects={props.projects} />
+				store={props.store} />
 		</div>
 	);
 };
