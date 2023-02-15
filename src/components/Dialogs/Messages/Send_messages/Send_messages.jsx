@@ -1,27 +1,24 @@
 
 import React from 'react';
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialogs_page_reducer';
 
 import classes from './Send_messages.module.css';
 
 const SendMessages = (props) => {
 
-	let newMessageFromMe = props.newMessageFromMe;
-
 	let onSendMessageClick = () => {
-		props.dispatch(sendMessageActionCreator());
+		props.sendMessage();
 	};
 
 	let onNewMessageChange = (event) => {
 		let messageText = event.target.value;
-		props.dispatch(updateNewMessageTextActionCreator(messageText));
+		props.updateNewMessageText(messageText)
 	};
 
 	return (
 		<div className={classes.sendMessages}>
 			<textarea
 				onChange={onNewMessageChange}
-				value={newMessageFromMe}
+				value={props.newMessageFromMe}
 				className={classes.enterMessage}
 				placeholder='Enter message...'
 				cols="48" rows="4" />
