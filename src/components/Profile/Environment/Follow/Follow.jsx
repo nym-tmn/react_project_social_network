@@ -5,11 +5,11 @@ import MyFollowings from './My_followings/My_followings';
 
 import classes from './../Follow/Follow.module.css';
 
-const Follow = (props) => {
+const Follow = (/* props */) => {
 	return (
 		<div className={classes.follow}>
-			<MyFollowers store={props.store} />
-			<MyFollowings store={props.store} />
+			<MyFollowers /* store={props.store} */ />
+			<MyFollowings /* store={props.store} */ />
 		</div>
 	);
 };

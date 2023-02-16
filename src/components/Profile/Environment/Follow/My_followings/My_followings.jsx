@@ -5,11 +5,11 @@ import FollowingsContainer from './Followings/Followings_container';
 
 import classes from './../My_followings/My_followings.module.css';
 
-const MyFollowings = (props) => {
+const MyFollowings = (/* props */) => {
 	return (
 		<div className={classes.followings}>
 			<Header />
-			<FollowingsContainer store={props.store} />
+			<FollowingsContainer /* store={props.store} */ />
 		</div>
 	);
 };

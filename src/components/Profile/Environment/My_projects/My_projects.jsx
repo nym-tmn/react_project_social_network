@@ -6,11 +6,11 @@ import ProjectsContainer from './Projects/Projects_container';
 
 import classes from './../My_projects/My_projects.module.css';
 
-const MyProjects = (props) => {
+const MyProjects = (/* props */) => {
 	return (
 		<div className={classes.myProjects}>
 			<Header />
-			<ProjectsContainer store={props.store} />
+			<ProjectsContainer /* store={props.store} */ />
 		</div>
 	);
 };

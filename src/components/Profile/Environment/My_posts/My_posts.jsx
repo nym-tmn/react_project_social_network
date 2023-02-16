@@ -6,11 +6,11 @@ import PostsContainer from './Posts/Posts_container';
 import classes from './../My_posts/My_posts.module.css';
 
 
-const MyPosts = (props) => {
+const MyPosts = (/* props */) => {
 	return (
 		<div className={classes.myPosts}>
 			<Header />
-			<PostsContainer store={props.store} />
+			<PostsContainer /* store={props.store} */ />
 		</div>
 	);
 };
