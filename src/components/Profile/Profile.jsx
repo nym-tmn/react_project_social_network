@@ -3,12 +3,11 @@ import React from 'react';
 import User from './User/User';
 import Environment from './Environment/Environment';
 
-const Profile = (/* props */) => {
+const Profile = () => {
 	return (
 		<div>
 			<User />
-			<Environment
-				/* store={props.store} */ />
+			<Environment />
 		</div>
 	);
 };

@@ -8,14 +8,14 @@ import classes from './Dialogs.module.css';
 
 const Dialogs = (props) => {
 
-	let dialogItemElements = props.dialogs.dialogItemData
-		.map((dialog) => <DialogItem id={dialog.id} name={dialog.name} avatar={dialog.avatar} />);
+	let dialogItemElements = props.dialogsPage.dialogItemData
+		.map((dialog) => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name} avatar={dialog.avatar} />);
 
 	return (
 		<div className={classes.dialogs}>
 			<Title title='Messages' />
 			<Messages
-				dialogs={props.dialogs}
+				messages={props.dialogsPage}
 				updateNewMessageText={props.updateNewMessageText}
 				sendMessage={props.sendMessage} />
 			<div className={classes.dialogItem}>

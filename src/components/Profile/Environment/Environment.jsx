@@ -7,12 +7,12 @@ import EmptyBlock from './Empty_block/Empty_block';
 
 import classes from './Environment.module.css';
 
-const Environment = (/* props */) => {
+const Environment = () => {
 	return (
 		<div className={classes.environment}>
-			<MyPosts /* store={props.store} */ />
-			<MyProjects /* store={props.store} */ />
-			<Follow /* store={props.store} */ />
+			<MyPosts />
+			<MyProjects />
+			<Follow />
 			<EmptyBlock />
 		</div>
 	);

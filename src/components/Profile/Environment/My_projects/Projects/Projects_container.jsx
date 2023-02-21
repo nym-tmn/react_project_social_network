@@ -1,24 +1,15 @@
 
-import React from 'react';
-import StoreContext from '../../../../../Store_context';
 import Projects from './Projects';
+import { connect } from 'react-redux';
 
-const ProjectsContainer = (/* props */) => {
+let mapStateToProps = (state) => {
 
-	// let state = props.store.getState();
-
-	return (
-		<StoreContext.Consumer>
-			{
-				(store) => {
-					let state = store.getState();
-					return (
-						<Projects projects={state.profilePage.projectsData} />
-					);
-				}
-			}
-		</StoreContext.Consumer>
-	);
+	return {
+		projectsData: state.profilePage.projectsData
+	}
 };
 
+const ProjectsContainer = connect(mapStateToProps)(Projects);
+
 export default ProjectsContainer;
+

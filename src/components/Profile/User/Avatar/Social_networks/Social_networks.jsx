@@ -6,7 +6,7 @@ import Facebook from './Facebook/Facebook';
 
 import classes from './../Social_networks/Social_networks.module.css';
 
-const SocialNetworks = (props) => {
+const SocialNetworks = () => {
 	return (
 			<div className={classes.socialNetworks}>
 			<Instagram/>

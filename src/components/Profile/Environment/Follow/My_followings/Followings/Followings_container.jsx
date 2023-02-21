@@ -1,25 +1,13 @@
 
-import React from 'react';
-import StoreContext from '../../../../../../Store_context';
 import Followings from './Followings';
+import { connect } from 'react-redux';
 
-const FollowingsContainer = (/* props */) => {
-
-	// let state = props.store.getState();
-
-	return (
-		<StoreContext.Consumer>
-			{
-				(store) => {
-					let state = store.getState();
-					return (
-						<Followings followings={state.profilePage.followingsData} />
-					);
-				}
-			}
-		</StoreContext.Consumer>
-
-	);
+let mapStateToProps = (state) => {
+	return {
+		followingsData: state.profilePage.followingsData,
+	}
 };
+
+const FollowingsContainer =  connect(mapStateToProps)(Followings);
 
 export default FollowingsContainer;

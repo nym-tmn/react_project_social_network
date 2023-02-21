@@ -6,11 +6,11 @@ import FollowersContainer from './Followers/Followers_container';
 import classes from './../My_followers/My_followers.module.css';
 
 
-const MyFollowers = (/* props */) => {
+const MyFollowers = () => {
 	return (
 		<div className={classes.followers}>
 			<Header />
-			<FollowersContainer /* store={props.store} */ />
+			<FollowersContainer />
 		</div>
 	);
 };

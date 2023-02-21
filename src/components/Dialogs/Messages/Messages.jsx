@@ -8,11 +8,11 @@ import classes from './Messages.module.css';
 
 const Messages = (props) => {
 
-	let messagesToMeElements = props.dialogs.messagesToMeData
-		.map(message => <MessageToMe message={message.messageText} />);
+	let messagesToMeElements = props.messages.messagesToMeData
+		.map(message => <MessageToMe key={message.id} message={message.messageText} />);
 
-	let messagesFromMeElements = props.dialogs.messagesFromMeData
-		.map(message => <MessageFromMe message={message.messageText} />);
+	let messagesFromMeElements = props.messages.messagesFromMeData
+		.map(message => <MessageFromMe key={message.id} message={message.messageText} />);
 
 	return (
 		<div className={classes.messages}>
@@ -23,7 +23,7 @@ const Messages = (props) => {
 				{messagesFromMeElements}
 			</div>
 			<SendMessages
-				newMessageFromMe={props.dialogs.newMessageFromMe}
+				newMessageText={props.messages.newMessageText}
 				updateNewMessageText={props.updateNewMessageText}
 				sendMessage={props.sendMessage} />
 		</div>

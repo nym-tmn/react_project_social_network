@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './Footer.module.css';
 
-const Footer = (props) => {
+const Footer = () => {
 	return (
 		<footer className={classes.footer}>
 				<div className={classes.copy}>

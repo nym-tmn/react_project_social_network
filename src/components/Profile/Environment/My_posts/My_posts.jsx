@@ -1,16 +1,17 @@
 
 import React from 'react';
 import Header from './Posts_header/Posts_header';
+import EnterPostsContainer from './Posts/Enter_posts_container';
 import PostsContainer from './Posts/Posts_container';
 
 import classes from './../My_posts/My_posts.module.css';
 
-
-const MyPosts = (/* props */) => {
+const MyPosts = () => {
 	return (
 		<div className={classes.myPosts}>
 			<Header />
-			<PostsContainer /* store={props.store} */ />
+			<EnterPostsContainer />
+			<PostsContainer />
 		</div>
 	);
 };

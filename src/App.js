@@ -18,7 +18,7 @@ import Comunities from './components/Comunities/Comunities';
 import Footer from './components/Footer/Footer';
 
 
-const App = (/* props */) => {
+const App = () => {
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
@@ -31,10 +31,8 @@ const App = (/* props */) => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/profile' element={
-								<Profile /* store={props.store} */ />} />
-							<Route path='/dialogs' element={
-								<DialogsContainer /* store={props.store} */ />} />
+							<Route path='/profile' element={<Profile />} />
+							<Route path='/dialogs' element={<DialogsContainer />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />

@@ -6,8 +6,8 @@ import classes from './Followers.module.css';
 
 const Followers = (props) => {
 
-	let followersElements = props.followers
-		.map(follower => <Follower id={follower.id} iconFollower={follower.iconFollower} name={follower.name} />)
+	let followersElements = props.followersData
+		.map(follower => <Follower key={follower.id} id={follower.id} iconFollower={follower.iconFollower} name={follower.name} />)
 
 	return (
 		<div className={classes.items}>

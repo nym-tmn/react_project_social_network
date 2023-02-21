@@ -6,6 +6,7 @@ import classes from './Send_messages.module.css';
 const SendMessages = (props) => {
 
 	let onSendMessageClick = () => {
+		debugger;
 		props.sendMessage();
 	};
 
@@ -18,7 +19,7 @@ const SendMessages = (props) => {
 		<div className={classes.sendMessages}>
 			<textarea
 				onChange={onNewMessageChange}
-				value={props.newMessageFromMe}
+				value={props.newMessageText}
 				className={classes.enterMessage}
 				placeholder='Enter message...'
 				cols="48" rows="4" />

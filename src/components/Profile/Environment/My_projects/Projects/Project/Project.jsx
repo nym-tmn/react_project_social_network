@@ -6,7 +6,7 @@ import classes from './Project.module.css';
 
 const Project = (props) => {
 
-	let path = '/profile/projects' + props.id;
+	let path = '/profile/project' + props.id;
 
 	return (
 		<div className={classes.item}>

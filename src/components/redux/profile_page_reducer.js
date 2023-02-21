@@ -60,7 +60,8 @@ const profileReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 
-		case 'ADD-POST':
+		case 'ADD-POST': 
+
 			let newPost = {
 				id: 4,
 				postIconAvatar: require('./../images/icon_avatar.png'),
@@ -68,12 +69,20 @@ const profileReducer = (state = initialState, action) => {
 				postText: state.newPostText,
 				likesCounter: '0',
 			};
-			state.postsData.unshift(newPost);
-			state.newPostText = '';
-			return state;
-		case 'UPDATE-NEW-POST-TEXT':
-			state.newPostText = action.newPostText;
-			return state;
+
+			return {
+				...state,
+				postsData: [newPost, ...state.postsData],
+				newPostText: '',
+			};
+
+		case 'UPDATE-NEW-POST-TEXT': 
+
+			return {
+				...state,
+				newPostText: action.newPostText,
+			};
+
 		default:
 			return state;
 

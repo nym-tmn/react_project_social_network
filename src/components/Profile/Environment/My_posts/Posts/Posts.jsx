@@ -6,8 +6,9 @@ import classes from './Posts.module.css';
 
 const Posts = (props) => {
 
-	let postsElements = props.posts
+	let postsElements = props.postsData
 		.map(post => <Post
+			key={post.id}
 			postIconAvatar={post.postIconAvatar}
 			postUserName={post.postUserName}
 			postText={post.postText}

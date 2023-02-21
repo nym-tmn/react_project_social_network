@@ -21,7 +21,7 @@ const EnterPosts = (props) => {
 			</div>
 			<textarea
 				onChange={onNewPostChange}
-				value={props.newPostText}
+				value={props.profilePage}
 				className={classes.whatIsNew}
 				placeholder="What's new?" cols="50" rows="4" />
 			<button onClick={onAddPostClick} className={classes.buttonSend}>Send</button>
