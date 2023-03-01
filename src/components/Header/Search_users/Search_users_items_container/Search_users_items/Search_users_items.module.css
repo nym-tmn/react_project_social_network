@@ -1,0 +1,70 @@
+.usersItems {
+	grid-area: usersItems;
+	display: grid;
+	grid-gap: 5px;
+	margin: 20px 0px 20px 0px;
+	grid-template-columns: 500px;
+	justify-content: center;
+}
+
+.userItem {
+	display: grid;
+	grid-template-areas: 'avatar userInfo'
+		'button userInfo';
+	grid-template-rows: 94px minmax(auto, auto);
+	grid-template-columns: 94px 1fr;
+	grid-gap: 10px;
+	padding: 5px;
+	border: 2px solid rgba(70, 18, 29, 0.307);
+	border-radius: 15px;
+}
+
+.avatar {
+	grid-area: avatar;
+	border: 2px solid rgba(18, 49, 70, 0.507);
+	justify-self: center;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.follow {
+	grid-area: button;
+	border-radius: 15px;
+	line-height: 1.6;
+	border: 2px solid rgba(18, 49, 70, 0.507);
+	background-color: rgba(32, 76, 105, 0.185);
+	color: rgba(10, 33, 49, 0.781);
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	height: 32px;
+}
+
+.follow:active {
+	width: 94px;
+	height: 32px;
+	border: 2px solid rgba(18, 43, 110, 0.836);
+}
+
+.userInfo {
+	grid-area: userInfo;
+	background-color: rgba(156, 196, 158, 0.3);
+	border-radius: 15px;
+	border: 2px solid rgba(130, 158, 127, 0.65);
+	padding: 10px 0px 10px 30px;
+}
+
+.fullName {
+	font-size: 22px;
+	font-weight: 800;
+}
+
+.country {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.city {
+	font-size: 18px;
+	font-weight: 600;
+}

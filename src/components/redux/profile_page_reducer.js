@@ -9,7 +9,7 @@ let initialState = {
 			postIconAvatar: require('./../images/icon_avatar.png'),
 			postUserName: 'John Smith',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!',
-			postImage: require('./../images/post1.png'),
+			postImage: require('./../images/Posts/post1.png'),
 			likesCounter: '15'
 		},
 		{
@@ -17,7 +17,7 @@ let initialState = {
 			postIconAvatar: require('./../images/icon_avatar.png'),
 			postUserName: 'John Smith',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.',
-			postImage: require('./../images/post2.png'),
+			postImage: require('./../images/Posts/post2.png'),
 			likesCounter: '89'
 		},
 		{
@@ -25,7 +25,7 @@ let initialState = {
 			postIconAvatar: require('./../images/icon_avatar.png'),
 			postUserName: 'John Smith',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.',
-			postImage: require('./../images/post3.png'),
+			postImage: require('./../images/Posts/post3.png'),
 			likesCounter: '392'
 		},
 	],

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
-import Search from './components/Header/Search/Search';
+import SearchUsersContainer from './components/Header/Search_users/Search_users_container';
 import Notifications from './components/Header/Notifications/Notifications';
 import News from './components/Header/News/News';
 import Settings from './components/Header/Settings/Settings';
@@ -27,7 +27,7 @@ const App = () => {
 					<Nav />
 					<div className='mainContent'>
 						<Routes>
-							<Route path='/search' element={<Search />} />
+							<Route path='/search' element={<SearchUsersContainer />} />
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />

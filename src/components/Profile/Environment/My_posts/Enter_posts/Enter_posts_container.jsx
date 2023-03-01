@@ -1,5 +1,5 @@
 
-import EnterPosts from '../Enter_posts/Enter_posts';
+import EnterPosts from './Enter_posts';
 import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
 import { connect } from 'react-redux';
 

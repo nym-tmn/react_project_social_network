@@ -1,0 +1,28 @@
+.usersItemsContainer {
+	display: grid;
+	grid-template-areas: 'usersItems'
+								'showMore';
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+}
+
+.showMore {
+	grid-area: showMore;
+	margin: 0px 0px 20px 0px;
+	width: 130px;
+	height: 50px;
+	border-radius: 15px;
+	justify-self: center;
+	background-color: rgba(196, 156, 168, 0.3);
+	border: 2px solid rgba(158, 127, 134, 0.3);
+	color: rgb(119, 72, 82);
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.showMore:active {
+	width: 129px;
+	height: 50px;
+	border: 2px solid rgb(119, 88, 95);
+}

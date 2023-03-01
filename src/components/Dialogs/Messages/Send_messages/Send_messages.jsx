@@ -6,7 +6,6 @@ import classes from './Send_messages.module.css';
 const SendMessages = (props) => {
 
 	let onSendMessageClick = () => {
-		debugger;
 		props.sendMessage();
 	};
 
