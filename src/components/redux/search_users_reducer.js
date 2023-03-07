@@ -1,7 +1,7 @@
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
-const LOAD_USERS = 'LOAD-USERS';
+const SET_USERS = 'SET-USERS';
 
 let initialState = {
 	usersData: [
@@ -90,7 +90,7 @@ const searchUsersReducer = (state = initialState, action) => {
 				})],
 			};
 
-		case 'LOAD-USERS':
+		case 'SET-USERS':
 
 			return {
 				...state,
@@ -108,6 +108,6 @@ export const followActionCreator = (userId) => ({ type: FOLLOW, userId });
 
 export const unFollowActionCreator = (userId) => ({ type: UNFOLLOW, userId });
 
-export const loadUsersActionCreator = (users) => ({ type: LOAD_USERS, users });
+export const setUsersActionCreator = (users) => ({ type: SET_USERS, users });
 
 export default searchUsersReducer;

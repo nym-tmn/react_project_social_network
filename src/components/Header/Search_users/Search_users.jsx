@@ -14,7 +14,7 @@ const SearchUsers = (props) => {
 				usersData={props.usersData}
 				follow={props.follow}
 				unfollow={props.unfollow}
-				loadUsers={props.loadUsers} />
+				setUsers={props.setUsers} />
 		</div>
 	);
 };

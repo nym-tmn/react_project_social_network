@@ -1,7 +1,7 @@
 
 import SearchUsers from './Search_users';
 import { connect } from 'react-redux';
-import { followActionCreator, loadUsersActionCreator, unFollowActionCreator } from '../../redux/search_users_reducer';
+import { followActionCreator, setUsersActionCreator, unFollowActionCreator } from '../../redux/search_users_reducer';
 
 let mapStateToProps = (state) => {
 
@@ -18,8 +18,8 @@ let mapDispatchToProps = (dispatch) => {
 		unfollow: (userId) => {
 			dispatch(unFollowActionCreator(userId));
 		},
-		loadUsers: (users) => {
-			dispatch(loadUsersActionCreator(users));
+		setUsers: (users) => {
+			dispatch(setUsersActionCreator(users));
 		},
 	}
 }
