@@ -7,18 +7,22 @@ import classes from './Search_users_items.module.css';
 
 const SearchUsersItems = (props) => {
 
-	if (props.usersData.length === 0) {
+	let getUsers = () => {
 
-		axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-			props.setUsers(response.data.items);
-		});
+		if (props.usersData.length === 0) {
+
+			axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+				props.setUsers(response.data.items);
+			});
+		};
 	};
 
 	return (
 		<div className={classes.usersItems}>
+			<button onClick={getUsers}>Get Users</button>
 			{props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 				<div className={classes.avatar}>
-					<img src={user.photos.small != null ? user.photos.small : searchUserAvatar } alt="" />
+					<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />
 				</div>
 				{user.followed
 					? <button onClick={() => { props.unfollow(user.id) }} className={classes.follow}>Unfollow</button>
