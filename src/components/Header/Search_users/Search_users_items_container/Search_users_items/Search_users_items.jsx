@@ -7,19 +7,16 @@ import classes from './Search_users_items.module.css';
 
 class SearchUsersItems extends React.Component {
 
-	constructor(props) {
-		super(props);
-		alert('New')
+	componentDidMount() {
 		axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
 			this.props.setUsers(response.data.items);
 		});
-
 	};
 
 	render() {
 		return (
 			<div className={classes.usersItems} >
-				<button onClick={this.getUsers}>Get Users</button>
+				{/* <button onClick={this.getUsers}>Get Users</button> */}
 				{this.props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 					<div className={classes.avatar}>
 						<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />
