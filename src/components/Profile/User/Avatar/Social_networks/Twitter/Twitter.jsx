@@ -1,12 +1,13 @@
 
 import React from 'react';
-import classes from './../Social_network.module.css';
+
+import classes from './Twitter.module.css';
 
 const Twitter = () => {
 	return (
 			<div className={classes.twitter}>
-				<a href="#s">
-					<img src="/img/icon_twitter.png" alt="icon_twitter.png" />
+			<a href="#s">
+				<div className={classes.icon_twitter}></div>
 				</a>
 				<a href="#s">
 					<div className={classes.title}>www.twitter.com/john_smith</div>

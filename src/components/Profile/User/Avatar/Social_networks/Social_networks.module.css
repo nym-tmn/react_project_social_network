@@ -5,11 +5,7 @@
 	display: grid;
 	grid-template: repeat(3, minmax(20px, auto)) / 200px;
 	padding: 5px 15px;
-	justify-self: end;
-}
-
-.socialNetworks img {
-	max-width: 20px;
-	max-height: 20px;
-	align-self: center;
+	justify-self: center;
+	grid-gap: 5px;
+	word-break: break-word;
 }

@@ -8,8 +8,7 @@
 	color: #000;
 }
 
-.socialNetworks img {
-	max-width: 20px;
-	max-height: 20px;
-	align-self: center;
+.icon_twitter {
+	height: 22px;
+	background: url('./../../../../../images/icon_twitter.png') no-repeat;
 }

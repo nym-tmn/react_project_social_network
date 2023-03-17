@@ -1,12 +1,13 @@
 
 import React from 'react';
-import classes from './../Social_network.module.css';
+
+import classes from './Instagram.module.css';
 
 const Instagram = () => {
 	return (
 			<div className={classes.instagram}>
 				<a href="#s">
-					<img src="/img/icon_instagram.png" alt="icon_instagram.png" />
+				<div className={classes.icon_instagram}></div>
 				</a>
 				<a href="#s">
 					<div className={classes.title}>www.instagram.com/john_smith</div>

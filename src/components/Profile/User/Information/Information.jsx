@@ -12,7 +12,7 @@ const Information = () => {
 				<div className={classes.major}>Major: Communication and Journalism</div>
 				<div className={classes.hobby}>Hobby: Photography</div>
 				<div className={classes.mobilePhone}>Mobile phone: +1 212 555 9637</div>
-				<div className={classes.aboutMe}>About me: Lorem ipsum  corrupti id repudianlendus veniam nihil! Temporibus eveniet soluta repellat sequi ipsam eligendi nam amet .</div>
+				<div className={classes.aboutMe}>About me: Lorem ipsum  corrupti id repudianlendus veniam nihil! Temporibus eveniet soluta repellat sequi ipsam eligendi nam amet.</div>
 			</div>
 	);
 };

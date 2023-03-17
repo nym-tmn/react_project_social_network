@@ -7,9 +7,7 @@ import classes from './Header.module.css';
 const Header = () => {
 	return (
 		<header className={classes.header}>
-			<div className={classes.logo}>
-				<img src="/img/art_space_logo.png" alt="art_space_logo" />
-			</div>
+			<div className={classes.logo}></div>
 			<nav className={classes.menu}>
 				<div>
 					<NavLink to="/search" className={({ isActive }) => isActive ? classes.active : ''}>Search for users</NavLink>

@@ -10,13 +10,11 @@
 }
 
 .logo {
-	margin: 0px 0px 0px 20px;
+	margin: 0px 0px 0px 30px;
 	grid-column: 2 / 3;
-}
-
-.header img {
-	max-width: 110px;
-
+	width: 120px;
+	height: 70px;
+	background: url('./../images/art_space_logo.png') center no-repeat;
 }
 
 .menu {

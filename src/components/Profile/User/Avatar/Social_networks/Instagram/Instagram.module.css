@@ -8,8 +8,7 @@
 	color: #000;
 }
 
-.socialNetworks img {
-	max-width: 20px;
-	max-height: 20px;
-	align-self: center;
+.icon_instagram {
+	height: 22px;
+	background: url('./../../../../../images/icon_instagram.png') no-repeat;
 }

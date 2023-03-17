@@ -16,8 +16,8 @@ const EnterPosts = (props) => {
 
 	return (
 		<div className={classes.enterPosts}>
-			<div className={`${classes.iconAvatar} ${classes.iconAvatar}`}>
-				<img src="/img/icon_avatar.png" alt="icon_avatar.png" />
+			<div className={classes.iconAvatar}>
+				{/* <img src="/img/icon_avatar.png" alt="icon_avatar.png" /> */}
 			</div>
 			<textarea
 				onChange={onNewPostChange}
