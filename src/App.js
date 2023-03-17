@@ -20,7 +20,7 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
 	return (
-		<BrowserRouter basename={process.env.PUBLIC_URL}>
+		<BrowserRouter basename="/">
 			<div className='app-wrapper'>
 				<Header />
 				<div className='app-continer'>
