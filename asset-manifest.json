@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react_project_social_network/profile/static/css/main.a4fbf491.css",
-    "main.js": "/react_project_social_network/profile/static/js/main.f2daaa09.js",
-    "static/js/787.28cb0dcd.chunk.js": "/react_project_social_network/profile/static/js/787.28cb0dcd.chunk.js",
-    "static/media/cover_picture.png": "/react_project_social_network/profile/static/media/cover_picture.04e900ed71d5dcd7e751.png",
-    "static/media/post1.png": "/react_project_social_network/profile/static/media/post1.23063fc781f19fdf95db.png",
-    "static/media/post2.png": "/react_project_social_network/profile/static/media/post2.2c3705787d9a7b88483c.png",
-    "static/media/post3.png": "/react_project_social_network/profile/static/media/post3.c7d56527ae9d448db554.png",
-    "static/media/icon_project_3.png": "/react_project_social_network/profile/static/media/icon_project_3.e9abe7e0f77f1352a432.png",
-    "static/media/icon_project_2.png": "/react_project_social_network/profile/static/media/icon_project_2.6eab3005a40c6537b517.png",
-    "static/media/avatar.png": "/react_project_social_network/profile/static/media/avatar.44f07af5158b77547a92.png",
-    "static/media/icon_project_6.png": "/react_project_social_network/profile/static/media/icon_project_6.066f58c2092f1c44f4d7.png",
-    "static/media/icon_project_4.png": "/react_project_social_network/profile/static/media/icon_project_4.f848aed8c5839f49b50b.png",
-    "static/media/icon_project_1.png": "/react_project_social_network/profile/static/media/icon_project_1.df3ec893d969ca06ff24.png",
-    "index.html": "/react_project_social_network/profile/index.html",
-    "main.a4fbf491.css.map": "/react_project_social_network/profile/static/css/main.a4fbf491.css.map",
-    "main.f2daaa09.js.map": "/react_project_social_network/profile/static/js/main.f2daaa09.js.map",
-    "787.28cb0dcd.chunk.js.map": "/react_project_social_network/profile/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/react_project_social_network/static/css/main.8fdf295d.css",
+    "main.js": "/react_project_social_network/static/js/main.24eebc1a.js",
+    "static/js/787.28cb0dcd.chunk.js": "/react_project_social_network/static/js/787.28cb0dcd.chunk.js",
+    "static/media/cover_picture.png": "/react_project_social_network/static/media/cover_picture.04e900ed71d5dcd7e751.png",
+    "static/media/post1.png": "/react_project_social_network/static/media/post1.23063fc781f19fdf95db.png",
+    "static/media/post2.png": "/react_project_social_network/static/media/post2.2c3705787d9a7b88483c.png",
+    "static/media/post3.png": "/react_project_social_network/static/media/post3.c7d56527ae9d448db554.png",
+    "static/media/icon_project_3.png": "/react_project_social_network/static/media/icon_project_3.e9abe7e0f77f1352a432.png",
+    "static/media/icon_project_2.png": "/react_project_social_network/static/media/icon_project_2.6eab3005a40c6537b517.png",
+    "static/media/avatar.png": "/react_project_social_network/static/media/avatar.44f07af5158b77547a92.png",
+    "static/media/icon_project_6.png": "/react_project_social_network/static/media/icon_project_6.066f58c2092f1c44f4d7.png",
+    "static/media/icon_project_4.png": "/react_project_social_network/static/media/icon_project_4.f848aed8c5839f49b50b.png",
+    "static/media/icon_project_1.png": "/react_project_social_network/static/media/icon_project_1.df3ec893d969ca06ff24.png",
+    "index.html": "/react_project_social_network/index.html",
+    "main.8fdf295d.css.map": "/react_project_social_network/static/css/main.8fdf295d.css.map",
+    "main.24eebc1a.js.map": "/react_project_social_network/static/js/main.24eebc1a.js.map",
+    "787.28cb0dcd.chunk.js.map": "/react_project_social_network/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4fbf491.css",
-    "static/js/main.f2daaa09.js"
+    "static/css/main.8fdf295d.css",
+    "static/js/main.24eebc1a.js"
   ]
 }
