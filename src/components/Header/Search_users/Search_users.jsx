@@ -12,9 +12,14 @@ const SearchUsers = (props) => {
 			<SearchUsersTitle title='Search for users' />
 			<SearchUsersItemsContainer
 				usersData={props.usersData}
+				pageSize={props.pageSize}
+				totalCountUsers={props.totalCountUsers}
+				currentPage={props.currentPage}
 				follow={props.follow}
 				unfollow={props.unfollow}
-				setUsers={props.setUsers} />
+				setUsers={props.setUsers}
+				setTotalCountUsers={props.setTotalCountUsers}
+				setCurrentPage={props.setCurrentPage} />
 		</div>
 	);
 };

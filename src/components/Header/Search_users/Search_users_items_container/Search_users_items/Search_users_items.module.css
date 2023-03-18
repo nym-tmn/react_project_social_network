@@ -2,9 +2,24 @@
 	grid-area: usersItems;
 	display: grid;
 	grid-gap: 5px;
-	margin: 20px 0px 20px 0px;
+	margin: 0px 0px 20px 0px;
 	grid-template-columns: 500px;
 	justify-content: center;
+}
+
+.usersPages {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 5px 20px 20px;
+}
+
+.userPage {
+	border: 1px solid #000;
+	border-radius: 3px;
+	margin: 0px 7px 7px 0px;
+	background-color: #9c56456b;
+	width: 32px;
+	text-align: center;
 }
 
 .userItem {
@@ -52,6 +67,8 @@
 	border-radius: 15px;
 	border: 2px solid rgba(130, 158, 127, 0.65);
 	padding: 10px 0px 10px 30px;
+	/* overflow: hidden; */
+	word-break: break-word;
 }
 
 .fullName {
@@ -67,4 +84,9 @@
 .city {
 	font-size: 18px;
 	font-weight: 600;
+}
+
+.selected {
+	font-weight: bold;
+	background-color: #32b64483;
 }

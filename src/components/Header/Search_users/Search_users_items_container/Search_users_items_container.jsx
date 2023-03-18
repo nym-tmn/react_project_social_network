@@ -10,9 +10,14 @@ const SearchUsersItemsContainer = (props) => {
 		<div className={classes.usersItemsContainer}>
 			<SearchUsersItems
 				usersData={props.usersData}
+				pageSize={props.pageSize}
+				totalCountUsers={props.totalCountUsers}
+				currentPage={props.currentPage}
 				follow={props.follow}
 				unfollow={props.unfollow}
-				setUsers={props.setUsers} />
+				setUsers={props.setUsers}
+				setTotalCountUsers={props.setTotalCountUsers}
+				setCurrentPage={props.setCurrentPage} />
 			<button className={classes.showMore}>Show more</button>
 		</div>
 	);

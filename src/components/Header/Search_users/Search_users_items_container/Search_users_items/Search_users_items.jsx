@@ -8,18 +8,37 @@ import classes from './Search_users_items.module.css';
 class SearchUsersItems extends React.Component {
 
 	componentDidMount() {
-		axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
 			this.props.setUsers(response.data.items);
+			this.props.setTotalCountUsers(response.data.totalCount);
+		});
+	};
+
+	onPageChanged = (numberPage) => {
+		this.props.setCurrentPage(numberPage);
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`).then(response => {
+			this.props.setUsers(response.data.items);
+			this.props.setTotalCountUsers(response.data.totalCount);
 		});
 	};
 
 	render() {
+
+		let countPages = Math.ceil(this.props.totalCountUsers / this.props.pageSize);
+
+		let pages = [];
+
+		for (let i = 1; i <= countPages; i++) {
+			pages.push(i)
+		};
+
 		return (
 			<div>
-				<span>1</span>
-					<span>2</span>
-					<span>3</span>
-					<span>4</span>
+				<div className={classes.usersPages}>
+					{pages.map(p => {
+						return <div onClick={(event) => { this.onPageChanged(p) }} className={`${this.props.currentPage === p && classes.selected} ${classes.userPage}`}>{p}</div>
+					})}
+				</div>
 				<div className={classes.usersItems} >
 					{this.props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 						<div className={classes.avatar}>
