@@ -10,7 +10,7 @@ const Instagram = () => {
 				<div className={classes.icon_instagram}></div>
 				</a>
 				<a href="#s">
-					<div className={classes.title}>www.instagram.com/john_smith</div>
+					<div className={classes.title}>www.instagram.com/nym_tmn</div>
 				</a>
 			</div>
 	);

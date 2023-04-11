@@ -1,6 +1,7 @@
 
 import React from 'react';
-import classes from './../Projects_header/Projects_header.module.css';
+
+import classes from './My_projects_header.module.css';
 
 const Header = () => {
 	return (

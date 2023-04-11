@@ -16,11 +16,13 @@ const Messages = (props) => {
 
 	return (
 		<div className={classes.messages}>
-			<div className={classes.messagesToMe}>
-				{messagesToMeElements}
-			</div>
-			<div className={classes.messagesFromMe}>
-				{messagesFromMeElements}
+			<div className={classes.messagesText}>
+				<div className={classes.messagesToMe}>
+					{messagesToMeElements}
+				</div>
+				<div className={classes.messagesFromMe}>
+					{messagesFromMeElements}
+				</div>
 			</div>
 			<SendMessages
 				newMessageText={props.messages.newMessageText}

@@ -1,0 +1,15 @@
+
+.projects {
+	grid-area: user-environment-projects;
+	background-color: rgba(194, 213, 219, 0.6);
+	border-radius: 15px;
+	display: grid;
+	grid-template-areas: 'user-environment-my-projects'
+								'user-environment-demo-projects';
+	grid-template-rows: auto auto;
+	grid-template-columns: 1fr;
+}
+
+.projects a {
+	color: #000;
+}

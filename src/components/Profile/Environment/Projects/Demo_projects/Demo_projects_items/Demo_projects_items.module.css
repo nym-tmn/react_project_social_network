@@ -1,5 +1,6 @@
+
 .items {
-	grid-area: user-environment-followers-items;
+	grid-area: user-environment-demo-projects-items;
 	display: grid;
 	grid-template: repeat(2, minmax(0, auto)) / repeat(3, 1fr);
 	padding: 15px 0px 0px 0px;

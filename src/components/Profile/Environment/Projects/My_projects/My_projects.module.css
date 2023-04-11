@@ -1,0 +1,9 @@
+
+.myProjects {
+	grid-area: user-environment-my-projects;
+	display: grid;
+	grid-template-areas: 'user-environment-my-projects-header user-environment-my-projects-header'
+								'user-environment-my-projects-items user-environment-my-projects-items';
+	grid-template-rows: 40px 1fr;
+	grid-template-columns: 1fr 1fr;
+}

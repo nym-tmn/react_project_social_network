@@ -4,16 +4,16 @@ import classes from './../Information/Information.module.css';
 
 const Information = () => {
 	return (
-			<div className={classes.information}>
-				<div className={classes.name}>John Smith</div>
-				<div className={classes.dateOfBirth}>Date of Birth: December 08,1987</div>
-				<div className={classes.city}>City: New York</div>
-				<div className={classes.education}>Education: New York University (NYU)'08</div>
-				<div className={classes.major}>Major: Communication and Journalism</div>
-				<div className={classes.hobby}>Hobby: Photography</div>
-				<div className={classes.mobilePhone}>Mobile phone: +1 212 555 9637</div>
-				<div className={classes.aboutMe}>About me: Lorem ipsum  corrupti id repudianlendus veniam nihil! Temporibus eveniet soluta repellat sequi ipsam eligendi nam amet.</div>
-			</div>
+		<div className={classes.information}>
+			<div className={classes.name}>Yurii Nedobryshev</div>
+			<div className={classes.dateOfBirth}>Date of Birth: August 04,1990</div>
+			<div className={classes.city}>City: Tyumen</div>
+			<div className={classes.education}>Education: Tyumen Industrial University (TIU)'07</div>
+			<div className={classes.major}>Major: Machinery and apparatus for chemical production</div>
+			<div className={classes.hobby}>Hobby: Snowboarding</div>
+			<div className={classes.mobilePhone}>Mobile phone: +7 922 488 2174</div>
+			<div className={classes.aboutMe}>About me: I am a beginner frontend developer. I dream of mastering this profession, getting a job and reaching great heights in the field of information technology.</div>
+		</div>
 	);
 };
 

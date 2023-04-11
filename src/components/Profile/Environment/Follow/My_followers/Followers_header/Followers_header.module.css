@@ -8,7 +8,7 @@
 
 .title {
 	grid-area: user-environment-followers-title;
-	justify-self: center;
+	padding: 0px 0px 0px 45px;
 	align-self: center;
 	font-weight: 500;
 	font-size: 16px;

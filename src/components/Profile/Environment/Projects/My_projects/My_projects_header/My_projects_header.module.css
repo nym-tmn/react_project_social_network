@@ -1,3 +1,4 @@
+
 .header {
 	grid-area: user-environment-my-projects-header;
 	display: grid;
@@ -8,7 +9,7 @@
 
 .title {
 	grid-area: user-environment-my-projects-title;
-	justify-self: center;
+	padding: 0px 0px 0px 30px;
 	align-self: center;
 	font-weight: 500;
 	font-size: 16px;

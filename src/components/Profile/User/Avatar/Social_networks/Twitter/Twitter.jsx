@@ -10,7 +10,7 @@ const Twitter = () => {
 				<div className={classes.icon_twitter}></div>
 				</a>
 				<a href="#s">
-					<div className={classes.title}>www.twitter.com/john_smith</div>
+				<div className={classes.title}>www.twitter.com/nym_tmn</div>
 				</a>
 			</div>
 	);

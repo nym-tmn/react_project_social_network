@@ -1,18 +1,17 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import classes from './Demo_project.module.css';
 
-import classes from './Following.module.css';
+const DemoProject = (props) => {
 
-const Following = (props) => {
-
-	let path = '/profile/followings/' + props.id;
+	let path = '/profile/demo_project/' + props.id;
 
 	return (
 		<div className={classes.item}>
 			<NavLink to={path} className={classes.linkItem}>
 				<div className={classes.linkImageContiner}>
-					<img src={props.iconFollowing} alt="icon_following.png" />
+					<img src={props.iconDemoProject} alt="icon_demo_project.png" />
 				</div>
 				<div className={classes.name}>{props.name}</div>
 			</NavLink>
@@ -20,4 +19,4 @@ const Following = (props) => {
 	);
 };
 
-export default Following;
+export default DemoProject;

@@ -31,7 +31,7 @@ const App = () => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/profile' element={<Profile />} />
+							<Route path='/' element={<Profile />} />
 							<Route path='/dialogs' element={<DialogsContainer />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />

@@ -4,18 +4,14 @@
 	border-radius: 15px;
 	padding: 20px 30px 20px 30px;
 	display: grid;
-	grid-template-areas: 'messagesToMe messagesToMe'
-		'messagesFromMe messagesFromMe'
-		'sendMessages sendMessages';
-	grid-template-rows: auto auto auto;
-	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 'textMessages'
+								'sendMessages';
+	grid-template-rows: minmax(0, 1fr) minmax(0, 110px);
+	grid-template-columns: 1fr;
 }
 
-.messagesToMe {
-	grid-area: messagesToMe;
-}
-
-.messagesFromMe {
-	grid-area: messagesFromMe;
-	margin: 0px 0px 20px 0px;
+.messagesText {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-end;
 }

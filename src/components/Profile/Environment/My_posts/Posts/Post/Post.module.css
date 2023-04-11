@@ -19,6 +19,7 @@
 
 .UserName {
 	grid-area: user-environment-my-posts-post-post1-user-name;
+	font-weight: 500;
 }
 
 .Text {

@@ -1,0 +1,10 @@
+
+.demoProjects {
+	grid-area: user-environment-demo-projects;
+	display: grid;
+	grid-template-areas: 'user-environment-demo-projects-header user-environment-demo-projects-header'
+								'user-environment-demo-projects-items user-environment-demo-projects-items';
+	grid-template-rows: 40px 1fr;
+	grid-template-columns: 1fr 1fr;
+	border-top: 2px solid rgba(12, 188, 219, 0.3);
+}

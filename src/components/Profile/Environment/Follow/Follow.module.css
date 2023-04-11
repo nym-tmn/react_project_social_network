@@ -4,13 +4,12 @@
 	border-radius: 15px;
 	display: grid;
 	grid-template-areas: 'user-environment-followers'
-		'user-environment-following';
-	grid-template-rows: 220px 1fr;
+								'user-environment-following';
+	grid-template-rows: auto auto;
 	grid-template-columns: 1fr;
-	grid-gap: 15px;
+	align-self: start;
 }
 
 .follow a {
 	color: #000;
-	display: block;
 }

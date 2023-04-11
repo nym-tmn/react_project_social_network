@@ -28,7 +28,6 @@ let mapDispatchToProps = (dispatch) => {
 			dispatch(setTotalCountUsersActionCreator(totalCount));
 		},
 		setCurrentPage: (numberPage) => {
-			// debugger;
 			dispatch(setCurrentPageActionCreator(numberPage));
 		},
 	}
