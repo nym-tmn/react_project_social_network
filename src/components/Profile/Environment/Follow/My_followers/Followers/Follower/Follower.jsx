@@ -1,11 +1,11 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import classes from './Follower.module.css';
 
 const Follower = (props) => {
 
-	let path = '/profile/followers/' + props.id;
+	const path = `/profile/followers/${props.id}`;
 
 	return (
 		<div className={classes.item}>

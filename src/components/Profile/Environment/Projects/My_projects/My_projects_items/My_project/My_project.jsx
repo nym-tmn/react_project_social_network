@@ -1,11 +1,11 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import classes from './My_project.module.css';
 
 const MyProject = (props) => {
 
-	let path = props.link;
+	const path = props.link;
 
 	return (
 		<div className={classes.item}>

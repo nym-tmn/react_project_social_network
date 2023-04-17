@@ -1,8 +1,9 @@
-
 import React from 'react';
-import classes from './../Post/Post.module.css';
+
+import classes from './Post.module.css';
 
 const Post = (props) => {
+
 	return (
 		<div className={classes.post}>
 			<img className={classes.IconAvatar} src={props.postIconAvatar} alt="icon_avatar.png" />

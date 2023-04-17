@@ -1,0 +1,35 @@
+{
+	"extends": [
+		"airbnb-base",
+		"react-app",
+		"react-app/jest"
+	],
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"linebreak-style": 0,
+		"global-require": 0,
+		"eslint linebreak-style": [
+			0,
+			"error",
+			"windows"
+		],
+		"no-debugger": 1,
+		// "max-len": ["warn", {"code": 140}],
+		"max-len": 0,
+		"no-tabs": 0,
+		"indent": 0,
+		"padded-blocks": 0,
+		"default-param-last": 0,
+		"arrow-body-style": 0,
+		"import/extensions": ["error", {".jsx": "never"}],
+		"import/no-unresolved": 0,
+		"arrow-parens": ["error", "as-needed", {"requireForBlockBody": true}],
+		"no-plusplus": ["error",{"allowForLoopAfterthoughts": true}],
+		"eol-last": "warn",
+		"no-multiple-empty-lines": "warn",
+		"no-trailing-spaces": "warn",
+		"no-case-declarations": 0
+	}
+}

@@ -1,11 +1,12 @@
-
-import Posts from './Posts';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+import Posts from './Posts';
+
+const mapStateToProps = (state) => {
+
 	return {
-		postsData: state.profilePage.postsData
-	}
+		postsData: state.profilePage.postsData,
+	};
 };
 
 const PostsContainer = connect(mapStateToProps)(Posts);

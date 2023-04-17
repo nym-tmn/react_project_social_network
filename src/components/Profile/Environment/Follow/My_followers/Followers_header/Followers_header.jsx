@@ -1,8 +1,9 @@
-
 import React from 'react';
-import classes from './../Followers_header/Followers_header.module.css';
+
+import classes from './Followers_header.module.css';
 
 const Header = () => {
+
 	return (
 			<div className={classes.header}>
 				<div className={classes.title}>Followers</div>

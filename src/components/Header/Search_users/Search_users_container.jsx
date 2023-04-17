@@ -1,53 +1,70 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import SearchUsers from './Search_users';
 import { connect } from 'react-redux';
-import { followActionCreator, setUsersActionCreator, unFollowActionCreator, setTotalCountUsersActionCreator, setCurrentPageActionCreator } from '../../redux/search_users_reducer';
 
-class SearchUsersContainer extends React.Component {
+import SearchUsers from './Search_users';
+import {
+	followActionCreator,
+	setUsersActionCreator,
+	unFollowActionCreator,
+	setTotalCountUsersActionCreator,
+	setCurrentPageActionCreator,
+} from '../../redux/search_users_reducer';
 
-	componentDidMount() {
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-			this.props.setUsers(response.data.items);
-			this.props.setTotalCountUsers(response.data.totalCount);
+const SearchUsersContainer = ({
+	setUsers,
+	setTotalCountUsers,
+	setCurrentPage,
+	currentPage,
+	pageSize,
+	totalCountUsers,
+	usersData,
+	unfollow,
+	follow,
+	isFetching,
+}) => {
+
+	useEffect(() => {
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+			.then((response) => {
+			setUsers(response.data.items);
+			setTotalCountUsers(response.data.totalCount);
+		});
+	}, [currentPage, pageSize, setTotalCountUsers, setUsers]);
+
+	const onPageChanged = (numberPage) => {
+		setCurrentPage(numberPage);
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${pageSize}`)
+			.then((response) => {
+			setUsers(response.data.items);
+			setTotalCountUsers(response.data.totalCount);
 		});
 	};
 
-	onPageChanged = (numberPage) => {
-		this.props.setCurrentPage(numberPage);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`).then(response => {
-			this.props.setUsers(response.data.items);
-			this.props.setTotalCountUsers(response.data.totalCount);
-		});
-	};
+	return (
+		<SearchUsers
+			totalCountUsers={totalCountUsers}
+			pageSize={pageSize}
+			onPageChanged={onPageChanged}
+			currentPage={currentPage}
+			usersData={usersData}
+			unfollow={unfollow}
+			follow={follow}
+			isFetching={isFetching} />
+	);
+};
 
-	render() {
-
-		return (
-			<SearchUsers
-				totalCountUsers={this.props.totalCountUsers}
-				pageSize={this.props.pageSize}
-				onPageChanged={this.onPageChanged}
-				currentPage={this.props.currentPage}
-				usersData={this.props.usersData}
-				unfollow={this.props.unfollow}
-				follow={this.props.follow} />
-		);
-	}
-}
-
-let mapStateToProps = (state) => {
-
+const mapStateToProps = (state) => {
 	return {
 		usersData: state.searchUsersPage.usersData,
 		pageSize: state.searchUsersPage.pageSize,
 		totalCountUsers: state.searchUsersPage.totalCountUsers,
 		currentPage: state.searchUsersPage.currentPage,
-	}
+		isFetching: state.searchUsersPage.isFetching,
+	};
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		follow: (userId) => {
 			dispatch(followActionCreator(userId));
@@ -64,7 +81,7 @@ let mapDispatchToProps = (dispatch) => {
 		setCurrentPage: (numberPage) => {
 			dispatch(setCurrentPageActionCreator(numberPage));
 		},
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchUsersContainer);

@@ -1,8 +1,7 @@
-
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
-let initialState = {
+const initialState = {
 	messagesToMeData: [
 		{ id: 1, messageText: 'Yo!' },
 		{ id: 2, messageText: 'I am fine!' },
@@ -15,12 +14,12 @@ let initialState = {
 	],
 	newMessageText: 'new message',
 	dialogItemData: [
-		{ id: 1, name: 'Robert_lastName', avatar: require('./../images/dialog_avatar.png') },
-		{ id: 2, name: 'Sophia_lastName', avatar: require('./../images/dialog_avatar.png') },
-		{ id: 3, name: 'Alex_lastName', avatar: require('./../images/dialog_avatar.png') },
-		{ id: 4, name: 'Andrew_lastName', avatar: require('./../images/dialog_avatar.png') },
-		{ id: 5, name: 'John_lastName', avatar: require('./../images/dialog_avatar.png') },
-		{ id: 6, name: 'Mary_lastName', avatar: require('./../images/dialog_avatar.png') },
+		{ id: 1, name: 'Robert_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 2, name: 'Sophia_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 3, name: 'Alex_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 4, name: 'Andrew_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 5, name: 'John_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 6, name: 'Mary_lastName', avatar: require('../images/dialog_avatar.png') },
 	],
 };
 
@@ -28,9 +27,9 @@ const dialogsReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 
-		case 'SEND-MESSAGE': 
+		case 'SEND-MESSAGE':
 
-			let newMessageFromMe = {
+			const newMessageFromMe = {
 				id: 4,
 				messageText: state.newMessageText,
 			};
@@ -47,7 +46,7 @@ const dialogsReducer = (state = initialState, action) => {
 				stateCopy.messagesFromMeData.push(newMessageFromMe);
 			} */
 
-		case 'UPDATE-NEW-MESSAGE-TEXT': 
+		case 'UPDATE-NEW-MESSAGE-TEXT':
 
 			return {
 				...state,
@@ -63,6 +62,6 @@ const dialogsReducer = (state = initialState, action) => {
 
 export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
 
-export const updateNewMessageTextActionCreator = (messageText) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: messageText });
+export const updateNewMessageTextActionCreator = messageText => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: messageText });
 
 export default dialogsReducer;

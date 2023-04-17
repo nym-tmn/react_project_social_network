@@ -1,11 +1,12 @@
-
-import Followers from './Followers';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+import Followers from './Followers';
+
+const mapStateToProps = (state) => {
+
 	return {
-		followersData: state.profilePage.followersData
-	}
+		followersData: state.profilePage.followersData,
+	};
 };
 
 const FollowersContainer = connect(mapStateToProps)(Followers);

@@ -1,8 +1,9 @@
-
 import React from 'react';
-import classes from './../Information/Information.module.css';
+
+import classes from './Information.module.css';
 
 const Information = () => {
+
 	return (
 		<div className={classes.information}>
 			<div className={classes.name}>Yurii Nedobryshev</div>
@@ -12,7 +13,10 @@ const Information = () => {
 			<div className={classes.major}>Major: Machinery and apparatus for chemical production</div>
 			<div className={classes.hobby}>Hobby: Snowboarding</div>
 			<div className={classes.mobilePhone}>Mobile phone: +7 922 488 2174</div>
-			<div className={classes.aboutMe}>About me: I am a beginner frontend developer. I dream of mastering this profession, getting a job and reaching great heights in the field of information technology.</div>
+			<div className={classes.aboutMe}>
+				About me: I am a beginner frontend developer. I dream of mastering this profession, getting a job
+				and reaching great heights in the field of information technology.
+			</div>
 		</div>
 	);
 };

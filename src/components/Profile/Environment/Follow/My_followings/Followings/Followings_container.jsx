@@ -1,13 +1,14 @@
-
-import Followings from './Followings';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+import Followings from './Followings';
+
+const mapStateToProps = (state) => {
+
 	return {
 		followingsData: state.profilePage.followingsData,
-	}
+	};
 };
 
-const FollowingsContainer =  connect(mapStateToProps)(Followings);
+const FollowingsContainer = connect(mapStateToProps)(Followings);
 
 export default FollowingsContainer;

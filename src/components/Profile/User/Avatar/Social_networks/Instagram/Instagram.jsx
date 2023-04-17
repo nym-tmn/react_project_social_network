@@ -1,9 +1,9 @@
-
 import React from 'react';
 
 import classes from './Instagram.module.css';
 
 const Instagram = () => {
+
 	return (
 			<div className={classes.instagram}>
 				<a href="#s">

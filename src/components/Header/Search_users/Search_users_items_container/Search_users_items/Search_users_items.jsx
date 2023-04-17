@@ -1,24 +1,30 @@
-
 import React from 'react';
-import searchUserAvatar from './../../../../../assets/images/search_user_avatar.png';
+
+import searchUserAvatar from '../../../../../assets/images/search_user_avatar.png';
 
 import classes from './Search_users_items.module.css';
 
 const SearchUsersItems = (props) => {
 
-	let countPages = Math.ceil(props.totalCountUsers / props.pageSize);
+	const countPages = Math.ceil(props.totalCountUsers / props.pageSize);
 
-	let pages = [];
+	const pages = [];
 
 	for (let i = 1; i <= countPages; i++) {
-		pages.push(i)
-	};
+		pages.push(i);
+	}
 
 	return (
 		<div>
 			<div className={classes.usersPages}>
-				{pages.map(p => {
-					return <div onClick={(event) => { props.onPageChanged(p) }} className={`${props.currentPage === p && classes.selected} ${classes.userPage}`}>{p}</div>
+				{pages.map((p) => {
+					return (
+						<div
+							onClick={(event) => { props.onPageChanged(p); }}
+							className={`${props.currentPage === p && classes.selected} ${classes.userPage}`}>
+							{p}
+						</div>
+					);
 				})}
 			</div>
 			<div className={classes.usersItems} >
@@ -27,8 +33,16 @@ const SearchUsersItems = (props) => {
 						<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />
 					</div>
 					{user.followed
-						? <button onClick={() => { props.unfollow(user.id) }} className={classes.follow}>Unfollow</button>
-						: <button onClick={() => { props.follow(user.id) }} className={classes.follow}>Follow</button>}
+						? <button
+							onClick={() => { props.unfollow(user.id); }}
+							className={classes.follow}>
+							Unfollow
+						</button>
+						: <button
+							onClick={() => { props.follow(user.id); }}
+							className={classes.follow}>
+							Follow
+						</button>}
 					<div className={classes.userInfo}>
 						<div className={classes.fullName}>{user.name}</div>
 						<div className={classes.age}>{'user.age'}</div>
@@ -39,7 +53,7 @@ const SearchUsersItems = (props) => {
 				</div>)}
 			</div >
 		</div>
-	)
-}
+	);
+};
 
 export default SearchUsersItems;

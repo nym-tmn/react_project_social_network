@@ -1,13 +1,12 @@
-
-import DemoProjectsItems from './Demo_projects_items';
 import { connect } from 'react-redux';
 
+import DemoProjectsItems from './Demo_projects_items';
 
-let mapStateToProps = (state) => {
-	
+const mapStateToProps = (state) => {
+
 	return {
-		projectsDemoData: state.profilePage.projectsDemoData
-	}
+		projectsDemoData: state.profilePage.projectsDemoData,
+	};
 };
 
 const DemoProjectsItemsContiner = connect(mapStateToProps)(DemoProjectsItems);

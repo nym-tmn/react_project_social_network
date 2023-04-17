@@ -1,17 +1,16 @@
-
 import React from 'react';
 
 import classes from './Send_messages.module.css';
 
 const SendMessages = (props) => {
 
-	let onSendMessageClick = () => {
+	const onSendMessageClick = () => {
 		props.sendMessage();
 	};
 
-	let onNewMessageChange = (event) => {
-		let messageText = event.target.value;
-		props.updateNewMessageText(messageText)
+	const onNewMessageChange = (event) => {
+		const messageText = event.target.value;
+		props.updateNewMessageText(messageText);
 	};
 
 	return (
@@ -25,6 +24,6 @@ const SendMessages = (props) => {
 			<button onClick={onSendMessageClick} className={classes.send}>Send</button>
 		</div>
 	);
-}
+};
 
 export default SendMessages;

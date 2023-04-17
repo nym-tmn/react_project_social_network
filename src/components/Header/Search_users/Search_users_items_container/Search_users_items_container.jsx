@@ -1,5 +1,5 @@
-
 import React from 'react';
+
 import SearchUsersItems from './Search_users_items/Search_users_items';
 
 import classes from './Search_users_items_container.module.css';

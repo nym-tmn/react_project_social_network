@@ -1,5 +1,5 @@
-
 import React from 'react';
+
 import SearchUsersTitle from './Search_users_title/Search_users_title';
 import SearchUsersItemsContainer from './Search_users_items_container/Search_users_items_container';
 

@@ -1,11 +1,11 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import classes from './Demo_project.module.css';
 
 const DemoProject = (props) => {
 
-	let path = '/profile/demo_project/' + props.id;
+	const path = `/profile/demo_project/${props.id}`;
 
 	return (
 		<div className={classes.item}>

@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { /* BrowserRouter */ HashRouter, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -17,8 +17,8 @@ import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
 import Footer from './components/Footer/Footer';
 
-
 const App = () => {
+
 	return (
 		<HashRouter>
 			<div className='app-wrapper'>
@@ -44,6 +44,6 @@ const App = () => {
 			</div>
 		</HashRouter>
 	);
-}
+};
 
 export default App;

@@ -1,23 +1,24 @@
-
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../redux/dialogs_page_reducer';
-import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+import Dialogs from './Dialogs';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../redux/dialogs_page_reducer';
+
+const mapStateToProps = (state) => {
+
 	return {
-		dialogsPage: state.dialogsPage
-	}
+		dialogsPage: state.dialogsPage,
+	};
 };
 
-let mapDispatchToProps = (dispatch /* store.dispatch.bind(store) */) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		sendMessage: () => {
 			dispatch(sendMessageActionCreator());
 		},
 		updateNewMessageText: (messageText) => {
 			dispatch(updateNewMessageTextActionCreator(messageText));
-		}
-	}
+		},
+	};
 };
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);

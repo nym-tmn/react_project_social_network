@@ -1,16 +1,15 @@
-
 import React from 'react';
 
-import classes from './../Enter_posts/Enter_posts.module.css';
+import classes from './Enter_posts.module.css';
 
 const EnterPosts = (props) => {
 
-	let onAddPostClick = () => {
+	const onAddPostClick = () => {
 		props.addPost();
 	};
 
-	let onNewPostChange = (event) => {
-		let postText = event.target.value;
+	const onNewPostChange = (event) => {
+		const postText = event.target.value;
 		props.updateNewPostText(postText);
 	};
 
