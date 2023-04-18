@@ -11,13 +11,14 @@ const SearchUsers = (props) => {
 		<div className={classes.container}>
 			<SearchUsersTitle title='Search for users' />
 			<SearchUsersItemsContainer
-				totalCountUsers={props.totalCountUsers}
+				totalUsersCount={props.totalUsersCount}
 				pageSize={props.pageSize}
 				onPageChanged={props.onPageChanged}
 				currentPage={props.currentPage}
 				usersData={props.usersData}
 				unfollow={props.unfollow}
-				follow={props.follow} />
+				follow={props.follow}
+				isFetching={props.isFetching} />
 		</div>
 	);
 };

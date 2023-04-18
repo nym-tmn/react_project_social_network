@@ -9,13 +9,14 @@ const SearchUsersItemsContainer = (props) => {
 	return (
 		<div className={classes.usersItemsContainer}>
 			<SearchUsersItems
-				totalCountUsers={props.totalCountUsers}
+				totalUsersCount={props.totalUsersCount}
 				pageSize={props.pageSize}
 				onPageChanged={props.onPageChanged}
 				currentPage={props.currentPage}
 				usersData={props.usersData}
 				unfollow={props.unfollow}
-				follow={props.follow} />
+				follow={props.follow}
+				isFetching={props.isFetching} />
 			<button className={classes.showMore}>Show more</button>
 		</div>
 	);

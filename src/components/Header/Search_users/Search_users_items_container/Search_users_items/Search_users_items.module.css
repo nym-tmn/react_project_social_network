@@ -1,3 +1,10 @@
+.usersContainer {
+	grid-area: usersContainer;
+	display: grid;
+	grid-template-areas: 'usersPages'
+								'usersItems';
+}
+
 .usersItems {
 	grid-area: usersItems;
 	display: grid;
@@ -8,9 +15,10 @@
 }
 
 .usersPages {
+	grid-area: usersPages;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 20px 5px 20px 20px;
+	margin: 20px 0px 20px 28px;
 }
 
 .userPage {
@@ -20,12 +28,13 @@
 	background-color: #9c56456b;
 	width: 32px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .userItem {
 	display: grid;
 	grid-template-areas: 'avatar userInfo'
-		'button userInfo';
+								'button userInfo';
 	grid-template-rows: 94px minmax(auto, auto);
 	grid-template-columns: 94px 1fr;
 	grid-gap: 10px;
@@ -67,7 +76,6 @@
 	border-radius: 15px;
 	border: 2px solid rgba(130, 158, 127, 0.65);
 	padding: 10px 0px 10px 30px;
-	/* overflow: hidden; */
 	word-break: break-word;
 }
 
@@ -89,4 +97,10 @@
 .selected {
 	font-weight: bold;
 	background-color: #32b64483;
+}
+
+.loadingSpinner {
+	display: grid;
+	justify-content: center;
+	margin: 0px 0px 20px 0px;
 }

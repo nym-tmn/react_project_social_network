@@ -1,12 +1,13 @@
 import React from 'react';
 
 import searchUserAvatar from '../../../../../assets/images/search_user_avatar.png';
+import Preloader from '../../../../common/Preloader/Preloader';
 
 import classes from './Search_users_items.module.css';
 
 const SearchUsersItems = (props) => {
 
-	const countPages = Math.ceil(props.totalCountUsers / props.pageSize);
+	const countPages = Math.ceil(props.totalUsersCount / props.pageSize);
 
 	const pages = [];
 
@@ -15,7 +16,7 @@ const SearchUsersItems = (props) => {
 	}
 
 	return (
-		<div>
+		<div className={classes.usersContainer}>
 			<div className={classes.usersPages}>
 				{pages.map((p) => {
 					return (
@@ -28,6 +29,7 @@ const SearchUsersItems = (props) => {
 				})}
 			</div>
 			<div className={classes.usersItems} >
+				<div className={classes.loadingSpinner} >{props.isFetching ? <Preloader/> : null}</div>
 				{props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 					<div className={classes.avatar}>
 						<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />

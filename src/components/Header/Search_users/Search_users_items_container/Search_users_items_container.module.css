@@ -1,6 +1,6 @@
 .usersItemsContainer {
 	display: grid;
-	grid-template-areas: 'usersItems'
+	grid-template-areas: 'usersContainer'
 								'showMore';
 	background-color: rgba(194, 213, 219, 0.6);
 	border-radius: 15px;

@@ -7,43 +7,48 @@ import {
 	followActionCreator,
 	setUsersActionCreator,
 	unFollowActionCreator,
-	setTotalCountUsersActionCreator,
+	setTotalUsersCountActionCreator,
 	setCurrentPageActionCreator,
+	toggleIsFetchingActionCreator,
 } from '../../redux/search_users_reducer';
 
 const SearchUsersContainer = ({
 	setUsers,
-	setTotalCountUsers,
+	setTotalUsersCount,
 	setCurrentPage,
 	currentPage,
 	pageSize,
-	totalCountUsers,
+	totalUsersCount,
 	usersData,
 	unfollow,
 	follow,
 	isFetching,
+	toggleIsFetching,
 }) => {
 
 	useEffect(() => {
+		toggleIsFetching(true);
 		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
 			.then((response) => {
-			setUsers(response.data.items);
-			setTotalCountUsers(response.data.totalCount);
-		});
-	}, [currentPage, pageSize, setTotalCountUsers, setUsers]);
+				toggleIsFetching(false);
+				setUsers(response.data.items);
+				setTotalUsersCount(response.data.totalCount);
+			});
+	}, [currentPage, toggleIsFetching, pageSize, setTotalUsersCount, setUsers]);
 
 	const onPageChanged = (numberPage) => {
 		setCurrentPage(numberPage);
+		toggleIsFetching(true);
 		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${pageSize}`)
 			.then((response) => {
-			setUsers(response.data.items);
-			setTotalCountUsers(response.data.totalCount);
-		});
+				toggleIsFetching(false);
+				setUsers(response.data.items);
+			});
 	};
 
 	return (
 		<SearchUsers
-			totalCountUsers={totalCountUsers}
+			totalUsersCount={totalUsersCount}
 			pageSize={pageSize}
 			onPageChanged={onPageChanged}
 			currentPage={currentPage}
@@ -58,7 +63,7 @@ const mapStateToProps = (state) => {
 	return {
 		usersData: state.searchUsersPage.usersData,
 		pageSize: state.searchUsersPage.pageSize,
-		totalCountUsers: state.searchUsersPage.totalCountUsers,
+		totalUsersCount: state.searchUsersPage.totalUsersCount,
 		currentPage: state.searchUsersPage.currentPage,
 		isFetching: state.searchUsersPage.isFetching,
 	};
@@ -75,11 +80,14 @@ const mapDispatchToProps = (dispatch) => {
 		setUsers: (users) => {
 			dispatch(setUsersActionCreator(users));
 		},
-		setTotalCountUsers: (totalCount) => {
-			dispatch(setTotalCountUsersActionCreator(totalCount));
+		setTotalUsersCount: (totalCount) => {
+			dispatch(setTotalUsersCountActionCreator(totalCount));
 		},
 		setCurrentPage: (numberPage) => {
 			dispatch(setCurrentPageActionCreator(numberPage));
+		},
+		toggleIsFetching: (isFetching) => {
+			dispatch(toggleIsFetchingActionCreator(isFetching));
 		},
 	};
 };
