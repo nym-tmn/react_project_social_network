@@ -1,6 +1,40 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+type PostsDataType = {
+	id: number
+	postIconAvatar: any
+	postUserName: string
+	postText: string
+	postImage: any
+	likesCounter: string
+}
+
+type FollowersDataType = {
+	id: number
+	iconFollower: any
+	name: string
+}
+
+type FollowingsDataType = {
+	id: number
+	iconFollowing: any
+	name: string
+}
+
+type MyProjectsDataType = {
+	id: number
+	iconMyProject: any
+	nameMyProject: string
+	linkMyProject: string
+}
+
+type ProjectsDemoDataType = {
+	id: number
+	iconDemoProject: any
+	nameDemoProject: string
+}
+
 const initialState = {
 	postsData: [
 		{
@@ -27,8 +61,8 @@ const initialState = {
 			postImage: require('../images/Posts/post3.png'),
 			likesCounter: '392',
 		},
-	],
-	newPostText: 'new post',
+	] as Array<PostsDataType>,
+	newPostText: 'new post' as string,
 	followersData: [
 		{ id: 1, iconFollower: require('../images/followers/icon_follower_1.png'), name: 'name_1' },
 		{ id: 2, iconFollower: require('../images/followers/icon_follower_2.png'), name: 'name_2' },
@@ -36,7 +70,7 @@ const initialState = {
 		{ id: 4, iconFollower: require('../images/followers/icon_follower_4.png'), name: 'name_4' },
 		{ id: 5, iconFollower: require('../images/followers/icon_follower_5.png'), name: 'name_5' },
 		{ id: 6, iconFollower: require('../images/followers/icon_follower_6.png'), name: 'name_6' },
-	],
+	] as Array<FollowersDataType>,
 	followingsData: [
 		{ id: 1, iconFollowing: require('../images/followings/icon_following_1.png'), name: 'name_1' },
 		{ id: 2, iconFollowing: require('../images/followings/icon_following_2.png'), name: 'name_2' },
@@ -44,7 +78,7 @@ const initialState = {
 		{ id: 4, iconFollowing: require('../images/followings/icon_following_4.png'), name: 'name_4' },
 		{ id: 5, iconFollowing: require('../images/followings/icon_following_5.png'), name: 'name_5' },
 		{ id: 6, iconFollowing: require('../images/followings/icon_following_6.png'), name: 'name_6' },
-	],
+	] as Array<FollowingsDataType>,
 	myProjectsData: [
 		{
 			id: 1,
@@ -58,7 +92,7 @@ const initialState = {
 			nameMyProject: 'My GitHub',
 			linkMyProject: 'https://github.com/nym-tmn?tab=repositories',
 		},
-	],
+	] as Array<MyProjectsDataType>,
 	projectsDemoData: [
 		{ id: 1, iconDemoProject: require('../images/demo_projects/icon_demo_project_1.png'), nameDemoProject: 'demo_project_1' },
 		{ id: 2, iconDemoProject: require('../images/demo_projects/icon_demo_project_2.png'), nameDemoProject: 'demo_project_2' },
@@ -66,10 +100,12 @@ const initialState = {
 		{ id: 4, iconDemoProject: require('../images/demo_projects/icon_demo_project_4.png'), nameDemoProject: 'demo_project_4' },
 		{ id: 5, iconDemoProject: require('../images/demo_projects/icon_demo_project_5.png'), nameDemoProject: 'demo_project_5' },
 		{ id: 6, iconDemoProject: require('../images/demo_projects/icon_demo_project_6.png'), nameDemoProject: 'demo_project_6' },
-	],
+	] as Array<ProjectsDemoDataType>,
 };
 
-const profileReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState
+
+const profileReducer = (state = initialState, action: any): InitialStateType => {
 
 	switch (action.type) {
 
@@ -80,6 +116,7 @@ const profileReducer = (state = initialState, action) => {
 				postIconAvatar: require('../images/icon_avatar1.png'),
 				postUserName: 'Yurii Nedobrishev',
 				postText: state.newPostText,
+				postImage: null,
 				likesCounter: '0',
 			};
 
@@ -103,8 +140,17 @@ const profileReducer = (state = initialState, action) => {
 
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
+type AddPostActionCreatorType = {
+	type: typeof ADD_POST
+}
 
-export const updateNewPostTextActionCreator = postText => ({ type: UPDATE_NEW_POST_TEXT, newPostText: postText });
+export const addPostActionCreator = (): AddPostActionCreatorType => ({ type: ADD_POST });
+
+type UpdateNewPostTextActionCreatorType = {
+	type: typeof UPDATE_NEW_POST_TEXT
+	newPostText: string
+}
+
+export const updateNewPostTextActionCreator = (postText: string): UpdateNewPostTextActionCreatorType => ({ type: UPDATE_NEW_POST_TEXT, newPostText: postText });
 
 export default profileReducer;

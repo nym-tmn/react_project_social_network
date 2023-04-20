@@ -5,6 +5,29 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
+type PhotosType = {
+	small: string | null
+	large: string | null
+}
+
+type UsersDataType = {
+	name: string | null
+	id: number
+	uniqueUrlName: string | null
+	photos: PhotosType
+	status: string | null
+	followed: boolean
+}
+
+/* type ActionType = {
+	userId: number
+	users: UsersDataType
+	totalCount: number
+	currentPage: number
+	isFetching: boolean
+	type: 'FOLLOW' | 'UNFOLLOW' | 'SET_USERS' | 'SET_TOTAL_USERS_COUNT' | 'SET_CURRENT_PAGE' | 'TOGGLE_IS_FETCHING'
+} */
+
 const initialState = {
 	usersData: [
 		/* {
@@ -61,14 +84,16 @@ const initialState = {
 			status: 'Lorem ipsum dolor sit, amet!',
 			location: { countryName: 'country', cityName: 'city' },
 		}, */
-	],
-	pageSize: 100,
-	totalUsersCount: 0,
-	currentPage: 1,
-	isFetching: false,
+	] as Array<UsersDataType>,
+	pageSize: 100 as number,
+	totalUsersCount: 0 as number,
+	currentPage: 1 as number,
+	isFetching: false as boolean,
 };
 
-const searchUsersReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState
+
+const searchUsersReducer = (state = initialState, action: any /* ActionType */): InitialStateType => {
 
 	switch (action.type) {
 
@@ -128,16 +153,46 @@ const searchUsersReducer = (state = initialState, action) => {
 	}
 };
 
-export const followActionCreator = userId => ({ type: FOLLOW, userId });
+type FollowActionCreatorType = {
+	type: typeof FOLLOW
+	userId: number
+}
 
-export const unFollowActionCreator = userId => ({ type: UNFOLLOW, userId });
+export const followActionCreator = (userId: number): FollowActionCreatorType => ({ type: FOLLOW, userId });
 
-export const setUsersActionCreator = users => ({ type: SET_USERS, users });
+type UnFollowActionCreatorType = {
+	type: typeof UNFOLLOW
+	userId: number
+}
 
-export const setTotalUsersCountActionCreator = totalCount => ({ type: SET_TOTAL_USERS_COUNT, totalCount });
+export const unFollowActionCreator = (userId: number): UnFollowActionCreatorType => ({ type: UNFOLLOW, userId });
 
-export const setCurrentPageActionCreator = currentPage => ({ type: SET_CURRENT_PAGE, currentPage });
+type SetUsersActionCreatorType = {
+	type: typeof SET_USERS
+	users: UsersDataType
+}
 
-export const toggleIsFetchingActionCreator = isFetching => ({ type: TOGGLE_IS_FETCHING, isFetching });
+export const setUsersActionCreator = (users: UsersDataType): SetUsersActionCreatorType => ({ type: SET_USERS, users });
+
+type SetTotalUsersCountActionCreatorType = {
+	type: typeof SET_TOTAL_USERS_COUNT
+	totalCount: number
+}
+
+export const setTotalUsersCountActionCreator = (totalCount: number): SetTotalUsersCountActionCreatorType => ({ type: SET_TOTAL_USERS_COUNT, totalCount });
+
+type SetCurrentPageActionCreatorType = {
+	type: typeof SET_CURRENT_PAGE
+	currentPage: number
+}
+
+export const setCurrentPageActionCreator = (currentPage: number): SetCurrentPageActionCreatorType => ({ type: SET_CURRENT_PAGE, currentPage });
+
+type ToggleIsFetchingActionCreatorType = {
+	type: typeof TOGGLE_IS_FETCHING
+	isFetching: boolean
+}
+
+export const toggleIsFetchingActionCreator = (isFetching: boolean): ToggleIsFetchingActionCreatorType => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
 export default searchUsersReducer;
