@@ -1,39 +1,13 @@
+import {
+	FollowersDataType,
+	FollowingsDataType,
+	MyProjectsDataType,
+	PostsDataType,
+	ProjectsDemoDataType,
+} from '../../types/types';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
-type PostsDataType = {
-	id: number
-	postIconAvatar: any
-	postUserName: string
-	postText: string
-	postImage: any
-	likesCounter: string
-}
-
-type FollowersDataType = {
-	id: number
-	iconFollower: any
-	name: string
-}
-
-type FollowingsDataType = {
-	id: number
-	iconFollowing: any
-	name: string
-}
-
-type MyProjectsDataType = {
-	id: number
-	iconMyProject: any
-	nameMyProject: string
-	linkMyProject: string
-}
-
-type ProjectsDemoDataType = {
-	id: number
-	iconDemoProject: any
-	nameDemoProject: string
-}
 
 const initialState = {
 	postsData: [
@@ -116,7 +90,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 				postIconAvatar: require('../images/icon_avatar1.png'),
 				postUserName: 'Yurii Nedobrishev',
 				postText: state.newPostText,
-				postImage: null,
+				postImage: '',
 				likesCounter: '0',
 			};
 

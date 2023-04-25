@@ -1,16 +1,7 @@
+import { DialogItemDataType, MessagesDataType } from '../../types/types';
+
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
-type MessagesDataType = {
-	id: number
-	messageText: string
-}
-
-type DialogItemDataType = {
-	id: number
-	name: string
-	avatar: any
-}
 
 const initialState = {
 	messagesToMeData: [
@@ -34,7 +25,7 @@ const initialState = {
 	] as Array<DialogItemDataType>,
 };
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 const dialogsReducer = (state = initialState, action: any): InitialStateType => {
 

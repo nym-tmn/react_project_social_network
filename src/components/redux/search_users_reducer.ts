@@ -1,23 +1,11 @@
+import { UsersDataType } from '../../types/types';
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-
-type PhotosType = {
-	small: string | null
-	large: string | null
-}
-
-type UsersDataType = {
-	name: string | null
-	id: number
-	uniqueUrlName: string | null
-	photos: PhotosType
-	status: string | null
-	followed: boolean
-}
 
 /* type ActionType = {
 	userId: number
@@ -91,7 +79,7 @@ const initialState = {
 	isFetching: false as boolean,
 };
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 const searchUsersReducer = (state = initialState, action: any /* ActionType */): InitialStateType => {
 
@@ -169,10 +157,10 @@ export const unFollowActionCreator = (userId: number): UnFollowActionCreatorType
 
 type SetUsersActionCreatorType = {
 	type: typeof SET_USERS
-	users: UsersDataType
+	users: Array<UsersDataType>
 }
 
-export const setUsersActionCreator = (users: UsersDataType): SetUsersActionCreatorType => ({ type: SET_USERS, users });
+export const setUsersActionCreator = (users: Array<UsersDataType>): SetUsersActionCreatorType => ({ type: SET_USERS, users });
 
 type SetTotalUsersCountActionCreatorType = {
 	type: typeof SET_TOTAL_USERS_COUNT
