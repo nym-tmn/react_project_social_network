@@ -1,9 +1,16 @@
 import { connect } from 'react-redux';
 
 import Posts from './Posts';
-import { RootState } from '../../../../redux/redux-store';
+import { AppStateType } from '../../../../redux/redux-store';
+import { PostsDataType } from '../../../../../types/types';
 
-const mapStateToProps = (state: RootState) => {
+type mapStateToPropsType = {
+	postsData: Array<PostsDataType>
+}
+
+export type PostsPropsType = mapStateToPropsType
+
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
 		postsData: state.profilePage.postsData,

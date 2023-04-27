@@ -1,13 +1,9 @@
 import React from 'react';
 
 import DemoProject from './Demo_project/Demo_project';
-import { ProjectsDemoDataType } from '../../../../../../types/types';
+import { DemoProjectsItemsPropsType } from './Demo_projects_items_container';
 
 import classes from './Demo_projects_items.module.css';
-
-type DemoProjectsItemsPropsType = {
-	projectsDemoData: Array<ProjectsDemoDataType>
-}
 
 const DemoProjectsItems: React.FC<DemoProjectsItemsPropsType> = (props) => {
 

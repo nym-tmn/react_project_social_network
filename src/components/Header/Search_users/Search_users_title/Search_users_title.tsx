@@ -1,12 +1,10 @@
 import React from 'react';
 
+import { TitlePropsType } from '../../../../types/types';
+
 import classes from './Search_users_title.module.css';
 
-type SearchUsersTitlePropsType = {
-	title: string
-}
-
-const SearchUsersTitle: React.FC<SearchUsersTitlePropsType> = (props) => {
+const SearchUsersTitle: React.FC<TitlePropsType> = (props) => {
 
 	return (
 		<div className={classes.title}>{props.title}</div>

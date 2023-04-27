@@ -1,16 +1,10 @@
 import React from 'react';
 
+import { EnterPostsPropsType } from './Enter_posts_container';
+
 import classes from './Enter_posts.module.css';
 
-type EnterPostsPropsType = {
-	addPost: () => void
-	updateNewPostText: (postText: string) => void
-	profilePage: string
-}
-
 const EnterPosts: React.FC<EnterPostsPropsType> = (props) => {
-
-	// console.log(props.profilePage);
 
 	const onAddPostClick = () => {
 		props.addPost();

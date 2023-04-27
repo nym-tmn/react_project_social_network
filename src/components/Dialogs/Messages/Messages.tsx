@@ -3,23 +3,17 @@ import React from 'react';
 import MessageToMe from './Message_to_me/Message_to_me';
 import MessageFromMe from './Message_from_me/Message_from_me';
 import SendMessages from './Send_messages/Send_messages';
-import { InitialStateType } from '../../redux/dialogs_page_reducer';
+import { DialogsPropsType } from '../Dialogs_container';
 
 import classes from './Messages.module.css';
 
-type MessagesPropsType = {
-	sendMessage: () => void
-	updateNewMessageText: (messageText: string) => void
-	messages: InitialStateType
-}
+const Messages: React.FC<DialogsPropsType> = (props) => {
 
-const Messages: React.FC<MessagesPropsType> = (props) => {
+	const messagesToMeElements = props.dialogsPage.messagesToMeData
+		.map(message => <MessageToMe key={message.id} id={message.id} messageText={message.messageText} />);
 
-	const messagesToMeElements = props.messages.messagesToMeData
-		.map(message => <MessageToMe key={message.id} message={message.messageText} />);
-
-	const messagesFromMeElements = props.messages.messagesFromMeData
-		.map(message => <MessageFromMe key={message.id} message={message.messageText} />);
+	const messagesFromMeElements = props.dialogsPage.messagesFromMeData
+		.map(message => <MessageFromMe key={message.id} id={message.id} messageText={message.messageText} />);
 
 	return (
 		<div className={classes.messages}>
@@ -32,7 +26,7 @@ const Messages: React.FC<MessagesPropsType> = (props) => {
 				</div>
 			</div>
 			<SendMessages
-				newMessageText={props.messages.newMessageText}
+				newMessageText={props.dialogsPage.newMessageText}
 				updateNewMessageText={props.updateNewMessageText}
 				sendMessage={props.sendMessage} />
 		</div>

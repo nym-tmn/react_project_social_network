@@ -1,10 +1,8 @@
 import React from 'react';
 
-import classes from './Dialogs_title.module.css';
+import { TitlePropsType } from '../../../types/types';
 
-type TitlePropsType = {
-	title: string
-}
+import classes from './Dialogs_title.module.css';
 
 const Title: React.FC<TitlePropsType> = (props) => {
 

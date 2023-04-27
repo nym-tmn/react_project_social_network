@@ -12,21 +12,26 @@ import {
 	toggleIsFetchingActionCreator,
 } from '../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
-import { AppDispatch, RootState } from '../../redux/redux-store';
+import { AppDispatch, AppStateType } from '../../redux/redux-store';
 
-type SearchUsersContainerPropsType = {
+type MapStateToPropsType = {
+	usersData: Array<UsersDataType>
+	pageSize: number
+	totalUsersCount: number
+	currentPage: number
+	isFetching: boolean
+}
+
+type MapDispatchToPropsType = {
+	follow: (userId: number) => void
+	unfollow: (userId: number) => void
 	setUsers: (users: Array<UsersDataType>) => void
 	setTotalUsersCount: (totalCount: number) => void
 	setCurrentPage: (numberPage: number) => void
-	currentPage: number
-	pageSize: number
-	totalUsersCount: number
-	usersData: Array<UsersDataType>
-	unfollow: (userId: number) => void
-	follow: (userId: number) => void
-	isFetching: boolean
 	toggleIsFetching: (isFetching: boolean) => void
 }
+
+type SearchUsersContainerPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	setUsers,
@@ -75,7 +80,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	);
 };
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return {
 		usersData: state.searchUsersPage.usersData,
 		pageSize: state.searchUsersPage.pageSize,
@@ -85,7 +90,7 @@ const mapStateToProps = (state: RootState) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: AppDispatch) => {
+const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToPropsType => {
 	return {
 		follow: (userId: number) => {
 			dispatch(followActionCreator(userId));

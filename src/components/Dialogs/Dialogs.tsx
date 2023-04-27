@@ -3,15 +3,9 @@ import React from 'react';
 import Title from './Dialogs_title/Dialogs_title';
 import Messages from './Messages/Messages';
 import DialogItem from './Dialog_item/Dialog_item';
-import { InitialStateType } from '../redux/dialogs_page_reducer';
+import { DialogsPropsType } from './Dialogs_container';
 
 import classes from './Dialogs.module.css';
-
-type DialogsPropsType = {
-	dialogsPage: InitialStateType
-	sendMessage: () => void
-	updateNewMessageText: (messageText: string) => void
-}
 
 const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
@@ -22,7 +16,7 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
 		<div className={classes.dialogs}>
 			<Title title='Messages' />
 			<Messages
-				messages={props.dialogsPage}
+				dialogsPage={props.dialogsPage}
 				updateNewMessageText={props.updateNewMessageText}
 				sendMessage={props.sendMessage} />
 			<div className={classes.dialogItem}>

@@ -1,9 +1,16 @@
 import { connect } from 'react-redux';
 
 import MyProjectsItems from './My_projects_items';
-import { RootState } from '../../../../../redux/redux-store';
+import { AppStateType } from '../../../../../redux/redux-store';
+import { MyProjectsDataType } from '../../../../../../types/types';
 
-const mapStateToProps = (state: RootState) => {
+type mapStateToPropsType = {
+	myProjectsData: Array<MyProjectsDataType>
+}
+
+export type MyProjectsItemsPropsType = mapStateToPropsType
+
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
 		myProjectsData: state.profilePage.myProjectsData,

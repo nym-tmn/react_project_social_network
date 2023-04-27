@@ -1,13 +1,9 @@
 import React from 'react';
 
 import Following from './Following/Following';
-import { FollowingsDataType } from '../../../../../../types/types';
+import { FollowingsPropsType } from './Followings_container';
 
 import classes from './Followings.module.css';
-
-type FollowingsPropsType = {
-	followingsData: Array<FollowingsDataType>
-}
 
 const Followings: React.FC<FollowingsPropsType> = (props) => {
 
