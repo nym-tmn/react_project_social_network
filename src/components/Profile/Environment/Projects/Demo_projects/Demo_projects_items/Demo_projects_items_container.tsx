@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { ConnectedProps, connect } from 'react-redux';
 
 import DemoProjectsItems from './Demo_projects_items';
 import { AppStateType } from '../../../../../redux/redux-store';
@@ -8,8 +8,6 @@ type mapStateToPropsType = {
 	projectsDemoData: Array<ProjectsDemoDataType>
 }
 
-export type DemoProjectsItemsPropsType = mapStateToPropsType
-
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
@@ -17,6 +15,8 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 	};
 };
 
-const DemoProjectsItemsContiner = connect(mapStateToProps)(DemoProjectsItems);
+const connector = connect(mapStateToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>
+export interface DemoProjectsItemsPropsType extends PropsFromRedux { }
 
-export default DemoProjectsItemsContiner;
+export default connector(DemoProjectsItems);

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+import { ConnectedProps, connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import SearchUsers from './Search_users';
 import {
@@ -10,9 +11,10 @@ import {
 	setTotalUsersCountActionCreator,
 	setCurrentPageActionCreator,
 	toggleIsFetchingActionCreator,
+	ActionsTypes,
 } from '../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
-import { AppDispatch, AppStateType } from '../../redux/redux-store';
+import { AppStateType } from '../../redux/redux-store';
 
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
@@ -30,8 +32,6 @@ type MapDispatchToPropsType = {
 	setCurrentPage: (numberPage: number) => void
 	toggleIsFetching: (isFetching: boolean) => void
 }
-
-type SearchUsersContainerPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	setUsers,
@@ -90,7 +90,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToPropsType => {
 	return {
 		follow: (userId: number) => {
 			dispatch(followActionCreator(userId));
@@ -113,4 +113,8 @@ const mapDispatchToProps = (dispatch: AppDispatch): MapDispatchToPropsType => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchUsersContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>
+interface SearchUsersContainerPropsType extends PropsFromRedux {}
+
+export default connector(SearchUsersContainer);

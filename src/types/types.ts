@@ -67,7 +67,3 @@ export type SearchUsersPropsType = {
 	follow: (userId: number) => void
 	isFetching: boolean
 }
-
-export type TitlePropsType = {
-	title: string
-}

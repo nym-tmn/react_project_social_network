@@ -16,8 +16,6 @@ const store = legacy_createStore(rootReducer);
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 
-export type AppDispatch = typeof store.dispatch
-
 // window.store = store;
 
 export default store;

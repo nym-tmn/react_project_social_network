@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { ConnectedProps, connect } from 'react-redux';
 
 import Followings from './Followings';
 import { AppStateType } from '../../../../../redux/redux-store';
@@ -8,8 +8,6 @@ type mapStateToPropsType = {
 	followingsData: Array<FollowingsDataType>
 }
 
-export type FollowingsPropsType = mapStateToPropsType
-
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
@@ -17,6 +15,8 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 	};
 };
 
-const FollowingsContainer = connect(mapStateToProps)(Followings);
+const connector = connect(mapStateToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>
+export interface FollowingsPropsType extends PropsFromRedux { }
 
-export default FollowingsContainer;
+export default connector(Followings);

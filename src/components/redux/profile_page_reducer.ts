@@ -79,7 +79,7 @@ const initialState = {
 
 type InitialStateType = typeof initialState
 
-const profileReducer = (state = initialState, action: any): InitialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 
 	switch (action.type) {
 
@@ -111,8 +111,9 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 			return state;
 
 	}
-
 };
+
+export type ActionsTypes = AddPostActionCreatorType | UpdateNewPostTextActionCreatorType
 
 type AddPostActionCreatorType = {
 	type: typeof ADD_POST

@@ -1,8 +1,9 @@
-import { connect } from 'react-redux';
+import { ConnectedProps, connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import EnterPosts from './Enter_posts';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
-import { AppDispatch, AppStateType } from '../../../../redux/redux-store';
+import { ActionsTypes, addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
+import { AppStateType } from '../../../../redux/redux-store';
 
 type mapStateToPropsType = {
 	profilePage: string
@@ -13,8 +14,6 @@ type mapDispatchToPropsType = {
 	updateNewPostText: (postText: string) => void
 }
 
-export type EnterPostsPropsType = mapStateToPropsType & mapDispatchToPropsType
-
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
@@ -22,7 +21,7 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: AppDispatch): mapDispatchToPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): mapDispatchToPropsType => {
 	return {
 		addPost: () => {
 			dispatch(addPostActionCreator());
@@ -33,6 +32,8 @@ const mapDispatchToProps = (dispatch: AppDispatch): mapDispatchToPropsType => {
 	};
 };
 
-const EnterPostsContainer = connect(mapStateToProps, mapDispatchToProps)(EnterPosts);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>
+export interface EnterPostsPropsType extends PropsFromRedux { }
 
-export default EnterPostsContainer;
+export default connector(EnterPosts);

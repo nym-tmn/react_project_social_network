@@ -7,15 +7,6 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
-/* type ActionType = {
-	userId: number
-	users: UsersDataType
-	totalCount: number
-	currentPage: number
-	isFetching: boolean
-	type: 'FOLLOW' | 'UNFOLLOW' | 'SET_USERS' | 'SET_TOTAL_USERS_COUNT' | 'SET_CURRENT_PAGE' | 'TOGGLE_IS_FETCHING'
-} */
-
 const initialState = {
 	usersData: [
 		/* {
@@ -81,7 +72,7 @@ const initialState = {
 
 export type InitialStateType = typeof initialState
 
-const searchUsersReducer = (state = initialState, action: any /* ActionType */): InitialStateType => {
+const searchUsersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 
 	switch (action.type) {
 
@@ -140,6 +131,9 @@ const searchUsersReducer = (state = initialState, action: any /* ActionType */):
 			return state;
 	}
 };
+
+export type ActionsTypes = FollowActionCreatorType | UnFollowActionCreatorType | SetUsersActionCreatorType | SetTotalUsersCountActionCreatorType |
+	SetCurrentPageActionCreatorType | ToggleIsFetchingActionCreatorType
 
 type FollowActionCreatorType = {
 	type: typeof FOLLOW
