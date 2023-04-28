@@ -33,6 +33,12 @@ type MapDispatchToPropsType = {
 	toggleIsFetching: (isFetching: boolean) => void
 }
 
+type ResponseType = {
+	items: Array<UsersDataType>
+	totalCount: number
+	error: null | string
+}
+
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	setUsers,
 	setTotalUsersCount,
@@ -49,7 +55,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 	useEffect(() => {
 		toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
 			.then((response) => {
 				toggleIsFetching(false);
 				setUsers(response.data.items);
@@ -60,7 +66,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	const onPageChanged = (numberPage: number) => {
 		setCurrentPage(numberPage);
 		toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${pageSize}`)
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${pageSize}`)
 			.then((response) => {
 				toggleIsFetching(false);
 				setUsers(response.data.items);
@@ -115,6 +121,6 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToProp
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>
-interface SearchUsersContainerPropsType extends PropsFromRedux {}
+interface SearchUsersContainerPropsType extends PropsFromRedux { }
 
 export default connector(SearchUsersContainer);
