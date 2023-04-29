@@ -1,7 +1,5 @@
 import { DialogItemDataType, MessagesDataType } from '../../types/types';
-
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import { InferActionsTypes } from './redux-store';
 
 const initialState = {
 	messagesToMeData: [
@@ -31,7 +29,7 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 	switch (action.type) {
 
-		case 'SEND-MESSAGE':
+		case 'SEND_MESSAGE':
 
 			const newMessageFromMe = {
 				id: 4,
@@ -50,7 +48,7 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 				stateCopy.messagesFromMeData.push(newMessageFromMe);
 			} */
 
-		case 'UPDATE-NEW-MESSAGE-TEXT':
+		case 'UPDATE_NEW_MESSAGE_TEXT':
 
 			return {
 				...state,
@@ -63,19 +61,12 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 	}
 };
 
-export type ActionsTypes = SendMessageActionCreatorType | UpdateNewMessageTextActionCreatorType
+export type ActionsTypes = InferActionsTypes<typeof actions>
 
-type SendMessageActionCreatorType = {
-	type: typeof SEND_MESSAGE
-}
+export const actions = {
+	sendMessageActionCreator: () => ({ type: 'SEND_MESSAGE' } as const),
 
-export const sendMessageActionCreator = (): SendMessageActionCreatorType => ({ type: SEND_MESSAGE });
-
-type UpdateNewMessageTextActionCreatorType = {
-	type: typeof UPDATE_NEW_MESSAGE_TEXT
-	newMessageText: string
-}
-
-export const updateNewMessageTextActionCreator = (messageText: string): UpdateNewMessageTextActionCreatorType => ({ type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: messageText });
+	updateNewMessageTextActionCreator: (messageText: string) => ({ type: 'UPDATE_NEW_MESSAGE_TEXT', newMessageText: messageText } as const),
+};
 
 export default dialogsReducer;

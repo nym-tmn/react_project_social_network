@@ -3,12 +3,7 @@ import { Dispatch } from 'redux';
 import { AppStateType } from '../redux/redux-store';
 
 import Dialogs from './Dialogs';
-import {
-	ActionsTypes,
-	InitialStateType,
-	sendMessageActionCreator,
-	updateNewMessageTextActionCreator,
-} from '../redux/dialogs_page_reducer';
+import {	ActionsTypes, InitialStateType, actions } from '../redux/dialogs_page_reducer';
 
 type MapStateToPropsType = {
 	dialogsPage: InitialStateType
@@ -30,10 +25,10 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToProp
 
 	return {
 		sendMessage: () => {
-			dispatch(sendMessageActionCreator());
+			dispatch(actions.sendMessageActionCreator());
 		},
 		updateNewMessageText: (messageText: string) => {
-			dispatch(updateNewMessageTextActionCreator(messageText));
+			dispatch(actions.updateNewMessageTextActionCreator(messageText));
 		},
 	};
 };

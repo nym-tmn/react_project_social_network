@@ -5,9 +5,7 @@ import {
 	PostsDataType,
 	ProjectsDemoDataType,
 } from '../../types/types';
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import { InferActionsTypes } from './redux-store';
 
 const initialState = {
 	postsData: [
@@ -83,7 +81,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 	switch (action.type) {
 
-		case 'ADD-POST':
+		case 'ADD_POST':
 
 			const newPost = {
 				id: 4,
@@ -100,7 +98,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 				newPostText: '',
 			};
 
-		case 'UPDATE-NEW-POST-TEXT':
+		case 'UPDATE_NEW_POST_TEXT':
 
 			return {
 				...state,
@@ -113,19 +111,12 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 	}
 };
 
-export type ActionsTypes = AddPostActionCreatorType | UpdateNewPostTextActionCreatorType
+export type ActionsTypes = InferActionsTypes<typeof actions>
 
-type AddPostActionCreatorType = {
-	type: typeof ADD_POST
-}
+export const actions = {
+	addPostActionCreator: () => ({ type: 'ADD_POST' } as const),
 
-export const addPostActionCreator = (): AddPostActionCreatorType => ({ type: ADD_POST });
-
-type UpdateNewPostTextActionCreatorType = {
-	type: typeof UPDATE_NEW_POST_TEXT
-	newPostText: string
-}
-
-export const updateNewPostTextActionCreator = (postText: string): UpdateNewPostTextActionCreatorType => ({ type: UPDATE_NEW_POST_TEXT, newPostText: postText });
+	updateNewPostTextActionCreator: (postText: string) => ({ type: 'UPDATE_NEW_POST_TEXT', newPostText: postText } as const),
+};
 
 export default profileReducer;

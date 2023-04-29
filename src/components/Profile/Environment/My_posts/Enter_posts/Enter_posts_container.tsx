@@ -2,7 +2,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import EnterPosts from './Enter_posts';
-import { ActionsTypes, addPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profile_page_reducer';
+import { ActionsTypes, actions } from '../../../../redux/profile_page_reducer';
 import { AppStateType } from '../../../../redux/redux-store';
 
 type mapStateToPropsType = {
@@ -24,10 +24,10 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): mapDispatchToPropsType => {
 	return {
 		addPost: () => {
-			dispatch(addPostActionCreator());
+			dispatch(actions.addPostActionCreator());
 		},
 		updateNewPostText: (postText: string) => {
-			dispatch(updateNewPostTextActionCreator(postText));
+			dispatch(actions.updateNewPostTextActionCreator(postText));
 		},
 	};
 };

@@ -4,15 +4,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import SearchUsers from './Search_users';
-import {
-	followActionCreator,
-	setUsersActionCreator,
-	unFollowActionCreator,
-	setTotalUsersCountActionCreator,
-	setCurrentPageActionCreator,
-	toggleIsFetchingActionCreator,
-	ActionsTypes,
-} from '../../redux/search_users_reducer';
+import {	actions,	ActionsTypes } from '../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../redux/redux-store';
 
@@ -99,22 +91,22 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToPropsType => {
 	return {
 		follow: (userId: number) => {
-			dispatch(followActionCreator(userId));
+			dispatch(actions.followActionCreator(userId));
 		},
 		unfollow: (userId: number) => {
-			dispatch(unFollowActionCreator(userId));
+			dispatch(actions.unFollowActionCreator(userId));
 		},
 		setUsers: (users: Array<UsersDataType>) => {
-			dispatch(setUsersActionCreator(users));
+			dispatch(actions.setUsersActionCreator(users));
 		},
 		setTotalUsersCount: (totalCount: number) => {
-			dispatch(setTotalUsersCountActionCreator(totalCount));
+			dispatch(actions.setTotalUsersCountActionCreator(totalCount));
 		},
 		setCurrentPage: (numberPage: number) => {
-			dispatch(setCurrentPageActionCreator(numberPage));
+			dispatch(actions.setCurrentPageActionCreator(numberPage));
 		},
 		toggleIsFetching: (isFetching: boolean) => {
-			dispatch(toggleIsFetchingActionCreator(isFetching));
+			dispatch(actions.toggleIsFetchingActionCreator(isFetching));
 		},
 	};
 };

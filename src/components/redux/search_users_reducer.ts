@@ -1,11 +1,5 @@
 import { UsersDataType } from '../../types/types';
-
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET_USERS';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+import { InferActionsTypes } from './redux-store';
 
 const initialState = {
 	usersData: [
@@ -132,49 +126,20 @@ const searchUsersReducer = (state = initialState, action: ActionsTypes): Initial
 	}
 };
 
-export type ActionsTypes = FollowActionCreatorType | UnFollowActionCreatorType | SetUsersActionCreatorType | SetTotalUsersCountActionCreatorType |
-	SetCurrentPageActionCreatorType | ToggleIsFetchingActionCreatorType
+export type ActionsTypes = InferActionsTypes<typeof actions>
 
-type FollowActionCreatorType = {
-	type: typeof FOLLOW
-	userId: number
-}
+export const actions = {
+	followActionCreator: (userId: number) => ({ type: 'FOLLOW', userId } as const),
 
-export const followActionCreator = (userId: number): FollowActionCreatorType => ({ type: FOLLOW, userId });
+	unFollowActionCreator: (userId: number) => ({ type: 'UNFOLLOW', userId } as const),
 
-type UnFollowActionCreatorType = {
-	type: typeof UNFOLLOW
-	userId: number
-}
+	setUsersActionCreator: (users: Array<UsersDataType>) => ({ type: 'SET_USERS', users } as const),
 
-export const unFollowActionCreator = (userId: number): UnFollowActionCreatorType => ({ type: UNFOLLOW, userId });
+	setTotalUsersCountActionCreator: (totalCount: number) => ({ type: 'SET_TOTAL_USERS_COUNT', totalCount } as const),
 
-type SetUsersActionCreatorType = {
-	type: typeof SET_USERS
-	users: Array<UsersDataType>
-}
+	setCurrentPageActionCreator: (currentPage: number) => ({ type: 'SET_CURRENT_PAGE', currentPage } as const),
 
-export const setUsersActionCreator = (users: Array<UsersDataType>): SetUsersActionCreatorType => ({ type: SET_USERS, users });
-
-type SetTotalUsersCountActionCreatorType = {
-	type: typeof SET_TOTAL_USERS_COUNT
-	totalCount: number
-}
-
-export const setTotalUsersCountActionCreator = (totalCount: number): SetTotalUsersCountActionCreatorType => ({ type: SET_TOTAL_USERS_COUNT, totalCount });
-
-type SetCurrentPageActionCreatorType = {
-	type: typeof SET_CURRENT_PAGE
-	currentPage: number
-}
-
-export const setCurrentPageActionCreator = (currentPage: number): SetCurrentPageActionCreatorType => ({ type: SET_CURRENT_PAGE, currentPage });
-
-type ToggleIsFetchingActionCreatorType = {
-	type: typeof TOGGLE_IS_FETCHING
-	isFetching: boolean
-}
-
-export const toggleIsFetchingActionCreator = (isFetching: boolean): ToggleIsFetchingActionCreatorType => ({ type: TOGGLE_IS_FETCHING, isFetching });
+	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
+};
 
 export default searchUsersReducer;
