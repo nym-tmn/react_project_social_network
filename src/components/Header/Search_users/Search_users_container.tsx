@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { ConnectedProps, connect } from 'react-redux';
-import { Dispatch } from 'redux';
 
 import SearchUsers from './Search_users';
-import {	actions,	ActionsTypes } from '../../redux/search_users_reducer';
+import {	actions } from '../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../redux/redux-store';
 
@@ -14,15 +13,6 @@ type MapStateToPropsType = {
 	totalUsersCount: number
 	currentPage: number
 	isFetching: boolean
-}
-
-type MapDispatchToPropsType = {
-	follow: (userId: number) => void
-	unfollow: (userId: number) => void
-	setUsers: (users: Array<UsersDataType>) => void
-	setTotalUsersCount: (totalCount: number) => void
-	setCurrentPage: (numberPage: number) => void
-	toggleIsFetching: (isFetching: boolean) => void
 }
 
 type ResponseType = {
@@ -88,30 +78,14 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): MapDispatchToPropsType => {
-	return {
-		follow: (userId: number) => {
-			dispatch(actions.followActionCreator(userId));
-		},
-		unfollow: (userId: number) => {
-			dispatch(actions.unFollowActionCreator(userId));
-		},
-		setUsers: (users: Array<UsersDataType>) => {
-			dispatch(actions.setUsersActionCreator(users));
-		},
-		setTotalUsersCount: (totalCount: number) => {
-			dispatch(actions.setTotalUsersCountActionCreator(totalCount));
-		},
-		setCurrentPage: (numberPage: number) => {
-			dispatch(actions.setCurrentPageActionCreator(numberPage));
-		},
-		toggleIsFetching: (isFetching: boolean) => {
-			dispatch(actions.toggleIsFetchingActionCreator(isFetching));
-		},
-	};
-};
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
+const connector = connect(mapStateToProps, {
+	follow: actions.followActionCreator,
+	unfollow: actions.unFollowActionCreator,
+	setUsers: actions.setUsersActionCreator,
+	setTotalUsersCount: actions.setTotalUsersCountActionCreator,
+	setCurrentPage: actions.setCurrentPageActionCreator,
+	toggleIsFetching: actions.toggleIsFetchingActionCreator,
+});
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SearchUsersContainerPropsType extends PropsFromRedux { }
 

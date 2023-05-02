@@ -1,17 +1,11 @@
 import { ConnectedProps, connect } from 'react-redux';
-import { Dispatch } from 'redux';
 
 import EnterPosts from './Enter_posts';
-import { ActionsTypes, actions } from '../../../../redux/profile_page_reducer';
+import { actions } from '../../../../redux/profile_page_reducer';
 import { AppStateType } from '../../../../redux/redux-store';
 
 type mapStateToPropsType = {
 	profilePage: string
-}
-
-type mapDispatchToPropsType = {
-	addPost: () => void
-	updateNewPostText: (postText: string) => void
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
@@ -21,18 +15,10 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsTypes>): mapDispatchToPropsType => {
-	return {
-		addPost: () => {
-			dispatch(actions.addPostActionCreator());
-		},
-		updateNewPostText: (postText: string) => {
-			dispatch(actions.updateNewPostTextActionCreator(postText));
-		},
-	};
-};
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
+const connector = connect(mapStateToProps, {
+	addPost: actions.addPostActionCreator,
+	updateNewPostText: actions.updateNewPostTextActionCreator,
+});
 type PropsFromRedux = ConnectedProps<typeof connector>
 export interface EnterPostsPropsType extends PropsFromRedux { }
 
