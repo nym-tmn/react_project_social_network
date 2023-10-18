@@ -44,16 +44,16 @@ export type ProjectsDemoDataType = {
 }
 
 export type PhotosType = {
-	small: string | null
-	large: string | null
+	small: string
+	large: string
 }
 
 export type UsersDataType = {
-	name: string | null
+	name: null | string
 	id: number
-	uniqueUrlName: string | null
+	uniqueUrlName: null | string
 	photos: PhotosType
-	status: string | null
+	status: null | string
 	followed: boolean
 }
 
@@ -66,4 +66,25 @@ export type SearchUsersPropsType = {
 	unfollow: (userId: number) => void
 	follow: (userId: number) => void
 	isFetching: boolean
+}
+
+export type ContactsType = {
+	facebook: string
+	website: string
+	vk: string
+	twitter: string
+	instagram: string
+	youtube: string
+	github: string
+	mainLink: string
+}
+
+export type UserProfileType = {
+	userId?: number
+	lookingForAJob?: boolean
+	lookingForAJobDescription?: string
+	fullName?: string
+	contacts?: ContactsType
+	photos?: PhotosType
+	aboutMe?: string
 }

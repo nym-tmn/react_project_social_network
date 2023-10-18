@@ -4,6 +4,7 @@ import {
 	MyProjectsDataType,
 	PostsDataType,
 	ProjectsDemoDataType,
+	UserProfileType,
 } from '../../types/types';
 import { InferActionsTypes } from './redux-store';
 
@@ -73,9 +74,10 @@ const initialState = {
 		{ id: 5, iconDemoProject: require('../images/demo_projects/icon_demo_project_5.png'), nameDemoProject: 'demo_project_5' },
 		{ id: 6, iconDemoProject: require('../images/demo_projects/icon_demo_project_6.png'), nameDemoProject: 'demo_project_6' },
 	] as Array<ProjectsDemoDataType>,
+	profileData: null as UserProfileType | null,
 };
 
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 
@@ -105,6 +107,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 				newPostText: action.newPostText,
 			};
 
+		case 'SET_USER_PROFILE':
+			return {
+				...state, profileData: action.profile,
+			};
+
 		default:
 			return state;
 
@@ -117,6 +124,8 @@ export const actions = {
 	addPostActionCreator: () => ({ type: 'ADD_POST' } as const),
 
 	updateNewPostTextActionCreator: (postText: string) => ({ type: 'UPDATE_NEW_POST_TEXT', newPostText: postText } as const),
+
+	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
 };
 
 export default profileReducer;

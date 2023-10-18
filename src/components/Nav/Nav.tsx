@@ -8,7 +8,7 @@ const Nav = () => {
 	return (
 		<nav className={classes.nav}>
 			<div>
-				<NavLink to='/' className={({ isActive }) => (isActive ? classes.active : '')}>
+				<NavLink to='/*' className={({ isActive }) => (isActive ? classes.active : '')}>
 					Profile
 				</NavLink>
 			</div>

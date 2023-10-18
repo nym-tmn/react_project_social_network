@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Preloader from '../../../../common/Preloader/Preloader';
 import { SearchUsersPropsType } from '../../../../../types/types';
@@ -33,7 +34,9 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 				<div className={classes.loadingSpinner} >{props.isFetching ? <Preloader/> : null}</div>
 				{props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 					<div className={classes.avatar}>
-						<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />
+						<NavLink to={`/${user.id}`} >
+							<img src={user.photos.small != null ? user.photos.small : searchUserAvatar} alt="" />
+						</NavLink>
 					</div>
 					{user.followed
 						? <button
@@ -47,7 +50,9 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 							Follow
 						</button>}
 					<div className={classes.userInfo}>
-						<div className={classes.fullName}>{user.name}</div>
+						<NavLink to={`/${user.id}`}>
+							<div className={classes.fullName}>{user.name}</div>
+						</NavLink>
 						<div className={classes.age}>{'user.age'}</div>
 						<div className={classes.country}>{'user.location.countryName'}</div>
 						<div className={classes.city}>{'user.location.cityName'}</div>

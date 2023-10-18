@@ -11,7 +11,7 @@
 	min-height: 100vh;
 }
 
-.app-continer {
+.app-container {
 	grid-area: app-continer;
 	display: grid;
 	grid-template-areas: 'nav-bar main-content';

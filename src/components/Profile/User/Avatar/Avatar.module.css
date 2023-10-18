@@ -1,7 +1,5 @@
 .avatar {
 	grid-area: user-avatar;
 	display: grid;
-	grid-template-areas: 'user-avatar-continer'
-								'social-networks';
-	grid-gap: 5px;
+	grid-template-areas: 'user-avatar-continer';
 }

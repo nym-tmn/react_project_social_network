@@ -9,7 +9,7 @@ import Notifications from './components/Header/Notifications/Notifications';
 import News from './components/Header/News/News';
 import Settings from './components/Header/Settings/Settings';
 import Nav from './components/Nav/Nav';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/Profile_container';
 import DialogsContainer from './components/Dialogs/Dialogs_container';
 import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
@@ -23,7 +23,7 @@ const App = () => {
 		<HashRouter>
 			<div className='app-wrapper'>
 				<Header />
-				<div className='app-continer'>
+				<div className='app-container'>
 					<Nav />
 					<div className='mainContent'>
 						<Routes>
@@ -31,7 +31,7 @@ const App = () => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/' element={<Profile />} />
+							<Route path='/*' element={<ProfileContainer />} />
 							<Route path='/dialogs' element={<DialogsContainer />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />

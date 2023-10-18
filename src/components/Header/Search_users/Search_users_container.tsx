@@ -45,10 +45,10 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 			});
 	}, [currentPage, toggleIsFetching, pageSize, setTotalUsersCount, setUsers]);
 
-	const onPageChanged = (numberPage: number) => {
-		setCurrentPage(numberPage);
+	const onPageChanged = (pageNumber: number) => {
+		setCurrentPage(pageNumber);
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${pageSize}`)
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
 			.then((response) => {
 				toggleIsFetching(false);
 				setUsers(response.data.items);

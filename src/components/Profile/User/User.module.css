@@ -4,6 +4,6 @@
 	grid-template-areas: 'user-cover-picture user-cover-picture'
 								'user-avatar user-information';
 	grid-template-rows: 300px 1fr;
-	grid-template-columns: 290px 1fr;
+	grid-template-columns: 330px 1fr;
 	padding: 0px 0px 5px 0px;
 }

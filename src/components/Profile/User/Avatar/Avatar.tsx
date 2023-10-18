@@ -1,16 +1,15 @@
 import React from 'react';
 
 import AvatarImage from './Avatar_image/Avatar_image';
-import SocialNetworks from './Social_networks/Social_networks';
+import { UserProfileType } from '../../../../types/types';
 
 import classes from './Avatar.module.css';
 
-const Avatar = () => {
+const Avatar: React.FC<UserProfileType> = (props: UserProfileType) => {
 
 	return (
 			<div className={classes.avatar}>
-			<AvatarImage/>
-			<SocialNetworks/>
+			<AvatarImage photos={props.photos} />
 			</div>
 	);
 };

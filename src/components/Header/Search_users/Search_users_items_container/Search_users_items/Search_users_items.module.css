@@ -35,8 +35,8 @@
 	display: grid;
 	grid-template-areas: 'avatar userInfo'
 								'button userInfo';
-	grid-template-rows: 94px minmax(auto, auto);
-	grid-template-columns: 94px 1fr;
+	grid-template-rows: 102px auto;
+	grid-template-columns: 103px 1fr;
 	grid-gap: 10px;
 	padding: 5px;
 	border: 2px solid rgba(70, 18, 29, 0.307);
@@ -77,6 +77,10 @@
 	border: 2px solid rgba(130, 158, 127, 0.65);
 	padding: 10px 0px 10px 30px;
 	word-break: break-word;
+}
+
+.userInfo a {
+	color: #000;
 }
 
 .fullName {
