@@ -7,3 +7,9 @@
 	grid-template-columns: 330px 1fr;
 	padding: 0px 0px 5px 0px;
 }
+
+.preloader {
+	margin: 200px auto 0px auto;
+	width: 200px;
+	height: 200px;
+}

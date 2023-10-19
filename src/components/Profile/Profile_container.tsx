@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ConnectedProps, connect } from 'react-redux';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 import Profile from './Profile';
 import { AppStateType } from '../redux/redux-store';
@@ -22,12 +23,17 @@ const ProfileContainer: React.FC<ProfileContainerPropsType & MapDispatchToPropsT
 	profile,
 }) => {
 
+	let { userId } = useParams();
+
+	if (!userId) userId = '28215';
+
 	useEffect(() => {
-		axios.get<ResponseType>('https://social-network.samuraijs.com/api/1.0/profile/10')
+
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
 			.then((response) => {
 				setUserProfile(response.data);
 			});
-	}, [setUserProfile]);
+	}, [setUserProfile, userId]);
 
 	return (
 		<div>
@@ -47,6 +53,6 @@ const connector = connect(mapStateToProps, {
 	setUserProfile: actions.setUserProfileActionCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
-interface ProfileContainerPropsType extends PropsFromRedux {}
+interface ProfileContainerPropsType extends PropsFromRedux { }
 
 export default connector(ProfileContainer);

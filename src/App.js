@@ -31,7 +31,7 @@ const App = () => {
 							<Route path='/notifications' element={<Notifications />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
-							<Route path='/*' element={<ProfileContainer />} />
+							<Route path=':userId?' element={<ProfileContainer />} />
 							<Route path='/dialogs' element={<DialogsContainer />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
