@@ -5,13 +5,13 @@ import { actions } from '../../../../redux/profile_page_reducer';
 import { AppStateType } from '../../../../redux/redux-store';
 
 type mapStateToPropsType = {
-	profilePage: string
+	newPostText: string
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
-		profilePage: state.profilePage.newPostText,
+		newPostText: state.profilePage.newPostText,
 	};
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserProfileType } from '../../../../types/types';
+import { ProfilePropsType } from '../../../../types/types';
 import socialNetworkIconYouTube from '../../../images/social_network_icon_youtube.png';
 import socialNetworkIconVk from '../../../images/social_network_icon_vk.png';
 import socialNetworkIconGitHub from '../../../images/social_network_icon_github.png';
@@ -11,7 +11,7 @@ import lookingForAJobFalse from '../../../images/red_cross.png';
 
 import classes from './Information.module.css';
 
-const Information: React.FC<UserProfileType> = (props: UserProfileType) => {
+const Information: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 
 	return (
 		<div className={classes.information}>
@@ -26,7 +26,7 @@ const Information: React.FC<UserProfileType> = (props: UserProfileType) => {
 			<div className={classes.contactsItems}>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{ props.contacts?.instagram}</a>
+					<a href='#s' className={classes.contacts}>{props.contacts?.instagram}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>

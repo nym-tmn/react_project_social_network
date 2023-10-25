@@ -80,11 +80,29 @@ export type ContactsType = {
 }
 
 export type UserProfileType = {
-	userId?: number
+	userId: number
+	lookingForAJob: boolean
+	lookingForAJobDescription: string
+	fullName: string
+	contacts: ContactsType
+	photos: PhotosType
+	aboutMe: string
+}
+
+export type ProfilePropsType = {
 	lookingForAJob?: boolean
 	lookingForAJobDescription?: string
 	fullName?: string
 	contacts?: ContactsType
 	photos?: PhotosType
 	aboutMe?: string
+	isFetching?: boolean
+}
+
+export type UserAuthDataType = {
+	id: number | null
+	login: string | null
+	email: string | null
+	isFetching: boolean
+	isAuth: boolean
 }

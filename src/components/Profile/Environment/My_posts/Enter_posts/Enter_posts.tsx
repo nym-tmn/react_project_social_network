@@ -22,7 +22,7 @@ const EnterPosts: React.FC<EnterPostsPropsType> = (props) => {
 			</div>
 			<textarea
 				onChange={onNewPostChange}
-				value={props.profilePage}
+				value={props.newPostText}
 				className={classes.whatIsNew}
 				placeholder="What's new?" cols={50} rows={4} />
 			<button onClick={onAddPostClick} className={classes.buttonSend}>Send</button>

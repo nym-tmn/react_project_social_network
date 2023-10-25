@@ -3,11 +3,11 @@ import React from 'react';
 import CoverPicture from './Cover_picture/Cover_picture';
 import Avatar from './Avatar/Avatar';
 import Information from './Information/Information';
-import { UserProfileType } from '../../../types/types';
+import { ProfilePropsType } from '../../../types/types';
 
 import classes from './User.module.css';
 
-const User: React.FC<UserProfileType> = (props: UserProfileType) => {
+const User: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 
 	return (
 		<div className={classes.user}>

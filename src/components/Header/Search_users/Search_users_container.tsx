@@ -39,6 +39,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 		toggleIsFetching(true);
 		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
 			.then((response) => {
+				// debugger;
 				toggleIsFetching(false);
 				setUsers(response.data.items);
 				setTotalUsersCount(response.data.totalCount);

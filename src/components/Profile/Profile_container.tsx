@@ -10,16 +10,15 @@ import { actions } from '../redux/profile_page_reducer';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
-}
-
-type MapDispatchToPropsType = {
-	setUserProfile: (profile: UserProfileType) => void
+	isFetching: boolean
 }
 
 type ResponseType = UserProfileType
 
-const ProfileContainer: React.FC<ProfileContainerPropsType & MapDispatchToPropsType> = ({
+const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	setUserProfile,
+	toggleIsFetching,
+	isFetching,
 	profile,
 }) => {
 
@@ -28,16 +27,20 @@ const ProfileContainer: React.FC<ProfileContainerPropsType & MapDispatchToPropsT
 	if (!userId) userId = '28215';
 
 	useEffect(() => {
-
+		toggleIsFetching(true);
 		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
 			.then((response) => {
+				toggleIsFetching(false);
 				setUserProfile(response.data);
 			});
-	}, [setUserProfile, userId]);
+	}, [setUserProfile, userId, toggleIsFetching]);
 
 	return (
 		<div>
-			<Profile {...profile}/>
+			<Profile
+				{...profile}
+				isFetching={isFetching}
+			/>
 		</div>
 	);
 };
@@ -46,11 +49,13 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
 		profile: state.profilePage.profileData,
+		isFetching: state.profilePage.isFetching,
 	});
 };
 
 const connector = connect(mapStateToProps, {
 	setUserProfile: actions.setUserProfileActionCreator,
+	toggleIsFetching: actions.toggleIsFetchingActionCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }

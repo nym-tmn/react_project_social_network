@@ -7,7 +7,7 @@ import searchUserAvatar from '../../../../../assets/images/search_user_avatar.pn
 
 import classes from './Search_users_items.module.css';
 
-const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
+const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersPropsType) => {
 
 	const countPages = Math.ceil(props.totalUsersCount / props.pageSize);
 

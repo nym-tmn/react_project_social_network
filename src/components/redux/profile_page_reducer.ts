@@ -75,6 +75,7 @@ const initialState = {
 		{ id: 6, iconDemoProject: require('../images/demo_projects/icon_demo_project_6.png'), nameDemoProject: 'demo_project_6' },
 	] as Array<ProjectsDemoDataType>,
 	profileData: null as UserProfileType | null,
+	isFetching: false as boolean,
 };
 
 export type InitialStateType = typeof initialState
@@ -112,6 +113,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 				...state, profileData: action.profile,
 			};
 
+		case 'TOGGLE_IS_FETCHING':
+			return {
+				...state, isFetching: action.isFetching,
+			};
+
 		default:
 			return state;
 
@@ -126,6 +132,8 @@ export const actions = {
 	updateNewPostTextActionCreator: (postText: string) => ({ type: 'UPDATE_NEW_POST_TEXT', newPostText: postText } as const),
 
 	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
+
+	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
 };
 
 export default profileReducer;
