@@ -18,6 +18,7 @@ type ResponseType = {
 
 const SignInContainer: React.FC<SignInContainerPropsType> = ({
 	setAuthUserData,
+	setUserAvatar,
 	data,
 }) => {
 
@@ -26,12 +27,16 @@ const SignInContainer: React.FC<SignInContainerPropsType> = ({
 		axios.get<ResponseType>('https://social-network.samuraijs.com/api/1.0/auth/me', {
 			withCredentials: true,
 		})
-			.then((response) => {
-				if (response.data.resultCode === 0) {
-					setAuthUserData(response.data.data);
+			.then((responseOne) => {
+				if (responseOne.data.resultCode === 0) {
+					setAuthUserData(responseOne.data.data);
+					axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${responseOne.data.data.id}`)
+						.then((responseTwo) => {
+							setUserAvatar(responseTwo.data.photos.small);
+						});
 				}
 			});
-	}, [setAuthUserData]);
+	}, [setAuthUserData, setUserAvatar]);
 
 	return (
 		<SignIn { ...data } />
@@ -47,6 +52,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 const connector = connect(mapStateToProps, {
 	setAuthUserData: actions.setAuthUserDataActionCreator,
+	setUserAvatar: actions.setUserAvatarActionCreatorActionCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SignInContainerPropsType extends PropsFromRedux { }

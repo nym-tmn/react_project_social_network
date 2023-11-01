@@ -1,0 +1,15 @@
+.signInBlock {
+	display: grid;
+	justify-items: center;
+}
+
+.signInAvatar {
+order: -1;
+max-width: 50px;
+	max-height: 50px;
+}
+
+.signInName {
+order: 1;
+font-size: 14px;
+}

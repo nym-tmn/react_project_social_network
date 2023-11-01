@@ -105,4 +105,5 @@ export type UserAuthDataType = {
 	email: string | null
 	isFetching: boolean
 	isAuth: boolean
+	userAvatar: string | null
 }

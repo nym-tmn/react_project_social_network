@@ -8,7 +8,7 @@ const Nav = () => {
 	return (
 		<nav className={classes.nav}>
 			<div>
-				<NavLink to=':userId' className={({ isActive }) => (isActive ? classes.active : '')}>
+				<NavLink to='/profile' className={({ isActive }) => (isActive ? classes.active : '')}>
 					Profile
 				</NavLink>
 			</div>

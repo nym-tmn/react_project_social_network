@@ -32,6 +32,7 @@ const App = () => {
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
 							<Route path=':userId?' element={<ProfileContainer />} />
+							<Route path='/profile' element={<ProfileContainer />} />
 							<Route path='/dialogs' element={<DialogsContainer />} />
 							<Route path='/photo' element={<Photo />} />
 							<Route path='/video' element={<Video />} />
@@ -42,7 +43,7 @@ const App = () => {
 				</div>
 				<Footer />
 			</div>
-		</HashRouter>
+			</HashRouter>
 	);
 };
 
