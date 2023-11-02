@@ -37,7 +37,9 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 	useEffect(() => {
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
+			withCredentials: true,
+		})
 			.then((response) => {
 				toggleIsFetching(false);
 				setUsers(response.data.items);
@@ -48,7 +50,9 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	const onPageChanged = (pageNumber: number) => {
 		setCurrentPage(pageNumber);
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`, {
+			withCredentials: true,
+		})
 			.then((response) => {
 				toggleIsFetching(false);
 				setUsers(response.data.items);

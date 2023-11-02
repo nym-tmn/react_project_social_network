@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 import Preloader from '../../../../common/Preloader/Preloader';
 import { SearchUsersPropsType } from '../../../../../types/types';
@@ -15,6 +16,10 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 
 	for (let i = 1; i <= countPages; i++) {
 		pages.push(i);
+	}
+
+	type ResponseType = {
+		resultCode: number
 	}
 
 	return (
@@ -39,14 +44,30 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 						</NavLink>
 					</div>
 					{user.followed
-						? <button
-							onClick={() => { props.unfollow(user.id); }}
-							className={classes.follow}>
+						? <button className={classes.follow}
+							onClick={() => {
+								axios.delete<ResponseType>(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+									withCredentials: true,
+								})
+									.then((response) => {
+										if (response.data.resultCode === 0) {
+											props.unfollow(user.id);
+										}
+									});
+							}}>
 							Unfollow
 						</button>
-						: <button
-							onClick={() => { props.follow(user.id); }}
-							className={classes.follow}>
+						: <button className={classes.follow}
+							onClick={() => {
+								axios.post<ResponseType>(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+									withCredentials: true,
+								})
+									.then((response) => {
+										if (response.data.resultCode === 0) {
+											props.follow(user.id);
+										}
+									});
+							}}>
 							Follow
 						</button>}
 					<div className={classes.userInfo}>
