@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 
 import Preloader from '../../../../common/Preloader/Preloader';
 import { SearchUsersPropsType } from '../../../../../types/types';
 import searchUserAvatar from '../../../../../assets/images/search_user_avatar.png';
+import { followAPI } from '../../../../../api/api';
 
 import classes from './Search_users_items.module.css';
 
@@ -16,10 +16,6 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 
 	for (let i = 1; i <= countPages; i++) {
 		pages.push(i);
-	}
-
-	type ResponseType = {
-		resultCode: number
 	}
 
 	return (
@@ -46,11 +42,8 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 					{user.followed
 						? <button className={classes.follow}
 							onClick={() => {
-								axios.delete<ResponseType>(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-									withCredentials: true,
-								})
-									.then((response) => {
-										if (response.data.resultCode === 0) {
+								followAPI.unfollowUser(user.id).then((data) => {
+										if (data.resultCode === 0) {
 											props.unfollow(user.id);
 										}
 									});
@@ -59,11 +52,8 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 						</button>
 						: <button className={classes.follow}
 							onClick={() => {
-								axios.post<ResponseType>(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-									withCredentials: true,
-								})
-									.then((response) => {
-										if (response.data.resultCode === 0) {
+									followAPI.followUser(user.id).then((data) => {
+										if (data.resultCode === 0) {
 											props.follow(user.id);
 										}
 									});

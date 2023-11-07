@@ -1,4 +1,4 @@
-import { DialogItemDataType, MessagesDataType } from '../../types/types';
+import { DialogItemDataType, MessagesDataType } from '../types/types';
 import { InferActionsTypes } from './redux-store';
 
 const initialState = {
@@ -14,12 +14,12 @@ const initialState = {
 	] as Array<MessagesDataType>,
 	newMessageText: 'new message' as string,
 	dialogItemData: [
-		{ id: 1, name: 'Robert_lastName', avatar: require('../images/dialog_avatar.png') },
-		{ id: 2, name: 'Sophia_lastName', avatar: require('../images/dialog_avatar.png') },
-		{ id: 3, name: 'Alex_lastName', avatar: require('../images/dialog_avatar.png') },
-		{ id: 4, name: 'Andrew_lastName', avatar: require('../images/dialog_avatar.png') },
-		{ id: 5, name: 'John_lastName', avatar: require('../images/dialog_avatar.png') },
-		{ id: 6, name: 'Mary_lastName', avatar: require('../images/dialog_avatar.png') },
+		{ id: 1, name: 'Robert_lastName', avatar: require('../components/images/dialog_avatar.png') },
+		{ id: 2, name: 'Sophia_lastName', avatar: require('../components/images/dialog_avatar.png') },
+		{ id: 3, name: 'Alex_lastName', avatar: require('../components/images/dialog_avatar.png') },
+		{ id: 4, name: 'Andrew_lastName', avatar: require('../components/images/dialog_avatar.png') },
+		{ id: 5, name: 'John_lastName', avatar: require('../components/images/dialog_avatar.png') },
+		{ id: 6, name: 'Mary_lastName', avatar: require('../components/images/dialog_avatar.png') },
 	] as Array<DialogItemDataType>,
 };
 

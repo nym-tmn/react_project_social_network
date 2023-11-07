@@ -1,7 +1,7 @@
 import { ConnectedProps, connect } from 'react-redux';
 
 import Posts from './Posts';
-import { AppStateType } from '../../../../redux/redux-store';
+import { AppStateType } from '../../../../../redux/redux-store';
 import { PostsDataType } from '../../../../../types/types';
 
 type mapStateToPropsType = {

@@ -1,7 +1,7 @@
 import { ConnectedProps, connect } from 'react-redux';
 
 import Followings from './Followings';
-import { AppStateType } from '../../../../../redux/redux-store';
+import { AppStateType } from '../../../../../../redux/redux-store';
 import { FollowingsDataType } from '../../../../../../types/types';
 
 type mapStateToPropsType = {

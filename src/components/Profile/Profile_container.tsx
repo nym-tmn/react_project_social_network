@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
 import { ConnectedProps, connect } from 'react-redux';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 import Profile from './Profile';
-import { AppStateType } from '../redux/redux-store';
+import { AppStateType } from '../../redux/redux-store';
 import { UserProfileType } from '../../types/types';
-import { actions } from '../redux/profile_page_reducer';
+import { actions } from '../../redux/profile_page_reducer';
+import { profileAPI } from '../../api/api';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
 }
-
-type ResponseType = UserProfileType
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	setUserProfile,
@@ -28,10 +26,9 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 
 	useEffect(() => {
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-			.then((response) => {
-				toggleIsFetching(false);
-				setUserProfile(response.data);
+		profileAPI.getUser(userId).then((data) => {
+			toggleIsFetching(false);
+			setUserProfile(data);
 			});
 	}, [setUserProfile, userId, toggleIsFetching]);
 

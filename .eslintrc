@@ -30,6 +30,7 @@
 		"eol-last": "warn",
 		"no-multiple-empty-lines": "warn",
 		"no-trailing-spaces": "warn",
-		"no-case-declarations": 0
+		"no-case-declarations": 0,
+		"import/prefer-default-export": ["off", {"target": "single"}]
 	}
 }

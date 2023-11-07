@@ -1,8 +1,8 @@
 import { ConnectedProps, connect } from 'react-redux';
-import { AppStateType } from '../redux/redux-store';
+import { AppStateType } from '../../redux/redux-store';
 
 import Dialogs from './Dialogs';
-import {	InitialStateType, actions } from '../redux/dialogs_page_reducer';
+import { InitialStateType, actions } from '../../redux/dialogs_page_reducer';
 
 type MapStateToPropsType = {
 	dialogsPage: InitialStateType
@@ -20,6 +20,6 @@ const connector = connect(mapStateToProps, {
 	updateNewMessageText: actions.updateNewMessageTextActionCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
-export interface DialogsPropsType extends PropsFromRedux {}
+export interface DialogsPropsType extends PropsFromRedux { }
 
 export default connector(Dialogs);

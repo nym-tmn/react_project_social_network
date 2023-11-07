@@ -1,4 +1,4 @@
-import { UsersDataType } from '../../types/types';
+import { UsersDataType } from '../types/types';
 import { InferActionsTypes } from './redux-store';
 
 const initialState = {

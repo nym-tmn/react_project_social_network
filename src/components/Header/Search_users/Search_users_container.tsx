@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import { ConnectedProps, connect } from 'react-redux';
 
 import SearchUsers from './Search_users';
-import {	actions } from '../../redux/search_users_reducer';
+import { actions } from '../../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
-import { AppStateType } from '../../redux/redux-store';
+import { AppStateType } from '../../../redux/redux-store';
+import { userAPI } from '../../../api/api';
 
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
@@ -13,12 +13,6 @@ type MapStateToPropsType = {
 	totalUsersCount: number
 	currentPage: number
 	isFetching: boolean
-}
-
-type ResponseType = {
-	items: Array<UsersDataType>
-	totalCount: number
-	error: null | string
 }
 
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
@@ -37,25 +31,19 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 	useEffect(() => {
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
-			withCredentials: true,
-		})
-			.then((response) => {
+		userAPI.getUsers1(currentPage, pageSize).then((data) => {
 				toggleIsFetching(false);
-				setUsers(response.data.items);
-				setTotalUsersCount(response.data.totalCount);
+				setUsers(data.items);
+				setTotalUsersCount(data.totalCount);
 			});
 	}, [currentPage, toggleIsFetching, pageSize, setTotalUsersCount, setUsers]);
 
 	const onPageChanged = (pageNumber: number) => {
 		setCurrentPage(pageNumber);
 		toggleIsFetching(true);
-		axios.get<ResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`, {
-			withCredentials: true,
-		})
-			.then((response) => {
+		userAPI.getUsers2(pageNumber, pageSize).then((data) => {
 				toggleIsFetching(false);
-				setUsers(response.data.items);
+				setUsers(data.items);
 			});
 	};
 
