@@ -62,6 +62,7 @@ const initialState = {
 	totalUsersCount: 0 as number,
 	currentPage: 1 as number,
 	isFetching: false as boolean,
+	followingInProgress: [] as any,
 };
 
 export type InitialStateType = typeof initialState
@@ -121,6 +122,16 @@ const searchUsersReducer = (state = initialState, action: ActionsTypes): Initial
 
 			};
 
+		case 'TOGGLE_IS_FOLLOWING_PROGRESS':
+
+			return {
+				...state,
+				followingInProgress: action.isFetching
+					? [...state.followingInProgress, action.userId]
+					: state.followingInProgress.filter((id: number) => id !== action.userId),
+
+			};
+
 		default:
 			return state;
 	}
@@ -140,6 +151,8 @@ export const actions = {
 	setCurrentPageActionCreator: (currentPage: number) => ({ type: 'SET_CURRENT_PAGE', currentPage } as const),
 
 	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
+
+	toggleFollowingProgressActionCreator: (isFetching: boolean, userId: number) => ({ type: 'TOGGLE_IS_FOLLOWING_PROGRESS', isFetching, userId } as const),
 };
 
 export default searchUsersReducer;

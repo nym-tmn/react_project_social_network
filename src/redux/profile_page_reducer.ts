@@ -81,7 +81,6 @@ const initialState = {
 export type InitialStateType = typeof initialState
 
 const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
-	// debugger;
 
 	switch (action.type) {
 

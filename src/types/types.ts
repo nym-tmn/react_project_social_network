@@ -66,6 +66,8 @@ export type SearchUsersPropsType = {
 	unfollow: (userId: number) => void
 	follow: (userId: number) => void
 	isFetching: boolean
+	followingInProgress: any
+	toggleFollowing: (isFetching: boolean, userId: number) => void
 }
 
 export type ContactsType = {

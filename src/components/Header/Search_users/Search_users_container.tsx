@@ -5,7 +5,7 @@ import SearchUsers from './Search_users';
 import { actions } from '../../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../../redux/redux-store';
-import { userAPI } from '../../../api/api';
+import { usersAPI } from '../../../api/api';
 
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
@@ -13,6 +13,7 @@ type MapStateToPropsType = {
 	totalUsersCount: number
 	currentPage: number
 	isFetching: boolean
+	followingInProgress: boolean
 }
 
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
@@ -27,11 +28,13 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	follow,
 	isFetching,
 	toggleIsFetching,
+	followingInProgress,
+	toggleFollowing,
 }) => {
 
 	useEffect(() => {
 		toggleIsFetching(true);
-		userAPI.getUsers1(currentPage, pageSize).then((data) => {
+		usersAPI.getUsers(currentPage, pageSize).then((data) => {
 				toggleIsFetching(false);
 				setUsers(data.items);
 				setTotalUsersCount(data.totalCount);
@@ -41,7 +44,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	const onPageChanged = (pageNumber: number) => {
 		setCurrentPage(pageNumber);
 		toggleIsFetching(true);
-		userAPI.getUsers2(pageNumber, pageSize).then((data) => {
+		usersAPI.getUsers(pageNumber, pageSize).then((data) => {
 				toggleIsFetching(false);
 				setUsers(data.items);
 			});
@@ -56,7 +59,9 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 			usersData={usersData}
 			unfollow={unfollow}
 			follow={follow}
-			isFetching={isFetching} />
+			isFetching={isFetching}
+			followingInProgress={followingInProgress}
+			toggleFollowing={toggleFollowing} />
 	);
 };
 
@@ -67,6 +72,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 		totalUsersCount: state.searchUsersPage.totalUsersCount,
 		currentPage: state.searchUsersPage.currentPage,
 		isFetching: state.searchUsersPage.isFetching,
+		followingInProgress: state.searchUsersPage.followingInProgress,
 	};
 };
 
@@ -77,6 +83,7 @@ const connector = connect(mapStateToProps, {
 	setTotalUsersCount: actions.setTotalUsersCountActionCreator,
 	setCurrentPage: actions.setCurrentPageActionCreator,
 	toggleIsFetching: actions.toggleIsFetchingActionCreator,
+	toggleFollowing: actions.toggleFollowingProgressActionCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SearchUsersContainerPropsType extends PropsFromRedux { }

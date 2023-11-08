@@ -2,7 +2,7 @@
 	grid-area: usersContainer;
 	display: grid;
 	grid-template-areas: 'usersPages'
-								'usersItems';
+		'usersItems';
 }
 
 .usersItems {
@@ -68,6 +68,14 @@
 	width: 101px;
 	height: 32px;
 	border: 2px solid rgba(18, 43, 110, 0.836);
+}
+
+.follow:disabled {
+	width: 103px;
+	height: 32px;
+	border: 2px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
 }
 
 .userInfo {

@@ -32,7 +32,7 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 				})}
 			</div>
 			<div className={classes.usersItems} >
-				<div className={classes.loadingSpinner} >{props.isFetching ? <Preloader/> : null}</div>
+				<div className={classes.loadingSpinner} >{props.isFetching ? <Preloader /> : null}</div>
 				{props.usersData.map(user => <div className={classes.userItem} key={user.id} >
 					<div className={classes.avatar}>
 						<NavLink to={`/${user.id}`} >
@@ -40,23 +40,27 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 						</NavLink>
 					</div>
 					{user.followed
-						? <button className={classes.follow}
+						? <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
 							onClick={() => {
+								props.toggleFollowing(true, user.id);
 								followAPI.unfollowUser(user.id).then((data) => {
-										if (data.resultCode === 0) {
-											props.unfollow(user.id);
-										}
-									});
+									props.toggleFollowing(false, user.id);
+									if (data.resultCode === 0) {
+										props.unfollow(user.id);
+									}
+								});
 							}}>
 							Unfollow
 						</button>
-						: <button className={classes.follow}
+						: <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
 							onClick={() => {
-									followAPI.followUser(user.id).then((data) => {
-										if (data.resultCode === 0) {
-											props.follow(user.id);
-										}
-									});
+								props.toggleFollowing(true, user.id);
+								followAPI.followUser(user.id).then((data) => {
+									props.toggleFollowing(false, user.id);
+									if (data.resultCode === 0) {
+										props.follow(user.id);
+									}
+								});
 							}}>
 							Follow
 						</button>}

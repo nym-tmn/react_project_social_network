@@ -19,7 +19,9 @@ const SearchUsers: React.FC<SearchUsersPropsType> = (props: SearchUsersPropsType
 				usersData={props.usersData}
 				unfollow={props.unfollow}
 				follow={props.follow}
-				isFetching={props.isFetching} />
+				isFetching={props.isFetching}
+				followingInProgress={props.followingInProgress}
+				toggleFollowing={props.toggleFollowing} />
 		</div>
 	);
 };

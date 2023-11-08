@@ -17,14 +17,9 @@ type ResponseTypeUserAPI = {
 	error: null | string
 }
 
-export const userAPI = {
-	getUsers1(currentPage: number, pageSize: number) {
+export const usersAPI = {
+	getUsers(currentPage: number, pageSize: number) {
 		return instance.get<ResponseTypeUserAPI>(`users?page=${currentPage}&count=${pageSize}`)
-			.then(response => response.data);
-	},
-
-getUsers2(pageNumber: number, pageSize: number) {
-	return instance.get<ResponseTypeUserAPI>(`users?page=${pageNumber}&count=${pageSize}`)
 			.then(response => response.data);
 	},
 };
