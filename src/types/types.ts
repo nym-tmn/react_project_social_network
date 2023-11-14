@@ -60,14 +60,13 @@ export type UsersDataType = {
 export type SearchUsersPropsType = {
 	totalUsersCount: number
 	pageSize: number
-	onPageChanged: (numberPage: number) => void
+	onPageChanged: (pageNumber: number) => void
 	currentPage: number
 	usersData: Array<UsersDataType>
-	unfollow: (userId: number) => void
-	follow: (userId: number) => void
+	unfollow: (userId: number) => any
+	follow: (userId: number) => any
 	isFetching: boolean
-	followingInProgress: any
-	toggleFollowing: (isFetching: boolean, userId: number) => void
+	followingInProgress: Array<number>
 }
 
 export type ContactsType = {

@@ -5,8 +5,7 @@ import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import { AppStateType } from '../../redux/redux-store';
 import { UserProfileType } from '../../types/types';
-import { actions } from '../../redux/profile_page_reducer';
-import { profileAPI } from '../../api/api';
+import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
@@ -14,8 +13,7 @@ type MapStateToPropsType = {
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
-	setUserProfile,
-	toggleIsFetching,
+	getUserProfile,
 	isFetching,
 	profile,
 }) => {
@@ -25,12 +23,10 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	if (!userId) userId = '28215';
 
 	useEffect(() => {
-		toggleIsFetching(true);
-		profileAPI.getUser(userId).then((data) => {
-			toggleIsFetching(false);
-			setUserProfile(data);
-			});
-	}, [setUserProfile, userId, toggleIsFetching]);
+
+		getUserProfile(userId);
+
+	}, [getUserProfile, userId]);
 
 	return (
 		<div>
@@ -51,8 +47,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 };
 
 const connector = connect(mapStateToProps, {
-	setUserProfile: actions.setUserProfileActionCreator,
-	toggleIsFetching: actions.toggleIsFetchingActionCreator,
+	getUserProfile: getUserProfileThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }

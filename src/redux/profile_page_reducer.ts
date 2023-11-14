@@ -1,3 +1,6 @@
+import { Dispatch } from 'redux';
+import { InferActionsTypes } from './redux-store';
+
 import {
 	FollowersDataType,
 	FollowingsDataType,
@@ -6,7 +9,7 @@ import {
 	ProjectsDemoDataType,
 	UserProfileType,
 } from '../types/types';
-import { InferActionsTypes } from './redux-store';
+import { profileAPI } from '../api/api';
 
 const initialState = {
 	postsData: [
@@ -134,6 +137,16 @@ export const actions = {
 	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
 
 	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
+};
+
+export const getUserProfileThunkCreator = (userId: string | undefined) => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		dispatch(actions.toggleIsFetchingActionCreator(true));
+		profileAPI.getUserProfile(userId).then((data) => {
+			dispatch(actions.toggleIsFetchingActionCreator(false));
+			dispatch(actions.setUserProfileActionCreator(data));
+		});
+	};
 };
 
 export default profileReducer;

@@ -3,30 +3,23 @@ import { ConnectedProps, connect } from 'react-redux';
 
 import SignIn from './Sign_in';
 import { UserAuthDataType } from '../../../types/types';
-import { actions } from '../../../redux/auth_reducer';
+import { authUserThunkCreator } from '../../../redux/auth_reducer';
 import { AppStateType } from '../../../redux/redux-store';
-import { authAPI } from '../../../api/api';
 
 type MapStateToPropsType = {
 	data: UserAuthDataType
 }
 
 const SignInContainer: React.FC<SignInContainerPropsType> = ({
-	setAuthUserData,
-	setUserAvatar,
+	authUser,
 	data,
 }) => {
 
 	useEffect(() => {
-			authAPI.authUser().then((authData) => {
-				if (authData.resultCode === 0) {
-					setAuthUserData(authData.data);
-					authAPI.getUserPhoto(authData.data.id).then((userPhoto) => {
-						setUserAvatar(userPhoto);
-						});
-				}
-			});
-	}, [setAuthUserData, setUserAvatar]);
+
+		authUser();
+
+	}, [authUser]);
 
 	return (
 		<SignIn {...data} />
@@ -41,8 +34,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 };
 
 const connector = connect(mapStateToProps, {
-	setAuthUserData: actions.setAuthUserDataActionCreator,
-	setUserAvatar: actions.setUserAvatarActionCreatorActionCreator,
+	authUser: authUserThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SignInContainerPropsType extends PropsFromRedux { }

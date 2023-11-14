@@ -15,6 +15,7 @@ type ResponseTypeUserAPI = {
 	items: Array<UsersDataType>
 	totalCount: number
 	error: null | string
+	resultCode: number
 }
 
 export const usersAPI = {
@@ -22,20 +23,14 @@ export const usersAPI = {
 		return instance.get<ResponseTypeUserAPI>(`users?page=${currentPage}&count=${pageSize}`)
 			.then(response => response.data);
 	},
-};
 
-type ResponseTypeFollowUser = {
-	resultCode: number
-}
-
-export const followAPI = {
-	followUser(userId: number) {
-		return instance.post<ResponseTypeFollowUser>(`follow/${userId}`)
+	follow(userId: number) {
+		return instance.post<ResponseTypeUserAPI>(`follow/${userId}`)
 			.then(response => response.data);
 	},
 
-	unfollowUser(userId: number) {
-		return instance.delete<ResponseTypeFollowUser>(`follow/${userId}`)
+	unfollow(userId: number) {
+		return instance.delete<ResponseTypeUserAPI>(`follow/${userId}`)
 			.then(response => response.data);
 	},
 };
@@ -64,7 +59,7 @@ export const authAPI = {
 type ResponseTypeUserProfile = UserProfileType
 
 export const profileAPI = {
-	getUser(userId: string | undefined) {
+	getUserProfile(userId: string | undefined) {
 		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`)
 			.then(response => response.data);
 	},

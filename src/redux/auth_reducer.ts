@@ -1,5 +1,8 @@
-import { UserAuthDataType } from '../types/types';
+import { Dispatch } from 'redux';
 import { InferActionsTypes } from './redux-store';
+
+import { UserAuthDataType } from '../types/types';
+import { authAPI } from '../api/api';
 
 const initialState = {
 	id: null,
@@ -33,12 +36,24 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
 
 export type ActionsTypes = InferActionsTypes<typeof actions>
 
-export const actions = {
+const actions = {
 
 	setAuthUserDataActionCreator: (data: UserAuthDataType) => ({ type: 'SET_AUTH_USER_DATA', data } as const),
 
 	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
+};
 
+export const authUserThunkCreator = () => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		authAPI.authUser().then((authData) => {
+			if (authData.resultCode === 0) {
+				dispatch(actions.setAuthUserDataActionCreator(authData.data));
+				authAPI.getUserPhoto(authData.data.id).then((userPhoto) => {
+					dispatch(actions.setUserAvatarActionCreatorActionCreator(userPhoto));
+				});
+			}
+		});
+	};
 };
 
 export default authReducer;

@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import Preloader from '../../../../common/Preloader/Preloader';
 import { SearchUsersPropsType } from '../../../../../types/types';
 import searchUserAvatar from '../../../../../assets/images/search_user_avatar.png';
-import { followAPI } from '../../../../../api/api';
 
 import classes from './Search_users_items.module.css';
 
@@ -42,25 +41,13 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 					{user.followed
 						? <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
 							onClick={() => {
-								props.toggleFollowing(true, user.id);
-								followAPI.unfollowUser(user.id).then((data) => {
-									props.toggleFollowing(false, user.id);
-									if (data.resultCode === 0) {
-										props.unfollow(user.id);
-									}
-								});
+								props.unfollow(user.id);
 							}}>
 							Unfollow
 						</button>
 						: <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
 							onClick={() => {
-								props.toggleFollowing(true, user.id);
-								followAPI.followUser(user.id).then((data) => {
-									props.toggleFollowing(false, user.id);
-									if (data.resultCode === 0) {
-										props.follow(user.id);
-									}
-								});
+								props.follow(user.id);
 							}}>
 							Follow
 						</button>}
