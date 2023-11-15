@@ -15,6 +15,7 @@ import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
 import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
+import SignIn from './components/Sign_in/Sign_in';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
 							<Route path='/video' element={<Video />} />
 							<Route path='/music' element={<Music />} />
 							<Route path='/comunities' element={<Comunities />} />
+							<Route path='/sign_in' element={<SignIn />} />
 						</Routes>
 					</div>
 				</div>

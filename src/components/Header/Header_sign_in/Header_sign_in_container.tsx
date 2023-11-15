@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ConnectedProps, connect } from 'react-redux';
 
-import SignIn from './Sign_in';
+import HeaderSignIn from './Header_sign_in';
 import { UserAuthDataType } from '../../../types/types';
 import { authUserThunkCreator } from '../../../redux/auth_reducer';
 import { AppStateType } from '../../../redux/redux-store';
@@ -10,7 +10,7 @@ type MapStateToPropsType = {
 	data: UserAuthDataType
 }
 
-const SignInContainer: React.FC<SignInContainerPropsType> = ({
+const HeaderSignInContainer: React.FC<SignInContainerPropsType> = ({
 	authUser,
 	data,
 }) => {
@@ -22,7 +22,7 @@ const SignInContainer: React.FC<SignInContainerPropsType> = ({
 	}, [authUser]);
 
 	return (
-		<SignIn {...data} />
+		<HeaderSignIn {...data} />
 	);
 };
 
@@ -39,4 +39,4 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SignInContainerPropsType extends PropsFromRedux { }
 
-export default connector(SignInContainer);
+export default connector(HeaderSignInContainer);

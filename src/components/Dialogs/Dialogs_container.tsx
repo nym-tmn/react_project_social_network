@@ -6,12 +6,14 @@ import { InitialStateType, actions } from '../../redux/dialogs_page_reducer';
 
 type MapStateToPropsType = {
 	dialogsPage: InitialStateType
+	isAuth?: boolean
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return {
 		dialogsPage: state.dialogsPage,
+		isAuth: state.auth.isAuth,
 	};
 };
 

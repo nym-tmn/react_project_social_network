@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import SignInContainer from './Sign_in/Sign_in_container';
+import HeaderSignInContainer from './Header_sign_in/Header_sign_in_container';
 
 import classes from './Header.module.css';
 
@@ -33,7 +33,7 @@ const Header = () => {
 				</div>
 			</nav>
 			<div className={classes.signIn}>
-				<SignInContainer />
+				<HeaderSignInContainer />
 			</div>
 		</header>
 	);

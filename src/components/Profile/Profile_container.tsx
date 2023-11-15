@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ConnectedProps, connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 
 import Profile from './Profile';
 import { AppStateType } from '../../redux/redux-store';
@@ -10,12 +10,14 @@ import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
 type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
+	isAuth: boolean
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	getUserProfile,
 	isFetching,
 	profile,
+	isAuth,
 }) => {
 
 	let { userId } = useParams();
@@ -26,7 +28,9 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 
 		getUserProfile(userId);
 
-	}, [getUserProfile, userId]);
+	}, [getUserProfile, userId, isAuth]);
+
+	if (!isAuth) return <Navigate to='/sign_in' />;
 
 	return (
 		<div>
@@ -43,6 +47,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return ({
 		profile: state.profilePage.profileData,
 		isFetching: state.profilePage.isFetching,
+		isAuth: state.auth.isAuth,
 	});
 };
 

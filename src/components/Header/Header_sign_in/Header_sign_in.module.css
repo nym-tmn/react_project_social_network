@@ -4,19 +4,16 @@
 }
 
 .signInAvatar {
-order: -1;
 max-width: 50px;
 	max-height: 50px;
 }
 
 .signInName {
-order: 1;
 font-size: 14px;
 }
 
 .active {
 	color: rgb(134, 216, 219);
-	/* font-size: 18px; */
 }
 
 .noSignIn {
