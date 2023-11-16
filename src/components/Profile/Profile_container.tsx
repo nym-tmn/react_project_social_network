@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
 import { ConnectedProps, connect } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Profile from './Profile';
 import { AppStateType } from '../../redux/redux-store';
 import { UserProfileType } from '../../types/types';
 import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
-	isAuth: boolean
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	getUserProfile,
 	isFetching,
 	profile,
-	isAuth,
 }) => {
 
 	let { userId } = useParams();
@@ -28,9 +27,7 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 
 		getUserProfile(userId);
 
-	}, [getUserProfile, userId, isAuth]);
-
-	if (!isAuth) return <Navigate to='/sign_in' />;
+	}, [getUserProfile, userId]);
 
 	return (
 		<div>
@@ -47,7 +44,6 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return ({
 		profile: state.profilePage.profileData,
 		isFetching: state.profilePage.isFetching,
-		isAuth: state.auth.isAuth,
 	});
 };
 
@@ -57,4 +53,4 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }
 
-export default connector(ProfileContainer);
+export default withAuthRedirect(connector(ProfileContainer));

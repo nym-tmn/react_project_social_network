@@ -5,6 +5,7 @@ import SearchUsers from './Search_users';
 import { followThunkCreator, getUsersThunkCreator, unfollowThunkCreator } from '../../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../../redux/redux-store';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
@@ -72,4 +73,4 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SearchUsersContainerPropsType extends PropsFromRedux { }
 
-export default connector(SearchUsersContainer);
+export default withAuthRedirect(connector(SearchUsersContainer));
