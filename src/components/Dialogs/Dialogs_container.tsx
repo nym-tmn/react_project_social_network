@@ -1,4 +1,5 @@
 import { ConnectedProps, connect } from 'react-redux';
+import { compose } from 'redux';
 import { AppStateType } from '../../redux/redux-store';
 
 import Dialogs from './Dialogs';
@@ -16,7 +17,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	};
 };
 
-const AuthRedirectComponent: any = withAuthRedirect(Dialogs);
+// const AuthRedirectComponent: any = withAuthRedirect(Dialogs);
 
 const connector = connect(mapStateToProps, {
 	sendMessage: actions.sendMessageActionCreator,
@@ -25,4 +26,7 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 export interface DialogsPropsType extends PropsFromRedux { }
 
-export default withAuthRedirect(connector(AuthRedirectComponent));
+export default compose(
+	withAuthRedirect,
+	connector,
+)(Dialogs);

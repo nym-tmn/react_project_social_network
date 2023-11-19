@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { compose } from 'redux';
 import { ConnectedProps, connect } from 'react-redux';
 
 import SearchUsers from './Search_users';
@@ -73,4 +74,7 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface SearchUsersContainerPropsType extends PropsFromRedux { }
 
-export default withAuthRedirect(connector(SearchUsersContainer));
+export default compose(
+	withAuthRedirect,
+	connector,
+)(SearchUsersContainer);

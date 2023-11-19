@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { compose } from 'redux';
 import { ConnectedProps, connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -53,4 +54,7 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }
 
-export default withAuthRedirect(connector(ProfileContainer));
+export default compose(
+	withAuthRedirect,
+	connector,
+)(ProfileContainer);
