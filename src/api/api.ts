@@ -57,10 +57,16 @@ export const authAPI = {
 };
 
 type ResponseTypeUserProfile = UserProfileType
+type ResponseTypeUserStatus = string
 
 export const profileAPI = {
 	getUserProfile(userId: string | undefined) {
 		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`)
+			.then(response => response.data);
+	},
+
+	getUserStatus(userId: string | undefined) {
+		return instance.get<ResponseTypeUserStatus>(`profile/status/${userId}`)
 			.then(response => response.data);
 	},
 };

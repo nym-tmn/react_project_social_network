@@ -19,6 +19,7 @@ const User: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 				contacts={props.contacts}
 				lookingForAJob={props.lookingForAJob}
 				lookingForAJobDescription={props.lookingForAJobDescription}
+				userStatusText={props.userStatusText}
 			/>
 		</div>
 	);

@@ -26,38 +26,38 @@ const Information: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 			<div className={classes.contactsItems}>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.instagram}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.instagram ? 'No information' : props.contacts?.instagram}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.twitter}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.twitter ? 'No information' : props.contacts?.twitter}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.facebook}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.facebook ? 'No information' : props.contacts?.facebook}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIconVk} alt='socialNetworkIconVk' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.vk}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.vk ? 'No information' : props.contacts?.vk}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIconYouTube} alt='socialNetworkIconYouTube' className={`${classes.contactsIcon} ${classes.borderRadius}`}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.youtube}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.youtube ? 'No information' : props.contacts?.youtube}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIconGitHub} alt='socialNetworkIconGitHub' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.github}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.github ? 'No information' : props.contacts?.github}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIcon} alt='socialNetworkIcon' className={classes.contactsIcon}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.website}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.website ? 'No information' : props.contacts?.website}</a>
 				</div>
 				<div className={classes.contactsItem}>
 					<img src={socialNetworkIconTelegram} alt='socialNetworkIconTelegram' className={`${classes.contactsIcon} ${classes.borderRadius}`}></img>
-					<a href='#s' className={classes.contacts}>{props.contacts?.mainLink}</a>
+					<a href='#s' className={classes.contacts}>{!props.contacts?.mainLink ? 'No information' : props.contacts?.mainLink}</a>
 				</div>
 			</div>
-			<div className={classes.aboutMe}>About me: {props.aboutMe}
+			<div className={classes.aboutMe}>About me: {!props.aboutMe ? 'No information' : props.aboutMe}
 				{/* About me: I am a beginner frontend developer. I dream of mastering this profession, getting a job
 				and reaching great heights in the field of information technology. */}
 			</div>
@@ -65,7 +65,8 @@ const Information: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 				<div>Looking for a job:</div>
 				{props.lookingForAJob ? <img src={lookingForAJobTrue} alt='lookingForAJob' /> : <img src={lookingForAJobFalse} alt='lookingForAJob' />}
 			</div>
-			<div className={classes.lookingForAJobDescription}>Description: {props.lookingForAJobDescription}</div>
+			<div className={classes.lookingForAJobDescription}>Description: {!props.lookingForAJobDescription ? 'No description' : props.lookingForAJobDescription}</div>
+			<div className={classes.userStatus}>Status: {!props.userStatusText ? 'No status' : props.userStatusText}</div>
 		</div>
 	);
 };

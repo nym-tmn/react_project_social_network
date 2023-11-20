@@ -12,12 +12,14 @@ import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
+	userStatusText: null | string
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	getUserProfile,
 	isFetching,
 	profile,
+	userStatusText,
 }) => {
 
 	let { userId } = useParams();
@@ -35,6 +37,7 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 			<Profile
 				{...profile}
 				isFetching={isFetching}
+				userStatusText={userStatusText}
 			/>
 		</div>
 	);
@@ -45,6 +48,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return ({
 		profile: state.profilePage.profileData,
 		isFetching: state.profilePage.isFetching,
+		userStatusText: state.profilePage.userStatusText,
 	});
 };
 

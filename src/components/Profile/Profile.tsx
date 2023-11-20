@@ -7,7 +7,7 @@ import Preloader from '../common/Preloader/Preloader';
 
 import classes from './User/User.module.css';
 
-const Profile: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
+const Profile: React.FC<ProfilePropsType> = (props) => {
 
 	if (props.isFetching) {
 		return (
@@ -24,6 +24,7 @@ const Profile: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 				contacts={props.contacts}
 				lookingForAJob={props.lookingForAJob}
 				lookingForAJobDescription={props.lookingForAJobDescription}
+				userStatusText={props.userStatusText}
 			/>
 			<Environment />
 		</div>

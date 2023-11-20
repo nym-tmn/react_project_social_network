@@ -98,6 +98,7 @@ export type ProfilePropsType = {
 	photos?: PhotosType
 	aboutMe?: string
 	isFetching?: boolean
+	userStatusText?: null | string,
 }
 
 export type UserAuthDataType = {
