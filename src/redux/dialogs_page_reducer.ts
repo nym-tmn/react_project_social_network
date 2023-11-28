@@ -1,5 +1,5 @@
 import { DialogItemDataType, MessagesDataType } from '../types/types';
-import { InferActionsTypes } from './redux-store';
+import { InferActionsTypes } from './redux_store';
 
 const initialState = {
 	messagesToMeData: [
@@ -42,11 +42,11 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 				newMessageText: '',
 			};
 
-			/* if (state.newMessageFromMe === '') {
-				// alert('Please, enter your message!');
-			} else {
-				stateCopy.messagesFromMeData.push(newMessageFromMe);
-			} */
+		/* if (state.newMessageFromMe === '') {
+			// alert('Please, enter your message!');
+		} else {
+			stateCopy.messagesFromMeData.push(newMessageFromMe);
+		} */
 
 		case 'UPDATE_NEW_MESSAGE_TEXT':
 

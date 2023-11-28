@@ -1,6 +1,6 @@
 import { ConnectedProps, connect } from 'react-redux';
 import { compose } from 'redux';
-import { AppStateType } from '../../redux/redux-store';
+import { AppStateType } from '../../redux/redux_store';
 
 import Dialogs from './Dialogs';
 import { InitialStateType, actions } from '../../redux/dialogs_page_reducer';

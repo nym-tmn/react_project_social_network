@@ -5,7 +5,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import SearchUsers from './Search_users';
 import { followThunkCreator, getUsersThunkCreator, unfollowThunkCreator } from '../../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
-import { AppStateType } from '../../../redux/redux-store';
+import { AppStateType } from '../../../redux/redux_store';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
@@ -33,11 +33,11 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 		getUsers(currentPage, pageSize);
 
-}, [getUsers, currentPage, pageSize]);
+	}, [getUsers, currentPage, pageSize]);
 
 	const onPageChanged = (pageNumber: number) => {
 
-	getUsers(pageNumber, pageSize);
+		getUsers(pageNumber, pageSize);
 
 	};
 
@@ -51,7 +51,7 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 			unfollow={unfollow}
 			follow={follow}
 			isFetching={isFetching}
-			followingInProgress={followingInProgress}/>
+			followingInProgress={followingInProgress} />
 	);
 };
 

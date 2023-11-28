@@ -2,7 +2,7 @@ import { ConnectedProps, connect } from 'react-redux';
 
 import EnterPosts from './Enter_posts';
 import { actions } from '../../../../../redux/profile_page_reducer';
-import { AppStateType } from '../../../../../redux/redux-store';
+import { AppStateType } from '../../../../../redux/redux_store';
 
 type mapStateToPropsType = {
 	newPostText: string

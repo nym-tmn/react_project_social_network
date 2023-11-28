@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { InferActionsTypes } from './redux-store';
+import { InferActionsTypes } from './redux_store';
 
 import { usersAPI } from '../api/api';
 import { UsersDataType } from '../types/types';

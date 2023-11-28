@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ProfilePropsType } from '../../../../types/types';
+import ProfileStatus from './Profile_status/Profile_status';
 import socialNetworkIconYouTube from '../../../images/social_network_icon_youtube.png';
 import socialNetworkIconVk from '../../../images/social_network_icon_vk.png';
 import socialNetworkIconGitHub from '../../../images/social_network_icon_github.png';
@@ -66,7 +67,7 @@ const Information: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 				{props.lookingForAJob ? <img src={lookingForAJobTrue} alt='lookingForAJob' /> : <img src={lookingForAJobFalse} alt='lookingForAJob' />}
 			</div>
 			<div className={classes.lookingForAJobDescription}>Description: {!props.lookingForAJobDescription ? 'No description' : props.lookingForAJobDescription}</div>
-			<div className={classes.userStatus}>Status: {!props.userStatusText ? 'No status' : props.userStatusText}</div>
+			<ProfileStatus userStatusText={null}/>
 		</div>
 	);
 };

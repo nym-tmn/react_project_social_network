@@ -23,6 +23,7 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersProp
 				{pages.map((p) => {
 					return (
 						<div
+							key={p}
 							onClick={() => { props.onPageChanged(p); }}
 							className={`${props.currentPage === p && classes.selected} ${classes.userPage}`}>
 							{p}

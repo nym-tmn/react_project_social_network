@@ -4,7 +4,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import HeaderSignIn from './Header_sign_in';
 import { UserAuthDataType } from '../../../types/types';
 import { authUserThunkCreator } from '../../../redux/auth_reducer';
-import { AppStateType } from '../../../redux/redux-store';
+import { AppStateType } from '../../../redux/redux_store';
 
 type MapStateToPropsType = {
 	data: UserAuthDataType

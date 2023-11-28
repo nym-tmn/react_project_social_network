@@ -4,7 +4,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Profile from './Profile';
-import { AppStateType } from '../../redux/redux-store';
+import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
 import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';

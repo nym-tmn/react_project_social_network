@@ -1,7 +1,7 @@
 import { ConnectedProps, connect } from 'react-redux';
 
 import MyProjectsItems from './My_projects_items';
-import { AppStateType } from '../../../../../../redux/redux-store';
+import { AppStateType } from '../../../../../../redux/redux_store';
 import { MyProjectsDataType } from '../../../../../../types/types';
 
 type mapStateToPropsType = {
