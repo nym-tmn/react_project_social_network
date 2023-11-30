@@ -1,30 +1,35 @@
 import React from 'react';
 
-import User from './User/User';
+import ProfileInfo from './Profile_info/Profile_info';
 import Environment from './Environment/Environment';
-import { ProfilePropsType } from '../../types/types';
 import Preloader from '../common/Preloader/Preloader';
+import { UserProfileType } from '../../types/types';
 
-import classes from './User/User.module.css';
+import classes from './Profile.module.css';
 
-const Profile: React.FC<ProfilePropsType> = (props) => {
+type ProfilePropsType = {
+	profile: UserProfileType | null
+	isFetching: boolean
+	userStatusText: null | string,
+}
 
-	if (props.isFetching) {
+const Profile: React.FC<ProfilePropsType> = ({
+	profile,
+	isFetching,
+	userStatusText,
+}) => {
+
+	if (isFetching) {
 		return (
 			<div className={classes.preloader}><Preloader /></div>
 		);
 	}
 
 	return (
-		<div>
-			<User
-				photos={props.photos}
-				fullName={props.fullName}
-				aboutMe={props.aboutMe}
-				contacts={props.contacts}
-				lookingForAJob={props.lookingForAJob}
-				lookingForAJobDescription={props.lookingForAJobDescription}
-				userStatusText={props.userStatusText}
+		profile && <div>
+			<ProfileInfo
+				{...profile}
+				userStatusText={userStatusText}
 			/>
 			<Environment />
 		</div>

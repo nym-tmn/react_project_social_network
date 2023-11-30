@@ -6,7 +6,7 @@ import userAvatarIcon from '../../images/sign_in_avatar.png';
 
 import classes from './Header_sign_in.module.css';
 
-const HeaderSignIn: React.FC<UserAuthDataType> = (props: UserAuthDataType) => {
+const HeaderSignIn: React.FC<UserAuthDataType> = (props) => {
 
 	return (
 		<div className={classes.signInBlock}>

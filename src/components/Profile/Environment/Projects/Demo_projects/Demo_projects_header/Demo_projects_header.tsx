@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Demo_projects_header.module.css';
 
-const Header = () => {
+const Header: React.FC = () => {
 
 	return (
 		<div className={classes.header}>

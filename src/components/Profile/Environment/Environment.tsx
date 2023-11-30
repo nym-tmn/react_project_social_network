@@ -6,7 +6,7 @@ import Follow from './Follow/Follow';
 
 import classes from './Environment.module.css';
 
-const Environment = () => {
+const Environment: React.FC = () => {
 
 	return (
 		<div className={classes.environment}>

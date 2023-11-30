@@ -15,15 +15,7 @@
 	align-self: center;
 	justify-self: center;
 	overflow: hidden;
-	/* background: url('./../../../../images/avatar2.png') center no-repeat; */
 }
-
-/* .preloader {
-	align-self: center;
-	justify-self: center;
-	width: 200px;
-	height: 200px;
-} */
 
 .avatarImage {
 	max-width: 280px;

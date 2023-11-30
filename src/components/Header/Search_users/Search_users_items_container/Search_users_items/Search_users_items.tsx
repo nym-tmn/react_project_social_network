@@ -2,12 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Preloader from '../../../../common/Preloader/Preloader';
-import { SearchUsersPropsType } from '../../../../../types/types';
+import { SearchUsersPropsType } from '../../Search_users';
 import searchUserAvatar from '../../../../../assets/images/search_user_avatar.png';
 
 import classes from './Search_users_items.module.css';
 
-const SearchUsersItems: React.FC<SearchUsersPropsType> = (props: SearchUsersPropsType) => {
+const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 
 	const countPages = Math.ceil(props.totalUsersCount / props.pageSize);
 

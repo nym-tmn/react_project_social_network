@@ -1,0 +1,12 @@
+.title {
+	font-weight: 700;
+}
+
+.status,
+.input {
+	margin: 0px 0px 0px 5px;
+}
+
+.input input {
+	width: 87%;
+}

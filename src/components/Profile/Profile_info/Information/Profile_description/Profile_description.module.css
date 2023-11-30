@@ -1,0 +1,17 @@
+.userName {
+	font-size: 25px;
+	font-weight: 800;
+}
+
+.lookingForAJob {
+	display: grid;
+	grid-template-columns: 150px 1fr;
+}
+
+.profileDescription span {
+	font-weight: 700;
+}
+
+.title {
+	font-weight: 700;
+}

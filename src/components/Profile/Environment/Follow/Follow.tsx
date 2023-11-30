@@ -5,7 +5,7 @@ import MyFollowings from './My_followings/My_followings';
 
 import classes from './Follow.module.css';
 
-const Follow = () => {
+const Follow: React.FC = () => {
 
 	return (
 		<div className={classes.follow}>

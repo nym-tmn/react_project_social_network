@@ -6,7 +6,7 @@ import PostsContainer from './Posts/Posts_container';
 
 import classes from './My_posts.module.css';
 
-const MyPosts = () => {
+const MyPosts: React.FC = () => {
 
 	return (
 		<div className={classes.myPosts}>

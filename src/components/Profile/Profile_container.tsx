@@ -7,7 +7,7 @@ import Profile from './Profile';
 import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
 import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
@@ -35,7 +35,7 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	return (
 		<div>
 			<Profile
-				{...profile}
+				profile={profile}
 				isFetching={isFetching}
 				userStatusText={userStatusText}
 			/>
@@ -59,6 +59,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }
 
 export default compose(
-	withAuthRedirect,
+	// withAuthRedirect,
 	connector,
 )(ProfileContainer);

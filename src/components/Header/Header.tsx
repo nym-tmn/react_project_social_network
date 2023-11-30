@@ -5,7 +5,7 @@ import HeaderSignInContainer from './Header_sign_in/Header_sign_in_container';
 
 import classes from './Header.module.css';
 
-const Header = () => {
+const Header: React.FC = () => {
 
 	return (
 		<header className={classes.header}>

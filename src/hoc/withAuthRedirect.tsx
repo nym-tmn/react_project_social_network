@@ -13,10 +13,8 @@ const mapStateToPropsForRedirect = (state: AppStateType): MapStateToPropsType =>
 	});
 };
 
-// type DispatchPropsType = {}
-
 export function withAuthRedirect<WCProps extends { isAuth: boolean }>(WrappedComponent: React.ComponentType<WCProps>) {
-	const redirectComponent: React.FC<MapStateToPropsType /* & DispatchPropsType */> = (props) => {
+	const redirectComponent: React.FC<MapStateToPropsType> = (props) => {
 		const { isAuth, ...restProps } = props;
 		if (!isAuth) return <Navigate to='/sign_in' />;
 		return <WrappedComponent {...restProps as WCProps} />;

@@ -5,7 +5,7 @@ import DemoProjectsItemsContiner from './Demo_projects_items/Demo_projects_items
 
 import classes from './Demo_projects.module.css';
 
-const DemoProjects = () => {
+const DemoProjects: React.FC = () => {
 
 	return (
 		<div className={classes.demoProjects}>

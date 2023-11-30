@@ -1,11 +1,11 @@
 import React from 'react';
 
 import AvatarImage from './Avatar_image/Avatar_image';
-import { ProfilePropsType } from '../../../../types/types';
+import { ProfileInfoPropsType } from '../Profile_info';
 
 import classes from './Avatar.module.css';
 
-const Avatar: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
+const Avatar: React.FC<Pick<ProfileInfoPropsType, 'photos'>> = (props) => {
 
 	return (
 			<div className={classes.avatar}>

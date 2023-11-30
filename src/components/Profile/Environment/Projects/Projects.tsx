@@ -5,7 +5,7 @@ import DemoProjects from './Demo_projects/Demo_projects';
 
 import classes from './Projects.module.css';
 
-const Projects = () => {
+const Projects: React.FC = () => {
 
 	return (
 		<div className={classes.projects}>

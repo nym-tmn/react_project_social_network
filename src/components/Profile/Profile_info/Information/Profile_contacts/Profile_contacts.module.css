@@ -1,0 +1,37 @@
+.title {
+	font-weight: 700;
+	padding: 0px 0px 2px 0px;
+}
+
+.contactsItems {
+	font-size: 12px;
+	display: grid;
+	grid-gap: 3px;
+	grid-template-areas: 'contactItem contactItem';
+}
+
+.contactsItems a {
+	color: black;
+}
+
+.contactItem {
+	display: grid;
+	grid-template-areas: 'contactIcon contact';
+	grid-template-columns: 45px 1fr;
+	grid-gap: 5px;
+	align-items: center;
+	min-width: 235px;
+}
+
+.contact {
+	grid-area: contact;
+}
+
+.contactIcon {
+	grid-area: contactIcon;
+	justify-self: center;
+}
+
+.borderRadius {
+	border-radius: 4px;
+}

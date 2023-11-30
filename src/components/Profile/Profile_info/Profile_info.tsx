@@ -3,11 +3,21 @@ import React from 'react';
 import CoverPicture from './Cover_picture/Cover_picture';
 import Avatar from './Avatar/Avatar';
 import Information from './Information/Information';
-import { ProfilePropsType } from '../../../types/types';
+import { ContactsType, PhotosType } from '../../../types/types';
 
-import classes from './User.module.css';
+import classes from './Profile_info.module.css';
 
-const User: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
+export type ProfileInfoPropsType = {
+	photos: PhotosType
+	fullName: string
+	aboutMe: string
+	lookingForAJob: boolean
+	contacts: ContactsType
+	lookingForAJobDescription: string
+	userStatusText: null | string,
+}
+
+const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
 
 	return (
 		<div className={classes.user}>
@@ -25,4 +35,4 @@ const User: React.FC<ProfilePropsType> = (props: ProfilePropsType) => {
 	);
 };
 
-export default User;
+export default ProfileInfo;

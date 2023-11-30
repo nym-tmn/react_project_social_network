@@ -68,6 +68,12 @@ const initialState = {
 			nameMyProject: 'My GitHub',
 			linkMyProject: 'https://github.com/nym-tmn?tab=repositories',
 		},
+		{
+			id: 3,
+			iconMyProject: require('../components/images/my_projects/icon_my_project_3.png'),
+			nameMyProject: 'Test task №1',
+			linkMyProject: 'https://nym-tmn.github.io/pet_project/',
+		},
 	] as Array<MyProjectsDataType>,
 	projectsDemoData: [
 		{ id: 1, iconDemoProject: require('../components/images/demo_projects/icon_demo_project_1.png'), nameDemoProject: 'demo_project_1' },
@@ -154,7 +160,6 @@ export const getUserProfileThunkCreator = (userId: string | undefined) => {
 			dispatch(actions.toggleIsFetchingActionCreator(false));
 			dispatch(actions.setUserProfileActionCreator(data));
 			profileAPI.getUserStatus(userId).then((userStatusText) => {
-				// debugger;
 				dispatch(actions.setStatusText(userStatusText));
 			});
 		});

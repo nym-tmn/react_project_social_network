@@ -57,18 +57,6 @@ export type UsersDataType = {
 	followed: boolean
 }
 
-export type SearchUsersPropsType = {
-	totalUsersCount: number
-	pageSize: number
-	onPageChanged: (pageNumber: number) => void
-	currentPage: number
-	usersData: Array<UsersDataType>
-	unfollow: (userId: number) => any
-	follow: (userId: number) => any
-	isFetching: boolean
-	followingInProgress: Array<number>
-}
-
 export type ContactsType = {
 	facebook: string
 	website: string
@@ -88,17 +76,6 @@ export type UserProfileType = {
 	contacts: ContactsType
 	photos: PhotosType
 	aboutMe: string
-}
-
-export type ProfilePropsType = {
-	lookingForAJob?: boolean
-	lookingForAJobDescription?: string
-	fullName?: string
-	contacts?: ContactsType
-	photos?: PhotosType
-	aboutMe?: string
-	isFetching?: boolean
-	userStatusText?: null | string,
 }
 
 export type UserAuthDataType = {

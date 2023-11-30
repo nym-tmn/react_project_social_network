@@ -1,11 +1,11 @@
 import React from 'react';
 
 import SearchUsersItems from './Search_users_items/Search_users_items';
-import { SearchUsersPropsType } from '../../../../types/types';
+import { SearchUsersPropsType } from '../Search_users';
 
 import classes from './Search_users_items_container.module.css';
 
-const SearchUsersItemsContainer: React.FC<SearchUsersPropsType> = (props: SearchUsersPropsType) => {
+const SearchUsersItemsContainer: React.FC<SearchUsersPropsType> = (props) => {
 
 	return (
 		<div className={classes.usersItemsContainer}>

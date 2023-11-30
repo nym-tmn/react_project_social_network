@@ -5,7 +5,7 @@ import MyProjectsItemsContiner from './My_projects_items/My_projects_items_conta
 
 import classes from './My_projects.module.css';
 
-const MyProjects = () => {
+const MyProjects: React.FC = () => {
 
 	return (
 		<div className={classes.myProjects}>

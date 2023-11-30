@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
 	return (
 		<h1>LOGIN</h1>
 	);
