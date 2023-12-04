@@ -85,7 +85,7 @@ const initialState = {
 	] as Array<ProjectsDemoDataType>,
 	profileData: null as UserProfileType | null,
 	isFetching: false as boolean,
-	userStatusText: null as null | string,
+	statusText: null as null | string,
 };
 
 export type InitialStateType = typeof initialState
@@ -128,9 +128,9 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 				...state, isFetching: action.isFetching,
 			};
 
-		case 'SET_STATUS_TEXT':
+		case 'SET_STATUS':
 			return {
-				...state, userStatusText: action.statusText,
+				...state, statusText: action.statusText,
 			};
 
 		default:
@@ -150,7 +150,7 @@ export const actions = {
 
 	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
 
-	setStatusText: (statusText: null | string) => ({ type: 'SET_STATUS_TEXT', statusText } as const),
+	setStatus: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined) => {
@@ -159,9 +159,24 @@ export const getUserProfileThunkCreator = (userId: string | undefined) => {
 		profileAPI.getUserProfile(userId).then((data) => {
 			dispatch(actions.toggleIsFetchingActionCreator(false));
 			dispatch(actions.setUserProfileActionCreator(data));
-			profileAPI.getUserStatus(userId).then((userStatusText) => {
-				dispatch(actions.setStatusText(userStatusText));
-			});
+		});
+	};
+};
+
+export const getUserStatusThunkCreator = (userId: string | undefined) => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		profileAPI.getUserStatus(userId).then((statusText) => {
+			dispatch(actions.setStatus(statusText));
+		});
+	};
+};
+
+export const updateUserStatusThunkCreator = (statusText: string) => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		profileAPI.updateUserStatus(statusText).then((response) => {
+			if (response.resultCode === 0) {
+				dispatch(actions.setStatus(statusText));
+			}
 		});
 	};
 };

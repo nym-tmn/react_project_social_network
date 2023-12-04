@@ -6,20 +6,22 @@ import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
-import { getUserProfileThunkCreator } from '../../redux/profile_page_reducer';
+import { getUserProfileThunkCreator, getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../redux/profile_page_reducer';
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
-	userStatusText: null | string
+	statusText: null | string
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	getUserProfile,
+	getUserStatus,
+	updateUserStatus,
 	isFetching,
 	profile,
-	userStatusText,
+	statusText,
 }) => {
 
 	let { userId } = useParams();
@@ -29,15 +31,17 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	useEffect(() => {
 
 		getUserProfile(userId);
+		getUserStatus(userId);
 
-	}, [getUserProfile, userId]);
+	}, [getUserProfile, getUserStatus, userId]);
 
 	return (
 		<div>
 			<Profile
 				profile={profile}
 				isFetching={isFetching}
-				userStatusText={userStatusText}
+				statusText={statusText}
+				updateUserStatus={updateUserStatus}
 			/>
 		</div>
 	);
@@ -48,12 +52,14 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return ({
 		profile: state.profilePage.profileData,
 		isFetching: state.profilePage.isFetching,
-		userStatusText: state.profilePage.userStatusText,
+		statusText: state.profilePage.statusText,
 	});
 };
 
 const connector = connect(mapStateToProps, {
 	getUserProfile: getUserProfileThunkCreator,
+	getUserStatus: getUserStatusThunkCreator,
+	updateUserStatus: updateUserStatusThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }

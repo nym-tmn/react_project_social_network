@@ -14,7 +14,8 @@ export type ProfileInfoPropsType = {
 	lookingForAJob: boolean
 	contacts: ContactsType
 	lookingForAJobDescription: string
-	userStatusText: null | string,
+	statusText: null | string,
+	updateUserStatus: (status: string) => void
 }
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
@@ -29,7 +30,8 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
 				contacts={props.contacts}
 				lookingForAJob={props.lookingForAJob}
 				lookingForAJobDescription={props.lookingForAJobDescription}
-				userStatusText={props.userStatusText}
+				statusText={props.statusText}
+				updateUserStatus={props.updateUserStatus}
 			/>
 		</div>
 	);

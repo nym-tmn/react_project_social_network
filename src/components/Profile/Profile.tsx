@@ -10,13 +10,15 @@ import classes from './Profile.module.css';
 type ProfilePropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
-	userStatusText: null | string,
+	statusText: null | string,
+	updateUserStatus: (status: string) => void
 }
 
 const Profile: React.FC<ProfilePropsType> = ({
 	profile,
 	isFetching,
-	userStatusText,
+	statusText,
+	updateUserStatus,
 }) => {
 
 	if (isFetching) {
@@ -29,7 +31,8 @@ const Profile: React.FC<ProfilePropsType> = ({
 		profile && <div>
 			<ProfileInfo
 				{...profile}
-				userStatusText={userStatusText}
+				statusText={statusText}
+				updateUserStatus={updateUserStatus}
 			/>
 			<Environment />
 		</div>

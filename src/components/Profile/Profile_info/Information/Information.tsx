@@ -17,7 +17,10 @@ const Information: React.FC<Omit<ProfileInfoPropsType, 'photos'>> = (props) => {
 				lookingForAJob={props.lookingForAJob}
 				lookingForAJobDescription={props.lookingForAJobDescription}
 			/>
-			<ProfileStatus userStatusText={props.userStatusText} />
+			<ProfileStatus
+				statusText={props.statusText}
+				updateUserStatus={props.updateUserStatus}
+			/>
 			<ProfileContacts contacts={props.contacts} />
 		</div>
 	);

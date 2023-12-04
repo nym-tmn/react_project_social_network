@@ -5,7 +5,7 @@ import {
 
 const instance = axios.create({
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-	// withCredentials: true,
+	withCredentials: true,
 	headers: {
 		'API-KEY': '18629bce-d19b-46b5-a65f-a7b4fe31f0f9',
 	},
@@ -58,6 +58,9 @@ export const authAPI = {
 
 type ResponseTypeUserProfile = UserProfileType
 type ResponseTypeUserStatus = string
+type ResponseTypeUpdateUserStatus = {
+	resultCode: number
+}
 
 export const profileAPI = {
 	getUserProfile(userId: string | undefined) {
@@ -67,6 +70,11 @@ export const profileAPI = {
 
 	getUserStatus(userId: string | undefined) {
 		return instance.get<ResponseTypeUserStatus>(`profile/status/${userId}`)
+			.then(response => response.data);
+	},
+
+	updateUserStatus(statusText: string) {
+		return instance.put<ResponseTypeUpdateUserStatus>('profile/status', { status: statusText })
 			.then(response => response.data);
 	},
 };
