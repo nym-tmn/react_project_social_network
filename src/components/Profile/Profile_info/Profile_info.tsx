@@ -15,7 +15,7 @@ export type ProfileInfoPropsType = {
 	contacts: ContactsType
 	lookingForAJobDescription: string
 	statusText: null | string,
-	updateUserStatus: (status: string) => void
+	updateUserStatus: (status: string | null) => void
 }
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {

@@ -156,25 +156,25 @@ export const actions = {
 export const getUserProfileThunkCreator = (userId: string | undefined) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		dispatch(actions.toggleIsFetchingActionCreator(true));
-		profileAPI.getUserProfile(userId).then((data) => {
+		profileAPI.getUserProfile(userId).then((response) => {
 			dispatch(actions.toggleIsFetchingActionCreator(false));
-			dispatch(actions.setUserProfileActionCreator(data));
+			dispatch(actions.setUserProfileActionCreator(response.data));
 		});
 	};
 };
 
 export const getUserStatusThunkCreator = (userId: string | undefined) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
-		profileAPI.getUserStatus(userId).then((statusText) => {
-			dispatch(actions.setStatus(statusText));
+		profileAPI.getUserStatus(userId).then((response) => {
+			dispatch(actions.setStatus(response.data));
 		});
 	};
 };
 
-export const updateUserStatusThunkCreator = (statusText: string) => {
+export const updateUserStatusThunkCreator = (statusText: string | null) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		profileAPI.updateUserStatus(statusText).then((response) => {
-			if (response.resultCode === 0) {
+			if (response.data.resultCode === 0) {
 				dispatch(actions.setStatus(statusText));
 			}
 		});

@@ -20,18 +20,15 @@ type ResponseTypeUserAPI = {
 
 export const usersAPI = {
 	getUsers(currentPage: number, pageSize: number) {
-		return instance.get<ResponseTypeUserAPI>(`users?page=${currentPage}&count=${pageSize}`)
-			.then(response => response.data);
+		return instance.get<ResponseTypeUserAPI>(`users?page=${currentPage}&count=${pageSize}`);
 	},
 
 	follow(userId: number) {
-		return instance.post<ResponseTypeUserAPI>(`follow/${userId}`)
-			.then(response => response.data);
+		return instance.post<ResponseTypeUserAPI>(`follow/${userId}`);
 	},
 
 	unfollow(userId: number) {
-		return instance.delete<ResponseTypeUserAPI>(`follow/${userId}`)
-			.then(response => response.data);
+		return instance.delete<ResponseTypeUserAPI>(`follow/${userId}`);
 	},
 };
 
@@ -46,13 +43,11 @@ type ResponseTypeUserPhoto = {
 
 export const authAPI = {
 	authUser() {
-		return instance.get<ResponseTypeAuthUser>('auth/me')
-			.then(response => response.data);
+		return instance.get<ResponseTypeAuthUser>('auth/me');
 	},
 
 	getUserPhoto(userId: number | null) {
-		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`)
-			.then(response => response.data.photos.small);
+		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
 	},
 };
 
@@ -64,17 +59,14 @@ type ResponseTypeUpdateUserStatus = {
 
 export const profileAPI = {
 	getUserProfile(userId: string | undefined) {
-		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`)
-			.then(response => response.data);
+		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`);
 	},
 
 	getUserStatus(userId: string | undefined) {
-		return instance.get<ResponseTypeUserStatus>(`profile/status/${userId}`)
-			.then(response => response.data);
+		return instance.get<ResponseTypeUserStatus>(`profile/status/${userId}`);
 	},
 
-	updateUserStatus(statusText: string) {
-		return instance.put<ResponseTypeUpdateUserStatus>('profile/status', { status: statusText })
-			.then(response => response.data);
+	updateUserStatus(statusText: string | null) {
+		return instance.put<ResponseTypeUpdateUserStatus>('profile/status', { status: statusText });
 	},
 };

@@ -45,11 +45,11 @@ const actions = {
 
 export const authUserThunkCreator = () => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
-		authAPI.authUser().then((authData) => {
-			if (authData.resultCode === 0) {
-				dispatch(actions.setAuthUserDataActionCreator(authData.data));
-				authAPI.getUserPhoto(authData.data.id).then((userPhoto) => {
-					dispatch(actions.setUserAvatarActionCreatorActionCreator(userPhoto));
+		authAPI.authUser().then((response) => {
+			if (response.data.resultCode === 0) {
+				dispatch(actions.setAuthUserDataActionCreator(response.data.data));
+				authAPI.getUserPhoto(response.data.data.id).then((res) => {
+					dispatch(actions.setUserAvatarActionCreatorActionCreator(res.data.photos.small));
 				});
 			}
 		});

@@ -162,10 +162,10 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		dispatch(actions.setCurrentPageActionCreator(currentPage));
 		dispatch(actions.toggleIsFetchingActionCreator(true));
-		usersAPI.getUsers(currentPage, pageSize).then((data) => {
+		usersAPI.getUsers(currentPage, pageSize).then((response) => {
 			dispatch(actions.toggleIsFetchingActionCreator(false));
-			dispatch(actions.setUsersActionCreator(data.items));
-			dispatch(actions.setTotalUsersCountActionCreator(data.totalCount));
+			dispatch(actions.setUsersActionCreator(response.data.items));
+			dispatch(actions.setTotalUsersCountActionCreator(response.data.totalCount));
 		});
 	};
 };
@@ -173,9 +173,9 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => {
 export const followThunkCreator = (userId: number) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		dispatch(actions.toggleFollowingProgressActionCreator(true, userId));
-		usersAPI.follow(userId).then((data) => {
+		usersAPI.follow(userId).then((response) => {
 			dispatch(actions.toggleFollowingProgressActionCreator(false, userId));
-			if (data.resultCode === 0) {
+			if (response.data.resultCode === 0) {
 				dispatch(actions.followActionCreator(userId));
 			}
 		});
@@ -185,9 +185,9 @@ export const followThunkCreator = (userId: number) => {
 export const unfollowThunkCreator = (userId: number) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		dispatch(actions.toggleFollowingProgressActionCreator(true, userId));
-		usersAPI.unfollow(userId).then((data) => {
+		usersAPI.unfollow(userId).then((response) => {
 			dispatch(actions.toggleFollowingProgressActionCreator(false, userId));
-			if (data.resultCode === 0) {
+			if (response.data.resultCode === 0) {
 				dispatch(actions.unFollowActionCreator(userId));
 			}
 		});

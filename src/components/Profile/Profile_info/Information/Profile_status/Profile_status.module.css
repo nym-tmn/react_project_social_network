@@ -5,6 +5,7 @@
 .status,
 .input {
 	margin: 0px 0px 0px 5px;
+	cursor: pointer;
 }
 
 .input input {

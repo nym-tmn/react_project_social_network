@@ -3,30 +3,27 @@ import React, { useState } from 'react';
 import classes from './Profile_status.module.css';
 
 type ProfileStatusPropsType = {
-	statusText: string | null | undefined
-	updateUserStatus: (status: string) => void
+	statusText: string | null
+	updateUserStatus: (status: string | null) => void
 }
 
 const ProfileStatus: React.FC<ProfileStatusPropsType> = (props) => {
 
 	const [isEditMode, setIsEditMode] = useState(false);
-	// const [status, setStatus] = useState(props.statusText);
-
-	/* const handleClickEditMode = () => {
-		setIsEditMode(!isEditMode);
-	}; */
+	const [status, setStatus] = useState(props.statusText);
 
 	const activateEditMode = () => {
 		setIsEditMode(!isEditMode);
 	};
 
-	const deactivateEditMode = () => {
-		setIsEditMode(false);
+	const onStatusChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setStatus(event.currentTarget.value);
 	};
 
-	/* const updateStatus = () => {
+	const deactivateEditMode = () => {
 		setIsEditMode(false);
-	}; */
+		props.updateUserStatus(status);
+	};
 
 	return (
 		<div>
@@ -36,16 +33,17 @@ const ProfileStatus: React.FC<ProfileStatusPropsType> = (props) => {
 					className={classes.status}
 					title='Click to edit'
 					onClick={activateEditMode}>
-					{/* status ||  */props.statusText || 'No status'}
+					{props.statusText || 'No status'}
 				</span>
 				: <span className={classes.input}>
 					<input
 						onBlur={deactivateEditMode}
 						onFocus={e => e.currentTarget.select()}
 						autoFocus
-						onChange={e => props.updateUserStatus(e.currentTarget.value)}
+						onChange={onStatusChange}
 						placeholder='Enter Your Status'
-						defaultValue={/* status ??  */props.statusText ?? 'No status'} />
+						value={status || 'No status'}
+					/>
 				</span>}
 		</div>
 	);

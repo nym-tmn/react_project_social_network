@@ -11,7 +11,7 @@ type ProfilePropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
 	statusText: null | string,
-	updateUserStatus: (status: string) => void
+	updateUserStatus: (status: string | null) => void
 }
 
 const Profile: React.FC<ProfilePropsType> = ({
