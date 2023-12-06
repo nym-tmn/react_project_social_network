@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import classes from './Profile_status.module.css';
 
@@ -11,6 +11,12 @@ const ProfileStatus: React.FC<ProfileStatusPropsType> = (props) => {
 
 	const [isEditMode, setIsEditMode] = useState(false);
 	const [status, setStatus] = useState(props.statusText);
+
+	useEffect(() => {
+		if (!status) {
+			setStatus(props.statusText);
+		}
+	}, [status, props.statusText]);
 
 	const activateEditMode = () => {
 		setIsEditMode(!isEditMode);
