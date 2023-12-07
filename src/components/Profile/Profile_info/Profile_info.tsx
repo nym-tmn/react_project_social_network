@@ -8,12 +8,12 @@ import { ContactsType, PhotosType } from '../../../types/types';
 import classes from './Profile_info.module.css';
 
 export type ProfileInfoPropsType = {
-	photos: PhotosType
-	fullName: string
-	aboutMe: string
-	lookingForAJob: boolean
-	contacts: ContactsType
-	lookingForAJobDescription: string
+	photos?: PhotosType
+	fullName?: string
+	aboutMe?: string
+	lookingForAJob?: boolean
+	contacts?: ContactsType
+	lookingForAJobDescription?: string
 	statusText: null | string,
 	updateUserStatus: (status: string | null) => void
 }

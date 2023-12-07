@@ -28,7 +28,7 @@ const Profile: React.FC<ProfilePropsType> = ({
 	}
 
 	return (
-		profile && <div>
+		<div>
 			<ProfileInfo
 				{...profile}
 				statusText={statusText}
