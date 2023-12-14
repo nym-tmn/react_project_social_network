@@ -1,35 +1,68 @@
 import React from 'react';
 import { Form } from 'react-final-form';
+import { ConnectedProps, connect } from 'react-redux';
 
 import SignInForm from './Sign_in_form/Sign_in_form';
+import { loginUserThunkCreator } from '../../redux/auth_reducer';
+import { AppStateType } from '../../redux/redux_store';
 
-const SignIn: React.FC = () => {
+export type FormDataType = {
+	login: string
+	password: string
+	rememberMe: boolean
+}
 
-	const onSubmit = (formData: any) => {
-		console.log(formData);
+type MapStateToPropsType = {
+	isAuth: boolean
+}
+
+const SignIn: React.FC<SignInPropsType> = ({
+	loginUser,
+	isAuth,
+}) => {
+
+	// loginUser(formData.login, formData.password, formData.rememberMe);
+
+	const onSubmit = (formData: FormDataType) => {
+		loginUser(formData.login, formData.password, formData.rememberMe);
 	};
 
 	return (
 		<div>
 			<h1>LOGIN</h1>
 			<Form onSubmit={onSubmit}
-					render={({
-						handleSubmit,
-						values,
-						form,
-						submitting,
-						pristine,
-					}) => (
-						<SignInForm
-							handleSubmit={handleSubmit}
-							values={values}
-							form={form}
-							submitting={submitting}
-							pristine={pristine}
-						/>
-					)} />
+				render={({
+					handleSubmit,
+					values,
+					form,
+					submitting,
+					pristine,
+				}) => (
+					<SignInForm
+						handleSubmit={handleSubmit}
+						values={values}
+						// form={form}
+						submitting={submitting}
+						pristine={pristine}
+					/>
+				)} />
 		</div>
 	);
 };
 
-export default SignIn;
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+
+	return ({
+		isAuth: state.auth.isAuth,
+	});
+};
+
+const connector = connect(mapStateToProps, {
+	loginUser: loginUserThunkCreator,
+});
+type PropsFromRedux = ConnectedProps<typeof connector>
+interface SignInPropsType extends PropsFromRedux { }
+
+export default connector(SignIn);
+
+// export default SignIn;

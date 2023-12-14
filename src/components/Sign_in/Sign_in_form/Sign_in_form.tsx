@@ -1,20 +1,17 @@
 import React, { SyntheticEvent } from 'react';
 import { Field } from 'react-final-form';
-import { FormApi } from 'final-form';
+// import { FormApi } from 'final-form';
+import { FormDataType } from '../Sign_in';
 
-type SignInFormProps = {
+export type SignInFormPropsType = {
 	handleSubmit: (event?: Partial<Pick<SyntheticEvent<Element, Event>, 'preventDefault' | 'stopPropagation'>> | undefined) => Promise<any> | undefined;
-	values: {
-		login: string;
-		password: string;
-		rememberMe: boolean;
-	}
-	form: FormApi
+	values: FormDataType
+	// form: FormApi<FormDataType>
 	submitting: boolean
 	pristine: boolean
 };
 
-const SignInForm: React.FC<SignInFormProps> = (props) => {
+const SignInForm: React.FC<SignInFormPropsType> = (props) => {
 
 	return (
 			<form onSubmit={props.handleSubmit}>
@@ -31,7 +28,7 @@ const SignInForm: React.FC<SignInFormProps> = (props) => {
 				</div>
 				<div>
 				<button
-					onClick={props.form.reset}
+					// onClick={props.form.reset}
 					disabled={props.submitting || props.pristine}
 				>
 					Sign In

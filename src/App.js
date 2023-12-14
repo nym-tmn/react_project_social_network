@@ -1,7 +1,5 @@
 import React from 'react';
-import { /* BrowserRouter */ HashRouter, Routes, Route } from 'react-router-dom';
-
-import './App.css';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import SearchUsersContainer from './components/Header/Search_users/Search_users_container';
@@ -17,6 +15,8 @@ import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
 import SignIn from './components/Sign_in/Sign_in';
 import Footer from './components/Footer/Footer';
+
+import './App.css';
 
 const App = () => {
 

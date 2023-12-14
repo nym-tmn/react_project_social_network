@@ -1,0 +1,13 @@
+.authorizedBlock {
+	display: grid;
+	justify-items: center;
+}
+
+.authorizedAvatar {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.authorizedName {
+	font-size: 14px;
+}

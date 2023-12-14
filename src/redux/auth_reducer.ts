@@ -18,6 +18,16 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
 
 	switch (action.type) {
 
+		case 'SET_LOGIN_USER':
+			return {
+				...state, isAuth: true,
+			};
+
+		case 'SET_LOGOUT_USER':
+			return {
+				...state, isAuth: false,
+			};
+
 		case 'SET_AUTH_USER_DATA':
 			return {
 				...state, ...action.data, isAuth: true,
@@ -38,9 +48,33 @@ export type ActionsTypes = InferActionsTypes<typeof actions>
 
 const actions = {
 
+	setLoginUserActionCreator: () => ({ type: 'SET_LOGIN_USER' } as const),
+
+	setLogoutUserActionCreator: () => ({ type: 'SET_LOGOUT_USER' } as const),
+
 	setAuthUserDataActionCreator: (data: UserAuthDataType) => ({ type: 'SET_AUTH_USER_DATA', data } as const),
 
 	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
+};
+
+export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean) => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		authAPI.loginUser(email, password, rememberMe).then((response) => {
+			if (response.data.resultCode === 0) {
+				dispatch(actions.setLoginUserActionCreator());
+			}
+		});
+	};
+};
+
+export const logoutUserThunkCreator = () => {
+	return (dispatch: Dispatch<ActionsTypes>) => {
+		authAPI.logoutUser().then((response) => {
+			if (response.data.resultCode === 0) {
+				dispatch(actions.setLogoutUserActionCreator());
+			}
+		});
+	};
 };
 
 export const authUserThunkCreator = () => {

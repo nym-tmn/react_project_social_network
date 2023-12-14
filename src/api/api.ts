@@ -5,7 +5,7 @@ import {
 
 const instance = axios.create({
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-	// withCredentials: true,
+	withCredentials: true,
 	headers: {
 		'API-KEY': '18629bce-d19b-46b5-a65f-a7b4fe31f0f9',
 	},
@@ -37,6 +37,11 @@ type ResponseTypeAuthUser = {
 	resultCode: number
 }
 
+type ResponseTypeLoginUser = {
+	// data: UserAuthDataType
+	resultCode: number
+}
+
 type ResponseTypeUserPhoto = {
 	photos: PhotosType
 }
@@ -48,6 +53,15 @@ export const authAPI = {
 
 	getUserPhoto(userId: number | null) {
 		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
+	},
+
+	loginUser(email: string, password: string, rememberMe: boolean) {
+		return instance.post<ResponseTypeLoginUser>('auth/login', { email, password, rememberMe });
+	},
+
+	logoutUser() {
+		return instance.post<ResponseTypeLoginUser>('auth/logout');
+			// .then(response => console.log(response.data));
 	},
 };
 

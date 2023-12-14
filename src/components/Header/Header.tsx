@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import HeaderSignInContainer from './Header_sign_in/Header_sign_in_container';
+import HeaderAuthContainer from './Header_auth/Header_auth_container';
 
 import classes from './Header.module.css';
 
@@ -32,8 +32,8 @@ const Header: React.FC = () => {
 					</NavLink>
 				</div>
 			</nav>
-			<div className={classes.signIn}>
-				<HeaderSignInContainer />
+			<div className={classes.auth}>
+				<HeaderAuthContainer />
 			</div>
 		</header>
 	);

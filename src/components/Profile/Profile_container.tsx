@@ -7,7 +7,7 @@ import Profile from './Profile';
 import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
 import { getUserProfileThunkCreator, getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../redux/profile_page_reducer';
-// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
@@ -65,6 +65,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }
 
 export default compose(
-	// withAuthRedirect,
+	withAuthRedirect,
 	connector,
 )(ProfileContainer);

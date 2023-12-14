@@ -1,0 +1,13 @@
+.active {
+	color: rgb(134, 216, 219);
+}
+
+.headerAuth {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.noSignIn {
+	display: grid;
+	justify-content: center;
+}
