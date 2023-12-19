@@ -9,7 +9,7 @@ const HeaderAuthorized: React.FC<Pick<UserAuthDataType, 'login' | 'userAvatar'>>
 
 	return (
 		<div className={classes.authorizedBlock}>
-			<img className={classes.authorizedAvatar} src={props.userAvatar ? props.userAvatar : userAvatarIcon} alt="userAvatar" />
+			<img className={classes.authorizedAvatar} src={props.userAvatar || userAvatarIcon} alt="userAvatar" />
 			<div className={classes.authorizedName}>{props.login}</div>
 		</div>
 	);

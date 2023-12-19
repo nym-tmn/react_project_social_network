@@ -6,12 +6,14 @@ import { PostsDataType } from '../../../../../types/types';
 
 type mapStateToPropsType = {
 	postsData: Array<PostsDataType>
+	smallPhoto?: string
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
 		postsData: state.profilePage.postsData,
+		smallPhoto: state.profilePage.profileData?.photos.small,
 	};
 };
 

@@ -15,7 +15,7 @@ const initialState = {
 	postsData: [
 		{
 			id: 3,
-			postIconAvatar: require('../components/images/icon_avatar1.png'),
+			postIconAvatar: require('../components/images/post_avatar.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!',
 			postImage: require('../components/images/Posts/post1.png'),
@@ -23,7 +23,7 @@ const initialState = {
 		},
 		{
 			id: 2,
-			postIconAvatar: require('../components/images/icon_avatar1.png'),
+			postIconAvatar: require('../components/images/post_avatar.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.',
 			postImage: require('../components/images/Posts/post2.png'),
@@ -31,14 +31,13 @@ const initialState = {
 		},
 		{
 			id: 1,
-			postIconAvatar: require('../components/images/icon_avatar1.png'),
+			postIconAvatar: require('../components/images/post_avatar.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.',
 			postImage: require('../components/images/Posts/post3.png'),
 			likesCounter: '392',
 		},
 	] as Array<PostsDataType>,
-	newPostText: 'new post' as string,
 	followersData: [
 		{ id: 1, iconFollower: require('../components/images/followers/icon_follower_1.png'), name: 'name_1' },
 		{ id: 2, iconFollower: require('../components/images/followers/icon_follower_2.png'), name: 'name_2' },
@@ -98,9 +97,9 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 			const newPost = {
 				id: 4,
-				postIconAvatar: require('../components/images/icon_avatar1.png'),
+				postIconAvatar: require('../components/images/post_avatar.png'),
 				postUserName: 'Yurii Nedobrishev',
-				postText: state.newPostText,
+				postText: action.newPostText,
 				postImage: '',
 				likesCounter: '0',
 			};
@@ -108,14 +107,6 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 			return {
 				...state,
 				postsData: [newPost, ...state.postsData],
-				newPostText: '',
-			};
-
-		case 'UPDATE_NEW_POST_TEXT':
-
-			return {
-				...state,
-				newPostText: action.newPostText,
 			};
 
 		case 'SET_USER_PROFILE':
@@ -142,9 +133,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 export type ActionsTypes = InferActionsTypes<typeof actions>
 
 export const actions = {
-	addPostActionCreator: () => ({ type: 'ADD_POST' } as const),
-
-	updateNewPostTextActionCreator: (postText: string) => ({ type: 'UPDATE_NEW_POST_TEXT', newPostText: postText } as const),
+	addPostActionCreator: (newPostText: string) => ({ type: 'ADD_POST', newPostText } as const),
 
 	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
 

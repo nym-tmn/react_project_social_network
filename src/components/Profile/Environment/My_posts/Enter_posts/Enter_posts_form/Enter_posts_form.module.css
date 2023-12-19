@@ -1,0 +1,43 @@
+.enterPostsForm {
+	display: grid;
+	grid-template-areas: 'user-environment-my-posts-what-new user-environment-my-posts-button-send';
+	grid-template-columns: 1fr 110px;
+	grid-gap: 15px;
+}
+
+.textareaGrid {
+	display: grid;
+	grid-area: user-environment-my-posts-what-new;
+}
+
+.buttonGrid {
+	display: grid;
+	grid-area: user-environment-my-posts-button-send;
+}
+
+.whatIsNew {
+	background-color: rgba(230, 211, 219, 0.3);
+	border-radius: 15px;
+	padding: 10px;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 2px solid rgba(158, 127, 145, 0.3);
+	resize: none;
+	outline: none;
+}
+
+.buttonSend {
+	border-radius: 15px;
+	font-size: 16px;
+	font-weight: 600;
+	background-color: rgba(156, 196, 158, 0.3);
+	border: 2px solid rgba(130, 158, 127, 0.3);
+	color: rgb(85, 119, 72);
+	cursor: pointer;
+}
+
+.buttonSend:active {
+	width: 108px;
+	height: 86px;
+	border: 2px solid rgb(91, 119, 88);
+}

@@ -25,10 +25,7 @@ const Messages: React.FC<DialogsPropsType> = (props) => {
 					{messagesFromMeElements}
 				</div>
 			</div>
-			<SendMessages
-				newMessageText={props.dialogsPage.newMessageText}
-				updateNewMessageText={props.updateNewMessageText}
-				sendMessage={props.sendMessage} />
+			<SendMessages sendMessage={props.sendMessage} />
 		</div>
 	);
 };

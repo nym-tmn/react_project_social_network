@@ -12,7 +12,6 @@ const initialState = {
 		{ id: 2, messageText: 'I am fine!' },
 		{ id: 3, messageText: 'I am going for a walk. Are you with me? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, sequi maxime adipisci incidunt cumque ratione corporis recusandae, iure nihil quasi optio nobis autem maiores atque reiciendis. Debitis ut, voluptate neque dolor laborum est distinctio assumenda eum, quaerat nesciunt repellendus expedita provident culpa vero veniam repellat. Magnam quo vitae reiciendis dignissimos.' },
 	] as Array<MessagesDataType>,
-	newMessageText: 'new message' as string,
 	dialogItemData: [
 		{ id: 1, name: 'Robert_lastName', avatar: require('../components/images/dialog_avatar.png') },
 		{ id: 2, name: 'Sophia_lastName', avatar: require('../components/images/dialog_avatar.png') },
@@ -33,26 +32,12 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 			const newMessageFromMe = {
 				id: 4,
-				messageText: state.newMessageText,
+				messageText: action.newMessageText,
 			};
 
 			return {
 				...state,
 				messagesFromMeData: [...state.messagesFromMeData, newMessageFromMe],
-				newMessageText: '',
-			};
-
-		/* if (state.newMessageFromMe === '') {
-			// alert('Please, enter your message!');
-		} else {
-			stateCopy.messagesFromMeData.push(newMessageFromMe);
-		} */
-
-		case 'UPDATE_NEW_MESSAGE_TEXT':
-
-			return {
-				...state,
-				newMessageText: action.newMessageText,
 			};
 
 		default:
@@ -64,9 +49,9 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 export type ActionsTypes = InferActionsTypes<typeof actions>
 
 export const actions = {
-	sendMessageActionCreator: () => ({ type: 'SEND_MESSAGE' } as const),
 
-	updateNewMessageTextActionCreator: (messageText: string) => ({ type: 'UPDATE_NEW_MESSAGE_TEXT', newMessageText: messageText } as const),
+	sendMessageActionCreator: (newMessageText: string) => ({ type: 'SEND_MESSAGE', newMessageText } as const),
+
 };
 
 export default dialogsReducer;

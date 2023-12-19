@@ -17,7 +17,6 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
 			<Title title='Messages' />
 			<Messages
 				dialogsPage={props.dialogsPage}
-				updateNewMessageText={props.updateNewMessageText}
 				sendMessage={props.sendMessage} />
 			<div className={classes.dialogItem}>
 				{dialogItemElements}

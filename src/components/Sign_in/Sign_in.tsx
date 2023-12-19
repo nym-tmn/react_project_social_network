@@ -6,7 +6,7 @@ import SignInForm from './Sign_in_form/Sign_in_form';
 import { loginUserThunkCreator } from '../../redux/auth_reducer';
 import { AppStateType } from '../../redux/redux_store';
 
-export type FormDataType = {
+export type LoginFormDataType = {
 	login: string
 	password: string
 	rememberMe: boolean
@@ -23,14 +23,15 @@ const SignIn: React.FC<SignInPropsType> = ({
 
 	// loginUser(formData.login, formData.password, formData.rememberMe);
 
-	const onSubmit = (formData: FormDataType) => {
-		loginUser(formData.login, formData.password, formData.rememberMe);
+	const onSubmit = (loginFormData: LoginFormDataType) => {
+		loginUser(loginFormData.login, loginFormData.password, loginFormData.rememberMe);
 	};
 
 	return (
 		<div>
 			<h1>LOGIN</h1>
-			<Form onSubmit={onSubmit}
+			<Form
+				onSubmit={onSubmit}
 				render={({
 					handleSubmit,
 					values,

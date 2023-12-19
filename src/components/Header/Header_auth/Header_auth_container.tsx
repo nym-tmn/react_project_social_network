@@ -22,9 +22,8 @@ const HeaderAuthContainer: React.FC<AuthContainerPropsType> = ({
 	useEffect(() => {
 
 		authUser();
-		logoutUser();
 
-	}, [authUser, logoutUser]);
+	}, [authUser]);
 
 	return (
 		<HeaderAuth
