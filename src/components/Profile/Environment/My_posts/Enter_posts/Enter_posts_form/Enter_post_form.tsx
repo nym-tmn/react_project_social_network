@@ -32,7 +32,8 @@ const EnterPostForm: React.FC<EnterPostsType> = (props) => {
 				<textarea
 					className={classes.whatIsNew}
 					placeholder={"What's new?"}
-					{...(register('newPostText', {
+				{...(register('newPostText', {
+						required: true,
 						maxLength: {
 							value: 5000,
 							message: 'Max length is 5000 symbols',

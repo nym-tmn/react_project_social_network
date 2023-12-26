@@ -3,11 +3,14 @@
 	justify-self: center;
 	align-self: end;
 	display: grid;
-	grid-template-columns: 1fr 90px;
+	grid-template-areas: 'error error'
+								'enterMessage send';
+	grid-template-columns: 1fr 98px;
 	grid-gap: 5px;
 }
 
 .enterMessage {
+	grid-area: enterMessage;
 	border-radius: 8px;
 	border: 2px solid rgba(18, 49, 70, 0.507);
 	font-family: Arial, Helvetica, sans-serif;
@@ -15,9 +18,12 @@
 	background-color: rgba(255, 255, 255, 0.482);
 	outline: none;
 	resize: none;
+	height: 70px;
+	width: 370px;
 }
 
 .send {
+	grid-area: send;
 	border-radius: 8px;
 	background-color: rgba(156, 196, 158, 0.3);
 	border: 2px solid rgba(130, 158, 127, 0.3);
@@ -27,7 +33,13 @@
 }
 
 .send:active {
-	width: 89px;
-	height: 83px;
+	width: 95px;
+	height: 92px;
 	border: 2px solid rgb(91, 119, 88);
+}
+
+.error {
+	grid-area: error;
+	margin: 0 auto;
+	color: red;
 }

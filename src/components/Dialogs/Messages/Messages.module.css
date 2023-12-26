@@ -6,7 +6,7 @@
 	display: grid;
 	grid-template-areas: 'textMessages'
 								'sendMessages';
-	grid-template-rows: minmax(0, 1fr) minmax(0, 110px);
+	grid-template-rows: minmax(0, 1fr) minmax(0, 120px);
 	grid-template-columns: 1fr;
 }
 

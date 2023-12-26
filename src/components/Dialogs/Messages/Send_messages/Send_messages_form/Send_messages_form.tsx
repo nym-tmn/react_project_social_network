@@ -1,25 +1,47 @@
-import React, { SyntheticEvent } from 'react';
-import { Field } from 'react-final-form';
-// import { FormApi } from 'final-form';
+import React from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { MessageFormDataType } from '../Send_messages';
+import { SendMessagesPropsType } from '../Send_messages';
 
 import classes from './Send_messages_form.module.css';
 
-type SendMessagesPropsType = {
-	handleSubmit: (event?: Partial<Pick<SyntheticEvent<Element, Event>, 'preventDefault' | 'stopPropagation'>> | undefined) => Promise<any> | undefined
-	values: MessageFormDataType
-	// form: FormApi<MessageFormDataType>
-	submitting: boolean
-	pristine: boolean
+type SendMessageFormDataType = {
+	newMessageText: string
 }
 
 const SendMessagesForm: React.FC<SendMessagesPropsType> = (props) => {
 
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<SendMessageFormDataType>({});
+
+	const onSendMessage: SubmitHandler<SendMessageFormDataType> = (sendMessageFormData: SendMessageFormDataType) => {
+
+		props.sendMessage(sendMessageFormData.newMessageText);
+		reset();
+
+	};
+
 	return (
-		<form className={classes.sendMessages} onSubmit={props.handleSubmit}>
-				<Field className={classes.enterMessage} component={'textarea'} name={'newMessageText'} placeholder={'Enter message...'} cols={48} rows={4} />
-				<button className={classes.send} disabled={props.submitting || props.pristine} /* onClick={props.form.reset} */>Send</button>
+		<form
+			className={classes.sendMessages}
+			onSubmit={handleSubmit(onSendMessage)}>
+			{errors.newMessageText?.message && <div className={classes.error}>{errors.newMessageText?.message}</div>}
+			<textarea
+				className={classes.enterMessage}
+				placeholder={'Enter message...'}
+				{...(register('newMessageText', {
+					required: true,
+					maxLength: {
+						value: 5000,
+						message: 'Max length is 5000 symbols',
+					},
+				}))}>
+			</textarea>
+			<button className={classes.send}>Send</button>
 		</form>
 	);
 };
