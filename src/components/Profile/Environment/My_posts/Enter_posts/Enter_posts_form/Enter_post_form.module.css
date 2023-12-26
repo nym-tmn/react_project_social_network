@@ -1,18 +1,9 @@
 .enterPostsForm {
 	display: grid;
-	grid-template-areas: 'user-environment-my-posts-what-new user-environment-my-posts-button-send';
+	grid-template-areas: 'error error'
+		'user-environment-my-posts-what-new user-environment-my-posts-button-send';
 	grid-template-columns: 1fr 110px;
 	grid-gap: 15px;
-}
-
-.textareaGrid {
-	display: grid;
-	grid-area: user-environment-my-posts-what-new;
-}
-
-.buttonGrid {
-	display: grid;
-	grid-area: user-environment-my-posts-button-send;
 }
 
 .whatIsNew {
@@ -24,6 +15,7 @@
 	border: 2px solid rgba(158, 127, 145, 0.3);
 	resize: none;
 	outline: none;
+	height: 70px;
 }
 
 .buttonSend {
@@ -38,6 +30,11 @@
 
 .buttonSend:active {
 	width: 108px;
-	height: 86px;
+	height: 92px;
 	border: 2px solid rgb(91, 119, 88);
+}
+
+.error {
+	grid-area: error;
+	color: red;
 }
