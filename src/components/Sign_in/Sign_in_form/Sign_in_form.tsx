@@ -1,37 +1,68 @@
-import React, { SyntheticEvent } from 'react';
-import { Field } from 'react-final-form';
-// import { FormApi } from 'final-form';
-import { LoginFormDataType } from '../Sign_in';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
-export type SignInFormPropsType = {
-	handleSubmit: (event?: Partial<Pick<SyntheticEvent<Element, Event>, 'preventDefault' | 'stopPropagation'>> | undefined) => Promise<any> | undefined;
-	values: LoginFormDataType
-	// form: FormApi<LoginFormDataType>
-	submitting: boolean
-	pristine: boolean
-};
+import { SignInPropsType } from '../Sign_in_container';
 
-const SignInForm: React.FC<SignInFormPropsType> = (props) => {
+import classes from './Sign_in_form.module.css';
+
+type LoginFormDataType = {
+	login: string
+	password: string
+	rememberMe: boolean
+}
+
+const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<LoginFormDataType>({
+		mode: 'onTouched',
+	});
+
+	const onLiginUser = (loginFormData: LoginFormDataType) => {
+
+		props.loginUser(loginFormData.login, loginFormData.password, loginFormData.rememberMe);
+		reset();
+	};
 
 	return (
-			<form onSubmit={props.handleSubmit}>
-			<div>
-				<label>Login</label>
-				<Field component={'input'} name={'login'} placeholder='Login' />
+		<form
+			className={classes.signInFormContainer}
+			onSubmit={handleSubmit(onLiginUser)}>
+			<div className={classes.signInFormItems}>
+					<label className={classes.label}>Login</label>
+					<input {...(register('login', {
+						required: 'This field is required',
+						maxLength: {
+							value: 40,
+							message: 'Max length is 40 symbols',
+						},
+					}))} />
+					{errors.login?.message && <div className={classes.error}>{errors.login?.message}</div>}
+					<label className={classes.label}>Password</label>
+					<input {...(register('password', {
+						required: 'This field is required',
+						maxLength: {
+							value: 40,
+							message: 'Max length is 40 symbols',
+						},
+					}))} />
+					{errors.password?.message && <div className={classes.error}>{errors.password?.message}</div>}
+				<div className={classes.rememberMe}>
+					<label>Remember me</label>
+					<input
+						type="checkbox"
+						{...register('rememberMe')}
+					/>
 				</div>
-			<div>
-				<label>Password</label>
-				<Field component={'input'} name={'password'} placeholder='Password' />
+				<div className={classes.buttonSignIn}>
+					<button className={classes.stylesButton}>Sign In</button>
 				</div>
-				<div>
-				<Field component={'input'} name={'rememberMe'} type='checkbox' /> Remember me
-				</div>
-				<div>
-				<button /* onClick={props.form.reset} */ disabled={props.submitting || props.pristine}>
-					Sign In
-				</button>
-				</div>
-			</form>
+			</div>
+		</form>
 	);
 };
 

@@ -13,7 +13,7 @@ import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
 import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
-import SignIn from './components/Sign_in/Sign_in';
+import SignIn from './components/Sign_in/Sign_in_container';
 import Footer from './components/Footer/Footer';
 
 import './App.css';
@@ -45,7 +45,7 @@ const App = () => {
 				</div>
 				<Footer />
 			</div>
-			</HashRouter>
+		</HashRouter>
 	);
 };
 

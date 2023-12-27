@@ -1,0 +1,49 @@
+.signInFormContainer {
+	border-radius: 15px;
+	background-color: rgba(194, 213, 219, 0.6);
+}
+
+.signInFormItems {
+	display: grid;
+	justify-content: center;
+	margin: 150px 350px 0px 350px;
+	padding: 20px 0px 20px 0px;
+	border: 2px solid rgba(70, 18, 29, 0.507);
+	;
+	border-radius: 15px;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.label {
+	padding: 0px 0px 6px 0px;
+}
+
+.rememberMe {
+	justify-self: center;
+	padding: 0px 0px 10px 0px;
+}
+
+.buttonSignIn {
+	justify-self: center;
+}
+
+.error {
+	color: red;
+}
+
+.stylesButton {
+	border-radius: 8px;
+	background-color: rgba(156, 196, 158, 0.3);
+	border: 2px solid rgba(130, 158, 127, 0.3);
+	color: rgb(85, 119, 72);
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 18px;
+	width: 100px;
+	height: 40px;
+}
+
+.stylesButton:active {
+	border: 2px solid rgb(91, 119, 88);
+}

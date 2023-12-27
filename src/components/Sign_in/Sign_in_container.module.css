@@ -1,0 +1,7 @@
+.signInContainer {
+	display: grid;
+	grid-template-areas: 'title'
+		'formContainer';
+	grid-template-rows: 35px 1fr;
+	grid-gap: 5px;
+}
