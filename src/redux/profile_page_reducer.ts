@@ -139,7 +139,7 @@ export const actions = {
 
 	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
 
-	setStatus: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
+	setStatusActionCreator: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined) => {
@@ -155,7 +155,7 @@ export const getUserProfileThunkCreator = (userId: string | undefined) => {
 export const getUserStatusThunkCreator = (userId: string | undefined) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		profileAPI.getUserStatus(userId).then((response) => {
-			dispatch(actions.setStatus(response.data));
+			dispatch(actions.setStatusActionCreator(response.data));
 		});
 	};
 };
@@ -164,7 +164,7 @@ export const updateUserStatusThunkCreator = (statusText: string | null) => {
 	return (dispatch: Dispatch<ActionsTypes>) => {
 		profileAPI.updateUserStatus(statusText).then((response) => {
 			if (response.data.resultCode === 0) {
-				dispatch(actions.setStatus(statusText));
+				dispatch(actions.setStatusActionCreator(statusText));
 			}
 		});
 	};

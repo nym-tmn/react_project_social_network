@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { SignInPropsType } from '../Sign_in_container';
 
@@ -22,7 +22,7 @@ const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
 		mode: 'onTouched',
 	});
 
-	const onLiginUser = (loginFormData: LoginFormDataType) => {
+	const onLoginUser: SubmitHandler<LoginFormDataType> = (loginFormData: LoginFormDataType) => {
 
 		props.loginUser(loginFormData.login, loginFormData.password, loginFormData.rememberMe);
 		reset();
@@ -31,7 +31,7 @@ const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
 	return (
 		<form
 			className={classes.signInFormContainer}
-			onSubmit={handleSubmit(onLiginUser)}>
+			onSubmit={handleSubmit(onLoginUser)}>
 			<div className={classes.signInFormItems}>
 					<label className={classes.label}>Login</label>
 					<input {...(register('login', {

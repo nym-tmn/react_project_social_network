@@ -1,13 +1,10 @@
+.profileStatusGrid {
+	display: grid;
+	grid-template-columns: 55px 1fr;
+	grid-gap: 5px;
+	grid-auto-flow: column;
+}
+
 .title {
 	font-weight: 700;
-}
-
-.status,
-.input {
-	margin: 0px 0px 0px 5px;
-	cursor: pointer;
-}
-
-.input input {
-	width: 86%;
 }
