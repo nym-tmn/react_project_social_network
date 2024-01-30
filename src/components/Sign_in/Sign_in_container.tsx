@@ -1,5 +1,6 @@
 import React from 'react';
 import { ConnectedProps, connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 import SignInForm from './Sign_in_form/Sign_in_form';
 import { loginUserThunkCreator } from '../../redux/auth_reducer';
@@ -17,10 +18,17 @@ const SignInContainer: React.FC<SignInPropsType> = ({
 	isAuth,
 }) => {
 
+	if (isAuth) {
+		return <Navigate to='/profile' />;
+	}
+
 	return (
 		<div className={classes.signInContainer}>
 			<SignInTitle />
-			<SignInForm loginUser={loginUser} />
+			<SignInForm
+				loginUser={loginUser}
+				isAuth={isAuth}
+			/>
 		</div>
 	);
 };
@@ -39,5 +47,3 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 export interface SignInPropsType extends PropsFromRedux { }
 
 export default connector(SignInContainer);
-
-// export default SignIn;

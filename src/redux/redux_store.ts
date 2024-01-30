@@ -1,6 +1,11 @@
-// eslint-disable-next-line camelcase
-import { combineReducers, legacy_createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+/* eslint-disable camelcase */
+import {
+	combineReducers,
+	legacy_createStore,
+	applyMiddleware,
+	Action,
+} from 'redux';
+import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 
 import profileReducer from './profile_page_reducer';
 import dialogsReducer from './dialogs_page_reducer';
@@ -21,6 +26,8 @@ export type AppStateType = ReturnType<RootReducerType>
 
 type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : never
 export type InferActionsTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<PropertiesTypes<T>>
+
+export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 
 // export type AppDispatch = typeof store.dispatch
 

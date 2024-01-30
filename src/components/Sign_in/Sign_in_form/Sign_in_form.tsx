@@ -6,12 +6,12 @@ import { SignInPropsType } from '../Sign_in_container';
 import classes from './Sign_in_form.module.css';
 
 type LoginFormDataType = {
-	login: string
+	email: string
 	password: string
 	rememberMe: boolean
 }
 
-const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
+const SignInForm: React.FC<SignInPropsType> = (props) => {
 
 	const {
 		register,
@@ -24,7 +24,7 @@ const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
 
 	const onLoginUser: SubmitHandler<LoginFormDataType> = (loginFormData: LoginFormDataType) => {
 
-		props.loginUser(loginFormData.login, loginFormData.password, loginFormData.rememberMe);
+		props.loginUser(loginFormData.email, loginFormData.password, loginFormData.rememberMe);
 		reset();
 	};
 
@@ -33,15 +33,15 @@ const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
 			className={classes.signInFormContainer}
 			onSubmit={handleSubmit(onLoginUser)}>
 			<div className={classes.signInFormItems}>
-					<label className={classes.label}>Login</label>
-					<input {...(register('login', {
+					<label className={classes.label}>Email</label>
+					<input {...(register('email', {
 						required: 'This field is required',
 						maxLength: {
 							value: 40,
 							message: 'Max length is 40 symbols',
 						},
 					}))} />
-					{errors.login?.message && <div className={classes.error}>{errors.login?.message}</div>}
+				{errors.email?.message && <div className={classes.error}>{errors.email?.message}</div>}
 					<label className={classes.label}>Password</label>
 					<input {...(register('password', {
 						required: 'This field is required',
@@ -49,7 +49,9 @@ const SignInForm: React.FC<Pick<SignInPropsType, 'loginUser'>> = (props) => {
 							value: 40,
 							message: 'Max length is 40 symbols',
 						},
-					}))} />
+					}))}
+					type={'password'}
+				/>
 					{errors.password?.message && <div className={classes.error}>{errors.password?.message}</div>}
 				<div className={classes.rememberMe}>
 					<label>Remember me</label>

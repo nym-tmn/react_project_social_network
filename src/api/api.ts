@@ -51,10 +51,6 @@ export const authAPI = {
 		return instance.get<ResponseTypeAuthUser>('auth/me');
 	},
 
-	getUserPhoto(userId: number | null) {
-		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
-	},
-
 	loginUser(email: string, password: string, rememberMe: boolean) {
 		return instance.post<ResponseTypeLoginUser>('auth/login', { email, password, rememberMe });
 	},
@@ -82,5 +78,9 @@ export const profileAPI = {
 
 	updateUserStatus(statusText: string | null) {
 		return instance.put<ResponseTypeUpdateUserStatus>('profile/status', { status: statusText });
+	},
+
+	getUserPhoto(userId: number | null) {
+		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
 	},
 };

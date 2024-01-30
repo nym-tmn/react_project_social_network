@@ -1,8 +1,7 @@
-import { Dispatch } from 'redux';
-import { InferActionsTypes } from './redux_store';
+import { BaseThunkType, InferActionsTypes } from './redux_store';
 
 import { UserAuthDataType } from '../types/types';
-import { authAPI } from '../api/api';
+import { authAPI, profileAPI } from '../api/api';
 
 const initialState = {
 	id: null,
@@ -14,23 +13,13 @@ const initialState = {
 
 export type InitialStateType = typeof initialState
 
-const authReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
+const authReducer = (state = initialState, action: ActionsType): InitialStateType => {
 
 	switch (action.type) {
 
-		case 'SET_LOGIN_USER':
-			return {
-				...state, isAuth: true,
-			};
-
-		case 'SET_LOGOUT_USER':
-			return {
-				...state, isAuth: false,
-			};
-
 		case 'SET_AUTH_USER_DATA':
 			return {
-				...state, ...action.data, isAuth: true,
+				...state, ...action.payload, /* isAuth: true, */
 			};
 
 		case 'SET_USER_PHOTO':
@@ -38,56 +27,66 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
 				...state, userAvatar: action.userAvatar,
 			};
 
+		/* case 'SET_LOGIN_USER':
+			return {
+				...state, isAuth: true,
+			}; */
+
+		/* case 'SET_LOGOUT_USER':
+			return {
+				...state, isAuth: false,
+			}; */
+
 		default:
 			return state;
 
 	}
 };
 
-export type ActionsTypes = InferActionsTypes<typeof actions>
+export type ActionsType = InferActionsTypes<typeof actions>
+type ThunkType = BaseThunkType<ActionsType>
 
 const actions = {
 
-	setLoginUserActionCreator: () => ({ type: 'SET_LOGIN_USER' } as const),
-
-	setLogoutUserActionCreator: () => ({ type: 'SET_LOGOUT_USER' } as const),
-
-	setAuthUserDataActionCreator: (data: UserAuthDataType) => ({ type: 'SET_AUTH_USER_DATA', data } as const),
+	setAuthUserDataActionCreator: (id: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
+		type: 'SET_AUTH_USER_DATA',
+		payload: {
+			id,
+			email,
+			login,
+			isAuth,
+		},
+	} as const),
 
 	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
+
+	// setLoginUserActionCreator: () => ({ type: 'SET_LOGIN_USER' } as const),
+
+	// setLogoutUserActionCreator: () => ({ type: 'SET_LOGOUT_USER' } as const),
 };
 
-export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean) => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		authAPI.loginUser(email, password, rememberMe).then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(actions.setLoginUserActionCreator());
-			}
-		});
-	};
+export const authUserThunkCreator = (): ThunkType => async (dispatch) => {
+	const authUserData = await authAPI.authUser();
+	if (authUserData.data.resultCode === 0) {
+		const { id, email, login } = authUserData.data.data;
+		dispatch(actions.setAuthUserDataActionCreator(id, email, login, true));
+		const userProfileData = await profileAPI.getUserPhoto(id);
+		dispatch(actions.setUserAvatarActionCreatorActionCreator(userProfileData.data.photos.small));
+	}
 };
 
-export const logoutUserThunkCreator = () => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		authAPI.logoutUser().then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(actions.setLogoutUserActionCreator());
-			}
-		});
-	};
+export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean): ThunkType => async (dispatch) => {
+	const data = await authAPI.loginUser(email, password, rememberMe);
+	if (data.data.resultCode === 0) {
+		dispatch(authUserThunkCreator());
+	}
 };
 
-export const authUserThunkCreator = () => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		authAPI.authUser().then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(actions.setAuthUserDataActionCreator(response.data.data));
-				authAPI.getUserPhoto(response.data.data.id).then((res) => {
-					dispatch(actions.setUserAvatarActionCreatorActionCreator(res.data.photos.small));
-				});
-			}
-		});
-	};
+export const logoutUserThunkCreator = (): ThunkType => async (dispatch) => {
+	const response = await authAPI.logoutUser();
+	if (response.data.resultCode === 0) {
+		dispatch(actions.setAuthUserDataActionCreator(null, null, null, false));
+	}
 };
 
 export default authReducer;
