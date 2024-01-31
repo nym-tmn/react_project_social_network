@@ -9,6 +9,7 @@ type LoginFormDataType = {
 	email: string
 	password: string
 	rememberMe: boolean
+	captcha: string
 }
 
 const SignInForm: React.FC<SignInPropsType> = (props) => {
@@ -19,12 +20,12 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 		reset,
 		formState: { errors },
 	} = useForm<LoginFormDataType>({
-		mode: 'onTouched',
+		mode: 'onBlur',
 	});
 
 	const onLoginUser: SubmitHandler<LoginFormDataType> = (loginFormData: LoginFormDataType) => {
 
-		props.loginUser(loginFormData.email, loginFormData.password, loginFormData.rememberMe);
+		props.loginUser(loginFormData.email, loginFormData.password, loginFormData.rememberMe, loginFormData.captcha);
 		reset();
 	};
 
@@ -62,7 +63,21 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 						{...register('rememberMe')}
 					/>
 				</div>
-				<div className={classes.errorMessage}>{props.errrorMessage}</div>
+				{props.errrorMessage && <div className={classes.errorMessage}>{props.errrorMessage}</div>}
+				{props.captchaUrl && <div className={classes.captchaGrid}>
+					<img className={classes.captchaImg} src={props.captchaUrl || ''} alt="captcha_url" />
+					<input className={classes.widthInput__short}
+						{...register('captcha', {
+							required: 'This field is required',
+							maxLength: {
+								value: 13,
+								message: 'Max length is 13 symbols',
+							},
+						})}
+						placeholder="Enter captcha"
+					/>
+					{errors.captcha?.message && <div className={classes.error}>{errors.captcha?.message}</div>}
+				</div>}
 				<div className={classes.buttonSignIn}>
 					<button className={classes.stylesButton}>Sign In</button>
 				</div>

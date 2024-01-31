@@ -24,9 +24,7 @@
 }
 
 .rememberMe {
-	/* margin: 7px 0px 0px 0px; */
 	justify-self: center;
-	/* padding: 0px 0px 10px 0px; */
 }
 
 .buttonSignIn {
@@ -36,6 +34,8 @@
 
 .error {
 	color: red;
+	font-size: 16px;
+	justify-self: center;
 }
 
 .stylesButton {
@@ -54,8 +54,26 @@
 	border: 2px solid rgb(91, 119, 88);
 }
 
-.errorMessage{
+.errorMessage {
 	justify-self: center;
 	color: red;
 	font-size: 16px;
+}
+
+.captchaGrid {
+	display: grid;
+	grid-gap: 6px;
+	justify-content: center;
+	margin: 5px 0px 0px 0px;
+}
+
+.captchaImg {
+	justify-self: center;
+	width: 170px;
+	height: 70px;
+}
+
+.widthInput__short {
+	justify-self: center;
+	width: 100px;
 }

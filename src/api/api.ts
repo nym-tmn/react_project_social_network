@@ -42,8 +42,12 @@ type ResponseTypeLoginUser = {
 	messages: Array<string>
 }
 
-type ResponseTypeUserPhoto = {
-	photos: PhotosType
+type ResponseTypeLogoutUser = {
+	resultCode: number
+}
+
+type ResponseTypeCaptchaUrl = {
+	url: string
 }
 
 export const authAPI = {
@@ -51,12 +55,24 @@ export const authAPI = {
 		return instance.get<ResponseTypeAuthUser>('auth/me');
 	},
 
-	loginUser(email: string, password: string, rememberMe: boolean) {
-		return instance.post<ResponseTypeLoginUser>('auth/login', { email, password, rememberMe });
+	loginUser(email: string, password: string, rememberMe: boolean, captcha: string) {
+		return instance.post<ResponseTypeLoginUser>(
+			'auth/login',
+			{
+				email,
+				password,
+				rememberMe,
+				captcha,
+			},
+		);
 	},
 
 	logoutUser() {
-		return instance.post<ResponseTypeLoginUser>('auth/logout');
+		return instance.post<ResponseTypeLogoutUser>('auth/logout');
+	},
+
+	getCaptchaUrl() {
+		return instance.get<ResponseTypeCaptchaUrl>('security/get-captcha-url');
 	},
 };
 
@@ -64,6 +80,10 @@ type ResponseTypeUserProfile = UserProfileType
 type ResponseTypeUserStatus = string
 type ResponseTypeUpdateUserStatus = {
 	resultCode: number
+}
+
+type ResponseTypeUserPhoto = {
+	photos: PhotosType
 }
 
 export const profileAPI = {

@@ -86,4 +86,5 @@ export type UserAuthDataType = {
 	isAuth: boolean
 	userAvatar: string | null
 	errorMessage: string | null
+	captcha: string | null
 }

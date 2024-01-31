@@ -10,6 +10,7 @@ const initialState = {
 	isAuth: false,
 	userAvatar: null,
 	errorMessage: null,
+	captcha: null,
 } as UserAuthDataType;
 
 export type InitialStateType = typeof initialState
@@ -31,6 +32,11 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 		case 'SET_ERROR_MESSAGE':
 			return {
 				...state, errorMessage: action.errorMessage,
+			};
+
+		case 'SET_CAPTCHA':
+			return {
+				...state, captcha: action.captcha,
 			};
 
 		default:
@@ -56,7 +62,9 @@ const actions = {
 
 	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
 
-	setErrorMessageActionCreator: (errorMessage: string) => ({ type: 'SET_ERROR_MESSAGE', errorMessage } as const),
+	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SET_ERROR_MESSAGE', errorMessage } as const),
+
+	setCaptchaActionCreator: (captcha: string | null) => ({ type: 'SET_CAPTCHA', captcha } as const),
 
 };
 
@@ -70,13 +78,18 @@ export const authUserThunkCreator = (): ThunkType => async (dispatch) => {
 	}
 };
 
-export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean): ThunkType => async (dispatch) => {
-	const data = await authAPI.loginUser(email, password, rememberMe);
+export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch) => {
+	const data = await authAPI.loginUser(email, password, rememberMe, captcha);
 	if (data.data.resultCode === 0) {
 		dispatch(authUserThunkCreator());
+		dispatch(actions.setCaptchaActionCreator(null));
+		dispatch(actions.setErrorMessageActionCreator(null));
 	} else if (data.data.resultCode === 1) {
 		const [errorMessage] = data.data.messages;
 		dispatch(actions.setErrorMessageActionCreator(errorMessage));
+	} else if (data.data.resultCode === 10) {
+		const captchaUrl = await authAPI.getCaptchaUrl();
+		dispatch(actions.setCaptchaActionCreator(captchaUrl.data.url));
 	}
 };
 
