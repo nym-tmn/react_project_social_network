@@ -33,8 +33,9 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 			className={classes.signInFormContainer}
 			onSubmit={handleSubmit(onLoginUser)}>
 			<div className={classes.signInFormItems}>
-					<label className={classes.label}>Email</label>
-					<input {...(register('email', {
+				<label className={classes.label}>Email</label>
+				<input className={classes.widthInput}
+					{...(register('email', {
 						required: 'This field is required',
 						maxLength: {
 							value: 40,
@@ -42,8 +43,9 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 						},
 					}))} />
 				{errors.email?.message && <div className={classes.error}>{errors.email?.message}</div>}
-					<label className={classes.label}>Password</label>
-					<input {...(register('password', {
+				<label className={classes.label}>Password</label>
+				<input className={classes.widthInput}
+					{...(register('password', {
 						required: 'This field is required',
 						maxLength: {
 							value: 40,
@@ -52,7 +54,7 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 					}))}
 					type={'password'}
 				/>
-					{errors.password?.message && <div className={classes.error}>{errors.password?.message}</div>}
+				{errors.password?.message && <div className={classes.error}>{errors.password?.message}</div>}
 				<div className={classes.rememberMe}>
 					<label>Remember me</label>
 					<input
@@ -60,6 +62,7 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 						{...register('rememberMe')}
 					/>
 				</div>
+				<div className={classes.errorMessage}>{props.errrorMessage}</div>
 				<div className={classes.buttonSignIn}>
 					<button className={classes.stylesButton}>Sign In</button>
 				</div>

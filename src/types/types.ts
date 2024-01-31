@@ -85,4 +85,5 @@ export type UserAuthDataType = {
 	isFetching: boolean
 	isAuth: boolean
 	userAvatar: string | null
+	errorMessage: string | null
 }

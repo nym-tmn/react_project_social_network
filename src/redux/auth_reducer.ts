@@ -9,6 +9,7 @@ const initialState = {
 	login: null,
 	isAuth: false,
 	userAvatar: null,
+	errorMessage: null,
 } as UserAuthDataType;
 
 export type InitialStateType = typeof initialState
@@ -19,7 +20,7 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 
 		case 'SET_AUTH_USER_DATA':
 			return {
-				...state, ...action.payload, /* isAuth: true, */
+				...state, ...action.payload,
 			};
 
 		case 'SET_USER_PHOTO':
@@ -27,15 +28,10 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 				...state, userAvatar: action.userAvatar,
 			};
 
-		/* case 'SET_LOGIN_USER':
+		case 'SET_ERROR_MESSAGE':
 			return {
-				...state, isAuth: true,
-			}; */
-
-		/* case 'SET_LOGOUT_USER':
-			return {
-				...state, isAuth: false,
-			}; */
+				...state, errorMessage: action.errorMessage,
+			};
 
 		default:
 			return state;
@@ -60,9 +56,8 @@ const actions = {
 
 	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
 
-	// setLoginUserActionCreator: () => ({ type: 'SET_LOGIN_USER' } as const),
+	setErrorMessageActionCreator: (errorMessage: string) => ({ type: 'SET_ERROR_MESSAGE', errorMessage } as const),
 
-	// setLogoutUserActionCreator: () => ({ type: 'SET_LOGOUT_USER' } as const),
 };
 
 export const authUserThunkCreator = (): ThunkType => async (dispatch) => {
@@ -79,6 +74,9 @@ export const loginUserThunkCreator = (email: string, password: string, rememberM
 	const data = await authAPI.loginUser(email, password, rememberMe);
 	if (data.data.resultCode === 0) {
 		dispatch(authUserThunkCreator());
+	} else if (data.data.resultCode === 1) {
+		const [errorMessage] = data.data.messages;
+		dispatch(actions.setErrorMessageActionCreator(errorMessage));
 	}
 };
 

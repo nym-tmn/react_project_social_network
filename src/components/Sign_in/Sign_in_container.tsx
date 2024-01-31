@@ -11,11 +11,13 @@ import classes from './Sign_in_container.module.css';
 
 type MapStateToPropsType = {
 	isAuth: boolean
+	errrorMessage: string | null
 }
 
 const SignInContainer: React.FC<SignInPropsType> = ({
 	loginUser,
 	isAuth,
+	errrorMessage,
 }) => {
 
 	if (isAuth) {
@@ -28,6 +30,7 @@ const SignInContainer: React.FC<SignInPropsType> = ({
 			<SignInForm
 				loginUser={loginUser}
 				isAuth={isAuth}
+				errrorMessage={errrorMessage}
 			/>
 		</div>
 	);
@@ -37,6 +40,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
 		isAuth: state.auth.isAuth,
+		errrorMessage: state.auth.errorMessage,
 	});
 };
 

@@ -38,8 +38,8 @@ type ResponseTypeAuthUser = {
 }
 
 type ResponseTypeLoginUser = {
-	// data: UserAuthDataType
 	resultCode: number
+	messages: Array<string>
 }
 
 type ResponseTypeUserPhoto = {
@@ -57,7 +57,6 @@ export const authAPI = {
 
 	logoutUser() {
 		return instance.post<ResponseTypeLoginUser>('auth/logout');
-			// .then(response => console.log(response.data));
 	},
 };
 

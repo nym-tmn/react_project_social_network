@@ -19,13 +19,19 @@
 	padding: 0px 0px 6px 0px;
 }
 
+.widthInput {
+	width: 200px;
+}
+
 .rememberMe {
+	/* margin: 7px 0px 0px 0px; */
 	justify-self: center;
-	padding: 0px 0px 10px 0px;
+	/* padding: 0px 0px 10px 0px; */
 }
 
 .buttonSignIn {
 	justify-self: center;
+	margin: 6px 0px 0px 0px;
 }
 
 .error {
@@ -46,4 +52,10 @@
 
 .stylesButton:active {
 	border: 2px solid rgb(91, 119, 88);
+}
+
+.errorMessage{
+	justify-self: center;
+	color: red;
+	font-size: 16px;
 }
