@@ -13,6 +13,7 @@ type MapStateToPropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
 	statusText: null | string
+	authorizedUserId: number | null
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
@@ -22,11 +23,12 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	isFetching,
 	profile,
 	statusText,
+	authorizedUserId,
 }) => {
 
 	let { userId } = useParams();
 
-	if (!userId) userId = '28215';
+	if (!userId) userId = authorizedUserId?.toString();
 
 	useEffect(() => {
 
@@ -51,6 +53,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
 		profile: state.profilePage.profileData,
+		authorizedUserId: state.auth.id,
 		isFetching: state.profilePage.isFetching,
 		statusText: state.profilePage.statusText,
 	});

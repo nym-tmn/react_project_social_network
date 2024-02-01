@@ -32,6 +32,11 @@
 	margin: 6px 0px 0px 0px;
 }
 
+/* .disabledButton {
+	background-color: #999999;
+	border: 5px solid rgb(255, 0, 0);
+} */
+
 .error {
 	color: red;
 	font-size: 16px;
@@ -52,6 +57,13 @@
 
 .stylesButton:active {
 	border: 2px solid rgb(91, 119, 88);
+}
+
+.stylesButton:disabled {
+	border: 2px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+	cursor: not-allowed;
 }
 
 .errorMessage {

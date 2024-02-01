@@ -19,13 +19,13 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
+		formState,
 	} = useForm<LoginFormDataType>({
 		mode: 'onBlur',
 	});
 
-	const onLoginUser: SubmitHandler<LoginFormDataType> = (loginFormData: LoginFormDataType) => {
-
-		props.loginUser(loginFormData.email, loginFormData.password, loginFormData.rememberMe, loginFormData.captcha);
+	const onLoginUser: SubmitHandler<LoginFormDataType> = async (loginFormData: LoginFormDataType) => {
+		await props.loginUser(loginFormData.email, loginFormData.password, loginFormData.rememberMe, loginFormData.captcha);
 		reset();
 	};
 
@@ -63,7 +63,7 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 						{...register('rememberMe')}
 					/>
 				</div>
-				{props.errrorMessage && <div className={classes.errorMessage}>{props.errrorMessage}</div>}
+				{props.errorMessage && <div className={classes.errorMessage}>{props.errorMessage}</div>}
 				{props.captchaUrl && <div className={classes.captchaGrid}>
 					<img className={classes.captchaImg} src={props.captchaUrl || ''} alt="captcha_url" />
 					<input className={classes.widthInput__short}
@@ -79,7 +79,7 @@ const SignInForm: React.FC<SignInPropsType> = (props) => {
 					{errors.captcha?.message && <div className={classes.error}>{errors.captcha?.message}</div>}
 				</div>}
 				<div className={classes.buttonSignIn}>
-					<button className={classes.stylesButton}>Sign In</button>
+					<button className={classes.stylesButton} type='submit' disabled={formState.isSubmitting}>Sign In</button>
 				</div>
 			</div>
 		</form>
