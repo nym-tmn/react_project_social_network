@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+
 import classes from './Video.module.css';
 
 const Video: React.FC = () => {
@@ -9,4 +11,4 @@ const Video: React.FC = () => {
 	);
 };
 
-export default Video;
+export default withAuthRedirect(Video);

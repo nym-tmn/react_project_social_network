@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ConnectedProps, connect } from 'react-redux';
 
 import HeaderAuth from './Header_auth';
-import { authUserThunkCreator, logoutUserThunkCreator } from '../../../redux/auth_reducer';
+import { logoutUserThunkCreator } from '../../../redux/auth_reducer';
 import { AppStateType } from '../../../redux/redux_store';
 
 type MapStateToPropsType = {
@@ -12,18 +12,11 @@ type MapStateToPropsType = {
 }
 
 const HeaderAuthContainer: React.FC<AuthContainerPropsType> = ({
-	authUser,
 	logoutUser,
 	login,
 	userAvatar,
 	isAuth,
 }) => {
-
-	useEffect(() => {
-
-		authUser();
-
-	}, [authUser]);
 
 	return (
 		<HeaderAuth
@@ -45,7 +38,6 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 };
 
 const connector = connect(mapStateToProps, {
-	authUser: authUserThunkCreator,
 	logoutUser: logoutUserThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>

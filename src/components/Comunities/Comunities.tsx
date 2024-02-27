@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+
 import classes from './Comunities.module.css';
 
 const Comunities: React.FC = () => {
@@ -9,4 +11,4 @@ const Comunities: React.FC = () => {
 	);
 };
 
-export default Comunities;
+export default withAuthRedirect(Comunities);

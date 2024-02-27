@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+
 import classes from './Settings.module.css';
 
 const Settings: React.FC = () => {
@@ -8,4 +10,4 @@ const Settings: React.FC = () => {
 	);
 };
 
-export default Settings;
+export default withAuthRedirect(Settings);

@@ -1,5 +1,4 @@
-import { Dispatch } from 'redux';
-import { InferActionsTypes } from './redux_store';
+import { BaseThunkType, InferActionsTypes } from './redux_store';
 
 import {
 	FollowersDataType,
@@ -89,7 +88,7 @@ const initialState = {
 
 export type InitialStateType = typeof initialState
 
-const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
+const profileReducer = (state = initialState, action: ActionsType): InitialStateType => {
 
 	switch (action.type) {
 
@@ -130,7 +129,8 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
 	}
 };
 
-export type ActionsTypes = InferActionsTypes<typeof actions>
+export type ActionsType = InferActionsTypes<typeof actions>
+type ThunkType = BaseThunkType<ActionsType>
 
 export const actions = {
 	addPostActionCreator: (newPostText: string) => ({ type: 'ADD_POST', newPostText } as const),
@@ -142,32 +142,23 @@ export const actions = {
 	setStatusActionCreator: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
 };
 
-export const getUserProfileThunkCreator = (userId: string | undefined) => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		dispatch(actions.toggleIsFetchingActionCreator(true));
-		profileAPI.getUserProfile(userId).then((response) => {
-			dispatch(actions.toggleIsFetchingActionCreator(false));
-			dispatch(actions.setUserProfileActionCreator(response.data));
-		});
-	};
+export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
+	dispatch(actions.toggleIsFetchingActionCreator(true));
+	const response = await profileAPI.getUserProfile(userId);
+	dispatch(actions.toggleIsFetchingActionCreator(false));
+	dispatch(actions.setUserProfileActionCreator(response.data));
 };
 
-export const getUserStatusThunkCreator = (userId: string | undefined) => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		profileAPI.getUserStatus(userId).then((response) => {
-			dispatch(actions.setStatusActionCreator(response.data));
-		});
-	};
+export const getUserStatusThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
+	const response = await profileAPI.getUserStatus(userId);
+	dispatch(actions.setStatusActionCreator(response.data));
 };
 
-export const updateUserStatusThunkCreator = (statusText: string | null) => {
-	return (dispatch: Dispatch<ActionsTypes>) => {
-		profileAPI.updateUserStatus(statusText).then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(actions.setStatusActionCreator(statusText));
-			}
-		});
-	};
+export const updateUserStatusThunkCreator = (statusText: string | null): ThunkType => async (dispatch) => {
+	const response = await profileAPI.updateUserStatus(statusText);
+	if (response.data.resultCode === 0) {
+		dispatch(actions.setStatusActionCreator(statusText));
+	}
 };
 
 export default profileReducer;

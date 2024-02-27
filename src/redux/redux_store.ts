@@ -11,12 +11,14 @@ import profileReducer from './profile_page_reducer';
 import dialogsReducer from './dialogs_page_reducer';
 import searchUsersReducer from './search_users_reducer';
 import authReducer from './auth_reducer';
+import appReducer from './app_reducer';
 
 const rootReducer = combineReducers({
 	profilePage: profileReducer,
 	dialogsPage: dialogsReducer,
 	searchUsersPage: searchUsersReducer,
 	auth: authReducer,
+	app: appReducer,
 });
 
 const store = legacy_createStore(rootReducer, applyMiddleware(thunkMiddleware));

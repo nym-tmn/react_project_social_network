@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+
 import classes from './Notifications.module.css';
 
 const Notifications: React.FC = () => {
@@ -9,4 +11,4 @@ const Notifications: React.FC = () => {
 	);
 };
 
-export default Notifications;
+export default withAuthRedirect(Notifications);

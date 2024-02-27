@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+
 import classes from './Photo.module.css';
 
 const Photo: React.FC = () => {
@@ -9,4 +11,4 @@ const Photo: React.FC = () => {
 	);
 };
 
-export default Photo;
+export default withAuthRedirect(Photo);

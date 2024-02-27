@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Header from './components/Header/Header';
 import SearchUsersContainer from './components/Header/Search_users/Search_users_container';
@@ -15,38 +16,60 @@ import Music from './components/Music/Music';
 import Comunities from './components/Comunities/Comunities';
 import SignInContainer from './components/Sign_in/Sign_in_container';
 import Footer from './components/Footer/Footer';
+import { initializeAppThunkCreator } from './redux/app_reducer';
+import Preloader from './components/common/Preloader/Preloader';
 
 import './App.css';
 
-const App = () => {
+const App = ({
+	initializeApp,
+	initialized,
+}) => {
+
+	useEffect(() => {
+
+		initializeApp();
+
+	}, [initializeApp]);
 
 	return (
 		<HashRouter>
-			<div className='app-wrapper'>
-				<Header />
-				<div className='app-container'>
-					<Nav />
-					<div className='mainContent'>
-						<Routes>
-							<Route path='/search' element={<SearchUsersContainer />} />
-							<Route path='/notifications' element={<Notifications />} />
-							<Route path='/news' element={<News />} />
-							<Route path='/settings' element={<Settings />} />
-							<Route path=':userId?' element={<ProfileContainer />} />
-							<Route path='/profile' element={<ProfileContainer />} />
-							<Route path='/dialogs' element={<DialogsContainer />} />
-							<Route path='/photo' element={<Photo />} />
-							<Route path='/video' element={<Video />} />
-							<Route path='/music' element={<Music />} />
-							<Route path='/comunities' element={<Comunities />} />
-							<Route path='/sign_in' element={<SignInContainer />} />
-						</Routes>
+			{!initialized ? <div className='loadingSpinner'><Preloader /></div>
+				: <div className='app-wrapper'>
+					<Header />
+					<div className='app-container'>
+						<Nav />
+						<div className='mainContent'>
+							<Routes>
+								<Route path='/search' element={<SearchUsersContainer />} />
+								<Route path='/notifications' element={<Notifications />} />
+								<Route path='/news' element={<News />} />
+								<Route path='/settings' element={<Settings />} />
+								<Route path=':userId?' element={<ProfileContainer />} />
+								<Route path='/profile' element={<ProfileContainer />} />
+								<Route path='/dialogs' element={<DialogsContainer />} />
+								<Route path='/photo' element={<Photo />} />
+								<Route path='/video' element={<Video />} />
+								<Route path='/music' element={<Music />} />
+								<Route path='/comunities' element={<Comunities />} />
+								<Route path='/sign_in' element={<SignInContainer />} />
+							</Routes>
+						</div>
 					</div>
-				</div>
-				<Footer />
-			</div>
+					<Footer />
+				</div>}
 		</HashRouter>
 	);
 };
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		initialized: state.app.initialized,
+	};
+};
+
+const connector = connect(mapStateToProps, {
+	initializeApp: initializeAppThunkCreator,
+});
+
+export default connector(App);

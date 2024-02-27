@@ -23,7 +23,7 @@ const Profile: React.FC<ProfilePropsType> = ({
 
 	if (isFetching) {
 		return (
-			<div className={classes.preloader}><Preloader /></div>
+			<div className={classes.loadingSpinner}><Preloader /></div>
 		);
 	}
 
