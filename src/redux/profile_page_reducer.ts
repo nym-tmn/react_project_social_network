@@ -1,8 +1,7 @@
 import { BaseThunkType, InferActionsTypes } from './redux_store';
 
 import {
-	FollowersDataType,
-	FollowingsDataType,
+	FollowDataType,
 	MyProjectsDataType,
 	PostsDataType,
 	ProjectsDemoDataType,
@@ -38,21 +37,21 @@ const initialState = {
 		},
 	] as Array<PostsDataType>,
 	followersData: [
-		{ id: 1, iconFollower: require('../components/images/followers/icon_follower_1.png'), name: 'name_1' },
-		{ id: 2, iconFollower: require('../components/images/followers/icon_follower_2.png'), name: 'name_2' },
-		{ id: 3, iconFollower: require('../components/images/followers/icon_follower_3.png'), name: 'name_3' },
-		{ id: 4, iconFollower: require('../components/images/followers/icon_follower_4.png'), name: 'name_4' },
-		{ id: 5, iconFollower: require('../components/images/followers/icon_follower_5.png'), name: 'name_5' },
-		{ id: 6, iconFollower: require('../components/images/followers/icon_follower_6.png'), name: 'name_6' },
-	] as Array<FollowersDataType>,
+		{ id: 1, iconFollow: require('../components/images/followers/icon_follower_1.png'), name: 'name_1' },
+		{ id: 2, iconFollow: require('../components/images/followers/icon_follower_2.png'), name: 'name_2' },
+		{ id: 3, iconFollow: require('../components/images/followers/icon_follower_3.png'), name: 'name_3' },
+		{ id: 4, iconFollow: require('../components/images/followers/icon_follower_4.png'), name: 'name_4' },
+		{ id: 5, iconFollow: require('../components/images/followers/icon_follower_5.png'), name: 'name_5' },
+		{ id: 6, iconFollow: require('../components/images/followers/icon_follower_6.png'), name: 'name_6' },
+	] as Array<FollowDataType>,
 	followingsData: [
-		{ id: 1, iconFollowing: require('../components/images/followings/icon_following_1.png'), name: 'name_1' },
-		{ id: 2, iconFollowing: require('../components/images/followings/icon_following_2.png'), name: 'name_2' },
-		{ id: 3, iconFollowing: require('../components/images/followings/icon_following_3.png'), name: 'name_3' },
-		{ id: 4, iconFollowing: require('../components/images/followings/icon_following_4.png'), name: 'name_4' },
-		{ id: 5, iconFollowing: require('../components/images/followings/icon_following_5.png'), name: 'name_5' },
-		{ id: 6, iconFollowing: require('../components/images/followings/icon_following_6.png'), name: 'name_6' },
-	] as Array<FollowingsDataType>,
+		{ id: 1, iconFollow: require('../components/images/followings/icon_following_1.png'), name: 'name_1' },
+		{ id: 2, iconFollow: require('../components/images/followings/icon_following_2.png'), name: 'name_2' },
+		{ id: 3, iconFollow: require('../components/images/followings/icon_following_3.png'), name: 'name_3' },
+		{ id: 4, iconFollow: require('../components/images/followings/icon_following_4.png'), name: 'name_4' },
+		{ id: 5, iconFollow: require('../components/images/followings/icon_following_5.png'), name: 'name_5' },
+		{ id: 6, iconFollow: require('../components/images/followings/icon_following_6.png'), name: 'name_6' },
+	] as Array<FollowDataType>,
 	myProjectsData: [
 		{
 			id: 1,

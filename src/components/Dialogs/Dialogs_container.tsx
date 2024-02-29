@@ -5,6 +5,7 @@ import { AppStateType } from '../../redux/redux_store';
 import Dialogs from './Dialogs';
 import { InitialStateType, actions } from '../../redux/dialogs_page_reducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { getDialogsPage } from '../../redux/dialogs_page_selectors';
 
 type MapStateToPropsType = {
 	dialogsPage: InitialStateType
@@ -13,7 +14,7 @@ type MapStateToPropsType = {
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return {
-		dialogsPage: state.dialogsPage,
+		dialogsPage: getDialogsPage(state),
 	};
 };
 

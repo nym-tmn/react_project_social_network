@@ -18,6 +18,7 @@ import SignInContainer from './components/Sign_in/Sign_in_container';
 import Footer from './components/Footer/Footer';
 import { initializeAppThunkCreator } from './redux/app_reducer';
 import Preloader from './components/common/Preloader/Preloader';
+import { getInitialized } from './redux/app_selectors';
 
 import './App.css';
 
@@ -64,7 +65,7 @@ const App = ({
 
 const mapStateToProps = (state) => {
 	return {
-		initialized: state.app.initialized,
+		initialized: getInitialized(state),
 	};
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FollowingsDataType } from '../../../../../../../types/types';
+import { FollowDataType } from '../../../../../../../types/types';
 
 import classes from './Following.module.css';
 
-const Following: React.FC<FollowingsDataType> = (props) => {
+const Following: React.FC<FollowDataType> = (props) => {
 
 	const path = `/profile/followings/${props.id}`;
 
@@ -12,7 +12,7 @@ const Following: React.FC<FollowingsDataType> = (props) => {
 		<div className={classes.item}>
 			<NavLink to={path} className={classes.linkItem}>
 				<div className={classes.linkImageContiner}>
-					<img src={props.iconFollowing} alt="icon_following.png" />
+					<img src={props.iconFollow} alt="icon_following.png" />
 				</div>
 				<div className={classes.name}>{props.name}</div>
 			</NavLink>

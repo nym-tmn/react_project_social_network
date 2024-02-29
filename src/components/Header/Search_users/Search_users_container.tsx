@@ -7,6 +7,14 @@ import { followThunkCreator, getUsersThunkCreator, unfollowThunkCreator } from '
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../../redux/redux_store';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import {
+	getCurrentPage,
+	getFollowingInProgress,
+	getIsFetching, getPageSize,
+	getTotalUsersCount,
+	getUsersData,
+	// getUsersDataReselector,
+} from '../../../redux/search_users_selectors';
 
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
@@ -57,12 +65,14 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return {
-		usersData: state.searchUsersPage.usersData,
-		pageSize: state.searchUsersPage.pageSize,
-		totalUsersCount: state.searchUsersPage.totalUsersCount,
-		currentPage: state.searchUsersPage.currentPage,
-		isFetching: state.searchUsersPage.isFetching,
-		followingInProgress: state.searchUsersPage.followingInProgress,
+		// For example how to use lilbrary reselector
+		// usersData: getUsersDataReselector(state),
+		usersData: getUsersData(state),
+		pageSize: getPageSize(state),
+		totalUsersCount: getTotalUsersCount(state),
+		currentPage: getCurrentPage(state),
+		isFetching: getIsFetching(state),
+		followingInProgress: getFollowingInProgress(state),
 	};
 };
 

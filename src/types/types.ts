@@ -18,7 +18,7 @@ export type PostsDataType = {
 	likesCounter: string
 }
 
-export type FollowersDataType = {
+/* export type FollowersDataType = {
 	id: number
 	iconFollower: string
 	name: string
@@ -27,6 +27,12 @@ export type FollowersDataType = {
 export type FollowingsDataType = {
 	id: number
 	iconFollowing: string
+	name: string
+} */
+
+export type FollowDataType = {
+	id: number
+	iconFollow: string
 	name: string
 }
 

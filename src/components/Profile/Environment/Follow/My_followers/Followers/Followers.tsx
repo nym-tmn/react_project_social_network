@@ -11,7 +11,7 @@ const Followers: React.FC<FollowersPropsType> = (props) => {
 		.map(follower => <Follower
 			key={follower.id}
 			id={follower.id}
-			iconFollower={follower.iconFollower}
+			iconFollow={follower.iconFollow}
 			name={follower.name} />);
 
 	return (

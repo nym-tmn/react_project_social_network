@@ -8,6 +8,12 @@ import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
 import { getUserProfileThunkCreator, getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../redux/profile_page_reducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {
+	getProfile,
+	getAuthorizedUserId,
+	getStatusText,
+	getIsFetching,
+} from '../../redux/profile_page_selectors';
 
 type MapStateToPropsType = {
 	profile: UserProfileType | null
@@ -52,10 +58,10 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
-		profile: state.profilePage.profileData,
-		authorizedUserId: state.auth.id,
-		isFetching: state.profilePage.isFetching,
-		statusText: state.profilePage.statusText,
+		profile: getProfile(state),
+		authorizedUserId: getAuthorizedUserId(state),
+		isFetching: getIsFetching(state),
+		statusText: getStatusText(state),
 	});
 };
 

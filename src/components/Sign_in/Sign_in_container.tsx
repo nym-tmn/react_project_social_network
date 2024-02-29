@@ -8,6 +8,7 @@ import { AppStateType } from '../../redux/redux_store';
 import SignInTitle from './Sign_in_title/Sign_in_title';
 
 import classes from './Sign_in_container.module.css';
+import { getIsAuth, getErrorMessage, getCaptchaUrl } from '../../redux/auth_selectors';
 
 type MapStateToPropsType = {
 	isAuth: boolean
@@ -42,9 +43,9 @@ const SignInContainer: React.FC<SignInPropsType> = ({
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
-		isAuth: state.auth.isAuth,
-		errorMessage: state.auth.errorMessage,
-		captchaUrl: state.auth.captcha,
+		isAuth: getIsAuth(state),
+		errorMessage: getErrorMessage(state),
+		captchaUrl: getCaptchaUrl(state),
 	});
 };
 

@@ -4,6 +4,7 @@ import { ConnectedProps, connect } from 'react-redux';
 import HeaderAuth from './Header_auth';
 import { logoutUserThunkCreator } from '../../../redux/auth_reducer';
 import { AppStateType } from '../../../redux/redux_store';
+import { getLogin, getUserAvatar, getIsAuth } from '../../../redux/auth_selectors';
 
 type MapStateToPropsType = {
 	login: string | null,
@@ -31,9 +32,9 @@ const HeaderAuthContainer: React.FC<AuthContainerPropsType> = ({
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 
 	return ({
-		login: state.auth.login,
-		userAvatar: state.auth.userAvatar,
-		isAuth: state.auth.isAuth,
+		login: getLogin(state),
+		userAvatar: getUserAvatar(state),
+		isAuth: getIsAuth(state),
 	});
 };
 

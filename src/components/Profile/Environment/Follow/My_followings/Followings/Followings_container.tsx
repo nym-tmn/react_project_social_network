@@ -2,16 +2,17 @@ import { ConnectedProps, connect } from 'react-redux';
 
 import Followings from './Followings';
 import { AppStateType } from '../../../../../../redux/redux_store';
-import { FollowingsDataType } from '../../../../../../types/types';
+import { FollowDataType } from '../../../../../../types/types';
+import { getFollowingsData } from '../../../../../../redux/profile_page_selectors';
 
 type mapStateToPropsType = {
-	followingsData: Array<FollowingsDataType>
+	followingsData: Array<FollowDataType>
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
 
 	return {
-		followingsData: state.profilePage.followingsData,
+		followingsData: getFollowingsData(state),
 	};
 };
 

@@ -14,10 +14,14 @@
 	color: black;
 }
 
+.disabledLink {
+	pointer-events: none;
+}
+
 .contactItem {
 	display: grid;
 	grid-template-areas: 'contactIcon contact';
-	grid-template-columns: 45px 1fr;
+	grid-template-columns: 45px 204px;
 	grid-gap: 5px;
 	align-items: center;
 	min-width: 235px;
@@ -25,6 +29,7 @@
 
 .contact {
 	grid-area: contact;
+	word-break: break-word;
 }
 
 .contactIcon {
