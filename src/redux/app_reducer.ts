@@ -26,7 +26,7 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
 export type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType>
 
-const actions = {
+export const actions = {
 
 	initializedSuccessActionCreator: () => ({ type: 'INITIALIZED_SUCCESS' } as const),
 

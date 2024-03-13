@@ -48,7 +48,7 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 export type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType>
 
-const actions = {
+export const actions = {
 
 	setAuthUserDataActionCreator: (id: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
 		type: 'SET_AUTH_USER_DATA',

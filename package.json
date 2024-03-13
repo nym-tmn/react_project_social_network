@@ -23,7 +23,7 @@
 		"redux": "^4.2.1",
 		"redux-thunk": "^2.4.2",
 		"reselect": "^5.1.0",
-		"typescript": "^5.0.4",
+		"typescript": "^4.9.5",
 		"web-vitals": "^3.5.2"
 	},
 	"scripts": {
@@ -42,6 +42,11 @@
 			"react-app/jest"
 		]
 	},
+	"jest": {
+		"moduleNameMapper": {
+			"axios": "axios/dist/node/axios.cjs"
+		}
+	},
 	"browserslist": {
 		"production": [
 			">0.2%",
@@ -55,6 +60,7 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"eslint": "^8.38.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^8.8.0",

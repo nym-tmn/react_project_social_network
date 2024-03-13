@@ -1,15 +1,13 @@
-import { BaseThunkType, InferActionsTypes } from './redux_store';
-
 import {
+	PostsDataType,
 	FollowDataType,
 	MyProjectsDataType,
-	PostsDataType,
 	ProjectsDemoDataType,
 	UserProfileType,
 } from '../types/types';
-import { profileAPI } from '../api/api';
+import profileReducer, { actions } from './profile_page_reducer';
 
-const initialState = {
+const state = {
 	postsData: [
 		{
 			id: 3,
@@ -85,86 +83,91 @@ const initialState = {
 	statusText: null as null | string,
 };
 
-export type InitialStateType = typeof initialState
+test('length of postsData should be incremented', () => {
+	const action = actions.addPostActionCreator('some text');
+	const newState = profileReducer(state, action);
+	expect(newState.postsData.length).toBe(4);
+});
 
-const profileReducer = (state = initialState, action: ActionsType): InitialStateType => {
+test('message of new posts should be correct', () => {
+	const action = actions.addPostActionCreator('some text');
+	const newState = profileReducer(state, action);
+	expect(newState.postsData[0].postText).toBe('some text');
+});
 
-	switch (action.type) {
+// unit test written with help methodology TDD
+test('after deleting length of postsData should be decremented', () => {
+	const action = actions.deletePostActionCreator(1);
+	const newState = profileReducer(state, action);
+	expect(newState.postsData.length).toBe(2);
+});
 
-		case 'ADD_POST':
+test('after setting the user profile, profileData should have the expected properties', () => {
+	const action = actions.setUserProfileActionCreator({
+		aboutMe: '',
+		userId: 0,
+		lookingForAJob: false,
+		lookingForAJobDescription: '',
+		fullName: '',
+		contacts: {
+			facebook: '',
+			website: '',
+			vk: '',
+			twitter: '',
+			instagram: '',
+			youtube: '',
+			github: '',
+			mainLink: '',
+		},
+		photos: {
+			small: '',
+			large: '',
+		},
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData).toHaveProperty('userId');
+	expect(newState.profileData).toHaveProperty('aboutMe');
+	expect(newState.profileData).toHaveProperty('lookingForAJob');
+	expect(newState.profileData).toHaveProperty('lookingForAJobDescription');
+	expect(newState.profileData).toHaveProperty('fullName');
+	expect(newState.profileData).toHaveProperty('contacts');
+	expect(newState.profileData).toHaveProperty('photos');
+});
 
-			const newPost = {
-				id: 4,
-				postIconAvatar: require('../components/images/post_avatar.png'),
-				postUserName: 'Yurii Nedobrishev',
-				postText: action.newPostText,
-				postImage: '',
-				likesCounter: '0',
-			};
+test('after setting the user profile, profileData should be truthy', () => {
+	const action = actions.setUserProfileActionCreator({
+		aboutMe: '',
+		userId: 0,
+		lookingForAJob: false,
+		lookingForAJobDescription: '',
+		fullName: '',
+		contacts: {
+			facebook: '',
+			website: '',
+			vk: '',
+			twitter: '',
+			instagram: '',
+			youtube: '',
+			github: '',
+			mainLink: '',
+		},
+		photos: {
+			small: '',
+			large: '',
+		},
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData).toBeTruthy();
+});
 
-			return {
-				...state,
-				postsData: [newPost, ...state.postsData],
-			};
+test('value of isFetching should be changed', () => {
+	const action = actions.toggleIsFetchingActionCreator(true);
+	const newState = profileReducer(state, action);
+	expect(newState.isFetching).toBe(true);
+});
 
-		case 'DELETE_POST':
-			return {
-				...state, postsData: state.postsData.filter(p => p.id !== action.postId),
-			};
-
-		case 'SET_USER_PROFILE':
-			return {
-				...state, profileData: action.profile,
-			};
-
-		case 'TOGGLE_IS_FETCHING':
-			return {
-				...state, isFetching: action.isFetching,
-			};
-
-		case 'SET_STATUS':
-			return {
-				...state, statusText: action.statusText,
-			};
-
-		default:
-			return state;
-
-	}
-};
-
-export type ActionsType = InferActionsTypes<typeof actions>
-type ThunkType = BaseThunkType<ActionsType>
-
-export const actions = {
-	addPostActionCreator: (newPostText: string) => ({ type: 'ADD_POST', newPostText } as const),
-
-	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
-
-	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
-
-	setStatusActionCreator: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
-
-	deletePostActionCreator: (postId: number) => ({ type: 'DELETE_POST', postId } as const),
-};
-
-export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
-	dispatch(actions.toggleIsFetchingActionCreator(true));
-	const response = await profileAPI.getUserProfile(userId);
-	dispatch(actions.toggleIsFetchingActionCreator(false));
-	dispatch(actions.setUserProfileActionCreator(response.data));
-};
-
-export const getUserStatusThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
-	const response = await profileAPI.getUserStatus(userId);
-	dispatch(actions.setStatusActionCreator(response.data));
-};
-
-export const updateUserStatusThunkCreator = (statusText: string | null): ThunkType => async (dispatch) => {
-	const response = await profileAPI.updateUserStatus(statusText);
-	if (response.data.resultCode === 0) {
-		dispatch(actions.setStatusActionCreator(statusText));
-	}
-};
-
-export default profileReducer;
+test('text of new status should be correct', () => {
+	const action = actions.setStatusActionCreator('some status');
+	const newState = profileReducer(state, action);
+	expect(newState.statusText).toBe('some status');
+});

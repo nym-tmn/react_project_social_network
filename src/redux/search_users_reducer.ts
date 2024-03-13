@@ -142,7 +142,7 @@ const searchUsersReducer = (state = initialState, action: ActionsType): InitialS
 export type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType>
 
-const actions = {
+export const actions = {
 	followActionCreator: (userId: number) => ({ type: 'FOLLOW', userId } as const),
 
 	unFollowActionCreator: (userId: number) => ({ type: 'UNFOLLOW', userId } as const),
