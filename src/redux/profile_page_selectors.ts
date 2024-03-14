@@ -27,9 +27,9 @@ export const getPostsData = (state: AppStateType): Array<PostsDataType> => {
 	return state.profilePage.postsData;
 };
 
-export const getSmallPhoto = (state: AppStateType): string | undefined => {
+/* export const getSmallPhoto = (state: AppStateType): string | undefined => {
 	return state.profilePage.profileData?.photos.small;
-};
+}; */
 
 export const getMyProjectsData = (state: AppStateType): Array<MyProjectsDataType> => {
 	return state.profilePage.myProjectsData;

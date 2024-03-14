@@ -2,8 +2,9 @@
 	display: grid;
 	grid-template-areas: 'user-environment-my-posts-post-post1-icon-avatar user-environment-my-posts-post-post1-user-name likes'
 								'user-environment-my-posts-post-post1-text user-environment-my-posts-post-post1-text user-environment-my-posts-post-post1-text'
-								'user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image';
-	grid-template-rows: 40px 1fr auto;
+								'user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image user-environment-my-posts-post-post1-image'
+								'button-delete button-delete button-delete';
+	grid-template-rows: 40px 1fr auto 30px;
 	grid-template-columns: 40px 1fr auto;
 	grid-gap: 15px;
 	background-color: rgba(182, 178, 197, 0.3);
@@ -12,22 +13,22 @@
 	padding: 15px 33px 15px 33px;
 }
 
-.IconAvatar {
+.iconAvatar {
 	grid-area: user-environment-my-posts-post-post1-icon-avatar;
 	border-radius: 5px;
 }
 
-.UserName {
+.userName {
 	grid-area: user-environment-my-posts-post-post1-user-name;
 	font-weight: 500;
 }
 
-.Text {
+.postText {
 	grid-area: user-environment-my-posts-post-post1-text;
 	word-break: break-word;
 }
 
-.Image {
+.postImage {
 	grid-area: user-environment-my-posts-post-post1-image;
 	width: 500px;
 	justify-self: center;
@@ -83,4 +84,23 @@
 .heart:hover:before,
 .heart:hover {
 	box-shadow: none;
+}
+
+.buttonDeletePost {
+	grid-area: button-delete;
+	width: 30px;
+	grid-column: 3/4;
+	justify-self: end;
+	border-radius: 5px;
+	padding: 0;
+	border: 2px solid rgba(87, 15, 42, 0.5);
+	background-color: rgba(87, 15, 42, 0.1);
+	cursor: pointer;
+}
+
+.buttonDeletePost:active {
+	width: 30px;
+	height: 30px;
+	border: 2px solid rgb(87, 15, 42, 1);
+	background-color: rgba(87, 15, 42, 0.2);
 }

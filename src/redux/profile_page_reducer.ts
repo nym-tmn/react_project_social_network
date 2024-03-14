@@ -92,8 +92,7 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 	switch (action.type) {
 
 		case 'ADD_POST':
-
-			const newPost = {
+			/* const newPost = {
 				id: 4,
 				postIconAvatar: require('../components/images/post_avatar.png'),
 				postUserName: 'Yurii Nedobrishev',
@@ -101,10 +100,18 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 				postImage: '',
 				likesCounter: '0',
 			};
-
+ */
 			return {
 				...state,
-				postsData: [newPost, ...state.postsData],
+				postsData: [{
+					id: state.postsData.length + 1,
+					postIconAvatar: require('../components/images/post_avatar.png'),
+					postUserName: 'Yurii Nedobrishev',
+					postText: action.newPostText,
+					postImage: '',
+					likesCounter: '0',
+				},
+					...state.postsData],
 			};
 
 		case 'DELETE_POST':

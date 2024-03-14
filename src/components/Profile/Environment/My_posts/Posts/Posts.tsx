@@ -16,10 +16,12 @@ const Posts: React.FC<PostsPropsType> = (props) => {
 			postText={post.postText}
 			postImage={post.postImage}
 			likesCounter={post.likesCounter}
+			deletePost={props.deletePost}
 		/>);
 
 	return (
 		<div className={classes.posts}>
+			{props.postsData.length === 0 && <div className={classes.noPosts}>Write your first post...</div>}
 			{postsElements}
 		</div>
 	);

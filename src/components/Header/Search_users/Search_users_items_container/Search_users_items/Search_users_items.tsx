@@ -40,13 +40,13 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 						</NavLink>
 					</div>
 					{user.followed
-						? <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
+						? <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.followed}
 							onClick={() => {
 								props.unfollow(user.id);
 							}}>
 							Unfollow
 						</button>
-						: <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.follow}
+						: <button disabled={props.followingInProgress.some((id: number) => id === user.id)} className={classes.unfollowed}
 							onClick={() => {
 								props.follow(user.id);
 							}}>

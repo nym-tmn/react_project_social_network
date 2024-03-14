@@ -51,7 +51,7 @@
 	overflow: hidden;
 }
 
-.follow {
+.unfollowed {
 	grid-area: button;
 	border-radius: 15px;
 	line-height: 1.6;
@@ -64,13 +64,41 @@
 	height: 32px;
 }
 
-.follow:active {
+.followed {
+	grid-area: button;
+	border-radius: 15px;
+	line-height: 1.6;
+	border: 2px solid rgba(18, 70, 35, 0.507);
+	background-color: rgba(32, 105, 69, 0.185);
+	color: rgba(10, 49, 29, 0.781);
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	height: 32px;
+}
+
+.followed:active {
+	width: 101px;
+	height: 32px;
+	border: 2px solid rgba(8, 46, 35, 0.829);
+}
+
+.followed:disabled {
+	width: 103px;
+	height: 32px;
+	border: 2px solid #999999;
+	background-color: #cccccc;
+	color: #666666;
+	cursor: not-allowed;
+}
+
+.unfollowed:active {
 	width: 101px;
 	height: 32px;
 	border: 2px solid rgba(18, 43, 110, 0.836);
 }
 
-.follow:disabled {
+.unfollowed:disabled {
 	width: 103px;
 	height: 32px;
 	border: 2px solid #999999;

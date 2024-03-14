@@ -1,8 +1,9 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import classes from './Enter_post_form.module.css';
 import { EnterPostsType } from '../Enter_posts';
+
+import classes from './Enter_post_form.module.css';
 
 export type PostFormDataType = {
 	newPostText: string
