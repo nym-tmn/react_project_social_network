@@ -12,7 +12,7 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
 
 	switch (action.type) {
 
-		case 'INITIALIZED_SUCCESS':
+		case 'SN/APP/INITIALIZED_SUCCESS':
 			return {
 				...state, initialized: true,
 			};
@@ -28,7 +28,7 @@ type ThunkType = BaseThunkType<ActionsType>
 
 export const actions = {
 
-	initializedSuccessActionCreator: () => ({ type: 'INITIALIZED_SUCCESS' } as const),
+	initializedSuccessActionCreator: () => ({ type: 'SN/APP/INITIALIZED_SUCCESS' } as const),
 
 };
 

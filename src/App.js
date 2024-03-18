@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './components/Header/Header';
@@ -34,7 +34,7 @@ const App = ({
 	}, [initializeApp]);
 
 	return (
-		<HashRouter>
+		<>
 			{!initialized ? <div className='loadingSpinner'><Preloader /></div>
 				: <div className='app-wrapper'>
 					<Header />
@@ -59,7 +59,7 @@ const App = ({
 					</div>
 					<Footer />
 				</div>}
-		</HashRouter>
+		</>
 	);
 };
 

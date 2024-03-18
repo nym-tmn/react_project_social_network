@@ -91,7 +91,7 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 
 	switch (action.type) {
 
-		case 'ADD_POST':
+		case 'SN/PROFILE_PAGE/ADD_POST':
 			/* const newPost = {
 				id: 4,
 				postIconAvatar: require('../components/images/post_avatar.png'),
@@ -114,22 +114,22 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 					...state.postsData],
 			};
 
-		case 'DELETE_POST':
+		case 'SN/PROFILE_PAGE/DELETE_POST':
 			return {
 				...state, postsData: state.postsData.filter(p => p.id !== action.postId),
 			};
 
-		case 'SET_USER_PROFILE':
+		case 'SN/PROFILE_PAGE/SET_USER_PROFILE':
 			return {
 				...state, profileData: action.profile,
 			};
 
-		case 'TOGGLE_IS_FETCHING':
+		case 'SN/PROFILE_PAGE/TOGGLE_IS_FETCHING':
 			return {
 				...state, isFetching: action.isFetching,
 			};
 
-		case 'SET_STATUS':
+		case 'SN/PROFILE_PAGE/SET_STATUS':
 			return {
 				...state, statusText: action.statusText,
 			};
@@ -144,15 +144,15 @@ export type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsType>
 
 export const actions = {
-	addPostActionCreator: (newPostText: string) => ({ type: 'ADD_POST', newPostText } as const),
+	addPostActionCreator: (newPostText: string) => ({ type: 'SN/PROFILE_PAGE/ADD_POST', newPostText } as const),
 
-	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SET_USER_PROFILE', profile } as const),
+	setUserProfileActionCreator: (profile: UserProfileType) => ({ type: 'SN/PROFILE_PAGE/SET_USER_PROFILE', profile } as const),
 
-	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'TOGGLE_IS_FETCHING', isFetching } as const),
+	toggleIsFetchingActionCreator: (isFetching: boolean) => ({ type: 'SN/PROFILE_PAGE/TOGGLE_IS_FETCHING', isFetching } as const),
 
-	setStatusActionCreator: (statusText: null | string) => ({ type: 'SET_STATUS', statusText } as const),
+	setStatusActionCreator: (statusText: null | string) => ({ type: 'SN/PROFILE_PAGE/SET_STATUS', statusText } as const),
 
-	deletePostActionCreator: (postId: number) => ({ type: 'DELETE_POST', postId } as const),
+	deletePostActionCreator: (postId: number) => ({ type: 'SN/PROFILE_PAGE/DELETE_POST', postId } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {

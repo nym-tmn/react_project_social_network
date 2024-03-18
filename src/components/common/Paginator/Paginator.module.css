@@ -1,0 +1,21 @@
+.usersPages {
+	grid-area: usersPages;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0px 20px 28px;
+}
+
+.userPage {
+	border: 1px solid #000;
+	border-radius: 3px;
+	margin: 0px 7px 7px 0px;
+	background-color: #9c56456b;
+	width: 32px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.selected {
+	font-weight: bold;
+	background-color: #32b64483;
+}

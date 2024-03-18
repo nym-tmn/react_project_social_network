@@ -19,22 +19,22 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 
 	switch (action.type) {
 
-		case 'SET_AUTH_USER_DATA':
+		case 'SN/AUTH/SET_AUTH_USER_DATA':
 			return {
 				...state, ...action.payload,
 			};
 
-		case 'SET_USER_PHOTO':
+		case 'SN/AUTH/SET_USER_PHOTO':
 			return {
 				...state, userAvatar: action.userAvatar,
 			};
 
-		case 'SET_ERROR_MESSAGE':
+		case 'SN/AUTH/SET_ERROR_MESSAGE':
 			return {
 				...state, errorMessage: action.errorMessage,
 			};
 
-		case 'SET_CAPTCHA':
+		case 'SN/AUTH/SET_CAPTCHA':
 			return {
 				...state, captcha: action.captcha,
 			};
@@ -51,7 +51,7 @@ type ThunkType = BaseThunkType<ActionsType>
 export const actions = {
 
 	setAuthUserDataActionCreator: (id: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
-		type: 'SET_AUTH_USER_DATA',
+		type: 'SN/AUTH/SET_AUTH_USER_DATA',
 		payload: {
 			id,
 			email,
@@ -60,11 +60,11 @@ export const actions = {
 		},
 	} as const),
 
-	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SET_USER_PHOTO', userAvatar } as const),
+	setUserAvatarActionCreatorActionCreator: (userAvatar: string) => ({ type: 'SN/AUTH/SET_USER_PHOTO', userAvatar } as const),
 
-	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SET_ERROR_MESSAGE', errorMessage } as const),
+	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SN/AUTH/SET_ERROR_MESSAGE', errorMessage } as const),
 
-	setCaptchaActionCreator: (captcha: string | null) => ({ type: 'SET_CAPTCHA', captcha } as const),
+	setCaptchaActionCreator: (captcha: string | null) => ({ type: 'SN/AUTH/SET_CAPTCHA', captcha } as const),
 
 };
 

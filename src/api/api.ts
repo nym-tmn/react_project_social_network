@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios/* , { AxiosPromise } */ from 'axios';
 import {
 	PhotosType, UserAuthDataType, UserProfileType, UsersDataType,
 } from '../types/types';
@@ -11,24 +11,28 @@ const instance = axios.create({
 	},
 });
 
-type ResponseTypeUserAPI = {
+type ResponseTypeGetUsers = {
 	items: Array<UsersDataType>
 	totalCount: number
 	error: null | string
+	// resultCode: number
+}
+
+export type ResponseTypeFollowUnwollow = {
 	resultCode: number
 }
 
 export const usersAPI = {
 	getUsers(currentPage: number, pageSize: number) {
-		return instance.get<ResponseTypeUserAPI>(`users?page=${currentPage}&count=${pageSize}`);
+		return instance.get<ResponseTypeGetUsers>(`users?page=${currentPage}&count=${pageSize}`);
 	},
 
 	follow(userId: number) {
-		return instance.post<ResponseTypeUserAPI>(`follow/${userId}`);
+		return instance.post<ResponseTypeFollowUnwollow>(`follow/${userId}`);
 	},
 
 	unfollow(userId: number) {
-		return instance.delete<ResponseTypeUserAPI>(`follow/${userId}`);
+		return instance.delete<ResponseTypeFollowUnwollow>(`follow/${userId}`)/*  as AxiosPromise<ResponseTypeFollowUnwollow> */;
 	},
 };
 

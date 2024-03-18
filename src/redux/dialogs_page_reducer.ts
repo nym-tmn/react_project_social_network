@@ -28,7 +28,7 @@ const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 	switch (action.type) {
 
-		case 'SEND_MESSAGE':
+		case 'SN/DIALOGS_PAGE/SEND_MESSAGE':
 
 			const newMessageFromMe = {
 				id: 4,
@@ -50,7 +50,7 @@ export type ActionsTypes = InferActionsTypes<typeof actions>
 
 export const actions = {
 
-	sendMessageActionCreator: (newMessageText: string) => ({ type: 'SEND_MESSAGE', newMessageText } as const),
+	sendMessageActionCreator: (newMessageText: string) => ({ type: 'SN/DIALOGS_PAGE/SEND_MESSAGE', newMessageText } as const),
 
 };
 
