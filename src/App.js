@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Routes, Route, HashRouter } from 'react-router-dom';
+import { connect, Provider } from 'react-redux';
 
+import store from './redux/redux_store';
 import Header from './components/Header/Header';
 import SearchUsersContainer from './components/Header/Search_users/Search_users_container';
 import Notifications from './components/Header/Notifications/Notifications';
@@ -35,7 +36,7 @@ const App = ({
 
 	return (
 		<>
-			{!initialized ? <div className='loadingSpinner'><Preloader /></div>
+			{!initialized ? <div className='loadingSpinner' role={'main'}><Preloader /></div>
 				: <div className='app-wrapper'>
 					<Header />
 					<div className='app-container'>
@@ -73,4 +74,18 @@ const connector = connect(mapStateToProps, {
 	initializeApp: initializeAppThunkCreator,
 });
 
-export default connector(App);
+// export default connector(App);
+
+const AppContainer = connector(App);
+
+const SociaNetworkApp = () => {
+	return <React.StrictMode>
+		<Provider store={store}>
+			<HashRouter>
+				<AppContainer />
+			</HashRouter>
+		</Provider>
+	</React.StrictMode>;
+};
+
+export default SociaNetworkApp;

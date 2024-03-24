@@ -16,7 +16,7 @@ type ProfileContactsPropsType = {
 const ProfileContacts: React.FC<ProfileContactsPropsType> = (props) => {
 
 	return (
-		<div>
+		<>
 			<div className={classes.title}>Contacts:</div>
 			<div className={classes.contactsItems}>
 				<div className={classes.contactItem}>
@@ -52,7 +52,7 @@ const ProfileContacts: React.FC<ProfileContactsPropsType> = (props) => {
 					<a href={props.contacts?.mainLink} className={`${!props.contacts?.mainLink && classes.disabledLink} ${classes.contact}`}>{!props.contacts?.mainLink ? 'No information' : props.contacts?.mainLink}</a>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

@@ -2,7 +2,7 @@
 	grid-area: usersContainer;
 	display: grid;
 	grid-template-areas: 'usersPages'
-		'usersItems';
+								'usersItems';
 }
 
 .usersItems {

@@ -15,7 +15,6 @@ type ResponseTypeGetUsers = {
 	items: Array<UsersDataType>
 	totalCount: number
 	error: null | string
-	// resultCode: number
 }
 
 export type ResponseTypeFollowUnwollow = {

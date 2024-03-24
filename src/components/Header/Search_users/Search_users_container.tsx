@@ -11,7 +11,8 @@ import {
 	getCurrentPage,
 	getFollowingInProgress,
 	getIsFetching, getPageSize,
-	getTotalUsersCount,
+	getPortionSize,
+	getTotalItemsCount,
 	getUsersData,
 	// getUsersDataReselector,
 } from '../../../redux/search_users_selectors';
@@ -19,16 +20,18 @@ import {
 type MapStateToPropsType = {
 	usersData: Array<UsersDataType>
 	pageSize: number
-	totalUsersCount: number
+	totalItemsCount: number
 	currentPage: number
+	portionSize: number
 	isFetching: boolean
 	followingInProgress: Array<number>
 }
 
 const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 	currentPage,
+	portionSize,
 	pageSize,
-	totalUsersCount,
+	totalItemsCount,
 	usersData,
 	unfollow,
 	follow,
@@ -51,10 +54,11 @@ const SearchUsersContainer: React.FC<SearchUsersContainerPropsType> = ({
 
 	return (
 		<SearchUsers
-			totalUsersCount={totalUsersCount}
+			totalItemsCount={totalItemsCount}
 			pageSize={pageSize}
 			onPageChanged={onPageChanged}
 			currentPage={currentPage}
+			portionSize={portionSize}
 			usersData={usersData}
 			unfollow={unfollow}
 			follow={follow}
@@ -69,8 +73,9 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 		// usersData: getUsersDataReselector(state),
 		usersData: getUsersData(state),
 		pageSize: getPageSize(state),
-		totalUsersCount: getTotalUsersCount(state),
+		totalItemsCount: getTotalItemsCount(state),
 		currentPage: getCurrentPage(state),
+		portionSize: getPortionSize(state),
 		isFetching: getIsFetching(state),
 		followingInProgress: getFollowingInProgress(state),
 	};

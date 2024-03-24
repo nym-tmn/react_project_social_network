@@ -64,8 +64,9 @@ const initialState = {
 		}, */
 	] as Array<UsersDataType>,
 	pageSize: 100 as number,
-	totalUsersCount: 0 as number,
+	totalItemsCount: 0 as number,
 	currentPage: 1 as number,
+	portionSize: 10 as number,
 	isFetching: false as boolean,
 	followingInProgress: [] as Array<number>,
 };
@@ -81,12 +82,6 @@ const searchUsersReducer = (state = initialState, action: ActionsType): InitialS
 			return {
 				...state,
 				usersData: updateObjectInArray(state.usersData, 'id', action.userId, { followed: true }),
-				/* usersData: state.usersData.map((user) => {
-					if (user.id === action.userId) {
-						return { ...user, followed: true };
-					}
-					return user;
-				}), */
 			};
 
 		case 'SN/SEARCH_USERS/UNFOLLOW':
@@ -94,13 +89,6 @@ const searchUsersReducer = (state = initialState, action: ActionsType): InitialS
 			return {
 				...state,
 				usersData: updateObjectInArray(state.usersData, 'id', action.userId, { followed: false }),
-				/* usersData: state.usersData.map((user) => {
-					if (user.id === action.userId) {
-						return { ...user, followed: false };
-					}
-
-					return user;
-				}), */
 			};
 
 		case 'SN/SEARCH_USERS/SET_USERS':
@@ -109,10 +97,10 @@ const searchUsersReducer = (state = initialState, action: ActionsType): InitialS
 				...state, usersData: action.users,
 			};
 
-		case 'SN/SEARCH_USERS/SET_TOTAL_USERS_COUNT':
+		case 'SN/SEARCH_USERS/SET_TOTAL_ITEMS_COUNT':
 
 			return {
-				...state, totalUsersCount: action.totalCount,
+				...state, totalItemsCount: action.totalCount,
 			};
 
 		case 'SN/SEARCH_USERS/SET_CURRENT_PAGE':
@@ -154,7 +142,7 @@ export const actions = {
 
 	setUsersActionCreator: (users: Array<UsersDataType>) => ({ type: 'SN/SEARCH_USERS/SET_USERS', users } as const),
 
-	setTotalUsersCountActionCreator: (totalCount: number) => ({ type: 'SN/SEARCH_USERS/SET_TOTAL_USERS_COUNT', totalCount } as const),
+	setTotalItemsCountActionCreator: (totalCount: number) => ({ type: 'SN/SEARCH_USERS/SET_TOTAL_ITEMS_COUNT', totalCount } as const),
 
 	setCurrentPageActionCreator: (currentPage: number) => ({ type: 'SN/SEARCH_USERS/SET_CURRENT_PAGE', currentPage } as const),
 
@@ -169,7 +157,7 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number): Thu
 	const response = await usersAPI.getUsers(currentPage, pageSize);
 	dispatch(actions.toggleIsFetchingActionCreator(false));
 	dispatch(actions.setUsersActionCreator(response.data.items));
-	dispatch(actions.setTotalUsersCountActionCreator(response.data.totalCount));
+	dispatch(actions.setTotalItemsCountActionCreator(response.data.totalCount));
 };
 
 const followUnfollowFlow = async (dispatch: Dispatch<ActionsType>, userId: number, apiMethod: (id: number) => Promise<AxiosResponse<ResponseTypeFollowUnwollow>>, actionCreator: (id: number) => ActionsType) => {

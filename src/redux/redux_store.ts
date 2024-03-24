@@ -4,6 +4,7 @@ import {
 	legacy_createStore,
 	applyMiddleware,
 	Action,
+	compose,
 } from 'redux';
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 
@@ -21,7 +22,15 @@ const rootReducer = combineReducers({
 	app: appReducer,
 });
 
-const store = legacy_createStore(rootReducer, applyMiddleware(thunkMiddleware));
+declare global {
+	interface Window {
+		__REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+	}
+}
+
+// eslint-disable-next-line no-underscore-dangle
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = legacy_createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
@@ -32,7 +41,5 @@ export type InferActionsTypes<T extends { [key: string]: (...args: any[]) => any
 export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 
 // export type AppDispatch = typeof store.dispatch
-
-// window.store = store;
 
 export default store;

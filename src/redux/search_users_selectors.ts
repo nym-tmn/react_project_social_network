@@ -15,12 +15,17 @@ export const getUsersData = (state: AppStateType): Array<UsersDataType> => {
 export const getPageSize = (state: AppStateType): number => {
 	return state.searchUsersPage.pageSize;
 };
-export const getTotalUsersCount = (state: AppStateType): number => {
-	return state.searchUsersPage.totalUsersCount;
+export const getTotalItemsCount = (state: AppStateType): number => {
+	return state.searchUsersPage.totalItemsCount;
 };
 export const getCurrentPage = (state: AppStateType): number => {
 	return state.searchUsersPage.currentPage;
 };
+
+export const getPortionSize = (state: AppStateType): number => {
+	return state.searchUsersPage.portionSize;
+};
+
 export const getIsFetching = (state: AppStateType): boolean => {
 	return state.searchUsersPage.isFetching;
 };

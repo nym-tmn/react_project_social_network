@@ -28,14 +28,14 @@ const Profile: React.FC<ProfilePropsType> = ({
 	}
 
 	return (
-		<div>
+		<>
 			<ProfileInfo
 				{...profile}
 				statusText={statusText}
 				updateUserStatus={updateUserStatus}
 			/>
 			<Environment />
-		</div>
+		</>
 	);
 };
 

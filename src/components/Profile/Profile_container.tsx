@@ -44,14 +44,12 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	}, [getUserProfile, getUserStatus, userId]);
 
 	return (
-		<div>
 			<Profile
 				profile={profile}
 				isFetching={isFetching}
 				statusText={statusText}
 				updateUserStatus={updateUserStatus}
 			/>
-		</div>
 	);
 };
 

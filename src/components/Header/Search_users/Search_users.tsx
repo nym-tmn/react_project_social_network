@@ -7,10 +7,11 @@ import { UsersDataType } from '../../../types/types';
 import classes from './Search_users.module.css';
 
 export type SearchUsersPropsType = {
-	totalUsersCount: number
+	totalItemsCount: number
 	pageSize: number
 	onPageChanged: (pageNumber: number) => void
 	currentPage: number
+	portionSize: number
 	usersData: Array<UsersDataType>
 	unfollow: (userId: number) => void
 	follow: (userId: number) => void
@@ -24,10 +25,11 @@ const SearchUsers: React.FC<SearchUsersPropsType> = (props) => {
 		<div className={classes.container}>
 			<SearchUsersTitle title='Search for users' />
 			<SearchUsersItemsContainer
-				totalUsersCount={props.totalUsersCount}
+				totalItemsCount={props.totalItemsCount}
 				pageSize={props.pageSize}
 				onPageChanged={props.onPageChanged}
 				currentPage={props.currentPage}
+				portionSize={props.portionSize}
 				usersData={props.usersData}
 				unfollow={props.unfollow}
 				follow={props.follow}

@@ -12,13 +12,14 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 	return (
 		<div className={classes.usersContainer}>
 			<Paginator
-				totalUsersCount={props.totalUsersCount}
+				totalItemsCount={props.totalItemsCount}
 				pageSize={props.pageSize}
 				onPageChanged={props.onPageChanged}
 				currentPage={props.currentPage}
+				portionSize={props.portionSize}
 			/>
 			<div className={classes.usersItems} >
-				<div className={classes.loadingSpinner} >{props.isFetching ? <Preloader /> : null}</div>
+				<div className={`${props.isFetching && classes.loadingSpinner}`} >{props.isFetching ? <Preloader /> : null}</div>
 				{props.usersData.map(user => <SearchUserItem
 					key={user.id}
 					followingInProgress={props.followingInProgress}

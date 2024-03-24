@@ -25,8 +25,9 @@ const state = {
 		followed: true,
 	}] as Array<UsersDataType>,
 	pageSize: 100 as number,
-	totalUsersCount: 0 as number,
+	totalItemsCount: 0 as number,
 	currentPage: 1 as number,
+	portionSize: 0 as number,
 	isFetching: false as boolean,
 	followingInProgress: [] as Array<number>,
 };
@@ -81,9 +82,9 @@ test('after setting users, usersData[any] should have the expected properties', 
 });
 
 test('value of totalUsersCount should be correct', () => {
-	const action = actions.setTotalUsersCountActionCreator(20);
+	const action = actions.setTotalItemsCountActionCreator(20);
 	const newState = searchUsersReducer(state, action);
-	expect(newState.totalUsersCount).toBe(20);
+	expect(newState.totalItemsCount).toBe(20);
 });
 
 test('value of currentPage should be correct', () => {

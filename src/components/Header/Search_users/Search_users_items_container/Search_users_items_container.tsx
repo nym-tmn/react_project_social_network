@@ -10,10 +10,11 @@ const SearchUsersItemsContainer: React.FC<SearchUsersPropsType> = (props) => {
 	return (
 		<div className={classes.usersItemsContainer}>
 			<SearchUsersItems
-				totalUsersCount={props.totalUsersCount}
+				totalItemsCount={props.totalItemsCount}
 				pageSize={props.pageSize}
 				onPageChanged={props.onPageChanged}
 				currentPage={props.currentPage}
+				portionSize={props.portionSize}
 				usersData={props.usersData}
 				unfollow={props.unfollow}
 				follow={props.follow}
