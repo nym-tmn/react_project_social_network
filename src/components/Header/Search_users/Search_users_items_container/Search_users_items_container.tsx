@@ -19,8 +19,7 @@ const SearchUsersItemsContainer: React.FC<SearchUsersPropsType> = (props) => {
 				unfollow={props.unfollow}
 				follow={props.follow}
 				isFetching={props.isFetching}
-				followingInProgress={props.followingInProgress}/>
-			<button className={classes.showMore}>Show more</button>
+				followingInProgress={props.followingInProgress} />
 		</div>
 	);
 };
