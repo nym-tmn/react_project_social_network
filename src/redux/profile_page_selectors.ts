@@ -23,13 +23,17 @@ export const getStatusText = (state: AppStateType): string | null => {
 	return state.profilePage.statusText;
 };
 
+export const getErrorMessage = (state: AppStateType): string | null => {
+	return state.profilePage.errorMessage;
+};
+
 export const getPostsData = (state: AppStateType): Array<PostsDataType> => {
 	return state.profilePage.postsData;
 };
 
-/* export const getSmallPhoto = (state: AppStateType): string | undefined => {
-	return state.profilePage.profileData?.photos.small;
-}; */
+export const getSmallPhoto = (state: AppStateType): string | undefined => {
+	return state.profilePage.profileData?.photos?.small;
+};
 
 export const getMyProjectsData = (state: AppStateType): Array<MyProjectsDataType> => {
 	return state.profilePage.myProjectsData;

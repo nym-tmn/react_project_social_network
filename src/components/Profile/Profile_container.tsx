@@ -6,13 +6,19 @@ import { useParams } from 'react-router-dom';
 import Profile from './Profile';
 import { AppStateType } from '../../redux/redux_store';
 import { UserProfileType } from '../../types/types';
-import { getUserProfileThunkCreator, getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../redux/profile_page_reducer';
+import {
+	getUserProfileThunkCreator,
+	getUserStatusThunkCreator,
+	saveUserPhotoThunkCreator,
+	updateUserStatusThunkCreator,
+} from '../../redux/profile_page_reducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {
 	getProfile,
 	getAuthorizedUserId,
 	getStatusText,
 	getIsFetching,
+	getErrorMessage,
 } from '../../redux/profile_page_selectors';
 
 type MapStateToPropsType = {
@@ -20,6 +26,7 @@ type MapStateToPropsType = {
 	isFetching: boolean
 	statusText: null | string
 	authorizedUserId: number | null
+	errorMessage: null | string,
 }
 
 const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
@@ -30,6 +37,8 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	profile,
 	statusText,
 	authorizedUserId,
+	saveUserPhoto,
+	errorMessage,
 }) => {
 
 	let { userId } = useParams();
@@ -44,12 +53,15 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	}, [getUserProfile, getUserStatus, userId]);
 
 	return (
-			<Profile
-				profile={profile}
-				isFetching={isFetching}
-				statusText={statusText}
-				updateUserStatus={updateUserStatus}
-			/>
+		<Profile
+			profile={profile}
+			isOwner={useParams()}
+			isFetching={isFetching}
+			statusText={statusText}
+			updateUserStatus={updateUserStatus}
+			saveUserPhoto={saveUserPhoto}
+			errorMessage={errorMessage}
+		/>
 	);
 };
 
@@ -60,6 +72,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 		authorizedUserId: getAuthorizedUserId(state),
 		isFetching: getIsFetching(state),
 		statusText: getStatusText(state),
+		errorMessage: getErrorMessage(state),
 	});
 };
 
@@ -67,6 +80,7 @@ const connector = connect(mapStateToProps, {
 	getUserProfile: getUserProfileThunkCreator,
 	getUserStatus: getUserStatusThunkCreator,
 	updateUserStatus: updateUserStatusThunkCreator,
+	saveUserPhoto: saveUserPhotoThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }

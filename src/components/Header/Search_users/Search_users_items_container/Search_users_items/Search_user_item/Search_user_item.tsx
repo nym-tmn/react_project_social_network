@@ -19,7 +19,7 @@ const SearchUserItem: React.FC<SearchUserPropsType> = (props) => {
 		<div className={classes.userItem} >
 			<div className={classes.avatar}>
 				<NavLink to={`/${props.user.id}`} >
-					<img src={props.user.photos.small != null ? props.user.photos.small : searchUserAvatar} alt="" />
+					<img src={props.user.photos.small != null ? props.user.photos.small : searchUserAvatar} alt="user_photo" />
 				</NavLink>
 			</div>
 			{props.user.followed

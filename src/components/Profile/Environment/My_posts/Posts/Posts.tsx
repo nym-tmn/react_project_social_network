@@ -11,7 +11,7 @@ const Posts: React.FC<PostsPropsType> = (props) => {
 		.map(post => <Post
 			key={post.id}
 			id={post.id}
-			postIconAvatar={post.postIconAvatar}
+			smallPhoto={props.smallPhoto}
 			postUserName={post.postUserName}
 			postText={post.postText}
 			postImage={post.postImage}

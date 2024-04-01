@@ -3,6 +3,7 @@ import { BaseThunkType, InferActionsTypes } from './redux_store';
 import {
 	FollowDataType,
 	MyProjectsDataType,
+	PhotosType,
 	PostsDataType,
 	ProjectsDemoDataType,
 	UserProfileType,
@@ -13,7 +14,7 @@ const initialState = {
 	postsData: [
 		{
 			id: 3,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!',
 			postImage: require('../components/images/Posts/post1.png'),
@@ -21,7 +22,7 @@ const initialState = {
 		},
 		{
 			id: 2,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.',
 			postImage: require('../components/images/Posts/post2.png'),
@@ -29,7 +30,7 @@ const initialState = {
 		},
 		{
 			id: 1,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.',
 			postImage: require('../components/images/Posts/post3.png'),
@@ -83,6 +84,7 @@ const initialState = {
 	profileData: null as UserProfileType | null,
 	isFetching: false as boolean,
 	statusText: null as null | string,
+	errorMessage: null as null | string,
 };
 
 export type InitialStateType = typeof initialState
@@ -92,26 +94,17 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 	switch (action.type) {
 
 		case 'SN/PROFILE_PAGE/ADD_POST':
-			/* const newPost = {
-				id: 4,
-				postIconAvatar: require('../components/images/post_avatar.png'),
-				postUserName: 'Yurii Nedobrishev',
-				postText: action.newPostText,
-				postImage: '',
-				likesCounter: '0',
-			};
- */
 			return {
 				...state,
 				postsData: [{
 					id: state.postsData.length + 1,
-					postIconAvatar: require('../components/images/post_avatar.png'),
+					postIconAvatar: require('../assets/images/avatar_icon.png'),
 					postUserName: 'Yurii Nedobrishev',
 					postText: action.newPostText,
 					postImage: '',
 					likesCounter: '0',
 				},
-					...state.postsData],
+				...state.postsData],
 			};
 
 		case 'SN/PROFILE_PAGE/DELETE_POST':
@@ -134,6 +127,20 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 				...state, statusText: action.statusText,
 			};
 
+		case 'SN/PROFILE_PAGE/SAVE_USER_PHOTO':
+			return {
+				...state,
+				profileData: {
+					...state.profileData,
+					photos: action.photos,
+				},
+			};
+
+		case 'SN/PROFILE_PAGE/SET_ERROR_MESSAGE':
+			return {
+				...state, errorMessage: action.errorMessage,
+			};
+
 		default:
 			return state;
 
@@ -153,6 +160,10 @@ export const actions = {
 	setStatusActionCreator: (statusText: null | string) => ({ type: 'SN/PROFILE_PAGE/SET_STATUS', statusText } as const),
 
 	deletePostActionCreator: (postId: number) => ({ type: 'SN/PROFILE_PAGE/DELETE_POST', postId } as const),
+
+	saveUserPhotoSuccessActionCreator: (photos: PhotosType) => ({ type: 'SN/PROFILE_PAGE/SAVE_USER_PHOTO', photos } as const),
+
+	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SN/PROFILE_PAGE/SET_ERROR_MESSAGE', errorMessage } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
@@ -171,6 +182,18 @@ export const updateUserStatusThunkCreator = (statusText: string | null): ThunkTy
 	const response = await profileAPI.updateUserStatus(statusText);
 	if (response.data.resultCode === 0) {
 		dispatch(actions.setStatusActionCreator(statusText));
+	}
+};
+
+export const saveUserPhotoThunkCreator = (photos: PhotosType): ThunkType => async (dispatch) => {
+	const response = await profileAPI.uploadUserPhoto(photos);
+
+	if (response.data.resultCode === 0) {
+		dispatch(actions.saveUserPhotoSuccessActionCreator(response.data.data.photos));
+		dispatch(actions.setErrorMessageActionCreator(null));
+	} else if (response.data.resultCode === 1) {
+		const [errorMessage] = response.data.messages;
+		dispatch(actions.setErrorMessageActionCreator(errorMessage));
 	}
 };
 

@@ -11,24 +11,12 @@ export type MessagesDataType = {
 
 export type PostsDataType = {
 	id: number
-	postIconAvatar: string
+	postIconAvatar?: string
 	postUserName: string
 	postText: string
 	postImage: string
 	likesCounter: string
 }
-
-/* export type FollowersDataType = {
-	id: number
-	iconFollower: string
-	name: string
-}
-
-export type FollowingsDataType = {
-	id: number
-	iconFollowing: string
-	name: string
-} */
 
 export type FollowDataType = {
 	id: number
@@ -75,13 +63,13 @@ export type ContactsType = {
 }
 
 export type UserProfileType = {
-	userId: number
-	lookingForAJob: boolean
-	lookingForAJobDescription: string
-	fullName: string
-	contacts: ContactsType
-	photos: PhotosType
-	aboutMe: string
+	userId?: number
+	lookingForAJob?: boolean
+	lookingForAJobDescription?: string
+	fullName?: string
+	contacts?: ContactsType
+	photos?: PhotosType
+	aboutMe?: string
 }
 
 export type UserAuthDataType = {

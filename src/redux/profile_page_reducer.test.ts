@@ -81,6 +81,7 @@ const state = {
 	profileData: null as UserProfileType | null,
 	isFetching: false as boolean,
 	statusText: null as null | string,
+	errorMessage: null as null | string,
 };
 
 test('length of postsData should be incremented', () => {
@@ -170,4 +171,23 @@ test('text of new status should be correct', () => {
 	const action = actions.setStatusActionCreator('some status');
 	const newState = profileReducer(state, action);
 	expect(newState.statusText).toBe('some status');
+});
+
+// unit test written with help methodology TDD
+test('value of profileData.photos should be changed', () => {
+	const action = actions.saveUserPhotoSuccessActionCreator({
+		small: 'some photos URL',
+		large: 'some photos URL',
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData?.photos).toStrictEqual({
+		small: 'some photos URL',
+		large: 'some photos URL',
+	});
+});
+
+test('error message during uploading photo should be correct', () => {
+	const action = actions.setErrorMessageActionCreator('some error message');
+	const newState = profileReducer(state, action);
+	expect(newState.errorMessage).toBe('some error message');
 });

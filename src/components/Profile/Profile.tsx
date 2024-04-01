@@ -1,17 +1,19 @@
 import React from 'react';
+import { Params } from 'react-router-dom';
 
 import ProfileInfo from './Profile_info/Profile_info';
 import Environment from './Environment/Environment';
 import Preloader from '../common/Preloader/Preloader';
-import { UserProfileType } from '../../types/types';
-
-import classes from './Profile.module.css';
+import { PhotosType, UserProfileType } from '../../types/types';
 
 type ProfilePropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
 	statusText: null | string,
 	updateUserStatus: (status: string | null) => void
+	saveUserPhoto: (photos: PhotosType) => void
+	errorMessage: null | string,
+	isOwner: Readonly<Params<string>>
 }
 
 const Profile: React.FC<ProfilePropsType> = ({
@@ -19,11 +21,14 @@ const Profile: React.FC<ProfilePropsType> = ({
 	isFetching,
 	statusText,
 	updateUserStatus,
+	saveUserPhoto,
+	errorMessage,
+	isOwner,
 }) => {
 
 	if (isFetching) {
 		return (
-			<div className={classes.loadingSpinner}><Preloader /></div>
+			<Preloader />
 		);
 	}
 
@@ -31,8 +36,11 @@ const Profile: React.FC<ProfilePropsType> = ({
 		<>
 			<ProfileInfo
 				{...profile}
+				isOwner={isOwner}
 				statusText={statusText}
 				updateUserStatus={updateUserStatus}
+				saveUserPhoto={saveUserPhoto}
+				errorMessage={errorMessage}
 			/>
 			<Environment />
 		</>

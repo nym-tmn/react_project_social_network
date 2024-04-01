@@ -27,9 +27,8 @@ const ProfileStatusForm: React.FC<ProfileStatusFormPropsType & Pick<ProfileInfoP
 
 	return (
 		<div className={classes.inputStatus}>
-			<form onSubmit={handleSubmit(onStatusChange)}>
+			<form onBlur={handleSubmit(onStatusChange)}>
 				<textarea {...(register('userStatus', {
-					onBlur: handleSubmit(onStatusChange),
 					maxLength: {
 						value: 300,
 						message: 'Max length is 300 symbols',

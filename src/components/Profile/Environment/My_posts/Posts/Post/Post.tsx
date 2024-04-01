@@ -2,11 +2,13 @@ import React from 'react';
 
 import { PostsDataType } from '../../../../../../types/types';
 import iconGarbage from '../../../../../images/icon_garbage.png';
+import avatarIcon from '../../../../../../assets/images/avatar_icon.png';
 
 import classes from './Post.module.css';
 
 type PostPropsType = {
 	deletePost: (postId: number) => void
+	smallPhoto: string | undefined
 }
 
 const Post: React.FC<PostsDataType & PostPropsType> = (props) => {
@@ -18,7 +20,7 @@ const Post: React.FC<PostsDataType & PostPropsType> = (props) => {
 	return (
 		<>
 			<div className={classes.post}>
-				<img className={classes.iconAvatar} src={props.postIconAvatar} alt="icon_avatar.png" />
+				<img className={classes.iconAvatar} src={props.smallPhoto || avatarIcon} alt="avatar_icon.png" />
 				<div className={classes.userName}>{props.postUserName}</div>
 				<div className={classes.postText}>{props.postText}</div>
 				{props.postImage && <img className={classes.postImage} src={props.postImage} alt="imagePost" />}

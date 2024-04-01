@@ -1,26 +1,6 @@
-.avatarContiner {
-	grid-area: user-avatar-continer;
-	background-color: rgba(194, 213, 219, 0.6);
-	border-radius: 15px;
-	height: 290px;
-	margin: 0px 0px 0px 40px;
-	display: grid;
-}
-
-.avatarBlock {
-	display: grid;
-	max-width: 280px;
-	max-height: 280px;
-	border-radius: 15px;
-	align-self: center;
-	justify-self: center;
-	overflow: hidden;
-}
-
 .avatarImage {
-	max-width: 280px;
-	max-height: 280px;
-	border-radius: 15px;
-	align-self: center;
-	justify-self: center;
+	max-width: 266px;
+	max-height: 266px;
+	border-radius: 20px;
+	border: 7px solid rgba(194, 213, 219, 0.6);
 }

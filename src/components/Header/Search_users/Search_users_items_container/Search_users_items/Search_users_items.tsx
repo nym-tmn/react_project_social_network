@@ -1,9 +1,10 @@
 import React from 'react';
 
-import Preloader from '../../../../common/Preloader/Preloader';
+// import Preloader from '../../../../common/Preloader/Preloader';
 import { SearchUsersPropsType } from '../../Search_users';
 import Paginator from '../../../../common/Paginator/Paginator';
 import SearchUserItem from './Search_user_item/Search_user_item';
+import loadingSpinner from '../../../../../assets/images/loading_spinner.gif';
 
 import classes from './Search_users_items.module.css';
 
@@ -19,7 +20,7 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 				portionSize={props.portionSize}
 			/>
 			<div className={classes.usersItems} >
-				<div className={`${props.isFetching && classes.loadingSpinner}`} >{props.isFetching ? <Preloader /> : null}</div>
+				<div className={`${props.isFetching && classes.loadingSpinner}`}>{props.isFetching ? <img src={loadingSpinner} alt='loadingSpinner' /> : null}</div>
 				{props.usersData.map(user => <SearchUserItem
 					key={user.id}
 					followingInProgress={props.followingInProgress}
@@ -33,3 +34,7 @@ const SearchUsersItems: React.FC<SearchUsersPropsType> = (props) => {
 };
 
 export default SearchUsersItems;
+
+/* <div className={classes.loadingSpinner}>
+			<img src={loadingSpinner} alt='loadingSpinner' />
+		</div> */

@@ -89,6 +89,14 @@ type ResponseTypeUserPhoto = {
 	photos: PhotosType
 }
 
+type ResponseTypeUploadUserPhoto = {
+	data: {
+		photos: PhotosType
+	}
+	resultCode: number
+	messages: Array<string>
+}
+
 export const profileAPI = {
 	getUserProfile(userId: string | undefined) {
 		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`);
@@ -104,5 +112,15 @@ export const profileAPI = {
 
 	getUserPhoto(userId: number | null) {
 		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
+	},
+
+	uploadUserPhoto(photos: any) {
+		const formData = new FormData();
+		formData.append('image', photos);
+		return instance.put<ResponseTypeUploadUserPhoto>('profile/photo', formData, {
+			headers: {
+				'Content-type': 'multipart/form-data',
+			},
+		});
 	},
 };

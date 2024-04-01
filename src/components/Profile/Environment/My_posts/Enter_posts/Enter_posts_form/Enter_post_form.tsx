@@ -9,7 +9,7 @@ export type PostFormDataType = {
 	newPostText: string
 }
 
-const EnterPostForm: React.FC<EnterPostsType> = (props) => {
+const EnterPostForm: React.FC<Pick<EnterPostsType, 'addPost'>> = (props) => {
 
 	const {
 		register,

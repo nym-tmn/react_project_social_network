@@ -32,10 +32,3 @@ a {
 	grid-area: main-content;
 	display: grid;
 }
-
-.loadingSpinner {
-	height: 100vh;
-	display: grid;
-	justify-content: center;
-	align-content: center;
-}

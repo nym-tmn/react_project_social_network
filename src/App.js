@@ -38,7 +38,7 @@ const App = ({
 
 	return (
 		<>
-			{!initialized ? <div className='loadingSpinner' role={'main'}><Preloader /></div>
+			{!initialized ? <Preloader />
 				: <div className='app-wrapper'>
 					<Header />
 					<div className='app-container'>
@@ -50,8 +50,8 @@ const App = ({
 								<Route path='/news' element={<News />} />
 								<Route path='/settings' element={<Settings />} />
 								<Route path=':userId?' element={<ProfileContainer />} />
-								<Route path='/profile' element={<ProfileContainer/>} />
-								<Route path='/dialogs' element={<DialogsContainer/>} />
+								<Route path='/profile' element={<ProfileContainer />} />
+								<Route path='/dialogs' element={<DialogsContainer />} />
 								<Route path='/photo' element={<Photo />} />
 								<Route path='/video' element={<Video />} />
 								<Route path='/music' element={<Music />} />

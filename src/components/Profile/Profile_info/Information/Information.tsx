@@ -7,7 +7,7 @@ import { ProfileInfoPropsType } from '../Profile_info';
 
 import classes from './Information.module.css';
 
-const Information: React.FC<Omit<ProfileInfoPropsType, 'photos'>> = (props) => {
+const Information: React.FC<Omit<ProfileInfoPropsType, 'photos' | 'saveUserPhoto' | 'errorMessage' | 'isOwner'>> = (props) => {
 
 	return (
 		<div className={classes.information}>

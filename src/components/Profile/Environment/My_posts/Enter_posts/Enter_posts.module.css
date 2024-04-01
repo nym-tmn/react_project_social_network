@@ -9,8 +9,7 @@
 
 .iconAvatar {
 	grid-area: user-environment-my-posts-icon-avatar;
-	background: url('./../../../../images/post_avatar.png') center no-repeat;
-	height: 40px;
+	max-width: 40px;
+	max-height: 40px;
 	border-radius: 5px;
-	overflow: hidden;
 }

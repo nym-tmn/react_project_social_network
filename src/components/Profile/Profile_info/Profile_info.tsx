@@ -1,7 +1,8 @@
 import React from 'react';
+import { Params } from 'react-router-dom';
 
 import CoverPicture from './Cover_picture/Cover_picture';
-import Avatar from './Avatar/Avatar';
+import AvatarContainer from './Avatar/Avatar_container';
 import Information from './Information/Information';
 import { ContactsType, PhotosType } from '../../../types/types';
 
@@ -16,6 +17,9 @@ export type ProfileInfoPropsType = {
 	lookingForAJobDescription?: string
 	statusText: null | string,
 	updateUserStatus: (status: string | null) => void
+	saveUserPhoto: (photos: PhotosType) => void
+	errorMessage: null | string,
+	isOwner: Readonly<Params<string>>
 }
 
 const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
@@ -23,7 +27,12 @@ const ProfileInfo: React.FC<ProfileInfoPropsType> = (props) => {
 	return (
 		<div className={classes.user}>
 			<CoverPicture/>
-			<Avatar photos={props.photos} />
+			<AvatarContainer
+				photos={props.photos}
+				saveUserPhoto={props.saveUserPhoto}
+				errorMessage={props.errorMessage}
+				isOwner={props.isOwner}
+			/>
 			<Information
 				fullName={props.fullName}
 				aboutMe={props.aboutMe}
