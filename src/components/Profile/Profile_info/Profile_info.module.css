@@ -1,8 +1,0 @@
-.user {
-	display: grid;
-	grid-gap: 5px;
-	grid-template-areas: 'user-cover-picture user-cover-picture'
-								'user-avatar-container user-information';
-	grid-template-rows: 300px 280px;
-	grid-template-columns: 330px 1fr;
-}

@@ -1,0 +1,54 @@
+.userName {
+	font-size: 25px;
+	font-weight: 800;
+}
+
+.lookingForAJob {
+	display: grid;
+	grid-template-columns: 150px 1fr;
+	margin: 0px 0px 5px 0px;
+}
+
+.profileDescription span {
+	font-weight: 700;
+}
+
+.title {
+	font-weight: 700;
+}
+
+.userName,
+.aboutMe,
+.lookingForAJobDescription {
+	margin: 0px 0px 5px 0px;
+}
+
+.contactsContainer {
+	margin: 0px 0px 5px 0px;
+}
+
+.contactsItems {
+	font-size: 13px;
+	display: grid;
+	grid-gap: 2px;
+	grid-template-areas: 'contactItem contactItem';
+	grid-template-columns: 250px 250px;
+}
+
+.contactsItems a {
+	color: black;
+}
+
+.editProfileButton {
+	background-color: rgba(81, 185, 162, 0.295);
+	border: none;
+	cursor: pointer;
+	border-radius: 8px;
+	width: 34px;
+	float: right;
+	margin: 8px 0px 0px 0px;
+}
+
+.editProfileButton:active {
+background-color: rgba(81, 185, 162, 0.55);
+}

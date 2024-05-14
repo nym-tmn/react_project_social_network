@@ -2,6 +2,7 @@ import axios/* , { AxiosPromise } */ from 'axios';
 import {
 	PhotosType, UserAuthDataType, UserProfileType, UsersDataType,
 } from '../types/types';
+import { ProfileDataFormType } from '../components/Profile/Profile_info_wrapper/Information/Profile_data_form/Profile_data_form';
 
 const instance = axios.create({
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -97,6 +98,13 @@ type ResponseTypeUploadUserPhoto = {
 	messages: Array<string>
 }
 
+type ResponseTypeSaveProfileData = {
+	data: ProfileDataFormType,
+	resultCode: number
+	messages: Array<string>
+	fieldsErrors: Array<string>
+}
+
 export const profileAPI = {
 	getUserProfile(userId: string | undefined) {
 		return instance.get<ResponseTypeUserProfile>(`profile/${userId}`);
@@ -122,5 +130,11 @@ export const profileAPI = {
 				'Content-type': 'multipart/form-data',
 			},
 		});
+	},
+
+	saveProfileData(updateProfileData: ProfileDataFormType) {
+		return instance.put<ResponseTypeSaveProfileData>('profile', {
+			...updateProfileData,
+});
 	},
 };

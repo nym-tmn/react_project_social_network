@@ -9,6 +9,7 @@ import { UserProfileType } from '../../types/types';
 import {
 	getUserProfileThunkCreator,
 	getUserStatusThunkCreator,
+	saveProfileDataThunkCreator,
 	saveUserPhotoThunkCreator,
 	updateUserStatusThunkCreator,
 } from '../../redux/profile_page_reducer';
@@ -39,6 +40,7 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 	authorizedUserId,
 	saveUserPhoto,
 	errorMessage,
+	saveProfileData,
 }) => {
 
 	let { userId } = useParams();
@@ -61,6 +63,7 @@ const ProfileContainer: React.FC<ProfileContainerPropsType> = ({
 			updateUserStatus={updateUserStatus}
 			saveUserPhoto={saveUserPhoto}
 			errorMessage={errorMessage}
+			saveProfileData={saveProfileData}
 		/>
 	);
 };
@@ -81,6 +84,7 @@ const connector = connect(mapStateToProps, {
 	getUserStatus: getUserStatusThunkCreator,
 	updateUserStatus: updateUserStatusThunkCreator,
 	saveUserPhoto: saveUserPhotoThunkCreator,
+	saveProfileData: saveProfileDataThunkCreator,
 });
 type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }

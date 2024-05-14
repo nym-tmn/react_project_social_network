@@ -9,6 +9,7 @@ import {
 	UserProfileType,
 } from '../types/types';
 import { profileAPI } from '../api/api';
+import { ProfileDataFormType } from '../components/Profile/Profile_info_wrapper/Information/Profile_data_form/Profile_data_form';
 
 const initialState = {
 	postsData: [
@@ -141,6 +142,19 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 				...state, errorMessage: action.errorMessage,
 			};
 
+		case 'SN/PROFILE_PAGE/SAVE_PROFILE_DATA':
+			return ({
+				...state,
+				profileData: {
+					...state.profileData,
+					fullName: action.updateProfileData.fullName,
+					aboutMe: action.updateProfileData.aboutMe,
+					lookingForAJob: action.updateProfileData.lookingForAJob,
+					lookingForAJobDescription: action.updateProfileData.lookingForAJobDescription,
+					contacts: action.updateProfileData.contacts,
+				},
+			});
+
 		default:
 			return state;
 
@@ -164,6 +178,8 @@ export const actions = {
 	saveUserPhotoSuccessActionCreator: (photos: PhotosType) => ({ type: 'SN/PROFILE_PAGE/SAVE_USER_PHOTO', photos } as const),
 
 	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SN/PROFILE_PAGE/SET_ERROR_MESSAGE', errorMessage } as const),
+
+	saveProfileDataActionCreator: (updateProfileData: ProfileDataFormType) => ({ type: 'SN/PROFILE_PAGE/SAVE_PROFILE_DATA', updateProfileData } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
@@ -187,13 +203,19 @@ export const updateUserStatusThunkCreator = (statusText: string | null): ThunkTy
 
 export const saveUserPhotoThunkCreator = (photos: PhotosType): ThunkType => async (dispatch) => {
 	const response = await profileAPI.uploadUserPhoto(photos);
-
 	if (response.data.resultCode === 0) {
 		dispatch(actions.saveUserPhotoSuccessActionCreator(response.data.data.photos));
 		dispatch(actions.setErrorMessageActionCreator(null));
 	} else if (response.data.resultCode === 1) {
 		const [errorMessage] = response.data.messages;
 		dispatch(actions.setErrorMessageActionCreator(errorMessage));
+	}
+};
+
+export const saveProfileDataThunkCreator = (updateProfileData: ProfileDataFormType): ThunkType => async (dispatch) => {
+	const response = await profileAPI.saveProfileData(updateProfileData);
+	if (response.data.resultCode === 0) {
+		dispatch(actions.saveProfileDataActionCreator(updateProfileData));
 	}
 };
 

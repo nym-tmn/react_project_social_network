@@ -11,7 +11,7 @@ const state = {
 	postsData: [
 		{
 			id: 3,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!',
 			postImage: require('../components/images/Posts/post1.png'),
@@ -19,7 +19,7 @@ const state = {
 		},
 		{
 			id: 2,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.',
 			postImage: require('../components/images/Posts/post2.png'),
@@ -27,7 +27,7 @@ const state = {
 		},
 		{
 			id: 1,
-			postIconAvatar: require('../components/images/post_avatar.png'),
+			postIconAvatar: require('../assets/images/avatar_icon.png'),
 			postUserName: 'Yurii Nedobrishev',
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.',
 			postImage: require('../components/images/Posts/post3.png'),
@@ -174,7 +174,7 @@ test('text of new status should be correct', () => {
 });
 
 // unit test written with help methodology TDD
-test('value of profileData.photos should be changed', () => {
+test('profileData.photos should has same structure', () => {
 	const action = actions.saveUserPhotoSuccessActionCreator({
 		small: 'some photos URL',
 		large: 'some photos URL',
@@ -186,8 +186,88 @@ test('value of profileData.photos should be changed', () => {
 	});
 });
 
+test('values of profileData.photos should be changed', () => {
+	const action = actions.saveUserPhotoSuccessActionCreator({
+		small: 'some small photos URL',
+		large: 'some large photos URL',
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData?.photos?.large).toBe('some large photos URL');
+	expect(newState.profileData?.photos?.small).toBe('some small photos URL');
+});
+
 test('error message during uploading photo should be correct', () => {
 	const action = actions.setErrorMessageActionCreator('some error message');
 	const newState = profileReducer(state, action);
 	expect(newState.errorMessage).toBe('some error message');
+});
+
+// unit test written with help methodology TDD
+test('profileData should has same structure', () => {
+	const action = actions.saveProfileDataActionCreator({
+		aboutMe: 'some about me information',
+		contacts: {
+			facebook: 'some URL',
+			github: 'some URL',
+			instagram: 'some URL',
+			mainLink: 'some URL',
+			twitter: 'some URL',
+			vk: 'some URL',
+			website: 'some URL',
+			youtube: 'some URL',
+		},
+		lookingForAJob: true,
+		lookingForAJobDescription: 'some information about my professional skills',
+		fullName: 'some full name',
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData).toStrictEqual({
+		aboutMe: 'some about me information',
+		contacts: {
+			facebook: 'some URL',
+			github: 'some URL',
+			instagram: 'some URL',
+			mainLink: 'some URL',
+			twitter: 'some URL',
+			vk: 'some URL',
+			website: 'some URL',
+			youtube: 'some URL',
+		},
+		lookingForAJob: true,
+		lookingForAJobDescription: 'some information about my professional skills',
+		fullName: 'some full name',
+	});
+});
+
+// unit test written with help methodology TDD
+test('values of profileData should be changed', () => {
+	const action = actions.saveProfileDataActionCreator({
+		aboutMe: 'some about me information',
+		contacts: {
+			facebook: 'some facebook URL',
+			github: 'some github URL',
+			instagram: 'some instagram URL',
+			mainLink: 'some mainLink URL',
+			twitter: 'some twitter URL',
+			vk: 'some vk URL',
+			website: 'some website URL',
+			youtube: 'some youtube URL',
+		},
+		lookingForAJob: true,
+		lookingForAJobDescription: 'some information about my professional skills',
+		fullName: 'some full name',
+	});
+	const newState = profileReducer(state, action);
+	expect(newState.profileData?.aboutMe).toBe('some about me information');
+	expect(newState.profileData?.lookingForAJob).toBe(true);
+	expect(newState.profileData?.lookingForAJobDescription).toBe('some information about my professional skills');
+	expect(newState.profileData?.fullName).toBe('some full name');
+	expect(newState.profileData?.contacts?.facebook).toBe('some facebook URL');
+	expect(newState.profileData?.contacts?.github).toBe('some github URL');
+	expect(newState.profileData?.contacts?.instagram).toBe('some instagram URL');
+	expect(newState.profileData?.contacts?.mainLink).toBe('some mainLink URL');
+	expect(newState.profileData?.contacts?.twitter).toBe('some twitter URL');
+	expect(newState.profileData?.contacts?.vk).toBe('some vk URL');
+	expect(newState.profileData?.contacts?.website).toBe('some website URL');
+	expect(newState.profileData?.contacts?.youtube).toBe('some youtube URL');
 });

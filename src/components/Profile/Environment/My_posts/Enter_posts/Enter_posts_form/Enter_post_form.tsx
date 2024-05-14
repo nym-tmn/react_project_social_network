@@ -19,10 +19,8 @@ const EnterPostForm: React.FC<Pick<EnterPostsType, 'addPost'>> = (props) => {
 	} = useForm<PostFormDataType>({});
 
 	const onAddPost: SubmitHandler<PostFormDataType> = (postFormData: PostFormDataType) => {
-
 		props.addPost(postFormData.newPostText);
 		reset();
-
 	};
 
 	return (

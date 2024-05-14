@@ -1,0 +1,25 @@
+.disabledLink {
+	pointer-events: none;
+}
+
+.contactItem {
+	display: grid;
+	grid-template-areas: 'contactTitle contactValue';
+	grid-template-columns: 95px auto;
+	height: 17px;
+}
+
+.contactValue {
+	grid-area: contactValue;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.contactTitle {
+	grid-area: contactTitle;
+	padding: 0px 0px 0px 16px;
+}
+
+.contactTitle::first-letter {
+	text-transform: uppercase;
+}
