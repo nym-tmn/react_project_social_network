@@ -3,8 +3,7 @@ import { Params } from 'react-router-dom';
 
 import AvatarContainer from './Avatar/Avatar_container';
 import Information from './Information/Information';
-import { ContactsType, PhotosType } from '../../../types/types';
-import { ProfileDataFormType } from './Information/Profile_data_form/Profile_data_form';
+import { ContactsType, PhotosType, UserProfileType } from '../../../types/types';
 
 import classes from './Profile_info_wrapper.module.css';
 
@@ -17,10 +16,10 @@ export type ProfileInfoWrapperPropsType = {
 	lookingForAJobDescription?: string
 	statusText: null | string,
 	updateUserStatus: (status: string | null) => void
-	saveUserPhoto: (photos: PhotosType) => void
+	saveUserPhoto: (photos: string | Blob) => void
 	errorMessage: null | string,
 	isOwner: Readonly<Params<string>>
-	saveProfileData: (profileData: ProfileDataFormType) => void
+	saveProfileData: (profileData: UserProfileType) => void
 }
 
 const ProfileInfoWrapper: React.FC<ProfileInfoWrapperPropsType> = (props) => {
@@ -42,6 +41,7 @@ const ProfileInfoWrapper: React.FC<ProfileInfoWrapperPropsType> = (props) => {
 				statusText={props.statusText}
 				updateUserStatus={props.updateUserStatus}
 				saveProfileData={props.saveProfileData}
+				isOwner={props.isOwner}
 			/>
 		</div>
 	);

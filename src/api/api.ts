@@ -1,8 +1,7 @@
-import axios/* , { AxiosPromise } */ from 'axios';
+import axios from 'axios';
 import {
 	PhotosType, UserAuthDataType, UserProfileType, UsersDataType,
 } from '../types/types';
-import { ProfileDataFormType } from '../components/Profile/Profile_info_wrapper/Information/Profile_data_form/Profile_data_form';
 
 const instance = axios.create({
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -32,7 +31,7 @@ export const usersAPI = {
 	},
 
 	unfollow(userId: number) {
-		return instance.delete<ResponseTypeFollowUnwollow>(`follow/${userId}`)/*  as AxiosPromise<ResponseTypeFollowUnwollow> */;
+		return instance.delete<ResponseTypeFollowUnwollow>(`follow/${userId}`);
 	},
 };
 
@@ -99,7 +98,7 @@ type ResponseTypeUploadUserPhoto = {
 }
 
 type ResponseTypeSaveProfileData = {
-	data: ProfileDataFormType,
+	data: UserProfileType,
 	resultCode: number
 	messages: Array<string>
 	fieldsErrors: Array<string>
@@ -122,7 +121,7 @@ export const profileAPI = {
 		return instance.get<ResponseTypeUserPhoto>(`profile/${userId}`);
 	},
 
-	uploadUserPhoto(photos: any) {
+	uploadUserPhoto(photos: string | Blob) {
 		const formData = new FormData();
 		formData.append('image', photos);
 		return instance.put<ResponseTypeUploadUserPhoto>('profile/photo', formData, {
@@ -132,9 +131,9 @@ export const profileAPI = {
 		});
 	},
 
-	saveProfileData(updateProfileData: ProfileDataFormType) {
+	saveProfileData(profile: UserProfileType) {
 		return instance.put<ResponseTypeSaveProfileData>('profile', {
-			...updateProfileData,
+			...profile,
 });
 	},
 };

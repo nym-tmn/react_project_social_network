@@ -7,7 +7,7 @@ import ProfileDataForm from './Profile_data_form/Profile_data_form';
 
 import classes from './Information.module.css';
 
-const Information: React.FC<Omit<ProfileInfoWrapperPropsType, 'photos' | 'saveUserPhoto' | 'errorMessage' | 'isOwner'>> = (props) => {
+const Information: React.FC<Omit<ProfileInfoWrapperPropsType, 'photos' | 'saveUserPhoto' | 'errorMessage'>> = (props) => {
 
 	const [isEditMode, setIsEditMode] = useState(false);
 
@@ -22,6 +22,7 @@ const Information: React.FC<Omit<ProfileInfoWrapperPropsType, 'photos' | 'saveUs
 					contacts={props.contacts}
 					isEditMode={isEditMode}
 					setIsEditMode={setIsEditMode}
+					isOwner={props.isOwner}
 				/>
 				: <ProfileDataForm
 					fullName={props.fullName}
@@ -35,6 +36,7 @@ const Information: React.FC<Omit<ProfileInfoWrapperPropsType, 'photos' | 'saveUs
 			<ProfileStatus
 				statusText={props.statusText}
 				updateUserStatus={props.updateUserStatus}
+				isOwner={props.isOwner}
 			/>
 		</div>
 	);

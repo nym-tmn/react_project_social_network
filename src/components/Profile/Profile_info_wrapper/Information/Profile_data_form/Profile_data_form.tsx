@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { ContactsType } from '../../../../../types/types';
+import { ContactsType, UserProfileType } from '../../../../../types/types';
 
 import classes from './Profile_data_form.module.css';
 
@@ -11,29 +11,23 @@ type ProfileDataFormPropsType = {
 	lookingForAJob?: boolean
 	lookingForAJobDescription?: string
 	contacts?: ContactsType
-	saveProfileData: (profileData: ProfileDataFormType) => void
+	saveProfileData: (profileData: UserProfileType) => void
 	setIsEditMode: (isEditMode: boolean) => void
 }
 
-export type ProfileDataFormType = {
-	fullName: string
-	aboutMe: string
-	lookingForAJob: boolean
-	lookingForAJobDescription: string
-	contacts?: ContactsType
-}
-
 const ProfileDataForm: React.FC<ProfileDataFormPropsType> = (props) => {
+
+	const [isLookingForAJob, setIsLookingForAJob] = useState(props.lookingForAJob);
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<ProfileDataFormType>({
+	} = useForm<UserProfileType>({
 		mode: 'onChange',
 	});
 
-	const onSaveProfileData: SubmitHandler<ProfileDataFormType> = (data) => {
+	const onSaveProfileData: SubmitHandler<UserProfileType> = (data) => {
 		props.setIsEditMode(false);
 		props.saveProfileData(data);
 	};
@@ -66,12 +60,13 @@ const ProfileDataForm: React.FC<ProfileDataFormPropsType> = (props) => {
 			<div className={classes.lookingForAJob}>
 				<label>Looking for a job:</label>
 				<input {...register('lookingForAJob')}
+					onClick={() => { setIsLookingForAJob(!isLookingForAJob); }}
 					type='checkbox'
 					title='Are you looking for a job'
 					defaultChecked={props.lookingForAJob}
 				/>
 			</div>
-			<div className={classes.lookingForAJobDescription}>
+			{isLookingForAJob && <div className={classes.lookingForAJobDescription}>
 				<label>My professional skills:</label>
 				<textarea {...register('lookingForAJobDescription', {
 					required: 'This field is required',
@@ -80,7 +75,7 @@ const ProfileDataForm: React.FC<ProfileDataFormPropsType> = (props) => {
 					defaultValue={props.lookingForAJobDescription}
 					placeholder={'Write a little about your professional skills'} />
 				{errors.lookingForAJobDescription?.message && <div className={classes.error}>{errors.lookingForAJobDescription?.message}</div>}
-			</div>
+			</div>}
 			<div className={classes.contactsContainer}>
 				<div className={classes.contactsTitle}>Contacts:</div>
 				<div className={classes.contactsItems}>
@@ -91,7 +86,7 @@ const ProfileDataForm: React.FC<ProfileDataFormPropsType> = (props) => {
 								return (
 									<div key={key[0]}>
 										<label>{key[0]}</label>
-										<input {...register(`contacts.${key[0]}` as keyof ProfileDataFormType, {
+										<input {...register(`contacts.${key[0]}` as keyof UserProfileType, {
 											pattern: {
 												// eslint-disable-next-line no-useless-escape
 												value: /https?:\/\/(www\.)?[-\w@:%_\+~#=]{1,256}\.[a-z0-9()]{1,6}\b([-\w()@:%\.\+~#=\/\/?&]*)/i,

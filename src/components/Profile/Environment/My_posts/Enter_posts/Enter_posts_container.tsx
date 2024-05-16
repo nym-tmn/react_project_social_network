@@ -1,4 +1,6 @@
+import React from 'react';
 import { ConnectedProps, connect } from 'react-redux';
+import { Params } from 'react-router-dom';
 
 import EnterPosts from './Enter_posts';
 import { actions } from '../../../../../redux/profile_page_reducer';
@@ -8,6 +10,29 @@ import { getSmallPhoto } from '../../../../../redux/profile_page_selectors';
 type MapStateToPropsType = {
 	smallPhoto: string | undefined
 }
+
+export type EnterPostsContainerPropsType = {
+	isOwner: Readonly<Params<string>>
+	smallPhoto: string | undefined
+	addPost: (newPostText: string) => {
+		readonly type: 'SN/PROFILE_PAGE/ADD_POST'
+		readonly newPostText: string
+	}
+}
+
+const EnterPostsContainer: React.FC<EnterPostsContainerPropsType> = ({
+	isOwner,
+	addPost,
+	smallPhoto,
+}) => {
+	return (
+		<EnterPosts
+			addPost={addPost}
+			smallPhoto={smallPhoto}
+			isOwner={isOwner}
+		/>
+	);
+};
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 	return {
@@ -21,4 +46,4 @@ const connector = connect(mapStateToProps, {
 type PropsFromRedux = ConnectedProps<typeof connector>
 export interface EnterPostsPropsType extends PropsFromRedux { }
 
-export default connector(EnterPosts);
+export default connector(EnterPostsContainer);

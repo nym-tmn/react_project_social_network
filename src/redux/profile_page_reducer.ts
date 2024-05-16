@@ -9,14 +9,14 @@ import {
 	UserProfileType,
 } from '../types/types';
 import { profileAPI } from '../api/api';
-import { ProfileDataFormType } from '../components/Profile/Profile_info_wrapper/Information/Profile_data_form/Profile_data_form';
+import { authUserThunkCreator } from './auth_reducer';
 
 const initialState = {
 	postsData: [
 		{
 			id: 3,
 			postIconAvatar: require('../assets/images/avatar_icon.png'),
-			postUserName: 'Yurii Nedobrishev',
+			postUserName: null,
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Sed provident deserunt autem ab architecto aliquam ipsa dolorem, officiis inventore ratione obcaecati accusantium, ex et adipisci rerum iusto dolor quas debitis incidunt voluptatibus? Quas ea quae non omnis molestias ducimus possimus!',
 			postImage: require('../components/images/Posts/post1.png'),
 			likesCounter: '15',
@@ -24,7 +24,7 @@ const initialState = {
 		{
 			id: 2,
 			postIconAvatar: require('../assets/images/avatar_icon.png'),
-			postUserName: 'Yurii Nedobrishev',
+			postUserName: null,
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum.',
 			postImage: require('../components/images/Posts/post2.png'),
 			likesCounter: '89',
@@ -32,7 +32,7 @@ const initialState = {
 		{
 			id: 1,
 			postIconAvatar: require('../assets/images/avatar_icon.png'),
-			postUserName: 'Yurii Nedobrishev',
+			postUserName: null,
 			postText: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, ipsa quidem dolor adipisci doloribus eum. Lorem ipsum dolor sit amet consectetur adipisicing elit.Neque fugiat quis commodi placeat, cum nostrum consequuntur exercitationem fugit sunt distinctio.',
 			postImage: require('../components/images/Posts/post3.png'),
 			likesCounter: '392',
@@ -100,7 +100,7 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 				postsData: [{
 					id: state.postsData.length + 1,
 					postIconAvatar: require('../assets/images/avatar_icon.png'),
-					postUserName: 'Yurii Nedobrishev',
+					postUserName: null,
 					postText: action.newPostText,
 					postImage: '',
 					likesCounter: '0',
@@ -115,7 +115,8 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 
 		case 'SN/PROFILE_PAGE/SET_USER_PROFILE':
 			return {
-				...state, profileData: action.profile,
+				...state,
+				profileData: action.profile,
 			};
 
 		case 'SN/PROFILE_PAGE/TOGGLE_IS_FETCHING':
@@ -142,19 +143,6 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
 				...state, errorMessage: action.errorMessage,
 			};
 
-		case 'SN/PROFILE_PAGE/SAVE_PROFILE_DATA':
-			return ({
-				...state,
-				profileData: {
-					...state.profileData,
-					fullName: action.updateProfileData.fullName,
-					aboutMe: action.updateProfileData.aboutMe,
-					lookingForAJob: action.updateProfileData.lookingForAJob,
-					lookingForAJobDescription: action.updateProfileData.lookingForAJobDescription,
-					contacts: action.updateProfileData.contacts,
-				},
-			});
-
 		default:
 			return state;
 
@@ -178,8 +166,6 @@ export const actions = {
 	saveUserPhotoSuccessActionCreator: (photos: PhotosType) => ({ type: 'SN/PROFILE_PAGE/SAVE_USER_PHOTO', photos } as const),
 
 	setErrorMessageActionCreator: (errorMessage: string | null) => ({ type: 'SN/PROFILE_PAGE/SET_ERROR_MESSAGE', errorMessage } as const),
-
-	saveProfileDataActionCreator: (updateProfileData: ProfileDataFormType) => ({ type: 'SN/PROFILE_PAGE/SAVE_PROFILE_DATA', updateProfileData } as const),
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
@@ -201,10 +187,11 @@ export const updateUserStatusThunkCreator = (statusText: string | null): ThunkTy
 	}
 };
 
-export const saveUserPhotoThunkCreator = (photos: PhotosType): ThunkType => async (dispatch) => {
+export const saveUserPhotoThunkCreator = (photos: string | Blob): ThunkType => async (dispatch) => {
 	const response = await profileAPI.uploadUserPhoto(photos);
 	if (response.data.resultCode === 0) {
 		dispatch(actions.saveUserPhotoSuccessActionCreator(response.data.data.photos));
+		dispatch(authUserThunkCreator());
 		dispatch(actions.setErrorMessageActionCreator(null));
 	} else if (response.data.resultCode === 1) {
 		const [errorMessage] = response.data.messages;
@@ -212,10 +199,11 @@ export const saveUserPhotoThunkCreator = (photos: PhotosType): ThunkType => asyn
 	}
 };
 
-export const saveProfileDataThunkCreator = (updateProfileData: ProfileDataFormType): ThunkType => async (dispatch) => {
-	const response = await profileAPI.saveProfileData(updateProfileData);
+export const saveProfileDataThunkCreator = (profile: UserProfileType): ThunkType => async (dispatch, getState) => {
+	const userId = getState().auth.id;
+	const response = await profileAPI.saveProfileData(profile);
 	if (response.data.resultCode === 0) {
-		dispatch(actions.saveProfileDataActionCreator(updateProfileData));
+		dispatch(getUserProfileThunkCreator(userId?.toString()));
 	}
 };
 

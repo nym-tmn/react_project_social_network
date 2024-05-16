@@ -1,7 +1,7 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { EnterPostsType } from '../Enter_posts';
+import { EnterPostsContainerPropsType } from '../Enter_posts_container';
 
 import classes from './Enter_post_form.module.css';
 
@@ -9,7 +9,7 @@ export type PostFormDataType = {
 	newPostText: string
 }
 
-const EnterPostForm: React.FC<Pick<EnterPostsType, 'addPost'>> = (props) => {
+const EnterPostForm: React.FC<Pick<EnterPostsContainerPropsType, 'addPost'>> = (props) => {
 
 	const {
 		register,

@@ -2,3 +2,7 @@
 	cursor: pointer;
 	word-break: break-word;
 }
+
+.notOwnerStatus {
+	word-break: break-word;
+}

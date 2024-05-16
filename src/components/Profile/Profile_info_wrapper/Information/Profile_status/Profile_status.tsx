@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Params } from 'react-router-dom';
 
 import ProfileStatusForm from './Profile_status_form/Profile_status_form';
 import ProfileStatusText from './Profile_status_text/Profile_status_text';
@@ -8,6 +9,7 @@ import classes from './Profile_status.module.css';
 type ProfileStatusPropsType = {
 	statusText: string | null
 	updateUserStatus: (status: string | null) => void
+	isOwner: Readonly<Params<string>>
 }
 
 const ProfileStatus: React.FC<ProfileStatusPropsType> = (props) => {
@@ -21,6 +23,7 @@ const ProfileStatus: React.FC<ProfileStatusPropsType> = (props) => {
 				? <ProfileStatusText
 					statusText={props.statusText}
 					setIsEditMode={setIsEditMode}
+					isOwner={props.isOwner}
 				/>
 				: <ProfileStatusForm
 					updateUserStatus={props.updateUserStatus}

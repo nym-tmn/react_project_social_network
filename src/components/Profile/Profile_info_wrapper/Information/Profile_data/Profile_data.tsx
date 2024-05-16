@@ -1,4 +1,5 @@
 import React from 'react';
+import { Params } from 'react-router-dom';
 
 import lookingForAJobTrue from '../../../../images/green_tick.png';
 import lookingForAJobFalse from '../../../../images/red_cross.png';
@@ -16,6 +17,7 @@ type ProfileDescriptionPropsType = {
 	contacts?: ContactsType
 	isEditMode: boolean
 	setIsEditMode: (isEditMode: boolean) => void
+	isOwner: Readonly<Params<string>>
 }
 
 const ProfileData: React.FC<ProfileDescriptionPropsType> = (props) => {
@@ -26,9 +28,9 @@ const ProfileData: React.FC<ProfileDescriptionPropsType> = (props) => {
 
 	return (
 		<div className={classes.profileDescription}>
-			<button className={classes.editProfileButton} title='Click to edit profile' onClick={activateEditMode}>
+			{!props.isOwner.userId && <button className={classes.editProfileButton} title='Click to edit profile' onClick={activateEditMode}>
 				<img src={editIcon} alt="edit_icon" />
-			</button>
+			</button>}
 			<div className={classes.userName}>{props.fullName}</div>
 			<div className={classes.aboutMe}>
 				<span>About me:</span> {props.aboutMe}
@@ -37,9 +39,9 @@ const ProfileData: React.FC<ProfileDescriptionPropsType> = (props) => {
 				<div className={classes.title}>Looking for a job:</div>
 				{props.lookingForAJob ? <img src={lookingForAJobTrue} alt='lookingForAJob' /> : <img src={lookingForAJobFalse} alt='lookingForAJob' />}
 			</div>
-			<div className={classes.lookingForAJobDescription}>
+			{props.lookingForAJob && <div className={classes.lookingForAJobDescription}>
 				<span>My professional skills:</span> {props.lookingForAJobDescription}
-			</div>
+			</div>}
 			<div className={classes.contactsContainer}>
 				<div className={classes.title}>Contacts:</div>
 				<div className={classes.contactsItems}>

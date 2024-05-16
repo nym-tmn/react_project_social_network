@@ -4,18 +4,17 @@ import { Params } from 'react-router-dom';
 import ProfileInfoWrapper from './Profile_info_wrapper/Profile_info_wrapper';
 import Environment from './Environment/Environment';
 import Preloader from '../common/Preloader/Preloader';
-import { PhotosType, UserProfileType } from '../../types/types';
-import { ProfileDataFormType } from './Profile_info_wrapper/Information/Profile_data_form/Profile_data_form';
+import { UserProfileType } from '../../types/types';
 
-type ProfilePropsType = {
+export type ProfilePropsType = {
 	profile: UserProfileType | null
 	isFetching: boolean
 	statusText: null | string,
 	updateUserStatus: (status: string | null) => void
-	saveUserPhoto: (photos: PhotosType) => void
+	saveUserPhoto: (photos: string | Blob) => void
 	errorMessage: null | string,
 	isOwner: Readonly<Params<string>>
-	saveProfileData: (profileData: ProfileDataFormType) => void
+	saveProfileData: (profileData: UserProfileType) => void
 }
 
 const Profile: React.FC<ProfilePropsType> = ({
@@ -46,7 +45,8 @@ const Profile: React.FC<ProfilePropsType> = ({
 				errorMessage={errorMessage}
 				saveProfileData={saveProfileData}
 			/>
-			<Environment />
+			<Environment
+				isOwner={isOwner} />
 		</>
 	);
 };

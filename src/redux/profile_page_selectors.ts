@@ -35,6 +35,10 @@ export const getSmallPhoto = (state: AppStateType): string | undefined => {
 	return state.profilePage.profileData?.photos?.small;
 };
 
+export const getUserName = (state: AppStateType): string | undefined => {
+	return state.profilePage.profileData?.fullName;
+};
+
 export const getMyProjectsData = (state: AppStateType): Array<MyProjectsDataType> => {
 	return state.profilePage.myProjectsData;
 };

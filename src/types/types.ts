@@ -12,7 +12,7 @@ export type MessagesDataType = {
 export type PostsDataType = {
 	id: number
 	postIconAvatar?: string
-	postUserName: string
+	postUserName?: string | null
 	postText: string
 	postImage: string
 	likesCounter: string

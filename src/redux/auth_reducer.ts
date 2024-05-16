@@ -69,6 +69,7 @@ export const actions = {
 };
 
 export const authUserThunkCreator = (): ThunkType => async (dispatch) => {
+	// debugger;
 	const authUserData = await authAPI.authUser();
 	if (authUserData.data.resultCode === 0) {
 		const { id, email, login } = authUserData.data.data;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Params } from 'react-router-dom';
 
 import { PostsDataType } from '../../../../../../types/types';
 import iconGarbage from '../../../../../images/icon_garbage.png';
@@ -9,6 +10,7 @@ import classes from './Post.module.css';
 type PostPropsType = {
 	deletePost: (postId: number) => void
 	smallPhoto: string | undefined
+	isOwner: Readonly<Params<string>>
 }
 
 const Post: React.FC<PostsDataType & PostPropsType> = (props) => {
@@ -28,9 +30,9 @@ const Post: React.FC<PostsDataType & PostPropsType> = (props) => {
 					<div className={classes.counter}>{props.likesCounter}</div>
 					<div className={classes.heart}></div>
 				</div>
-				<button onClick={onDeletePostClick} className={classes.buttonDeletePost}>
+				{!props.isOwner.userId && <button onClick={onDeletePostClick} className={classes.buttonDeletePost}>
 					<img src={iconGarbage} alt="icon_garbage" />
-				</button>
+				</button>}
 			</div>
 		</>
 	);

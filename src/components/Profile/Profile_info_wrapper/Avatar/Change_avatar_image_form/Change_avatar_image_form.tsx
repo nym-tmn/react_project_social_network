@@ -6,7 +6,7 @@ import { ProfileInfoWrapperPropsType } from '../../Profile_info_wrapper';
 import classes from './Change_avatar_image_form.module.css';
 
 type ProfilePhotoDataForm = {
-	photos: any
+	photos: string | Blob[]
 }
 
 const ChangeAvatarImageForm: React.FC<Pick<ProfileInfoWrapperPropsType, 'saveUserPhoto' | 'isOwner'>> = (props) => {

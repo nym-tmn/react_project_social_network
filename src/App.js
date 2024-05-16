@@ -1,4 +1,4 @@
-import React, { useEffect, lazy } from 'react';
+import React, { useEffect/* , lazy */ } from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import { connect, Provider } from 'react-redux';
 
@@ -8,6 +8,8 @@ import SearchUsersContainer from './components/Header/Search_users/Search_users_
 import Notifications from './components/Header/Notifications/Notifications';
 import News from './components/Header/News/News';
 import Settings from './components/Header/Settings/Settings';
+import ProfileContainer from './components/Profile/Profile_container';
+import DialogsContainer from './components/Dialogs/Dialogs_container';
 import Nav from './components/Nav/Nav';
 import Photo from './components/Photo/Photo';
 import Video from './components/Video/Video';
@@ -18,12 +20,12 @@ import Footer from './components/Footer/Footer';
 import { initializeAppThunkCreator } from './redux/app_reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import { getInitialized } from './redux/app_selectors';
-import { withSuspense } from './hoc/withSuspense';
+// import { withSuspense } from './hoc/withSuspense';
 
 import './App.css';
 
-const ProfileContainer = withSuspense(lazy(() => import('./components/Profile/Profile_container')));
-const DialogsContainer = withSuspense(lazy(() => import('./components/Dialogs/Dialogs_container')));
+// const ProfileContainer = withSuspense(lazy(() => import('./components/Profile/Profile_container')));
+// const DialogsContainer = withSuspense(lazy(() => import('./components/Dialogs/Dialogs_container')));
 
 const App = ({
 	initializeApp,

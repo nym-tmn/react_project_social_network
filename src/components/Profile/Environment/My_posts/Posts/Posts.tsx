@@ -1,22 +1,23 @@
 import React from 'react';
 
 import Post from './Post/Post';
-import { PostsPropsType } from './Posts_container';
+import { PostsContainerPropsType } from './Posts_container';
 
 import classes from './Posts.module.css';
 
-const Posts: React.FC<PostsPropsType> = (props) => {
+const Posts: React.FC<PostsContainerPropsType> = (props) => {
 
 	const postsElements = props.postsData
 		.map(post => <Post
 			key={post.id}
 			id={post.id}
 			smallPhoto={props.smallPhoto}
-			postUserName={post.postUserName}
+			postUserName={props.userName}
 			postText={post.postText}
 			postImage={post.postImage}
 			likesCounter={post.likesCounter}
 			deletePost={props.deletePost}
+			isOwner={props.isOwner}
 		/>);
 
 	return (
