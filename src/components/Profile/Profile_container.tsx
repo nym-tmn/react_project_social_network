@@ -13,7 +13,7 @@ import {
 	saveUserPhotoThunkCreator,
 	updateUserStatusThunkCreator,
 } from '../../redux/profile_page_reducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {
 	getProfile,
 	getAuthorizedUserId,
@@ -90,6 +90,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 interface ProfileContainerPropsType extends PropsFromRedux { }
 
 export default compose(
-	withAuthRedirect,
+	// withAuthRedirect,
 	connector,
 )(ProfileContainer);

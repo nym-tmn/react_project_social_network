@@ -4,7 +4,7 @@ import { AppStateType } from '../../redux/redux_store';
 
 import Dialogs from './Dialogs';
 import { InitialStateType, actions } from '../../redux/dialogs_page_reducer';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { getDialogsPage } from '../../redux/dialogs_page_selectors';
 
 type MapStateToPropsType = {
@@ -25,6 +25,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 export interface DialogsPropsType extends PropsFromRedux { }
 
 export default compose(
-	withAuthRedirect,
+	// withAuthRedirect,
 	connector,
 )(Dialogs);

@@ -6,7 +6,7 @@ import SearchUsers from './Search_users';
 import { followThunkCreator, getUsersThunkCreator, unfollowThunkCreator } from '../../../redux/search_users_reducer';
 import { UsersDataType } from '../../../types/types';
 import { AppStateType } from '../../../redux/redux_store';
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import {
 	getCurrentPage,
 	getFollowingInProgress,
@@ -90,6 +90,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 interface SearchUsersContainerPropsType extends PropsFromRedux { }
 
 export default compose(
-	withAuthRedirect,
+	// withAuthRedirect,
 	connector,
 )(SearchUsersContainer);
