@@ -1,9 +1,12 @@
 {
   "files": {
-    "main.css": "/react_project_social_network/static/css/main.60f7481f.css",
-    "main.js": "/react_project_social_network/static/js/main.bf29d05f.js",
-    "static/js/488.fbe535e1.chunk.js": "/react_project_social_network/static/js/488.fbe535e1.chunk.js",
-    "static/media/cover_picture.png": "/react_project_social_network/static/media/cover_picture.04e900ed71d5dcd7e751.png",
+    "main.css": "/react_project_social_network/static/css/main.8e688c51.css",
+    "main.js": "/react_project_social_network/static/js/main.94264f56.js",
+    "static/js/488.885f458f.chunk.js": "/react_project_social_network/static/js/488.885f458f.chunk.js",
+    "static/css/340.37d6a4bd.chunk.css": "/react_project_social_network/static/css/340.37d6a4bd.chunk.css",
+    "static/js/340.277a0b9c.chunk.js": "/react_project_social_network/static/js/340.277a0b9c.chunk.js",
+    "static/css/716.5641e7cd.chunk.css": "/react_project_social_network/static/css/716.5641e7cd.chunk.css",
+    "static/js/716.9c06df1b.chunk.js": "/react_project_social_network/static/js/716.9c06df1b.chunk.js",
     "static/media/post1.png": "/react_project_social_network/static/media/post1.23063fc781f19fdf95db.png",
     "static/media/post2.png": "/react_project_social_network/static/media/post2.2c3705787d9a7b88483c.png",
     "static/media/post3.png": "/react_project_social_network/static/media/post3.c7d56527ae9d448db554.png",
@@ -14,12 +17,16 @@
     "static/media/icon_demo_project_4.png": "/react_project_social_network/static/media/icon_demo_project_4.f848aed8c5839f49b50b.png",
     "static/media/icon_demo_project_1.png": "/react_project_social_network/static/media/icon_demo_project_1.df3ec893d969ca06ff24.png",
     "index.html": "/react_project_social_network/index.html",
-    "main.60f7481f.css.map": "/react_project_social_network/static/css/main.60f7481f.css.map",
-    "main.bf29d05f.js.map": "/react_project_social_network/static/js/main.bf29d05f.js.map",
-    "488.fbe535e1.chunk.js.map": "/react_project_social_network/static/js/488.fbe535e1.chunk.js.map"
+    "main.8e688c51.css.map": "/react_project_social_network/static/css/main.8e688c51.css.map",
+    "main.94264f56.js.map": "/react_project_social_network/static/js/main.94264f56.js.map",
+    "488.885f458f.chunk.js.map": "/react_project_social_network/static/js/488.885f458f.chunk.js.map",
+    "340.37d6a4bd.chunk.css.map": "/react_project_social_network/static/css/340.37d6a4bd.chunk.css.map",
+    "340.277a0b9c.chunk.js.map": "/react_project_social_network/static/js/340.277a0b9c.chunk.js.map",
+    "716.5641e7cd.chunk.css.map": "/react_project_social_network/static/css/716.5641e7cd.chunk.css.map",
+    "716.9c06df1b.chunk.js.map": "/react_project_social_network/static/js/716.9c06df1b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.60f7481f.css",
-    "static/js/main.bf29d05f.js"
+    "static/css/main.8e688c51.css",
+    "static/js/main.94264f56.js"
   ]
 }
