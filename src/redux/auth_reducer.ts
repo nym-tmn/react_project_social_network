@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { BaseThunkType, InferActionsTypes } from './redux_store';
 
 import { UserAuthDataType } from '../types/types';
@@ -69,35 +70,46 @@ export const actions = {
 };
 
 export const authUserThunkCreator = (): ThunkType => async (dispatch) => {
-	// debugger;
-	const authUserData = await authAPI.authUser();
-	if (authUserData.data.resultCode === 0) {
-		const { id, email, login } = authUserData.data.data;
-		dispatch(actions.setAuthUserDataActionCreator(id, email, login, true));
-		const userProfileData = await profileAPI.getUserPhoto(id);
-		dispatch(actions.setUserAvatarActionCreatorActionCreator(userProfileData.data.photos.small));
+	try {
+		const authUserData = await authAPI.authUser();
+		if (authUserData.data.resultCode === 0) {
+			const { id, email, login } = authUserData.data.data;
+			dispatch(actions.setAuthUserDataActionCreator(id, email, login, true));
+			const userProfileData = await profileAPI.getUserPhoto(id);
+			dispatch(actions.setUserAvatarActionCreatorActionCreator(userProfileData.data.photos.small));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 
 export const loginUserThunkCreator = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch) => {
-	const data = await authAPI.loginUser(email, password, rememberMe, captcha);
-	if (data.data.resultCode === 0) {
-		await dispatch(authUserThunkCreator());
-		dispatch(actions.setCaptchaActionCreator(null));
-		dispatch(actions.setErrorMessageActionCreator(null));
-	} else if (data.data.resultCode === 1) {
-		const [errorMessage] = data.data.messages;
-		dispatch(actions.setErrorMessageActionCreator(errorMessage));
-	} else if (data.data.resultCode === 10) {
-		const captchaUrl = await authAPI.getCaptchaUrl();
-		dispatch(actions.setCaptchaActionCreator(captchaUrl.data.url));
+	try {
+		const data = await authAPI.loginUser(email, password, rememberMe, captcha);
+		if (data.data.resultCode === 0) {
+			await dispatch(authUserThunkCreator());
+			dispatch(actions.setCaptchaActionCreator(null));
+			dispatch(actions.setErrorMessageActionCreator(null));
+		} else if (data.data.resultCode === 1) {
+			const [errorMessage] = data.data.messages;
+			dispatch(actions.setErrorMessageActionCreator(errorMessage));
+		} else if (data.data.resultCode === 10) {
+			const captchaUrl = await authAPI.getCaptchaUrl();
+			dispatch(actions.setCaptchaActionCreator(captchaUrl.data.url));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 
 export const logoutUserThunkCreator = (): ThunkType => async (dispatch) => {
-	const response = await authAPI.logoutUser();
-	if (response.data.resultCode === 0) {
-		dispatch(actions.setAuthUserDataActionCreator(null, null, null, false));
+	try {
+		const response = await authAPI.logoutUser();
+		if (response.data.resultCode === 0) {
+			dispatch(actions.setAuthUserDataActionCreator(null, null, null, false));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 

@@ -1,5 +1,9 @@
 import React, { useEffect, lazy } from 'react';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import {
+	Routes,
+	Route,
+	HashRouter,
+} from 'react-router-dom';
 import { connect, Provider } from 'react-redux';
 
 import store from './redux/redux_store';
@@ -58,6 +62,7 @@ const App = ({
 								<Route path='/music' element={<Music />} />
 								<Route path='/comunities' element={<Comunities />} />
 								<Route path='/sign_in' element={<SignInContainer />} />
+								<Route path='*' element={<div>404 NOT FOUND</div>} />
 							</Routes>
 						</div>
 					</div>

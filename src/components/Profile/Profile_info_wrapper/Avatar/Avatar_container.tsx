@@ -17,7 +17,7 @@ const AvatarContainer: React.FC<Pick<ProfileInfoWrapperPropsType, 'photos' | 'sa
 				saveUserPhoto={props.saveUserPhoto}
 				isOwner={props.isOwner}
 			/>
-			{props.errorMessage && <div className={`${props.errorMessage && classes.errorVisible} ${classes.errorMessage}`}>{props.errorMessage}</div>}
+			<div className={`${props.errorMessage && classes.errorVisible} ${classes.errorMessage}`}>{props.errorMessage}</div>
 		</div>
 	);
 };

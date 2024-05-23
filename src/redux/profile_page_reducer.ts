@@ -1,5 +1,5 @@
+/* eslint-disable no-console */
 import { BaseThunkType, InferActionsTypes } from './redux_store';
-
 import {
 	FollowDataType,
 	MyProjectsDataType,
@@ -71,7 +71,7 @@ const initialState = {
 			id: 3,
 			iconMyProject: require('../components/images/my_projects/icon_my_project_3.png'),
 			nameMyProject: 'Test task №1',
-			linkMyProject: 'https://nym-tmn.github.io/pet_project/',
+			linkMyProject: 'https://nym-tmn.github.io/01_test_task/',
 		},
 	] as Array<MyProjectsDataType>,
 	projectsDemoData: [
@@ -169,41 +169,64 @@ export const actions = {
 };
 
 export const getUserProfileThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
-	dispatch(actions.toggleIsFetchingActionCreator(true));
-	const response = await profileAPI.getUserProfile(userId);
-	dispatch(actions.toggleIsFetchingActionCreator(false));
-	dispatch(actions.setUserProfileActionCreator(response.data));
+	try {
+		dispatch(actions.toggleIsFetchingActionCreator(true));
+		const response = await profileAPI.getUserProfile(userId);
+		dispatch(actions.toggleIsFetchingActionCreator(false));
+		dispatch(actions.setUserProfileActionCreator(response.data));
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 export const getUserStatusThunkCreator = (userId: string | undefined): ThunkType => async (dispatch) => {
-	const response = await profileAPI.getUserStatus(userId);
-	dispatch(actions.setStatusActionCreator(response.data));
+	try {
+		const response = await profileAPI.getUserStatus(userId);
+		dispatch(actions.setStatusActionCreator(response.data));
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 export const updateUserStatusThunkCreator = (statusText: string | null): ThunkType => async (dispatch) => {
-	const response = await profileAPI.updateUserStatus(statusText);
-	if (response.data.resultCode === 0) {
-		dispatch(actions.setStatusActionCreator(statusText));
+	try {
+		const response = await profileAPI.updateUserStatus(statusText);
+		if (response.data.resultCode === 0) {
+			dispatch(actions.setStatusActionCreator(statusText));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 
 export const saveUserPhotoThunkCreator = (photos: string | Blob): ThunkType => async (dispatch) => {
-	const response = await profileAPI.uploadUserPhoto(photos);
-	if (response.data.resultCode === 0) {
-		dispatch(actions.saveUserPhotoSuccessActionCreator(response.data.data.photos));
-		dispatch(authUserThunkCreator());
-		dispatch(actions.setErrorMessageActionCreator(null));
-	} else if (response.data.resultCode === 1) {
-		const [errorMessage] = response.data.messages;
-		dispatch(actions.setErrorMessageActionCreator(errorMessage));
+	try {
+		const response = await profileAPI.uploadUserPhoto(photos);
+		if (response.data.resultCode === 0) {
+			dispatch(actions.saveUserPhotoSuccessActionCreator(response.data.data.photos));
+			dispatch(authUserThunkCreator());
+			dispatch(actions.setErrorMessageActionCreator(null));
+		} else if (response.data.resultCode === 1) {
+			const [errorMessage] = response.data.messages;
+			dispatch(actions.setErrorMessageActionCreator(errorMessage));
+			setTimeout(() => {
+				dispatch(actions.setErrorMessageActionCreator(null));
+			}, 5000);
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 
 export const saveProfileDataThunkCreator = (profile: UserProfileType): ThunkType => async (dispatch, getState) => {
-	const userId = getState().auth.id;
-	const response = await profileAPI.saveProfileData(profile);
-	if (response.data.resultCode === 0) {
-		dispatch(getUserProfileThunkCreator(userId?.toString()));
+	try {
+		const userId = getState().auth.id;
+		const response = await profileAPI.saveProfileData(profile);
+		if (response.data.resultCode === 0) {
+			dispatch(getUserProfileThunkCreator(userId?.toString()));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 

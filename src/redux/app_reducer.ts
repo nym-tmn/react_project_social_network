@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { BaseThunkType, InferActionsTypes } from './redux_store';
 
 import { authUserThunkCreator } from './auth_reducer';
@@ -33,11 +34,15 @@ export const actions = {
 };
 
 export const initializeAppThunkCreator = (): ThunkType => async (dispatch) => {
-	const promise = await dispatch(authUserThunkCreator());
-	Promise.all([promise])
-		.then(() => {
-			dispatch(actions.initializedSuccessActionCreator());
-		});
+	try {
+		const promise = await dispatch(authUserThunkCreator());
+		Promise.all([promise])
+			.then(() => {
+				dispatch(actions.initializedSuccessActionCreator());
+			});
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 export default appReducer;

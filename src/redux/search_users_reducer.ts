@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
@@ -152,29 +153,45 @@ export const actions = {
 };
 
 export const getUsersThunkCreator = (currentPage: number, pageSize: number): ThunkType => async (dispatch) => {
-	dispatch(actions.setCurrentPageActionCreator(currentPage));
-	dispatch(actions.toggleIsFetchingActionCreator(true));
-	const response = await usersAPI.getUsers(currentPage, pageSize);
-	dispatch(actions.toggleIsFetchingActionCreator(false));
-	dispatch(actions.setUsersActionCreator(response.data.items));
-	dispatch(actions.setTotalItemsCountActionCreator(response.data.totalCount));
+	try {
+		dispatch(actions.setCurrentPageActionCreator(currentPage));
+		dispatch(actions.toggleIsFetchingActionCreator(true));
+		const response = await usersAPI.getUsers(currentPage, pageSize);
+		dispatch(actions.toggleIsFetchingActionCreator(false));
+		dispatch(actions.setUsersActionCreator(response.data.items));
+		dispatch(actions.setTotalItemsCountActionCreator(response.data.totalCount));
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 const followUnfollowFlow = async (dispatch: Dispatch<ActionsType>, userId: number, apiMethod: (id: number) => Promise<AxiosResponse<ResponseTypeFollowUnwollow>>, actionCreator: (id: number) => ActionsType) => {
-	dispatch(actions.toggleFollowingProgressActionCreator(true, userId));
-	const response = await apiMethod(userId);
-	dispatch(actions.toggleFollowingProgressActionCreator(false, userId));
-	if (response.data.resultCode === 0) {
-		dispatch(actionCreator(userId));
+	try {
+		dispatch(actions.toggleFollowingProgressActionCreator(true, userId));
+		const response = await apiMethod(userId);
+		dispatch(actions.toggleFollowingProgressActionCreator(false, userId));
+		if (response.data.resultCode === 0) {
+			dispatch(actionCreator(userId));
+		}
+	} catch (e: any) {
+		console.error(e.message);
 	}
 };
 
 export const followThunkCreator = (userId: number): ThunkType => async (dispatch) => {
-	followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), actions.followActionCreator);
+	try {
+		followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), actions.followActionCreator);
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 export const unfollowThunkCreator = (userId: number): ThunkType => async (dispatch) => {
-	followUnfollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), actions.unFollowActionCreator);
+	try {
+		followUnfollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), actions.unFollowActionCreator);
+	} catch (e: any) {
+		console.error(e.message);
+	}
 };
 
 export default searchUsersReducer;
